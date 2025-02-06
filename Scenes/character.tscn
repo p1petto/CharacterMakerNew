@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmajra62ohwsu"]
+[gd_scene load_steps=7 format=3 uid="uid://bmajra62ohwsu"]
 
 [ext_resource type="PackedScene" uid="uid://dy613l8j7trug" path="res://Scenes/dynamic_part.tscn" id="1_qwsbw"]
 [ext_resource type="Resource" uid="uid://bhs6b6rnrwmce" path="res://Resources/DynamicPart/Head/head.tres" id="2_60lhr"]
 [ext_resource type="Resource" uid="uid://dc424wvsgatoa" path="res://Resources/DynamicPart/Head/body.tres" id="3_0fwpx"]
 [ext_resource type="PackedScene" uid="uid://bwi4hslosv760" path="res://Scenes/conditionally_dynamic_part.tscn" id="3_imctp"]
 [ext_resource type="SpriteFrames" uid="uid://m8pb07il8ekv" path="res://Resources/ConditionallyDynamicParts/arm_animations.tres" id="4_hibsb"]
+[ext_resource type="SpriteFrames" uid="uid://dtu0afq7fxtq3" path="res://Resources/ConditionallyDynamicParts/leg_animations.tres" id="6_ngtbd"]
 
 [node name="Character" type="Node2D"]
 
@@ -16,11 +17,21 @@ dynamic_part = ExtResource("3_0fwpx")
 position = Vector2(7, 17)
 sprite_frames = ExtResource("4_hibsb")
 
-[node name="Head" parent="." instance=ExtResource("1_qwsbw")]
-clip_children = 2
-dynamic_part = ExtResource("2_60lhr")
-
 [node name="ArmR" parent="." instance=ExtResource("3_imctp")]
 position = Vector2(7, 17)
 sprite_frames = ExtResource("4_hibsb")
 flip_x = true
+
+[node name="Head" parent="." instance=ExtResource("1_qwsbw")]
+clip_children = 2
+dynamic_part = ExtResource("2_60lhr")
+
+[node name="LegR" parent="." instance=ExtResource("3_imctp")]
+position = Vector2(8, 14)
+sprite_frames = ExtResource("6_ngtbd")
+cur_animation = "idle_leg_r_down_1"
+
+[node name="LegL" parent="." instance=ExtResource("3_imctp")]
+position = Vector2(8, 14)
+sprite_frames = ExtResource("6_ngtbd")
+cur_animation = "idle_leg_l_down_1"
