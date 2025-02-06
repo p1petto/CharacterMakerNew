@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="DynamicBodyPart" load_steps=2 format=3 uid="uid://bhs6b6rnrwmce"]
+
+[ext_resource type="Script" path="res://Scripts/DynamicParts/resource_dynamic_part.gd" id="1_ykvm2"]
+
+[resource]
+script = ExtResource("1_ykvm2")
+array_points = [Vector2(7, 0), Vector2(3, 0), Vector2(0, 6), Vector2(0, 10), Vector2(2, 13), Vector2(5, 16), Vector2(8, 16), Vector2(9, 16), Vector2(12, 13), Vector2(14, 10), Vector2(14, 6), Vector2(11, 0)]
