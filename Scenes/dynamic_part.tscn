@@ -1,27 +1,44 @@
 [gd_scene load_steps=4 format=3 uid="uid://dy613l8j7trug"]
 
 [ext_resource type="Script" path="res://Scripts/DynamicParts/dynamic_part.gd" id="1_aptrw"]
-[ext_resource type="Resource" uid="uid://bhs6b6rnrwmce" path="res://Resources/DynamicPart/Head/head.tres" id="2_7fwp6"]
+[ext_resource type="Texture2D" uid="uid://b6c2oobtn80w5" path="res://idle-Sheet2.png" id="3_8aldy"]
 [ext_resource type="Texture2D" uid="uid://dsh028d68m4ro" path="res://idle-Sheet.png" id="3_vgywu"]
 
 [node name="DynamicPart" type="Node2D"]
 script = ExtResource("1_aptrw")
-dynamic_part = ExtResource("2_7fwp6")
+
+[node name="Idle-sheet2" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(7, 18)
+texture = ExtResource("3_8aldy")
+
+[node name="testpolugonhead" type="Polygon2D" parent="."]
+visible = false
+modulate = Color(0.768627, 0.588235, 0.490196, 1)
+clip_children = 2
+polygon = PackedVector2Array(7, 0, 3, 0, 0, 6, 0, 10, 2, 13, 5, 16, 7, 16, 9, 16, 12, 13, 14, 10, 14, 6, 11, 0)
+
+[node name="testpolugonbody" type="Polygon2D" parent="."]
+visible = false
+modulate = Color(0.768627, 0.588235, 0.490196, 1)
+clip_children = 2
+polygon = PackedVector2Array(7, 12, 5, 12, 3, 14, 4, 17, 4, 20, 7, 21, 10, 20, 10, 17, 11, 14, 9, 12)
+
+[node name="testglare" type="Polygon2D" parent="."]
+visible = false
+color = Color(0.909804, 0.768627, 0.686275, 1)
+polygon = PackedVector2Array(3, 9, 3, 3, 6, 1, 10, 1, 12, 4, 12, 9, 8, 10, 8, 12, 10, 13, 9, 15, 5, 15, 4, 13, 7, 12, 8, 11, 7, 10)
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 clip_children = 2
 color = Color(0.768627, 0.588235, 0.490196, 1)
 
-[node name="Polygon2D3" type="Polygon2D" parent="Polygon2D"]
+[node name="glare" type="Polygon2D" parent="Polygon2D"]
 color = Color(0.909804, 0.768627, 0.686275, 1)
-polygon = PackedVector2Array(4, 6, 4, 3, 6, 1, 11, 1, 12, 3, 12, 7, 9, 9, 5, 9)
-
-[node name="Polygon2D2" type="Polygon2D" parent="."]
-visible = false
-clip_children = 2
-polygon = PackedVector2Array(7, 0, 3, 0, 0, 6, 0, 10, 2, 13, 5, 16, 7, 16, 9, 16, 12, 13, 14, 10, 14, 6, 11, 0)
 
 [node name="Idle-sheet" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 1
 position = Vector2(29, 19)
 texture = ExtResource("3_vgywu")
