@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwi4hslosv760"]
+
+[ext_resource type="SpriteFrames" uid="uid://m8pb07il8ekv" path="res://Resources/ConditionallyDynamicParts/arm_animations.tres" id="1_uyn84"]
+
+[node name="ConditionallyDynamicPart" type="Node2D"]
+texture_filter = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 3)
+sprite_frames = ExtResource("1_uyn84")
+animation = &"idle_arm_down_1"

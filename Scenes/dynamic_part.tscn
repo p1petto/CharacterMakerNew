@@ -10,7 +10,7 @@ script = ExtResource("1_aptrw")
 [node name="Idle-sheet2" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 1
-position = Vector2(7, 18)
+position = Vector2(29, 20)
 texture = ExtResource("3_8aldy")
 
 [node name="testpolugonhead" type="Polygon2D" parent="."]
@@ -23,7 +23,8 @@ polygon = PackedVector2Array(7, 0, 3, 0, 0, 6, 0, 10, 2, 13, 5, 16, 7, 16, 9, 16
 visible = false
 modulate = Color(0.768627, 0.588235, 0.490196, 1)
 clip_children = 2
-polygon = PackedVector2Array(7, 12, 5, 12, 3, 14, 4, 17, 4, 20, 7, 21, 10, 20, 10, 17, 11, 14, 9, 12)
+position = Vector2(0, 2)
+polygon = PackedVector2Array(7, 12, 5, 12, 2, 14, 3, 17, 4, 20, 7, 21, 10, 20, 11, 17, 12, 14, 9, 12)
 
 [node name="testglare" type="Polygon2D" parent="."]
 visible = false
@@ -38,7 +39,6 @@ color = Color(0.768627, 0.588235, 0.490196, 1)
 color = Color(0.909804, 0.768627, 0.686275, 1)
 
 [node name="Idle-sheet" type="Sprite2D" parent="."]
-visible = false
 texture_filter = 1
 position = Vector2(29, 19)
 texture = ExtResource("3_vgywu")
