@@ -44,6 +44,7 @@ color = Color(0.768627, 0.588235, 0.490196, 1)
 color = Color(0.909804, 0.768627, 0.686275, 1)
 
 [node name="Idle-sheet" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 1
 position = Vector2(29, 19)
 texture = ExtResource("3_vgywu")
