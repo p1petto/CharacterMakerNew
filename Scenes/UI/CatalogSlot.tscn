@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3gxla3jmp05m"]
+
+[ext_resource type="Texture2D" uid="uid://3yagfiq0l2yf" path="res://icon.svg" id="1_6lrrw"]
+[ext_resource type="Script" path="res://Scripts/UI/catalog_item.gd" id="2_rl6lr"]
+
+[node name="CatalogSlot" type="TextureButton"]
+custom_minimum_size = Vector2(80, 80)
+texture_normal = ExtResource("1_6lrrw")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_rl6lr")

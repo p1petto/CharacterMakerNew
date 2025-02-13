@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CatalogItem" load_steps=2 format=3 uid="uid://vqtoj1obq7f6"]
+
+[ext_resource type="Script" path="res://Scripts/CatalogItemResource.gd" id="1_6j5oa"]
+
+[resource]
+script = ExtResource("1_6j5oa")
+item_type = "Dynamic"
+item_class = "Body"
