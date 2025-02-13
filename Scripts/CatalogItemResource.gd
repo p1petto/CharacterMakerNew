@@ -8,6 +8,8 @@ var item_type: String = "Static"
 @export_enum("Body", "Head") 
 var item_class: String = "Body"
 
+@export var icon: CompressedTexture2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
