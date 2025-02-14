@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbonfpw3b02a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gp5rj"]
+radius = 7.0
+
+[node name="Marker" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, 5)
+shape = SubResource("CircleShape2D_gp5rj")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 10.0
+offset_bottom = 10.0
+color = Color(0.734387, 0.0359981, 0.0200934, 0.476)

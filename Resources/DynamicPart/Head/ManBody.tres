@@ -6,3 +6,4 @@
 script = ExtResource("1_khfhm")
 array_points = PackedVector2Array(7, 12, 5, 12, 2, 14, 3, 17, 4, 20, 7, 21, 10, 20, 11, 17, 12, 14, 9, 12)
 glare_array_points = PackedVector2Array()
+markers = Array[int]([1, 2, 3, 4])

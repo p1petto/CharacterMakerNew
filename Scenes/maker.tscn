@@ -54,8 +54,15 @@ layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("6_ehmcq")])
 metadata/_tab_index = 0
 
+[node name="MarkerContainer" type="CenterContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(579, -322)
+position = Vector2(577, 325)
 
 [node name="CharacterShow" type="TextureRect" parent="Camera2D"]
 anchors_preset = 15
