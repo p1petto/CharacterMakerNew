@@ -9,6 +9,7 @@ var item_type: String = "Static"
 var item_class: String = "Body"
 
 @export var icon: CompressedTexture2D
+@export var part: DynamicBodyPart
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
