@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ccvo26g2o6rhs"]
+
+[node name="HSlider" type="HSlider"]
+custom_minimum_size = Vector2(100, 0)
+min_value = -3.0
+max_value = 3.0

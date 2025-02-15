@@ -1,7 +1,6 @@
 extends Node2D
 
 @onready var subviewport = $SubViewportContainer/SubViewport
-@onready var character_show = $Camera2D/CharacterShow
 #@onready var UI = $Camera2D/UI
 @onready var camera = $Camera2D
 

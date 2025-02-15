@@ -19,7 +19,6 @@ position = Vector2(29, 20)
 texture = ExtResource("3_8aldy")
 
 [node name="testpolugonhead" type="Polygon2D" parent="."]
-visible = false
 modulate = Color(0.768627, 0.588235, 0.490196, 1)
 clip_children = 2
 polygon = PackedVector2Array(7, 0, 3, 0, 0, 6, 0, 10, 2, 13, 5, 16, 7, 16, 9, 16, 12, 13, 14, 10, 14, 6, 11, 0)
