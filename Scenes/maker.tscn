@@ -93,3 +93,5 @@ metadata/_tab_index = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(577, 325)
+
+[connection signal="tab_changed" from="UI/Catalog" to="UI/SliderContainer" method="_on_catalog_tab_changed"]
