@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckn2cbvi5d5m"]
+
+[ext_resource type="Script" path="res://Scripts/UI/direction_button.gd" id="1_p4mrm"]
+
+[node name="DirectionButton" type="Button"]
+custom_minimum_size = Vector2(50, 50)
+offset_left = 50.0
+offset_top = 100.0
+offset_right = 100.0
+offset_bottom = 150.0
+script = ExtResource("1_p4mrm")
+
+[connection signal="button_up" from="." to="." method="_on_button_up"]

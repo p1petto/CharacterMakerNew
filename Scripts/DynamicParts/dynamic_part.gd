@@ -12,16 +12,21 @@ extends Node2D
 
 func _ready() -> void:
 	if dynamic_part:
-		setup_polygon()
+		setup_polygon("down")
 		
 	#for m in dynamic_part.markers:
 		#var marker = marker_scene.instantiate()
 		#marker.position = polygon2d.polygon[m] * 5 
 		#marker_container.add_child(marker)
 
-func setup_polygon() -> void:
-	polygon2d.polygon = dynamic_part.array_points
-	line2d.points = dynamic_part.array_points
-	
-	if dynamic_part.glare_array_points:
-		glare.polygon = dynamic_part.glare_array_points
+func setup_polygon(dir) -> void:
+	if dir == "down":
+		polygon2d.polygon = dynamic_part.down_array_points
+		line2d.points = dynamic_part.down_array_points
+		
+		glare.polygon = dynamic_part.down_glare_array_points
+	if dir == "right":
+		polygon2d.polygon = dynamic_part.horizontal_array_points
+		line2d.points = dynamic_part.horizontal_array_points
+		
+		glare.polygon = dynamic_part.horizontal_glare_array_points

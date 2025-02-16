@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bm1ycyeyegmyw"]
+[gd_scene load_steps=10 format=3 uid="uid://bm1ycyeyegmyw"]
 
 [ext_resource type="PackedScene" uid="uid://bmajra62ohwsu" path="res://Scenes/character.tscn" id="1_12d3f"]
 [ext_resource type="Script" path="res://Scripts/maker.gd" id="1_wror2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/CatalogItemResource.gd" id="5_sbt4v"]
 [ext_resource type="Resource" uid="uid://vqtoj1obq7f6" path="res://Resources/CatalogItems/DynamicPart/Body/ManBody.tres" id="6_ehmcq"]
 [ext_resource type="Resource" uid="uid://bpqshk2eovrs8" path="res://Resources/CatalogItems/DynamicPart/Head/Head.tres" id="7_p4rey"]
+[ext_resource type="PackedScene" uid="uid://ckn2cbvi5d5m" path="res://Scenes/UI/direction_button.tscn" id="8_sklk8"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_1urqw"]
 viewport_path = NodePath("SubViewportContainer/SubViewport")
@@ -90,6 +91,65 @@ visible = false
 layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("7_p4rey")])
 metadata/_tab_index = 1
+
+[node name="DirectionButtons" type="ColorRect" parent="UI"]
+offset_left = 132.0
+offset_top = 223.0
+offset_right = 282.0
+offset_bottom = 373.0
+
+[node name="Down" parent="UI/DirectionButtons" instance=ExtResource("8_sklk8")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -50.0
+offset_right = 25.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Right" parent="UI/DirectionButtons" instance=ExtResource("8_sklk8")]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -25.0
+offset_right = 0.0
+offset_bottom = 25.0
+grow_horizontal = 0
+grow_vertical = 2
+direction = "right"
+
+[node name="Top" parent="UI/DirectionButtons" instance=ExtResource("8_sklk8")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -25.0
+offset_top = 0.0
+offset_right = 25.0
+offset_bottom = 50.0
+grow_horizontal = 2
+direction = "top"
+
+[node name="Left" parent="UI/DirectionButtons" instance=ExtResource("8_sklk8")]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 0.0
+offset_top = -25.0
+offset_right = 50.0
+offset_bottom = 25.0
+grow_vertical = 2
+direction = "left"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(577, 325)

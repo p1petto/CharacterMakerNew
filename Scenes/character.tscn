@@ -22,10 +22,12 @@ position = Vector2(25, 15)
 dynamic_part = ExtResource("3_0fwpx")
 
 [node name="ArmL" parent="." instance=ExtResource("3_imctp")]
+visible = false
 position = Vector2(32, 32)
 sprite_frames = ExtResource("4_hibsb")
 
 [node name="ArmR" parent="." instance=ExtResource("3_imctp")]
+visible = false
 position = Vector2(32, 32)
 sprite_frames = ExtResource("4_hibsb")
 flip_x = true
@@ -36,11 +38,13 @@ position = Vector2(25, 15)
 dynamic_part = ExtResource("2_60lhr")
 
 [node name="LegR" parent="." instance=ExtResource("3_imctp")]
+visible = false
 position = Vector2(33, 29)
 sprite_frames = ExtResource("6_ngtbd")
 cur_animation = "idle_leg_r_down_1"
 
 [node name="LegL" parent="." instance=ExtResource("3_imctp")]
+visible = false
 position = Vector2(33, 29)
 sprite_frames = ExtResource("6_ngtbd")
 cur_animation = "idle_leg_l_down_1"
