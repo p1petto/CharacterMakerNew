@@ -25,9 +25,12 @@ func _on_direction_changed(dir):
 	if cur_dir != dir:
 		cur_dir = dir
 		print ("current direction = ", cur_dir)
-		change_dir_for_dynamic()
+		change_dir_for_parts()
+			
 		
-func change_dir_for_dynamic():
+func change_dir_for_parts():
 	for child in get_children():
 		if child.is_in_group("Dynamic"):
 			child.setup_polygon(cur_dir)
+		elif child.is_in_group("ConditionallyDynamic"):
+			child.change_direction(cur_dir)
