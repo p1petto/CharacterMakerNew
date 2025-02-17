@@ -1,0 +1,54 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://dtu0afq7fxtq3"]
+
+[ext_resource type="Texture2D" uid="uid://hewebn3wt02q" path="res://Assets/Character/leg/idle-leg.png" id="1_cy5q0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3ixw"]
+atlas = ExtResource("1_cy5q0")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fnag"]
+atlas = ExtResource("1_cy5q0")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snq85"]
+atlas = ExtResource("1_cy5q0")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iuwo3"]
+atlas = ExtResource("1_cy5q0")
+region = Rect2(0, 128, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3ixw")
+}],
+"loop": true,
+"name": &"idle_down_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fnag")
+}],
+"loop": true,
+"name": &"idle_left_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snq85")
+}],
+"loop": true,
+"name": &"idle_right_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iuwo3")
+}],
+"loop": true,
+"name": &"idle_top_1",
+"speed": 5.0
+}]

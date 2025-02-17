@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmajra62ohwsu"]
+[gd_scene load_steps=10 format=3 uid="uid://bmajra62ohwsu"]
 
 [ext_resource type="PackedScene" uid="uid://dy613l8j7trug" path="res://Scenes/dynamic_part.tscn" id="1_qwsbw"]
 [ext_resource type="Script" path="res://Scripts/character.gd" id="1_qxlcm"]
@@ -7,7 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bwi4hslosv760" path="res://Scenes/conditionally_dynamic_part.tscn" id="3_imctp"]
 [ext_resource type="SpriteFrames" uid="uid://m8pb07il8ekv" path="res://Resources/ConditionallyDynamicParts/arm_r_animations.tres" id="4_hibsb"]
 [ext_resource type="SpriteFrames" uid="uid://boqweykkavowk" path="res://Resources/ConditionallyDynamicParts/arm_l_animations.tres" id="5_eiu34"]
-[ext_resource type="SpriteFrames" uid="uid://dtu0afq7fxtq3" path="res://Resources/ConditionallyDynamicParts/leg_animations.tres" id="6_ngtbd"]
+[ext_resource type="SpriteFrames" uid="uid://dtu0afq7fxtq3" path="res://Resources/ConditionallyDynamicParts/leg_l_animations.tres" id="6_ngtbd"]
+[ext_resource type="SpriteFrames" uid="uid://cru8uuc57xixj" path="res://Resources/ConditionallyDynamicParts/leg_r_animations.tres" id="8_x8fpm"]
 
 [node name="Character" type="Node2D"]
 script = ExtResource("1_qxlcm")
@@ -37,7 +38,7 @@ dynamic_part = ExtResource("2_60lhr")
 
 [node name="LegR" parent="." groups=["ConditionallyDynamic"] instance=ExtResource("3_imctp")]
 position = Vector2(33, 29)
-sprite_frames = ExtResource("6_ngtbd")
+sprite_frames = ExtResource("8_x8fpm")
 
 [node name="LegL" parent="." groups=["ConditionallyDynamic"] instance=ExtResource("3_imctp")]
 position = Vector2(33, 29)
