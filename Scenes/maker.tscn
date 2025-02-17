@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bm1ycyeyegmyw"]
+[gd_scene load_steps=14 format=3 uid="uid://bm1ycyeyegmyw"]
 
 [ext_resource type="PackedScene" uid="uid://bmajra62ohwsu" path="res://Scenes/character.tscn" id="1_12d3f"]
 [ext_resource type="Script" path="res://Scripts/maker.gd" id="1_wror2"]
@@ -10,6 +10,8 @@
 [ext_resource type="Resource" uid="uid://cc1ysn1bfry3o" path="res://Resources/CatalogItems/ConditionallyDynamicPart/Arms/Left Arm/LeftArm.tres" id="8_r55wq"]
 [ext_resource type="PackedScene" uid="uid://ckn2cbvi5d5m" path="res://Scenes/UI/direction_button.tscn" id="8_sklk8"]
 [ext_resource type="Resource" uid="uid://bcuftfs14fyvy" path="res://Resources/CatalogItems/ConditionallyDynamicPart/Arms/Right Arm/RightArm.tres" id="9_pxshc"]
+[ext_resource type="Resource" uid="uid://0xs0hm7qike0" path="res://Resources/CatalogItems/ConditionallyDynamicPart/Legs/Left Leg/LeftLeg.tres" id="10_1t4ok"]
+[ext_resource type="Resource" uid="uid://b121ijuxw03s3" path="res://Resources/CatalogItems/ConditionallyDynamicPart/Legs/Right Leg/RightLeg.tres" id="11_lknkn"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_1urqw"]
 viewport_path = NodePath("SubViewportContainer/SubViewport")
@@ -105,6 +107,18 @@ visible = false
 layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("9_pxshc")])
 metadata/_tab_index = 3
+
+[node name="LeftLeg" parent="UI/Catalog" instance=ExtResource("4_kavcm")]
+visible = false
+layout_mode = 2
+catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("10_1t4ok")])
+metadata/_tab_index = 4
+
+[node name="RightLeg" parent="UI/Catalog" instance=ExtResource("4_kavcm")]
+visible = false
+layout_mode = 2
+catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("11_lknkn")])
+metadata/_tab_index = 5
 
 [node name="DirectionButtons" type="ColorRect" parent="UI"]
 offset_left = 132.0
