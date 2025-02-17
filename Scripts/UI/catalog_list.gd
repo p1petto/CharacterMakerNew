@@ -26,10 +26,13 @@ func _on_catalog_slot_pressed(slot):
 	print("Pressed catalog slot index: ", slot_index)
 	var item_class = catalog_items[slot_index].item_class
 	var item_type =  catalog_items[slot_index].item_type
-	var part = catalog_items[slot_index].part
-	
 	var current_node = character.get_node(item_class)
 	
 	if item_type == "Dynamic":
+		var part = catalog_items[slot_index].dynamic_part	
 		current_node.dynamic_part = part
-		part_changed.emit(current_node, part)
+		part_changed.emit(current_node, item_type)
+	elif item_type == "Conditionally_dynamic":
+		var part = catalog_items[slot_index].conditionally_dynamic_part
+		current_node.conditionally_dynamic = part
+		part_changed.emit(current_node, item_type)

@@ -5,11 +5,12 @@ class_name CatalogItem
 @export_enum("Dynamic", "Conditionally_dynamic", "Static") 
 var item_type: String = "Static"
 
-@export_enum("Body", "Head") 
+@export_enum("Body", "Head", "LegL", "LegR", "ArmL", "ArmR") 
 var item_class: String = "Body"
 
 @export var icon: CompressedTexture2D
 @export var dynamic_part: DynamicBodyPart
+@export var conditionally_dynamic_part: ConditionallyDynamic
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

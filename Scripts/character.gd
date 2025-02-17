@@ -17,9 +17,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _on_part_changed(current_node, dynamic_part):
+func _on_part_changed(current_node, item_type):
 	print("Part changed: ", current_node.name)
-	current_node.setup_polygon()
+	
+	if item_type == "Dynamic":
+		current_node.setup_polygon(cur_dir)
+	if item_type == "Conditionally_dynamic":
+		current_node.update_animation()
 
 func _on_direction_changed(dir):
 	if cur_dir != dir:

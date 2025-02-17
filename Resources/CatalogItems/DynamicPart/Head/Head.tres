@@ -9,4 +9,4 @@ script = ExtResource("3_h1j2g")
 item_type = "Dynamic"
 item_class = "Head"
 icon = ExtResource("1_m1k2p")
-part = ExtResource("2_0csj4")
+dynamic_part = ExtResource("2_0csj4")

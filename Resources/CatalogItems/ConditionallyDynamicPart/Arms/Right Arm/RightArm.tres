@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CatalogItem" load_steps=4 format=3 uid="uid://bcuftfs14fyvy"]
+
+[ext_resource type="Resource" uid="uid://b5huybpsmaodu" path="res://Resources/ConditionallyDynamicParts/Arms/Arm right/ArmRight.tres" id="1_xjo0m"]
+[ext_resource type="Texture2D" uid="uid://lsud42m7xhaa" path="res://Assets/UI/man_body.png" id="2_dfl65"]
+[ext_resource type="Script" path="res://Scripts/CatalogItemResource.gd" id="3_g7667"]
+
+[resource]
+script = ExtResource("3_g7667")
+item_type = "Conditionally_dynamic"
+item_class = "ArmR"
+icon = ExtResource("2_dfl65")
+conditionally_dynamic_part = ExtResource("1_xjo0m")

@@ -52,6 +52,7 @@ func change_thickness(new_thickness: String) -> void:
 
 func update_animation() -> void:
 	# Собираем имя анимации из компонентов через underscore
+	animated_sprite.sprite_frames = conditionally_dynamic.sprite_frames
 	var animation_name = "_".join([current_state, current_direction, current_thickness])
 	
 	# Проверяем, существует ли такая анимация
