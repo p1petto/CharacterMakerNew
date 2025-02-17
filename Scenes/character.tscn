@@ -5,10 +5,10 @@
 [ext_resource type="Resource" uid="uid://bhs6b6rnrwmce" path="res://Resources/DynamicPart/Head/head.tres" id="2_60lhr"]
 [ext_resource type="Resource" uid="uid://dc424wvsgatoa" path="res://Resources/DynamicPart/Body/ManBody.tres" id="3_0fwpx"]
 [ext_resource type="PackedScene" uid="uid://bwi4hslosv760" path="res://Scenes/conditionally_dynamic_part.tscn" id="3_imctp"]
-[ext_resource type="SpriteFrames" uid="uid://m8pb07il8ekv" path="res://Resources/ConditionallyDynamicParts/arm_r_animations.tres" id="4_hibsb"]
-[ext_resource type="SpriteFrames" uid="uid://boqweykkavowk" path="res://Resources/ConditionallyDynamicParts/arm_l_animations.tres" id="5_eiu34"]
-[ext_resource type="SpriteFrames" uid="uid://dtu0afq7fxtq3" path="res://Resources/ConditionallyDynamicParts/leg_l_animations.tres" id="6_ngtbd"]
-[ext_resource type="SpriteFrames" uid="uid://cru8uuc57xixj" path="res://Resources/ConditionallyDynamicParts/leg_r_animations.tres" id="8_x8fpm"]
+[ext_resource type="Resource" uid="uid://cun3r63brxwou" path="res://Resources/ConditionallyDynamicParts/Legs/Leg right/LegRight.tres" id="5_hwtnd"]
+[ext_resource type="Resource" uid="uid://bolc5spph738q" path="res://Resources/ConditionallyDynamicParts/Legs/Lef left/LegLeft.tres" id="6_hqex5"]
+[ext_resource type="Resource" uid="uid://ba3fdcbmh34d8" path="res://Resources/ConditionallyDynamicParts/Arms/Arm left/ArmLeft.tres" id="7_bhysn"]
+[ext_resource type="Resource" uid="uid://b5huybpsmaodu" path="res://Resources/ConditionallyDynamicParts/Arms/Arm right/ArmRight.tres" id="8_22m0c"]
 
 [node name="Character" type="Node2D"]
 script = ExtResource("1_qxlcm")
@@ -25,7 +25,7 @@ dynamic_part = ExtResource("3_0fwpx")
 
 [node name="LegR" parent="." groups=["ConditionallyDynamic"] instance=ExtResource("3_imctp")]
 position = Vector2(33, 29)
-sprite_frames = ExtResource("8_x8fpm")
+conditionally_dynamic = ExtResource("5_hwtnd")
 z_down = 2.0
 z_right = 1.0
 z_top = 6.0
@@ -33,7 +33,7 @@ z_left = 4.0
 
 [node name="LegL" parent="." groups=["ConditionallyDynamic"] instance=ExtResource("3_imctp")]
 position = Vector2(33, 29)
-sprite_frames = ExtResource("6_ngtbd")
+conditionally_dynamic = ExtResource("6_hqex5")
 z_down = 1.0
 z_right = 2.0
 z_top = 5.0
@@ -41,7 +41,7 @@ z_left = 3.0
 
 [node name="ArmL" parent="." groups=["ConditionallyDynamic"] instance=ExtResource("3_imctp")]
 position = Vector2(32, 32)
-sprite_frames = ExtResource("5_eiu34")
+conditionally_dynamic = ExtResource("7_bhysn")
 z_down = 3.0
 z_right = 5.0
 z_top = 1.0
@@ -49,7 +49,7 @@ z_left = 1.0
 
 [node name="ArmR" parent="." groups=["ConditionallyDynamic"] instance=ExtResource("3_imctp")]
 position = Vector2(34, 32)
-sprite_frames = ExtResource("4_hibsb")
+conditionally_dynamic = ExtResource("8_22m0c")
 z_down = 4.0
 z_right = 3.0
 z_top = 2.0

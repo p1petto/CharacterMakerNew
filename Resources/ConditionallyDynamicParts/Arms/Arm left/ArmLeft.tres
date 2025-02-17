@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ConditionallyDynamic" load_steps=3 format=3 uid="uid://ba3fdcbmh34d8"]
+
+[ext_resource type="Script" path="res://Scripts/ConditionallyDynamicPart/resource_conditionally_dynamic_part.gd" id="1_7idau"]
+[ext_resource type="SpriteFrames" uid="uid://boqweykkavowk" path="res://Resources/ConditionallyDynamicParts/Arms/Arm left/arm_l_animations.tres" id="2_jt0y0"]
+
+[resource]
+script = ExtResource("1_7idau")
+sprite_frames = ExtResource("2_jt0y0")

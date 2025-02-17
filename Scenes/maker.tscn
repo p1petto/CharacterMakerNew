@@ -92,6 +92,11 @@ layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("7_p4rey")])
 metadata/_tab_index = 1
 
+[node name="Arms" parent="UI/Catalog" instance=ExtResource("4_kavcm")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
 [node name="DirectionButtons" type="ColorRect" parent="UI"]
 offset_left = 132.0
 offset_top = 223.0

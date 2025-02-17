@@ -1,15 +1,8 @@
 extends Resource
 
-class_name CatalogItem
+class_name ConditionallyDynamic
 
-@export_enum("Dynamic", "Conditionally_dynamic", "Static") 
-var item_type: String = "Static"
-
-@export_enum("Body", "Head") 
-var item_class: String = "Body"
-
-@export var icon: CompressedTexture2D
-@export var dynamic_part: DynamicBodyPart
+@export var sprite_frames: SpriteFrames
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

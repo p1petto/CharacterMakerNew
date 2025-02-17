@@ -1,7 +1,9 @@
 extends Node2D
 
 @onready var animated_sprite = $AnimatedSprite2D
-@export var sprite_frames: SpriteFrames
+
+@export var conditionally_dynamic: ConditionallyDynamic
+
 @export var cur_frame: int
 @export var cur_animation: String
 
@@ -15,8 +17,8 @@ var current_direction: String = "down"
 var current_thickness: String = "1"
 
 func _ready() -> void:
-	if sprite_frames:
-		animated_sprite.sprite_frames = sprite_frames
+	if conditionally_dynamic.sprite_frames:
+		animated_sprite.sprite_frames = conditionally_dynamic.sprite_frames
 	if cur_animation:
 		animated_sprite.animation = cur_animation
 	else:
