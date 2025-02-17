@@ -5,6 +5,11 @@ extends Node2D
 @export var cur_frame: int
 @export var cur_animation: String
 
+@export var z_down: float
+@export var z_right: float
+@export var z_top: float
+@export var z_left: float
+
 var current_state: String = "idle"
 var current_direction: String = "down"
 var current_thickness: String = "1"
@@ -22,6 +27,16 @@ func change_direction(direction: String) -> void:
 	if direction not in ["top", "down", "left", "right"]:
 		return
 		
+	match direction:
+		"down":
+			z_index = z_down
+		"right":
+			z_index = z_right
+		"top":
+			z_index = z_top
+		"left":
+			z_index = z_left
+			
 	current_direction = direction
 	update_animation()
 

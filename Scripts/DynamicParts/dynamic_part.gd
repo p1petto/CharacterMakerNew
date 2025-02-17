@@ -23,10 +23,39 @@ func setup_polygon(dir) -> void:
 	if dir == "down":
 		polygon2d.polygon = dynamic_part.down_array_points
 		line2d.points = dynamic_part.down_array_points
-		
 		glare.polygon = dynamic_part.down_glare_array_points
+		
+		position.x = dynamic_part.position_x_down
+		z_index = dynamic_part.z_down
+	if dir == "top":
+		polygon2d.polygon = dynamic_part.top_array_points
+		line2d.points = dynamic_part.top_array_points
+		glare.polygon = dynamic_part.top_glare_array_points
+		
+		position.x = dynamic_part.position_x_top
+		z_index = dynamic_part.z_top
 	if dir == "right":
 		polygon2d.polygon = dynamic_part.horizontal_array_points
 		line2d.points = dynamic_part.horizontal_array_points
-		
 		glare.polygon = dynamic_part.horizontal_glare_array_points
+		
+		position.x = dynamic_part.position_x_right
+		z_index = dynamic_part.z_right
+	if dir == "left":
+		var mirrored_points = []
+		var mirrored_glare_points = []
+		
+		# Mirror horizontal points around x=7
+		for point in dynamic_part.horizontal_array_points:
+			mirrored_points.append(Vector2(7 - (point.x - 7), point.y))
+		
+		# Mirror glare points around x=7
+		for point in dynamic_part.horizontal_glare_array_points:
+			mirrored_glare_points.append(Vector2(7 - (point.x - 7), point.y))
+		
+		polygon2d.polygon = mirrored_points
+		line2d.points = mirrored_points
+		glare.polygon = mirrored_glare_points
+		
+		position.x = dynamic_part.position_x_left
+		z_index = dynamic_part.z_left

@@ -46,6 +46,13 @@ clip_children = 2
 position = Vector2(0, 2)
 polygon = PackedVector2Array(7, 11, 5, 11, 3, 13, 3, 17, 4, 20, 7, 21, 10, 20, 11, 17, 11, 14, 9, 11)
 
+[node name="testpolugonbody3" type="Polygon2D" parent="."]
+visible = false
+modulate = Color(0.768627, 0.588235, 0.490196, 1)
+clip_children = 2
+position = Vector2(11, 2)
+polygon = PackedVector2Array(7, 11, 5, 11, 3, 14, 3, 17, 4, 20, 7, 21, 10, 20, 11, 17, 11, 13, 9, 11)
+
 [node name="testglare" type="Polygon2D" parent="."]
 visible = false
 color = Color(0.909804, 0.768627, 0.686275, 1)
