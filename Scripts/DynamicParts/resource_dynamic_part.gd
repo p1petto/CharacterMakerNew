@@ -20,4 +20,5 @@ class_name  DynamicBodyPart
 @export var z_top: float
 @export var z_left: float
 
-@export var markers: Array[int]
+@export var vertical_markers: Array[int]
+@export var horizontal_markers: Array[int]

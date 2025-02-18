@@ -8,6 +8,8 @@ extends Node2D
 
 var cur_dir = "down"
 
+signal change_sliders
+
 func _ready() -> void:
 	for part in catallog.get_children():
 		part.part_changed.connect(_on_part_changed)
@@ -30,7 +32,7 @@ func _on_direction_changed(dir):
 		cur_dir = dir
 		print ("current direction = ", cur_dir)
 		change_dir_for_parts()
-			
+		change_sliders.emit(cur_dir)
 		
 func change_dir_for_parts():
 	for child in get_children():
