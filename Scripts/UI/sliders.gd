@@ -21,6 +21,16 @@ func _ready() -> void:
 				for marker in part.dynamic_part.markers:
 					var slider = slider_scene.instantiate()
 					part_container.add_child(slider)
+					
+		if part.is_in_group("ConditionallyDynamic"):
+			var part_container = VBoxContainer.new()
+			part_container.name = part.name
+			
+			part_container.position.y = part.marker_y_pos * 5
+			
+			add_child(part_container)
+			var slider = slider_scene.instantiate()
+			part_container.add_child(slider)
 
 	# Get current tab's name from catalog's child
 	var current_part_name = catallog.get_child(catallog.current_tab).name

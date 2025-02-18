@@ -7,6 +7,6 @@
 [resource]
 script = ExtResource("3_vo0d0")
 item_type = "Conditionally_dynamic"
-item_class = "ArmL"
+item_class = "LeftArm"
 icon = ExtResource("2_o0de0")
 conditionally_dynamic_part = ExtResource("1_kex0k")

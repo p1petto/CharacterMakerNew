@@ -23,37 +23,41 @@ clip_children = 2
 position = Vector2(25, 15)
 dynamic_part = ExtResource("3_0fwpx")
 
-[node name="LegR" parent="." groups=["ConditionallyDynamic"] instance=ExtResource("3_imctp")]
+[node name="RightLeg" parent="." groups=["ConditionallyDynamic"] instance=ExtResource("3_imctp")]
 position = Vector2(33, 29)
 conditionally_dynamic = ExtResource("5_hwtnd")
 z_down = 2.0
 z_right = 1.0
 z_top = 6.0
 z_left = 4.0
+marker_y_pos = 40
 
-[node name="LegL" parent="." groups=["ConditionallyDynamic"] instance=ExtResource("3_imctp")]
+[node name="LeftLeg" parent="." groups=["ConditionallyDynamic"] instance=ExtResource("3_imctp")]
 position = Vector2(33, 29)
 conditionally_dynamic = ExtResource("6_hqex5")
 z_down = 1.0
 z_right = 2.0
 z_top = 5.0
 z_left = 3.0
+marker_y_pos = 40
 
-[node name="ArmL" parent="." groups=["ConditionallyDynamic"] instance=ExtResource("3_imctp")]
+[node name="LeftArm" parent="." groups=["ConditionallyDynamic"] instance=ExtResource("3_imctp")]
 position = Vector2(32, 32)
 conditionally_dynamic = ExtResource("7_bhysn")
 z_down = 3.0
 z_right = 5.0
 z_top = 1.0
 z_left = 1.0
+marker_y_pos = 32
 
-[node name="ArmR" parent="." groups=["ConditionallyDynamic"] instance=ExtResource("3_imctp")]
+[node name="RightArm" parent="." groups=["ConditionallyDynamic"] instance=ExtResource("3_imctp")]
 position = Vector2(34, 32)
 conditionally_dynamic = ExtResource("8_22m0c")
 z_down = 4.0
 z_right = 3.0
 z_top = 2.0
 z_left = 5.0
+marker_y_pos = 32
 
 [node name="Head" parent="." groups=["Dynamic"] instance=ExtResource("1_qwsbw")]
 clip_children = 2

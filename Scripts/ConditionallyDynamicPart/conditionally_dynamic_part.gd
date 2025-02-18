@@ -12,6 +12,8 @@ extends Node2D
 @export var z_top: float
 @export var z_left: float
 
+@export var marker_y_pos: int = 0
+
 var current_state: String = "idle"
 var current_direction: String = "down"
 var current_thickness: String = "1"
