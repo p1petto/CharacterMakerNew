@@ -24,7 +24,10 @@ func _ready() -> void:
 
 				for marker in part.dynamic_part.vertical_markers:
 					var slider = slider_scene.instantiate()
+					slider.character_part = part.name
+					slider.linked_marker = marker
 					part_container_vertical.add_child(slider)
+					#slider.slider_value_changed.connect(_on_value_slider_changed)
 
 			if part.dynamic_part.horizontal_markers:
 				var polygon_2d = part.get_node("Polygon2D")
@@ -35,7 +38,10 @@ func _ready() -> void:
 
 				for marker in part.dynamic_part.horizontal_markers:
 					var slider = slider_scene.instantiate()
+					slider.character_part = part.name
+					slider.linked_marker = marker
 					part_container_horizontal.add_child(slider)
+					#slider.slider_value_changed.connect(_on_value_slider_changed)
 
 		if part.is_in_group("ConditionallyDynamic"):
 			var part_container = VBoxContainer.new()
@@ -45,7 +51,9 @@ func _ready() -> void:
 
 			add_child(part_container)
 			var slider = slider_scene.instantiate()
+			slider.character_part = part.name
 			part_container.add_child(slider)
+			#slider.slider_value_changed.connect(_on_value_slider_changed)
 
 	update_containers_visibility("down")
 
@@ -59,13 +67,13 @@ func _on_catalog_tab_changed(tab: int) -> void:
 	update_containers_visibility(direction)
 
 func _on_direction_changed(dir):
-	print("Direction changed to: ", dir)
+	#print("Direction changed to: ", dir)
 	update_containers_visibility(dir)
 
 func update_containers_visibility(direction: String) -> void:
 	var current_part_name = catallog.get_child(catallog.current_tab).name
-	print("Current part name: ", current_part_name)
-	print("Current direction: ", direction)
+	#print("Current part name: ", current_part_name)
+	#print("Current direction: ", direction)
 
 	for container in get_children():
 		var is_correct_tab = container.name.begins_with(current_part_name)
@@ -78,10 +86,15 @@ func update_containers_visibility(direction: String) -> void:
 		else:
 			is_correct_direction = true
 
-		print("Container name: ", container.name)
-		print("Is correct tab: ", is_correct_tab)
-		print("Is correct direction: ", is_correct_direction)
-		print("Final visibility: ", (is_correct_tab and is_correct_direction))
-		print("---")
+		#print("Container name: ", container.name)
+		#print("Is correct tab: ", is_correct_tab)
+		#print("Is correct direction: ", is_correct_direction)
+		#print("Final visibility: ", (is_correct_tab and is_correct_direction))
+		#print("---")
 
 		container.visible = is_correct_tab and is_correct_direction
+
+#func _on_value_slider_changed(val, m, character_part):
+	#print ("current value slider = ", val)
+	#print ("character part = ", character_part)
+	#print("linked marker = ", m)
