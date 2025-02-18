@@ -6,6 +6,7 @@ extends MarginContainer
 @export var catalog_items: Array[CatalogItem] = []
 
 signal part_changed
+signal change_sliders
 
 func _ready() -> void:
 	for item in catalog_items:
@@ -32,7 +33,10 @@ func _on_catalog_slot_pressed(slot):
 		var part = catalog_items[slot_index].dynamic_part	
 		current_node.dynamic_part = part
 		part_changed.emit(current_node, item_type)
+		
 	elif item_type == "Conditionally_dynamic":
 		var part = catalog_items[slot_index].conditionally_dynamic_part
 		current_node.conditionally_dynamic = part
 		part_changed.emit(current_node, item_type)
+		
+	change_sliders.emit(item_class)

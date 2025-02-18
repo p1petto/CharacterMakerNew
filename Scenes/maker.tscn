@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bm1ycyeyegmyw"]
+[gd_scene load_steps=15 format=3 uid="uid://bm1ycyeyegmyw"]
 
 [ext_resource type="PackedScene" uid="uid://bmajra62ohwsu" path="res://Scenes/character.tscn" id="1_12d3f"]
 [ext_resource type="Script" path="res://Scripts/maker.gd" id="1_wror2"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d0dglj26dw502" path="res://Scenes/UI/CatalogList.tscn" id="4_kavcm"]
 [ext_resource type="Script" path="res://Scripts/CatalogItemResource.gd" id="5_sbt4v"]
 [ext_resource type="Resource" uid="uid://vqtoj1obq7f6" path="res://Resources/CatalogItems/DynamicPart/Body/ManBody.tres" id="6_ehmcq"]
+[ext_resource type="Resource" uid="uid://rrelwntd3sqm" path="res://Resources/CatalogItems/DynamicPart/Body/ManBodyTest.tres" id="7_kywax"]
 [ext_resource type="Resource" uid="uid://bpqshk2eovrs8" path="res://Resources/CatalogItems/DynamicPart/Head/Head.tres" id="7_p4rey"]
 [ext_resource type="Resource" uid="uid://cc1ysn1bfry3o" path="res://Resources/CatalogItems/ConditionallyDynamicPart/Arms/Left Arm/LeftArm.tres" id="8_r55wq"]
 [ext_resource type="PackedScene" uid="uid://ckn2cbvi5d5m" path="res://Scenes/UI/direction_button.tscn" id="8_sklk8"]
@@ -87,7 +88,7 @@ current_tab = 0
 
 [node name="Body" parent="UI/Catalog" instance=ExtResource("4_kavcm")]
 layout_mode = 2
-catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("6_ehmcq")])
+catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("6_ehmcq"), ExtResource("7_kywax")])
 metadata/_tab_index = 0
 
 [node name="Head" parent="UI/Catalog" instance=ExtResource("4_kavcm")]

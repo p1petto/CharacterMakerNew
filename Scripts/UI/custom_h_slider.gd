@@ -1,9 +1,10 @@
 extends HSlider
 
-#signal slider_value_changed
+signal slider_value_changed
 
 @export var linked_marker: int
 @export var character_part: String
+@export var axis: String
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -15,5 +16,5 @@ func _process(delta: float) -> void:
 
 
 func _on_value_changed(value: float) -> void:
-	#slider_value_changed.emit(value, linked_marker, character_part)
+	slider_value_changed.emit(value, linked_marker, character_part, axis)
 	pass
