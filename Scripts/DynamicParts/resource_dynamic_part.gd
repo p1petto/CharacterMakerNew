@@ -22,3 +22,5 @@ class_name  DynamicBodyPart
 
 @export var vertical_markers: Array[int]
 @export var horizontal_markers: Array[int]
+
+@export var hand_marker_for_body: int

@@ -50,18 +50,19 @@ func _on_value_slider_changed(val, m, character_part_name, axis):
 		
 		if cur_dir == "down":
 			var mirror_x = get_mirror_x(len(character_part.dynamic_part.down_array_points), m)
-			character_part.polygon2d.polygon[m].x = character_part.dynamic_part.down_array_points[m].x - val
-			character_part.line2d.points[m].x = character_part.dynamic_part.down_array_points[m].x - val
-			character_part.polygon2d.polygon[mirror_x].x = character_part.dynamic_part.down_array_points[mirror_x].x + val
-			character_part.line2d.points[mirror_x].x = character_part.dynamic_part.down_array_points[mirror_x].x + val
+			character_part.setup_polygon(cur_dir)
+			#character_part.polygon2d.polygon[m].x = character_part.dynamic_part.down_array_points[m].x - val
+			#character_part.line2d.points[m].x = character_part.dynamic_part.down_array_points[m].x - val
+			#character_part.polygon2d.polygon[mirror_x].x = character_part.dynamic_part.down_array_points[mirror_x].x + val
+			#character_part.line2d.points[mirror_x].x = character_part.dynamic_part.down_array_points[mirror_x].x + val
 		elif cur_dir == "top":
 			var mirror_x = get_mirror_x(len(character_part.dynamic_part.top_array_points), m)
-			character_part.polygon2d.polygon[m].x = character_part.dynamic_part.top_array_points[m].x + val
-			character_part.line2d.points[m].x = character_part.dynamic_part.top_array_points[m].x + val
+			#character_part.polygon2d.polygon[m].x = character_part.dynamic_part.top_array_points[m].x + val
+			#character_part.line2d.points[m].x = character_part.dynamic_part.top_array_points[m].x + val
 		elif cur_dir == "right":
 			var mirror_x = get_mirror_x(len(character_part.dynamic_part.horizontal_array_points), m)
-			character_part.polygon2d.polygon[m].x = character_part.dynamic_part.horizontal_array_points[m].x + val
-			character_part.line2d.points[m].x = character_part.dynamic_part.horizontal_array_points[m].x + val
+			#character_part.polygon2d.polygon[m].x = character_part.dynamic_part.horizontal_array_points[m].x + val
+			#character_part.line2d.points[m].x = character_part.dynamic_part.horizontal_array_points[m].x + val
 		pass
 	elif character_part.is_in_group("ConditionallyDynamic"):
 		pass

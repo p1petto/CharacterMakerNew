@@ -8,19 +8,37 @@ extends Node2D
 @onready var line2d = $Line2D
 @onready var glare = $Polygon2D/glare
 
+@onready var slider_containers = $"../../../../UI/SliderContainer"
+@onready var character = $".."
+
 #var marker_scene = preload("res://Scenes/marker.tscn")
 var central_bottom_point: int 
+var flag = true
 
 func _ready() -> void:
 	if dynamic_part:
 		setup_polygon("down")
-		
+	flag = false	
 	#for m in dynamic_part.markers:
 		#var marker = marker_scene.instantiate()
 		#marker.position = polygon2d.polygon[m] * 5 
 		#marker_container.add_child(marker)
+		
+func get_target_container_slider():
+	var character_part = get_name()
+	var cur_dir = character.cur_dir
+	var axis
+	if cur_dir == "top" or "down":
+		axis = "_vertical"
+	else:
+		axis = "_horizontal"
+	var target_container_slider = slider_containers.get_node(character_part+axis)
+	return target_container_slider
 
 func setup_polygon(dir) -> void:
+	var sliders
+	if !flag:
+		sliders = get_target_container_slider().get_children()
 	if dir == "down":
 		polygon2d.polygon = dynamic_part.down_array_points
 		line2d.points = dynamic_part.down_array_points
@@ -30,6 +48,15 @@ func setup_polygon(dir) -> void:
 		z_index = dynamic_part.z_down
 		
 		central_bottom_point = len(dynamic_part.down_array_points) / 2
+		
+		if !flag:
+			for slider in sliders:
+				polygon2d.polygon[slider.linked_marker].x = dynamic_part.down_array_points[slider.linked_marker].x - slider.value
+				line2d.points[slider.linked_marker].x = dynamic_part.down_array_points[slider.linked_marker].x - slider.value
+
+			
+				
+		
 	if dir == "top":
 		polygon2d.polygon = dynamic_part.top_array_points
 		line2d.points = dynamic_part.top_array_points
