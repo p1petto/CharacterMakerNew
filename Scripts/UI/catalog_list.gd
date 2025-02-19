@@ -5,6 +5,7 @@ extends MarginContainer
 
 @export var catalog_items: Array[CatalogItem] = []
 
+
 signal part_changed
 signal change_sliders
 

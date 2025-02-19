@@ -85,6 +85,7 @@ grow_horizontal = 2
 grow_vertical = 0
 tab_alignment = 1
 current_tab = 0
+drag_to_rearrange_enabled = true
 
 [node name="Body" parent="UI/Catalog" instance=ExtResource("4_kavcm")]
 layout_mode = 2

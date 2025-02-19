@@ -46,7 +46,7 @@ position = Vector2(32, 32)
 conditionally_dynamic = ExtResource("7_bhysn")
 z_down = 3.0
 z_right = 5.0
-z_top = 1.0
+z_top = 3.0
 z_left = 1.0
 marker_y_pos = 32
 
