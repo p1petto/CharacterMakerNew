@@ -59,7 +59,7 @@ func _on_value_slider_changed(val, m, character_part_name, axis):
 		
 		
 	elif character_part.is_in_group("ConditionallyDynamic"):
-		pass
+		character_part.change_thickness(val)
 		
 
 
@@ -124,5 +124,7 @@ func _create_sliders_for_part(part):
 		add_child(part_container)
 		var slider = slider_scene.instantiate()
 		slider.character_part = part.name
+		slider.min_value = 1
+		slider.value = 1
 		part_container.add_child(slider)
 		slider.slider_value_changed.connect(_on_value_slider_changed)

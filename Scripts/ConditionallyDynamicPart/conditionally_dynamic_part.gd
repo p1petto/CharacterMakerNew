@@ -14,6 +14,8 @@ extends Node2D
 
 @export var marker_y_pos: int = 0
 
+@onready var slider_containers = $"../../../../UI/SliderContainer"
+
 var current_state: String = "idle"
 var current_direction: String = "down"
 var current_thickness: String = "1"
@@ -48,8 +50,8 @@ func change_state(new_state: String) -> void:
 	current_state = new_state
 	update_animation()
 
-func change_thickness(new_thickness: String) -> void:
-	current_thickness = new_thickness
+func change_thickness(new_thickness) -> void:
+	current_thickness = str(new_thickness)
 	update_animation()
 
 func update_animation() -> void:
