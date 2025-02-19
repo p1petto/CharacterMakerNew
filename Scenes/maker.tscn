@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://bm1ycyeyegmyw"]
+[gd_scene load_steps=16 format=3 uid="uid://bm1ycyeyegmyw"]
 
 [ext_resource type="PackedScene" uid="uid://bmajra62ohwsu" path="res://Scenes/character.tscn" id="1_12d3f"]
 [ext_resource type="Script" path="res://Scripts/maker.gd" id="1_wror2"]
 [ext_resource type="Script" path="res://Scripts/UI/sliders.gd" id="3_p20pd"]
 [ext_resource type="PackedScene" uid="uid://d0dglj26dw502" path="res://Scenes/UI/CatalogList.tscn" id="4_kavcm"]
+[ext_resource type="Script" path="res://Scripts/UI/catalog.gd" id="4_mledv"]
 [ext_resource type="Script" path="res://Scripts/CatalogItemResource.gd" id="5_sbt4v"]
 [ext_resource type="Resource" uid="uid://vqtoj1obq7f6" path="res://Resources/CatalogItems/DynamicPart/Body/ManBody.tres" id="6_ehmcq"]
 [ext_resource type="Resource" uid="uid://rrelwntd3sqm" path="res://Resources/CatalogItems/DynamicPart/Body/ManBodyTest.tres" id="7_kywax"]
@@ -75,52 +76,63 @@ size_flags_horizontal = 8
 size_flags_vertical = 4
 script = ExtResource("3_p20pd")
 
-[node name="Catalog" type="TabContainer" parent="UI"]
+[node name="Catalog" type="MarginContainer" parent="UI" node_paths=PackedStringArray("current_tab")]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -228.0
+offset_top = -221.0
 grow_horizontal = 2
 grow_vertical = 0
-tab_alignment = 1
-current_tab = 0
-drag_to_rearrange_enabled = true
+script = ExtResource("4_mledv")
+current_tab = NodePath("CatalogContainer/Body")
 
-[node name="Body" parent="UI/Catalog" instance=ExtResource("4_kavcm")]
+[node name="CatalogContainer" type="PanelContainer" parent="UI/Catalog"]
+custom_minimum_size = Vector2(0, 170)
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Body" parent="UI/Catalog/CatalogContainer" instance=ExtResource("4_kavcm")]
 layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("6_ehmcq"), ExtResource("7_kywax")])
-metadata/_tab_index = 0
 
-[node name="Head" parent="UI/Catalog" instance=ExtResource("4_kavcm")]
+[node name="Head" parent="UI/Catalog/CatalogContainer" instance=ExtResource("4_kavcm")]
 visible = false
 layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("7_p4rey")])
-metadata/_tab_index = 1
 
-[node name="LeftArm" parent="UI/Catalog" instance=ExtResource("4_kavcm")]
+[node name="LeftArm" parent="UI/Catalog/CatalogContainer" instance=ExtResource("4_kavcm")]
 visible = false
 layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("8_r55wq")])
-metadata/_tab_index = 2
 
-[node name="RightArm" parent="UI/Catalog" instance=ExtResource("4_kavcm")]
+[node name="RightArm" parent="UI/Catalog/CatalogContainer" instance=ExtResource("4_kavcm")]
 visible = false
 layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("9_pxshc")])
-metadata/_tab_index = 3
 
-[node name="LeftLeg" parent="UI/Catalog" instance=ExtResource("4_kavcm")]
+[node name="LeftLeg" parent="UI/Catalog/CatalogContainer" instance=ExtResource("4_kavcm")]
 visible = false
 layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("10_1t4ok")])
-metadata/_tab_index = 4
 
-[node name="RightLeg" parent="UI/Catalog" instance=ExtResource("4_kavcm")]
+[node name="RightLeg" parent="UI/Catalog/CatalogContainer" instance=ExtResource("4_kavcm")]
 visible = false
 layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("11_lknkn")])
-metadata/_tab_index = 5
+
+[node name="ButtonsScrollContainer" type="HScrollBar" parent="UI/Catalog"]
+custom_minimum_size = Vector2(0, 64.295)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Catalog/ButtonsScrollContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
 
 [node name="DirectionButtons" type="ColorRect" parent="UI"]
 offset_left = 132.0
@@ -183,5 +195,3 @@ direction = "left"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(577, 325)
-
-[connection signal="tab_changed" from="UI/Catalog" to="UI/SliderContainer" method="_on_catalog_tab_changed"]

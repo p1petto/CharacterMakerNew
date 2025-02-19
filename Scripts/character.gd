@@ -3,7 +3,7 @@ extends Node2D
 @onready var head = $Head
 @onready var body = $Body
 
-@onready var catallog = $"../../../UI/Catalog"
+@onready var catallog = $"../../../UI/Catalog/CatalogContainer"
 @onready var direction_controller = $"../../../UI/DirectionButtons"
 
 var cur_dir = "down"

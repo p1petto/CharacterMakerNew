@@ -1,7 +1,9 @@
 extends MarginContainer
 
+class_name CustomTab
+
 @onready var grid = $VBoxContainer/ScrollContainer/GridContainer
-@onready var character = $"../../../SubViewportContainer/SubViewport/Character"
+@onready var character = $"../../../../SubViewportContainer/SubViewport/Character"
 
 @export var catalog_items: Array[CatalogItem] = []
 

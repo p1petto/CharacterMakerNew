@@ -1,13 +1,16 @@
 extends Container
 
 @onready var catallog = $"../Catalog"
+@onready var catallog_list = $"../Catalog/CatalogContainer"
 @onready var character = $"../../SubViewportContainer/SubViewport/Character"
 var slider_scene = preload("res://Scenes/custom_h_slider.tscn")
 
 func _ready() -> void:
 	character.change_sliders.connect(_on_direction_changed)
 	
-	for part in catallog.get_children():
+	catallog.tab_changed.connect(_on_tab_changed)
+	
+	for part in catallog_list.get_children():
 		part.change_sliders.connect(update_sliders)
 
 	for part in character.get_children():
@@ -19,7 +22,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _on_catalog_tab_changed(tab: int) -> void:
+func _on_tab_changed() -> void:
 	var direction = "down"
 	if character:
 		direction = character.cur_dir
@@ -29,7 +32,7 @@ func _on_direction_changed(dir):
 	update_containers_visibility(dir)
 
 func update_containers_visibility(direction: String) -> void:
-	var current_part_name = catallog.get_child(catallog.current_tab).name
+	var current_part_name = catallog.current_tab.name
 	for container in get_children():
 		var is_correct_tab = container.name.begins_with(current_part_name)
 		var is_correct_direction = false
@@ -42,6 +45,7 @@ func update_containers_visibility(direction: String) -> void:
 			is_correct_direction = true
 
 		container.visible = is_correct_tab and is_correct_direction
+		pass
 
 func _on_value_slider_changed(val, m, character_part_name, axis):
 	var character_part = character.get_node(character_part_name)
