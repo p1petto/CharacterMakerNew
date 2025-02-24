@@ -2,6 +2,7 @@ extends MarginContainer
 
 @onready var catallog_container = $CatalogContainer
 @onready var button_container = $ButtonsScrollContainer/HBoxContainer
+@onready var button_scroll_container = $ButtonsScrollContainer
 
 @export var current_tab: CustomTab
 
@@ -13,8 +14,14 @@ func _ready() -> void:
 		new_slot.tab_name = catalog_item.name
 		button_container.add_child(new_slot)
 		
-	for catalog_slass in button_container.get_children():
-		catalog_slass.catalog_tab_changed.connect(_on_catalog_tab_changed)
+		if catalog_item.linked_symmetrical_element:
+			var new_check_button = load("res://Scenes/UI/custom_check_button.tscn").instantiate()
+			var container = catalog_item.get_node("VBoxContainer")
+			container.add_child(new_check_button)
+			container.move_child(new_check_button, 0)
+		
+	for catalog_class in button_container.get_children():
+		catalog_class.catalog_tab_changed.connect(_on_catalog_tab_changed)
 
 func _on_catalog_tab_changed(tab_name):
 	current_tab.visible = false

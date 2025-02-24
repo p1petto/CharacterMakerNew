@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bd861vwaeggcw"]
+
+[node name="CustomCheckButton" type="VBoxContainer"]
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "симметрия"
+
+[node name="CheckButton" type="CheckButton" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0

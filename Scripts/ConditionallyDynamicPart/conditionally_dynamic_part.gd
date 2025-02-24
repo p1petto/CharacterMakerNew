@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name ConditionallyDynamicCharacterPart
+
 @onready var animated_sprite = $AnimatedSprite2D
 
 @export var conditionally_dynamic: ConditionallyDynamic

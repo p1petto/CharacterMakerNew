@@ -84,6 +84,7 @@ anchor_bottom = 1.0
 offset_top = -221.0
 grow_horizontal = 2
 grow_vertical = 0
+size_flags_horizontal = 4
 script = ExtResource("4_mledv")
 current_tab = NodePath("CatalogContainer/Body")
 
@@ -94,32 +95,36 @@ size_flags_vertical = 8
 
 [node name="Body" parent="UI/Catalog/CatalogContainer" instance=ExtResource("4_kavcm")]
 layout_mode = 2
-catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("6_ehmcq"), ExtResource("7_kywax")])
+catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("6_ehmcq"), ExtResource("7_kywax"), ExtResource("7_kywax"), ExtResource("6_ehmcq"), ExtResource("7_kywax"), ExtResource("6_ehmcq"), ExtResource("7_kywax"), ExtResource("6_ehmcq"), ExtResource("7_kywax"), ExtResource("6_ehmcq")])
 
 [node name="Head" parent="UI/Catalog/CatalogContainer" instance=ExtResource("4_kavcm")]
 visible = false
 layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("7_p4rey")])
 
-[node name="LeftArm" parent="UI/Catalog/CatalogContainer" instance=ExtResource("4_kavcm")]
+[node name="LeftArm" parent="UI/Catalog/CatalogContainer" node_paths=PackedStringArray("linked_symmetrical_element") instance=ExtResource("4_kavcm")]
 visible = false
 layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("8_r55wq")])
+linked_symmetrical_element = NodePath("../RightArm")
 
-[node name="RightArm" parent="UI/Catalog/CatalogContainer" instance=ExtResource("4_kavcm")]
+[node name="RightArm" parent="UI/Catalog/CatalogContainer" node_paths=PackedStringArray("linked_symmetrical_element") instance=ExtResource("4_kavcm")]
 visible = false
 layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("9_pxshc")])
+linked_symmetrical_element = NodePath("../LeftArm")
 
-[node name="LeftLeg" parent="UI/Catalog/CatalogContainer" instance=ExtResource("4_kavcm")]
+[node name="LeftLeg" parent="UI/Catalog/CatalogContainer" node_paths=PackedStringArray("linked_symmetrical_element") instance=ExtResource("4_kavcm")]
 visible = false
 layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("10_1t4ok")])
+linked_symmetrical_element = NodePath("../RightLeg")
 
-[node name="RightLeg" parent="UI/Catalog/CatalogContainer" instance=ExtResource("4_kavcm")]
+[node name="RightLeg" parent="UI/Catalog/CatalogContainer" node_paths=PackedStringArray("linked_symmetrical_element") instance=ExtResource("4_kavcm")]
 visible = false
 layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("11_lknkn")])
+linked_symmetrical_element = NodePath("../LeftLeg")
 
 [node name="ButtonsScrollContainer" type="HScrollBar" parent="UI/Catalog"]
 custom_minimum_size = Vector2(0, 64.295)

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cenpkboo0qax8"]
+
+[ext_resource type="Texture2D" uid="uid://c0heyo47vaepq" path="res://Assets/UI/link icons/link.png" id="1_n4b6u"]
+[ext_resource type="Texture2D" uid="uid://cjeu4ffbxs1ap" path="res://Assets/UI/link icons/unlink.png" id="2_0qt7d"]
+
+[node name="LinkButton" type="TextureButton"]
+custom_minimum_size = Vector2(48, 48)
+offset_right = 48.0
+offset_bottom = 48.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = true
+texture_normal = ExtResource("1_n4b6u")
+texture_pressed = ExtResource("2_0qt7d")
+ignore_texture_size = true

@@ -7,6 +7,8 @@ class_name CustomTab
 
 @export var catalog_items: Array[CatalogItem] = []
 
+@export var linked_symmetrical_element: CustomTab
+
 #
 #signal part_changed
 signal change_sliders
