@@ -6,7 +6,7 @@ extends Container
 var slider_scene = preload("res://Scenes/custom_h_slider.tscn")
 
 func _ready() -> void:
-	character.change_sliders.connect(_on_direction_changed)
+	character.direction_change_sliders.connect(_on_direction_changed)
 	
 	catallog.tab_changed.connect(_on_tab_changed)
 	
