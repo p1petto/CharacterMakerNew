@@ -1,5 +1,7 @@
 extends AnimatedSprite2D
 
+class_name StaticElement
+
 @export var static_resource: Static
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
