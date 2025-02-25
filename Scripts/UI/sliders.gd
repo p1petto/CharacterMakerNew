@@ -63,8 +63,10 @@ func _on_value_slider_changed(val, m, character_part_name, axis):
 		
 		
 	elif character_part.is_in_group("ConditionallyDynamic"):
-		character_part.change_thickness(val)
 		
+		character_part.change_thickness(val)
+		if character_part.is_symmetrical:
+			character_part.linked_symmetrical_element.change_thickness(val)
 
 
 func update_sliders(character_part_name):

@@ -16,11 +16,14 @@ class_name ConditionallyDynamicCharacterPart
 
 @export var marker_y_pos: int = 0
 
+@export var linked_symmetrical_element: ConditionallyDynamicCharacterPart
+
 @onready var slider_containers = $"../../../../UI/SliderContainer"
 
 var current_state: String = "idle"
 var current_direction: String = "down"
 var current_thickness: String = "1"
+var is_symmetrical = false
 
 func _ready() -> void:
 	if conditionally_dynamic.sprite_frames:
