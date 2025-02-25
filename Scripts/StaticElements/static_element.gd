@@ -18,7 +18,6 @@ func _process(delta: float) -> void:
 
 func change_direction(direction: String) -> void:
 	current_direction = direction
-	print ("При повороте ", current_direction)
 	update_animation()
 	
 func update_animation() -> void:

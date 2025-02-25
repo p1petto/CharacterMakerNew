@@ -57,24 +57,36 @@ func _on_catalog_slot_pressed(slot):
 		await get_tree().process_frame
 		# Now change thickness
 		current_node.change_thickness(1)
+		
+		if current_node.is_symmetrical:
+			var linked_part = linked_symmetrical_element.catalog_items[slot_index].conditionally_dynamic_part
+			current_node.linked_symmetrical_element.conditionally_dynamic = linked_part
+			current_node.linked_symmetrical_element.change_thickness(1)
 	
 	elif item_type == "Static":
 		var part = catalog_items[slot_index].static_element
 		current_node = character.get_node(part.target_part)
 		current_node = current_node.get_node("Polygon2D")
+		current_node = current_node.get_node(item_class)
+
+		current_node.static_resource = catalog_items[slot_index].static_element
+		current_node.change_direction(character.cur_dir)
 		
-		# Check if a child with the same name already exists and remove it
-		if current_node.has_node(item_class):
-			var existing_node = current_node.get_node(item_class)
-			current_node.remove_child(existing_node)
-			existing_node.queue_free()
+		if linked_symmetrical_element:
+			var check_button = get_node("VBoxContainer/CustomCheckButton/CheckButton")
+			var is_symmetrical = check_button.button_pressed
+			if is_symmetrical:
+				var linked_part = linked_symmetrical_element.catalog_items[slot_index].static_element
+				var linked_item_class = linked_symmetrical_element.catalog_items[slot_index].item_class
+			
+				var linked_node = character.get_node(part.target_part)
+				linked_node = linked_node.get_node("Polygon2D")
+				linked_node = linked_node.get_node(linked_item_class)
+				linked_node.static_resource = linked_symmetrical_element.catalog_items[slot_index].static_element
+				linked_node.change_direction(character.cur_dir)
 		
-		var static_element_scene = preload("res://Scenes/static_element.tscn")
-		var static_element = static_element_scene.instantiate()
 		
-		static_element.static_resource = catalog_items[slot_index].static_element
-		static_element.name = item_class
-		static_element.change_direction(character.cur_dir)
-		current_node.add_child(static_element)
+		
+		
 		
 			
