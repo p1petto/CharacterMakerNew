@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CatalogItem" load_steps=3 format=3 uid="uid://xb00p14w71s4"]
+
+[ext_resource type="Script" path="res://Scripts/CatalogItemResource.gd" id="1_vcflt"]
+[ext_resource type="Resource" uid="uid://ejydfc32ck0m" path="res://Resources/StaticElements/Eye/Eye1/R/EyeRight.tres" id="2_bi8xm"]
+
+[resource]
+script = ExtResource("1_vcflt")
+item_type = "Static"
+item_class = "RightEye"
+static_element = ExtResource("2_bi8xm")

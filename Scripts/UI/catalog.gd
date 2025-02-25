@@ -47,9 +47,11 @@ func _on_check_button_toggled(toggled_on):
 			linked_check_button.get_node("CheckButton").set_pressed_no_signal(toggled_on)
 	
 	
-	# Get the current tab's node in character
-	var current_node = character.get_node(str(current_tab.name))
-	print("current_node ", current_node.name)
-	current_node.is_symmetrical = toggled_on
-	var linked_node = character.get_node(str(linked_tab.name))
-	linked_node.is_symmetrical = toggled_on
+	
+		var current_node = character.find_child(current_tab.name, true, false)
+		if current_node:
+			current_node.is_symmetrical = toggled_on
+
+		var linked_node = character.find_child(linked_tab.name, true, false)
+		if linked_node:
+			linked_node.is_symmetrical = toggled_on
