@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Static" load_steps=3 format=3 uid="uid://blcgf03xh26n5"]
+
+[ext_resource type="Script" path="res://Scripts/StaticElements/resource_static_element.gd" id="1_do3tn"]
+[ext_resource type="SpriteFrames" uid="uid://b35bk7grov6h2" path="res://Resources/StaticElements/Eye/Eye1/L/eye-l-sprites.tres" id="2_348bp"]
+
+[resource]
+script = ExtResource("1_do3tn")
+sprite_frames = ExtResource("2_348bp")
+position = Vector2(8, 18)
