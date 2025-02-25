@@ -3,7 +3,7 @@
 [ext_resource type="SpriteFrames" uid="uid://b35bk7grov6h2" path="res://Resources/StaticElements/Eye/Eye1/L/eye-l-sprites.tres" id="1_wgjfk"]
 [ext_resource type="Script" path="res://Scripts/StaticElements/static_element.gd" id="2_3irpt"]
 
-[node name="StaticElement" type="AnimatedSprite2D"]
+[node name="StaticElement" type="AnimatedSprite2D" groups=["Static"]]
 sprite_frames = ExtResource("1_wgjfk")
 animation = &"down"
 script = ExtResource("2_3irpt")

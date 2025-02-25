@@ -1,7 +1,7 @@
 extends Node2D
 
-@onready var head = $Head
-@onready var body = $Body
+@onready var head_static_elements = $"Head/Polygon2D"
+@onready var body_static_elements = $"Body/Polygon2D"
 
 @onready var catallog = $"../../../UI/Catalog/CatalogContainer"
 @onready var direction_controller = $"../../../UI/DirectionButtons"
@@ -29,4 +29,7 @@ func change_dir_for_parts():
 		if child.is_in_group("Dynamic"):
 			child.setup_polygon(cur_dir)
 		elif child.is_in_group("ConditionallyDynamic"):
+			child.change_direction(cur_dir)
+	for child in head_static_elements.get_children():
+		if child.is_in_group("Static"): 
 			child.change_direction(cur_dir)
