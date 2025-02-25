@@ -76,3 +76,5 @@ func _on_catalog_slot_pressed(slot):
 		static_element.name = item_class
 		static_element.change_direction(character.cur_dir)
 		current_node.add_child(static_element)
+		
+			
