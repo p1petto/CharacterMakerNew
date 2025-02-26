@@ -75,6 +75,13 @@ func _on_position_changed(val):
 			# Обновляем позицию
 			element.static_resource.cur_position = new_pos
 			element.position = new_pos
+			# Если симметрия включена, установим начальную позицию симметричного элемента на зеркальную относительно основного
+			if element == cur_linked_element and cur_element.is_symmetrical:
+				# Зеркалим позицию относительно start_position
+				element.static_resource.cur_position.x = cur_element.static_resource.start_position.x - (cur_element.static_resource.cur_position.x - cur_element.static_resource.start_position.x)
+				# После этого обновляем позицию симметричного элемента
+				element.position = element.static_resource.cur_position
+
 
 
 		
