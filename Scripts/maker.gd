@@ -18,3 +18,7 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		var screen = subviewport.get_texture().get_image()
 		screen.save_png("screenshot.png")
+
+
+func _on_position_controller_button_button_up() -> void:
+	pass # Replace with function body.

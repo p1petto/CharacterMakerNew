@@ -42,9 +42,17 @@ func _on_check_button_toggled(toggled_on):
 		if linked_check_button and linked_check_button.get_node("CheckButton").button_pressed != toggled_on:
 			linked_check_button.get_node("CheckButton").set_pressed_no_signal(toggled_on)
 		
-		if !current_tab.is_in_group("StaticTab"):
-			
-			var current_node = character.get_node(str(current_tab.name))
+		# Поиск ноды внутри character или его дочерних элементов
+		var current_node = character.find_child(str(current_tab.name), true, false)
+		var linked_node = character.find_child(str(linked_tab.name), true, false)
+
+		# Проверка, что ноды найдены
+		if current_node:
 			current_node.is_symmetrical = toggled_on
-			var linked_node = character.get_node(str(linked_tab.name))
+		else:
+			print("Ошибка: Не найдена нода для", current_tab.name)
+		
+		if linked_node:
 			linked_node.is_symmetrical = toggled_on
+		else:
+			print("Ошибка: Не найдена нода для", linked_tab.name)
