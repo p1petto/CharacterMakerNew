@@ -69,9 +69,13 @@ func _on_catalog_slot_pressed(slot):
 		current_node = current_node.get_node("Polygon2D")
 		current_node = current_node.get_node(item_class)
 
+		# Назначаем ресурс и устанавливаем стартовую позицию
 		current_node.static_resource = catalog_items[slot_index].static_element
-		current_node.change_direction(character.cur_dir)
+		current_node.position = current_node.static_resource.start_position
+		current_node.static_resource.cur_position = current_node.static_resource.start_position
 		
+		current_node.change_direction(character.cur_dir)
+
 		if linked_symmetrical_element:
 			var check_button = get_node("VBoxContainer/CustomCheckButton/CheckButton")
 			var is_symmetrical = check_button.button_pressed
@@ -82,8 +86,14 @@ func _on_catalog_slot_pressed(slot):
 				var linked_node = character.get_node(part.target_part)
 				linked_node = linked_node.get_node("Polygon2D")
 				linked_node = linked_node.get_node(linked_item_class)
-				linked_node.static_resource = linked_symmetrical_element.catalog_items[slot_index].static_element
+				
+				# Назначаем ресурс и устанавливаем стартовую позицию для симметричного элемента
+				linked_node.static_resource = linked_part
+				linked_node.position = linked_node.static_resource.start_position
+				linked_node.static_resource.cur_position = linked_node.static_resource.start_position
+				
 				linked_node.change_direction(character.cur_dir)
+
 		
 		
 		
