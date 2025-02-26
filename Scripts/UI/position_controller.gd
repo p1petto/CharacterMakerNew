@@ -49,15 +49,24 @@ func _on_position_changed(val):
 		
 		# Определяем направление изменения позиции
 		var linked_val = val
-		if cur_linked_element.name.begins_with("Right"):
-			linked_val = Vector2(-val.x, val.y)  # Инвертируем только X
 		
+		# Инвертируем X для элемента и его симметричного элемента, если имя начинается с "Right"
+		if cur_element.name.begins_with("Right"):
+			linked_val.x = -val.x  # Инвертируем X для cur_element
+		
+		if cur_linked_element.name.begins_with("Right"):
+			linked_val.x = -linked_val.x  # Инвертируем X для симметричного элемента
+
 		# Проверяем и обновляем позицию для обоих элементов
 		for element in [cur_element, cur_linked_element]:
 			if element.static_resource.cur_position == Vector2.ZERO:
 				element.static_resource.cur_position = element.static_resource.start_position
 			
 			var new_pos = element.static_resource.cur_position + (linked_val if element == cur_linked_element else val)
+			
+			# У симметричного элемента Y должен быть таким же, как у основного элемента
+			if element == cur_linked_element:
+				new_pos.y = cur_element.static_resource.cur_position.y  # Присваиваем Y от основного элемента
 			
 			# Ограничиваем по границам
 			new_pos.x = clamp(new_pos.x, element.static_resource.min_x, element.static_resource.max_x)
@@ -66,6 +75,7 @@ func _on_position_changed(val):
 			# Обновляем позицию
 			element.static_resource.cur_position = new_pos
 			element.position = new_pos
+
 
 		
 	

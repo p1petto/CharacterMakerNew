@@ -6,9 +6,9 @@
 [resource]
 script = ExtResource("1_rwxfx")
 sprite_frames = ExtResource("2_5yc10")
-start_position = Vector2(7, 19)
-min_x = 6
+start_position = Vector2(8, 19)
+min_x = 7
 min_y = 17
-max_x = 9
+max_x = 10
 max_y = 21
 target_part = "Head"
