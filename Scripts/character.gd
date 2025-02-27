@@ -6,6 +6,7 @@ extends Node2D
 
 @onready var catallog = $"../../../UI/Catalog/CatalogContainer"
 @onready var direction_controller = $"../../../UI/DirectionButtons"
+@onready var head = $Head
 
 var cur_dir = "down"
 
@@ -43,3 +44,8 @@ func change_dir_for_parts():
 	for child in head_static_elements.get_children():
 		if child.is_in_group("Static"): 
 			child.change_direction(cur_dir)
+	for child in body_static_elements.get_children():
+		if child.is_in_group("Static"): 
+			child.change_direction(cur_dir)
+	for child in head.get_node("Accessories").get_children():
+		child.change_direction(cur_dir)

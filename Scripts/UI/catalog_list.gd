@@ -94,7 +94,7 @@ func _handle_accessories_item(slot_index, item_class):
 	var accessory_instance = accessory_scene.instantiate()
 
 	var accessory_number = current_node.get_child_count()
-	accessory_instance.name = "Accessorie" + str(accessory_number)
+	accessory_instance.name = "Accessorie_" + str(accessory_number)
 
 	current_node.add_child(accessory_instance)
 

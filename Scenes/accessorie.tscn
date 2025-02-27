@@ -1,10 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkx36rbim5llp"]
+[gd_scene load_steps=5 format=3 uid="uid://dkx36rbim5llp"]
 
 [ext_resource type="Texture2D" uid="uid://bo2x0ciffvb2f" path="res://Assets/Character/accessories/bow/bow.png" id="1_ushvf"]
 [ext_resource type="Script" path="res://Scripts/Accessories/Accessorie.gd" id="2_kk21r"]
 [ext_resource type="Resource" uid="uid://cus7ywgrjt6mb" path="res://Resources/Accessories/Bow/Bow.tres" id="3_dyt73"]
 
-[node name="Accessorie" type="Sprite2D"]
-texture = ExtResource("1_ushvf")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h6kh0"]
+
+[node name="Accessorie" type="Area2D"]
 script = ExtResource("2_kk21r")
 accessorie = ExtResource("3_dyt73")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ushvf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_h6kh0")
