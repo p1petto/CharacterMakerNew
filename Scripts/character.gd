@@ -29,6 +29,7 @@ func _process(delta: float) -> void:
 func _on_direction_changed(dir):
 	if cur_dir != dir:
 		cur_dir = dir
+		Global.current_dir = dir
 		print ("current direction = ", cur_dir)
 		change_dir_for_parts()
 		direction_change_sliders.emit(cur_dir)

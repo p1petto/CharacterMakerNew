@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bm1ycyeyegmyw"]
+[gd_scene load_steps=31 format=3 uid="uid://bm1ycyeyegmyw"]
 
 [ext_resource type="PackedScene" uid="uid://bmajra62ohwsu" path="res://Scenes/character.tscn" id="1_12d3f"]
 [ext_resource type="Script" path="res://Scripts/maker.gd" id="1_wror2"]
@@ -20,6 +20,8 @@
 [ext_resource type="Resource" uid="uid://danlbkb3wqnt4" path="res://Resources/CatalogItems/StaticElement/Eyes/Eye1/LeftEye/LeftEye.tres" id="14_7nups"]
 [ext_resource type="Script" path="res://Scripts/StaticElements/resource_static_element.gd" id="15_1qk7a"]
 [ext_resource type="Resource" uid="uid://xb00p14w71s4" path="res://Resources/CatalogItems/StaticElement/Eyes/Eye1/RightEye/RightEye.tres" id="17_nc5m7"]
+[ext_resource type="Resource" uid="uid://cus7ywgrjt6mb" path="res://Resources/Accessories/Bow/Bow.tres" id="20_6fo20"]
+[ext_resource type="Texture2D" uid="uid://bo2x0ciffvb2f" path="res://Assets/Character/accessories/bow/bow.png" id="21_ulphu"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_1urqw"]
 viewport_path = NodePath("SubViewportContainer/SubViewport")
@@ -60,6 +62,13 @@ script = ExtResource("5_sbt4v")
 item_type = "Static"
 item_class = "RightEye"
 static_element = SubResource("Resource_87sjp")
+
+[sub_resource type="Resource" id="Resource_ifg1v"]
+script = ExtResource("5_sbt4v")
+item_type = "Accessories"
+item_class = "Accessories"
+icon = ExtResource("21_ulphu")
+accessorie = ExtResource("20_6fo20")
 
 [node name="Maker" type="Node2D"]
 texture_filter = 1
@@ -232,6 +241,11 @@ visible = false
 layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_67v72"), ExtResource("17_nc5m7")])
 linked_symmetrical_element = NodePath("../LeftEye")
+
+[node name="Accessories" parent="UI/Catalog/CatalogContainer" instance=ExtResource("4_kavcm")]
+visible = false
+layout_mode = 2
+catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_ifg1v")])
 
 [node name="ButtonsScrollContainer" type="HScrollBar" parent="UI/Catalog"]
 custom_minimum_size = Vector2(0, 64.295)

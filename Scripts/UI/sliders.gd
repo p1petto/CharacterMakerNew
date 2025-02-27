@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 func _on_tab_changed() -> void:
 	var direction = "down"
 	if character:
-		direction = character.cur_dir
+		direction = Global.current_dir
 	update_containers_visibility(direction)
 
 func _on_direction_changed(dir):
@@ -49,7 +49,7 @@ func update_containers_visibility(direction: String) -> void:
 
 func _on_value_slider_changed(val, m, character_part_name, axis):
 	var character_part = character.get_node(character_part_name)
-	var cur_dir = character.cur_dir
+	var cur_dir = Global.current_dir
 	if character_part.is_in_group("Dynamic"):
 		
 		if cur_dir == "down":

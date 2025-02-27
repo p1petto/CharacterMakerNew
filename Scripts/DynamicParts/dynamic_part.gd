@@ -26,7 +26,8 @@ func _ready() -> void:
 		
 func get_target_container_slider():
 	var character_part = get_name()
-	var cur_dir = character.cur_dir
+	#var cur_dir = character.cur_dir
+	var cur_dir = Global.current_dir
 	var axis
 	if cur_dir == "top" or cur_dir == "down":
 		axis = "_vertical"

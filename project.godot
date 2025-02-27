@@ -15,6 +15,10 @@ run/main_scene="res://Scenes/maker.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://Global.gd"
+
 [display]
 
 window/size/mode=2
