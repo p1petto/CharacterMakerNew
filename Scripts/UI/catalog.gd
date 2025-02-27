@@ -30,7 +30,7 @@ func _on_catalog_tab_changed(tab_name):
 	current_tab = find_tab(tab_name)
 	current_tab.visible = true
 	tab_changed.emit()
-	pass
+	
 	
 func find_tab(tab_name):
 	return catallog_container.get_node(tab_name)

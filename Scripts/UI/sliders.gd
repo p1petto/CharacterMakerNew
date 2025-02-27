@@ -23,10 +23,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_tab_changed() -> void:
-	var direction = "down"
-	if character:
-		direction = Global.current_dir
-	update_containers_visibility(direction)
+	update_containers_visibility(Global.current_dir)
 
 func _on_direction_changed(dir):
 	update_containers_visibility(dir)

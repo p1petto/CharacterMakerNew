@@ -4,6 +4,7 @@ class_name CustomTab
 
 @onready var grid = $VBoxContainer/ScrollContainer/GridContainer
 @onready var character = $"../../../../SubViewportContainer/SubViewport/Character"
+@onready var accecorie_panel = $"../../../AccessoriePanel"
 
 @export var catalog_items: Array[CatalogItem] = []
 
@@ -102,5 +103,10 @@ func _handle_accessories_item(slot_index, item_class):
 	accessory_instance.accessorie = part
 
 	current_node.add_child(accessory_instance)
+	
+	var button_scene = preload("res://Scenes/UI/AccessoreButton.tscn")
+	var button_instance = button_scene.instantiate()
+	button_instance.accessorie = part
+	$"../../../AccessoriePanel/VScrollBar/VBoxContainer".add_child(button_instance)
 
 	
