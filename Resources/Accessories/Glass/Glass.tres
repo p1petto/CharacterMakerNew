@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Accessorie" load_steps=5 format=3 uid="uid://cjp8s2u30aush"]
+
+[ext_resource type="Texture2D" uid="uid://dxu5a3tltdgpu" path="res://Assets/Character/accessories/glass/glass.png" id="1_bkufj"]
+[ext_resource type="Script" path="res://Scripts/Accessories/resource_accessorie.gd" id="1_fbnnl"]
+[ext_resource type="Texture2D" uid="uid://b8g2bngbok5yu" path="res://Assets/Character/accessories/glass/glass-left.png" id="2_r7v3u"]
+[ext_resource type="Texture2D" uid="uid://cuhgt8suv3rxw" path="res://Assets/Character/accessories/glass/glass-right.png" id="3_rxnoe"]
+
+[resource]
+script = ExtResource("1_fbnnl")
+down_texture = ExtResource("1_bkufj")
+top_texture = ExtResource("1_bkufj")
+right_texture = ExtResource("3_rxnoe")
+left_texture = ExtResource("2_r7v3u")
+start_down_position = Vector2(7, 9)
+start_top_position = Vector2(7, 9)
+start_right_position = Vector2(9, 8)
+start_left_position = Vector2(5, 8)
+not_can_top = true

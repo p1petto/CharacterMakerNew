@@ -88,6 +88,10 @@ func _handle_static_item(slot_index, item_class):
 			
 func _handle_accessories_item(slot_index, item_class):
 	var part = catalog_items[slot_index].accessorie
+	
+	if Global.current_dir == "top" and "not_can_top":
+		return
+		
 	var current_node = character.get_node("Head/Accessories")
 
 	var accessory_scene = preload("res://Scenes/accessorie.tscn")
@@ -95,6 +99,7 @@ func _handle_accessories_item(slot_index, item_class):
 
 	var accessory_number = current_node.get_child_count()
 	accessory_instance.name = "Accessorie_" + str(accessory_number)
+	accessory_instance.accessorie = part
 
 	current_node.add_child(accessory_instance)
 

@@ -11,3 +11,5 @@ class_name Accessorie
 @export var start_top_position: Vector2
 @export var start_right_position: Vector2
 @export var start_left_position: Vector2
+
+@export var not_can_top: bool
