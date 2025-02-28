@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bm1ycyeyegmyw"]
+[gd_scene load_steps=31 format=3 uid="uid://bm1ycyeyegmyw"]
 
 [ext_resource type="PackedScene" uid="uid://bmajra62ohwsu" path="res://Scenes/character.tscn" id="1_12d3f"]
 [ext_resource type="Script" path="res://Scripts/maker.gd" id="1_wror2"]
@@ -20,11 +20,9 @@
 [ext_resource type="Resource" uid="uid://danlbkb3wqnt4" path="res://Resources/CatalogItems/StaticElement/Eyes/Eye1/LeftEye/LeftEye.tres" id="14_7nups"]
 [ext_resource type="Script" path="res://Scripts/StaticElements/resource_static_element.gd" id="15_1qk7a"]
 [ext_resource type="Resource" uid="uid://xb00p14w71s4" path="res://Resources/CatalogItems/StaticElement/Eyes/Eye1/RightEye/RightEye.tres" id="17_nc5m7"]
-[ext_resource type="Resource" uid="uid://cus7ywgrjt6mb" path="res://Resources/Accessories/Bow/Bow.tres" id="20_6fo20"]
 [ext_resource type="Resource" uid="uid://iu27d1bg1axf" path="res://Resources/CatalogItems/Accessories/Bow.tres" id="20_emeal"]
 [ext_resource type="Resource" uid="uid://cww0wllumgai8" path="res://Resources/CatalogItems/Accessories/Glass.tres" id="21_adrnn"]
-[ext_resource type="Script" path="res://Scripts/UI/accessore_panel.gd" id="23_kqnnx"]
-[ext_resource type="PackedScene" uid="uid://c1l05wymmktbl" path="res://Scenes/UI/AccessoreButton.tscn" id="24_ywnmm"]
+[ext_resource type="PackedScene" uid="uid://b2omgn2er4084" path="res://Scenes/UI/accessorie_panel.tscn" id="23_dbin5"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_1urqw"]
 viewport_path = NodePath("SubViewportContainer/SubViewport")
@@ -315,30 +313,7 @@ offset_bottom = 25.0
 grow_vertical = 2
 direction = "left"
 
-[node name="AccessoriePanel" type="MarginContainer" parent="UI"]
-clip_contents = true
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -72.0
-offset_top = -270.0
-offset_bottom = 20.0
-grow_horizontal = 0
-grow_vertical = 2
-size_flags_horizontal = 8
-script = ExtResource("23_kqnnx")
-
-[node name="VScrollBar" type="ScrollContainer" parent="UI/AccessoriePanel"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/AccessoriePanel/VScrollBar"]
-layout_mode = 2
-
-[node name="AccessoryButton" parent="UI/AccessoriePanel/VScrollBar/VBoxContainer" instance=ExtResource("24_ywnmm")]
-layout_mode = 2
-accessorie = ExtResource("20_6fo20")
+[node name="AccessoriePanel" parent="UI" instance=ExtResource("23_dbin5")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(577, 325)

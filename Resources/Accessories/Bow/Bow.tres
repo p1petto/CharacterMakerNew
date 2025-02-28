@@ -13,3 +13,4 @@ start_down_position = Vector2(7, 1)
 start_top_position = Vector2(7, 1)
 start_right_position = Vector2(9, 1)
 start_left_position = Vector2(5, 1)
+not_can_top = false
