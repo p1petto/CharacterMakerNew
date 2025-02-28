@@ -5,19 +5,12 @@ extends MarginContainer
 
 @export var accessories: Array[Accessorie]
 @export var accessorie_buttons: Array[AccessorieButton]
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#visible = false
-	#catallog.tab_changed.connect(_on_tab_changed)
-	#$"../Catalog/CatalogContainer/Accessories".added_accessorie.connect(_on_list_accessorie_changed)
-	#
 	if accessories:
 		for accessorie in accessories:
 			add_accessorie_button(accessorie)
-		
-	
-func _on_tab_changed():
-	visible = catallog.current_tab.is_in_group("Accessorie")
 
 func add_accessorie_button(accessorie):
 	var button_scene = preload("res://Scenes/UI/AccessoreButton.tscn")
@@ -37,7 +30,8 @@ func swap_element(button):
 	if closest_button != button:
 		var button_index = button.get_index()
 		var closest_button_index = closest_button.get_index()
-	# Меняем местами в контейнере
+
+		# Меняем местами в контейнере
 		button_container.move_child(button, closest_button_index)
 		button_container.move_child(closest_button, button_index)
 
@@ -46,10 +40,19 @@ func swap_element(button):
 		accessorie_buttons[button_index] = accessorie_buttons[closest_button_index]
 		accessorie_buttons[closest_button_index] = temp
 
+		# Отложим обновление cur_position на следующий кадр
+		call_deferred("_update_cur_positions", button, closest_button)
+	else:
+		button.position = button.cur_position
+
+func _update_cur_positions(button, closest_button):
+	# Обновляем cur_position для обеих кнопок
+	button.cur_position = button.position
+	closest_button.cur_position = closest_button.position
+
 func get_closest_button(button):
 	var closest_button = button  # Изначально ближайший — это сам переданный button
 	var min_distance = abs(button.cur_position.y - button.position.y)
-	print("min distance ", min_distance)
 
 	# Проходим по всем детям в button_container
 	for child in button_container.get_children():
@@ -60,5 +63,4 @@ func get_closest_button(button):
 				min_distance = distance
 				closest_button = child
 
-	print("Closest button Y position:", closest_button.position.y)
 	return closest_button
