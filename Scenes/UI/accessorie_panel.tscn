@@ -1,9 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2omgn2er4084"]
+[gd_scene load_steps=2 format=3 uid="uid://b2omgn2er4084"]
 
 [ext_resource type="Script" path="res://Scripts/UI/accessore_panel.gd" id="1_cdg7q"]
-[ext_resource type="Script" path="res://Scripts/Accessories/resource_accessorie.gd" id="2_0sb8y"]
-[ext_resource type="Resource" uid="uid://cus7ywgrjt6mb" path="res://Resources/Accessories/Bow/Bow.tres" id="3_sr0k3"]
-[ext_resource type="Resource" uid="uid://cjp8s2u30aush" path="res://Resources/Accessories/Glass/Glass.tres" id="4_dwtbc"]
 
 [node name="AccessoriePanel" type="MarginContainer"]
 clip_contents = true
@@ -19,7 +16,6 @@ grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 8
 script = ExtResource("1_cdg7q")
-accessories = Array[ExtResource("2_0sb8y")]([ExtResource("3_sr0k3"), ExtResource("4_dwtbc"), ExtResource("3_sr0k3")])
 
 [node name="VScrollBar" type="ScrollContainer" parent="."]
 layout_mode = 2

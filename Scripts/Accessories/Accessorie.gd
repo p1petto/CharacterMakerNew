@@ -1,5 +1,6 @@
 extends Area2D
 
+class_name AccessorieElement
 @export var accessorie: Accessorie
 
 @onready var sprite2d = $Sprite2D

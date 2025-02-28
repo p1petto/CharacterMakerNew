@@ -3,25 +3,27 @@ extends MarginContainer
 @onready var catallog = $"../Catalog"
 @onready var button_container = $VScrollBar/VBoxContainer
 
-@export var accessories: Array[Accessorie]
+#@export var accessories: Array[Accessorie]
 @export var accessorie_buttons: Array[AccessorieButton]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if accessories:
-		for accessorie in accessories:
-			add_accessorie_button(accessorie)
+	#if accessories:
+		#for accessorie in accessories:
+			#add_accessorie_button(accessorie)
+	pass
 
-func add_accessorie_button(accessorie):
+func add_accessorie_button(accessorie, element):
 	var button_scene = preload("res://Scenes/UI/AccessoreButton.tscn")
 	var button_instance = button_scene.instantiate()
 	button_instance.accessorie = accessorie
+	button_instance.accessorie_element = element
 	button_container.add_child(button_instance)
 	button_instance.position_changed.connect(swap_element)
 	accessorie_buttons.append(button_instance)
 
-func _on_list_accessorie_changed():
-	add_accessorie_button(accessories[len(accessories)-1])
+#func _on_list_accessorie_changed():
+	#add_accessorie_button(accessories[len(accessories)-1])
 
 func swap_element(button):
 	print(button.position)

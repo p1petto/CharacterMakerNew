@@ -11,7 +11,7 @@ class_name CustomTab
 @export var linked_symmetrical_element: CustomTab
 
 signal change_sliders
-signal added_accessorie
+#signal added_accessorie
 
 func _ready() -> void:
 	for item in catalog_items:
@@ -109,7 +109,7 @@ func _handle_accessories_item(slot_index, item_class):
 	#var button_instance = button_scene.instantiate()
 	#button_instance.accessorie = part
 	#accecorie_panel.add_accessorie_button(button_instance)
-	accecorie_panel.accessories.append(part)
-	added_accessorie.emit()
+	accecorie_panel.add_accessorie_button(part, accessory_instance)
+	#added_accessorie.emit()
 
 	

@@ -5,6 +5,7 @@ class_name AccessorieButton
 @onready var button = $MarginContainer/TextureButton
 
 @export var accessorie: Accessorie
+@export var accessorie_element: AccessorieElement
 
 var dragging: bool = false
 var offset: Vector2
