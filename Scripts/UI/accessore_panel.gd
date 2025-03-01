@@ -26,6 +26,7 @@ func add_accessorie_button(accessorie, element):
 	accessorie_buttons.append(button_instance)
 	element.accessorie_button = button_instance
 	button_instance.accessory_selected.connect(_on_accessory_selected)
+	call_deferred("_update_order_and_positions")
 
 func _on_accessory_selected(element):
 	position_controller.visible = true
@@ -34,7 +35,7 @@ func _on_accessory_selected(element):
 func swap_element(button):
 	print(button.position)
 	var closest_button = get_closest_button(button)
-	
+
 	if closest_button != button:
 		var button_index = button.get_index()
 		var closest_button_index = closest_button.get_index()
@@ -48,15 +49,53 @@ func swap_element(button):
 		accessorie_buttons[button_index] = accessorie_buttons[closest_button_index]
 		accessorie_buttons[closest_button_index] = temp
 
-		# Отложим обновление cur_position на следующий кадр
-		call_deferred("_update_cur_positions", button, closest_button)
+		# Обновляем порядок z_index и позиции
+		call_deferred("_update_order_and_positions")
+
 	else:
 		button.position = button.cur_position
 
-func _update_cur_positions(button, closest_button):
-	# Обновляем cur_position для обеих кнопок
-	button.cur_position = button.position
-	closest_button.cur_position = closest_button.position
+func _update_order_and_positions():
+	# Обновляем cur_position и z_index для всех кнопок в правильном порядке
+	for i in range(accessorie_buttons.size()):
+		var button = accessorie_buttons[i]
+		button.cur_position = button.position
+		
+		match Global.current_dir:
+			"down":
+				button.accessorie_element.z_down = z_index + i + 1
+				button.accessorie_element.z_top = -(z_index  + i + 1)
+				button.accessorie_element.z_right = z_index + i + 1
+				button.accessorie_element.z_left = z_index + i + 1
+				
+				button.accessorie_element.z_index = button.accessorie_element.z_down
+			"top":
+				button.accessorie_element.z_down = -(z_index  + i + 1)
+				button.accessorie_element.z_top = z_index  + i + 1
+				button.accessorie_element.z_right = z_index  + i + 1
+				button.accessorie_element.z_left = z_index + i + 1
+				
+				button.accessorie_element.z_index = button.accessorie_element.z_top
+			"right":
+				button.accessorie_element.z_down = z_index   + i + 1
+				button.accessorie_element.z_top = -(z_index  + i + 1)
+				button.accessorie_element.z_right = z_index   + i + 1
+				button.accessorie_element.z_left = z_index   + i + 1
+				
+				button.accessorie_element.z_index = button.accessorie_element.z_right
+			"left":
+				button.accessorie_element.z_down = z_index   + i + 1
+				button.accessorie_element.z_top = -(z_index  + i + 1)
+				button.accessorie_element.z_right = z_index   + i + 1
+				button.accessorie_element.z_left = z_index  + i + 1
+				
+				button.accessorie_element.z_index = button.accessorie_element.z_left
+
+
+#func _update_cur_positions(button, closest_button):
+	## Обновляем cur_position для обеих кнопок
+	#button.cur_position = button.position
+	#closest_button.cur_position = closest_button.position
 
 func get_closest_button(button):
 	var closest_button = button  # Изначально ближайший — это сам переданный button

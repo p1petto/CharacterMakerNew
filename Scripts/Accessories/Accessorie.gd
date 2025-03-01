@@ -30,36 +30,6 @@ func _ready() -> void:
 	
 	var child_index = get_index()
 	
-	match Global.current_dir:
-		"down":
-			z_down = child_index + 1
-			z_top = -(child_index + 1)
-			z_right = child_index + 1
-			z_left = child_index + 1
-			
-			z_index = z_down
-		"top":
-			z_down = -(child_index + 1)
-			z_top = child_index + 1
-			z_right = child_index + 1
-			z_left = child_index + 1
-			
-			z_index = z_top
-		"right":
-			z_down = child_index + 1
-			z_top = -(child_index + 1)
-			z_right = child_index + 1
-			z_left = child_index + 1
-			
-			z_index = z_right
-		"left":
-			z_down = child_index + 1
-			z_top = -(child_index + 1)
-			z_right = child_index + 1
-			z_left = child_index + 1
-			
-			z_index = z_left
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
