@@ -13,7 +13,7 @@ func _ready() -> void:
 	catallog.tab_changed.connect(_on_tab_changed)
 
 func _on_tab_changed():
-	visible = catallog.current_tab.is_in_group("StaticTab") or catallog.current_tab.is_in_group("Accessorie") 
+	visible = catallog.current_tab.is_in_group("StaticTab") 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -29,12 +29,11 @@ func _on_position_changed(val):
 	
 	if cur_element.name != "Accessories":
 		cur_element.move_static_element(val)
-	else:
-		move_accesorie_element(val)
+	#else:
+		#move_accesorie_element(val)
 
 		
 	
-func move_accesorie_element(val):
-	pass
+
 
 		

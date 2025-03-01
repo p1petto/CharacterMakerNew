@@ -2,6 +2,7 @@ extends MarginContainer
 
 @onready var catallog = $"../Catalog"
 @onready var button_container = $VScrollBar/VBoxContainer
+@onready var position_controller = $"../PositionController"
 
 #@export var accessories: Array[Accessorie]
 @export var accessorie_buttons: Array[AccessorieButton]
@@ -21,9 +22,11 @@ func add_accessorie_button(accessorie, element):
 	button_container.add_child(button_instance)
 	button_instance.position_changed.connect(swap_element)
 	accessorie_buttons.append(button_instance)
+	element.accessorie_button = button_instance
+	button_instance.accessory_selected.connect(_on_accessory_selected)
 
-#func _on_list_accessorie_changed():
-	#add_accessorie_button(accessories[len(accessories)-1])
+func _on_accessory_selected(element):
+	position_controller.visible = true
 
 func swap_element(button):
 	print(button.position)

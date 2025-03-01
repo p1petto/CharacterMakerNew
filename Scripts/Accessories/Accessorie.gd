@@ -16,6 +16,8 @@ var z_top: int
 var z_left: int
 var z_right: int
 
+var accessorie_button: AccessorieButton
+
 func _ready() -> void:
 	cur_down_position = accessorie.start_down_position
 	cur_top_position = accessorie.start_top_position
@@ -81,5 +83,3 @@ func change_direction(dir: String) -> void:
 			sprite2d.texture = accessorie.left_texture
 			position = cur_left_position
 			z_index = z_left
-
-	

@@ -102,7 +102,6 @@ func _handle_accessories_item(slot_index, item_class):
 	var accessory_number = current_node.get_child_count()
 	accessory_instance.name = "Accessorie_" + str(accessory_number)
 	accessory_instance.accessorie = part
-
 	current_node.add_child(accessory_instance)
 	
 	#var button_scene = preload("res://Scenes/UI/AccessoreButton.tscn")
@@ -111,5 +110,6 @@ func _handle_accessories_item(slot_index, item_class):
 	#accecorie_panel.add_accessorie_button(button_instance)
 	accecorie_panel.add_accessorie_button(part, accessory_instance)
 	#added_accessorie.emit()
+
 
 	
