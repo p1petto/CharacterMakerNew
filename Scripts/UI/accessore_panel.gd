@@ -7,6 +7,8 @@ extends MarginContainer
 #@export var accessories: Array[Accessorie]
 @export var accessorie_buttons: Array[AccessorieButton]
 
+signal accessory_element_selected
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#if accessories:
@@ -27,6 +29,7 @@ func add_accessorie_button(accessorie, element):
 
 func _on_accessory_selected(element):
 	position_controller.visible = true
+	accessory_element_selected.emit(element)
 
 func swap_element(button):
 	print(button.position)

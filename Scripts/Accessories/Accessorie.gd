@@ -83,3 +83,18 @@ func change_direction(dir: String) -> void:
 			sprite2d.texture = accessorie.left_texture
 			position = cur_left_position
 			z_index = z_left
+			
+func move_accesorie_element(val: Vector2) -> void:
+	print("val", val)
+	if cur_down_position.x + val.x >= accessorie.min_x_vertical and cur_down_position.x + val.x <= accessorie.max_x_vertical and cur_down_position.y + val.y >= accessorie.min_y_vertical and cur_down_position.y + val.y <= accessorie.max_y_vertical:
+		cur_down_position = cur_down_position + val
+	if cur_top_position.x + val.x >= accessorie.min_x_vertical and cur_top_position.x + val.x <= accessorie.max_x_vertical and cur_top_position.y + val.y >= accessorie.min_y_vertical and cur_top_position.y + val.y <= accessorie.max_y_vertical:
+		cur_top_position = cur_top_position + val
+	if cur_right_position.x + val.x >= accessorie.min_x_right and cur_right_position.x + val.x <= accessorie.max_x_right and  cur_right_position.y + val.y >= accessorie.min_y_right and cur_right_position.y + val.y <= accessorie.max_y_right:
+		cur_right_position = cur_right_position + val
+	if cur_left_position.x + val.x >= accessorie.min_x_left and cur_left_position.x + val.x <= accessorie.max_x_left and cur_left_position.y + val.y >= accessorie.min_y_left and cur_left_position.y + val.y <= accessorie.max_y_left:
+		cur_left_position = cur_left_position + val
+	
+	
+	change_direction(Global.current_dir)
+			

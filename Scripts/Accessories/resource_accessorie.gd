@@ -12,4 +12,19 @@ class_name Accessorie
 @export var start_right_position: Vector2
 @export var start_left_position: Vector2
 
+@export var min_x_vertical: float
+@export var max_x_vertical: float
+@export var min_y_vertical: float
+@export var max_y_vertical: float
+
+@export var min_x_left: float
+@export var max_x_left: float
+@export var min_y_left: float
+@export var max_y_left: float
+
+@export var min_x_right: float
+@export var max_x_right: float
+@export var min_y_right: float
+@export var max_y_right: float
+
 @export var not_can_top: bool
