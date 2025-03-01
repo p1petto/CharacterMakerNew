@@ -27,10 +27,18 @@ func add_accessorie_button(accessorie, element):
 	element.accessorie_button = button_instance
 	button_instance.accessory_selected.connect(_on_accessory_selected)
 	call_deferred("_update_order_and_positions")
+	button_instance.element_deleted.connect(_on_accessory_deleted)
 
 func _on_accessory_selected(element):
 	position_controller.visible = true
 	accessory_element_selected.emit(element)
+	
+func _on_accessory_deleted(button: AccessorieButton):
+	if button in accessorie_buttons:
+		accessorie_buttons.erase(button)  # Удаляем кнопку из списка
+		button.queue_free()  # Удаляем саму кнопку из сцены
+		call_deferred("_update_order_and_positions")  # Обновляем порядок после удаления
+
 
 func swap_element(button):
 	print(button.position)

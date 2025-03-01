@@ -1,7 +1,7 @@
 extends MarginContainer
 class_name AccessorieButton
 
-@onready var button = $MarginContainer/TextureButton
+@onready var icon = $CenterContainer/icon
 @export var accessorie: Accessorie
 @export var accessorie_element: AccessorieElement
 var dragging: bool = false
@@ -10,9 +10,10 @@ var cur_position: Vector2
 
 signal position_changed
 signal accessory_selected
+signal element_deleted
 
 func _ready() -> void:
-	button.texture_normal = accessorie.down_texture
+	icon.texture = accessorie.down_texture
 	# Используем таймер для задержки, чтобы дать VBoxContainer время разместить ноды
 	var timer = get_tree().create_timer(0.05)
 	timer.timeout.connect(_update_position)
@@ -37,3 +38,14 @@ func _input(event: InputEvent) -> void:
 
 func _on_texture_button_button_up() -> void:
 	accessory_selected.emit(accessorie_element)
+
+
+func _on_delete_button_button_up() -> void:
+	# Удаляем элемент аксессуара, если он существует
+	element_deleted.emit(self)
+	if accessorie_element != null and is_instance_valid(accessorie_element):
+		accessorie_element.queue_free()
+	
+	# Удаляем саму кнопку (текущий объект)
+	queue_free()
+	
