@@ -5,7 +5,7 @@ extends Node2D
 @onready var body_static_elements = $"Body/Polygon2D"
 
 @onready var catallog = $"../../../UI/Catalog/CatalogContainer"
-@onready var direction_controller = $"../../../UI/DirectionButtons"
+@onready var button_container = $"../../../UI/DirectionButtons"
 @onready var head = $Head
 
 var cur_dir = "down"
@@ -13,8 +13,9 @@ var cur_dir = "down"
 signal direction_change_sliders
 
 func _ready() -> void:
-	for button in direction_controller.get_children():
-		button.direction_changed.connect(_on_direction_changed)
+	for button in button_container.get_children():
+		if button.is_in_group("DirectionButton"):
+			button.direction_changed.connect(_on_direction_changed)
 		
 	for element in started_static_elements:
 		var static_element_scene = preload("res://Scenes/static_element.tscn")

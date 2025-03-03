@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bm1ycyeyegmyw"]
+[gd_scene load_steps=32 format=3 uid="uid://bm1ycyeyegmyw"]
 
 [ext_resource type="PackedScene" uid="uid://bmajra62ohwsu" path="res://Scenes/character.tscn" id="1_12d3f"]
 [ext_resource type="Script" path="res://Scripts/maker.gd" id="1_wror2"]
@@ -22,6 +22,7 @@
 [ext_resource type="Resource" uid="uid://xb00p14w71s4" path="res://Resources/CatalogItems/StaticElement/Eyes/Eye1/RightEye/RightEye.tres" id="17_nc5m7"]
 [ext_resource type="Resource" uid="uid://iu27d1bg1axf" path="res://Resources/CatalogItems/Accessories/Bow.tres" id="20_emeal"]
 [ext_resource type="Resource" uid="uid://cww0wllumgai8" path="res://Resources/CatalogItems/Accessories/Glass.tres" id="21_adrnn"]
+[ext_resource type="Script" path="res://Scripts/UI/animation_controller.gd" id="23_b4y1g"]
 [ext_resource type="PackedScene" uid="uid://b2omgn2er4084" path="res://Scenes/UI/accessorie_panel.tscn" id="23_dbin5"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_1urqw"]
@@ -260,7 +261,7 @@ offset_top = 223.0
 offset_right = 282.0
 offset_bottom = 373.0
 
-[node name="Down" parent="UI/DirectionButtons" instance=ExtResource("8_sklk8")]
+[node name="Down" parent="UI/DirectionButtons" groups=["DirectionButton"] instance=ExtResource("8_sklk8")]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -274,7 +275,7 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Right" parent="UI/DirectionButtons" instance=ExtResource("8_sklk8")]
+[node name="Right" parent="UI/DirectionButtons" groups=["DirectionButton"] instance=ExtResource("8_sklk8")]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -289,7 +290,7 @@ grow_horizontal = 0
 grow_vertical = 2
 direction = "right"
 
-[node name="Top" parent="UI/DirectionButtons" instance=ExtResource("8_sklk8")]
+[node name="Top" parent="UI/DirectionButtons" groups=["DirectionButton"] instance=ExtResource("8_sklk8")]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -301,7 +302,7 @@ offset_bottom = 50.0
 grow_horizontal = 2
 direction = "top"
 
-[node name="Left" parent="UI/DirectionButtons" instance=ExtResource("8_sklk8")]
+[node name="Left" parent="UI/DirectionButtons" groups=["DirectionButton"] instance=ExtResource("8_sklk8")]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -313,7 +314,18 @@ offset_bottom = 25.0
 grow_vertical = 2
 direction = "left"
 
+[node name="AnimationController" type="Button" parent="UI/DirectionButtons"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 55.0
+offset_right = 96.0
+offset_bottom = 96.0
+text = "idle"
+script = ExtResource("23_b4y1g")
+
 [node name="AccessoriePanel" parent="UI" instance=ExtResource("23_dbin5")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(577, 325)
+
+[connection signal="button_up" from="UI/DirectionButtons/AnimationController" to="UI/DirectionButtons/AnimationController" method="_on_button_up"]
