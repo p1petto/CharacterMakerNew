@@ -28,6 +28,7 @@ func add_accessorie_button(accessorie, element):
 	button_instance.accessory_selected.connect(_on_accessory_selected)
 	call_deferred("_update_order_and_positions")
 	button_instance.element_deleted.connect(_on_accessory_deleted)
+	button_instance.cur_position = button_instance.position
 
 func _on_accessory_selected(element):
 	position_controller.visible = true
