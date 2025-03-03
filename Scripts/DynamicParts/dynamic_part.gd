@@ -2,6 +2,8 @@ extends Node2D
 
 @export var dynamic_part: DynamicBodyPart
 
+@export var idle_ainmation_offset: Array[Vector2]
+var cur_frame: int
 
 @onready var polygon2d = $Polygon2D
 @onready var testpolygon2d = $Polygon2D

@@ -6,9 +6,6 @@ class_name ConditionallyDynamicCharacterPart
 
 @export var conditionally_dynamic: ConditionallyDynamic
 
-@export var cur_frame: int
-@export var cur_animation: String
-
 @export var z_down: float
 @export var z_right: float
 @export var z_top: float
@@ -17,6 +14,10 @@ class_name ConditionallyDynamicCharacterPart
 @export var marker_y_pos: int = 0
 
 @export var linked_symmetrical_element: ConditionallyDynamicCharacterPart
+
+@export var cur_animation: String
+@export var idle_ainmation_offset: Array[Vector2]
+var cur_frame: int
 
 @onready var slider_containers = $"../../../../UI/SliderContainer"
 
