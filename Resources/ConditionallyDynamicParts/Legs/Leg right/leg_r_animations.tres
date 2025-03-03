@@ -1,28 +1,28 @@
 [gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://cru8uuc57xixj"]
 
-[ext_resource type="Texture2D" uid="uid://hewebn3wt02q" path="res://Assets/Character/leg/idle-leg.png" id="1_nhjmt"]
+[ext_resource type="Texture2D" uid="uid://hewebn3wt02q" path="res://Assets/Character/leg/1/idle-leg.png" id="1_p8uyx"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wmvff"]
-atlas = ExtResource("1_nhjmt")
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0lhh"]
+atlas = ExtResource("1_p8uyx")
 region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2fowt"]
-atlas = ExtResource("1_nhjmt")
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dcvy"]
+atlas = ExtResource("1_p8uyx")
 region = Rect2(64, 192, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2krpu"]
-atlas = ExtResource("1_nhjmt")
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ixm3"]
+atlas = ExtResource("1_p8uyx")
 region = Rect2(64, 64, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wspn3"]
-atlas = ExtResource("1_nhjmt")
+[sub_resource type="AtlasTexture" id="AtlasTexture_tg7yb"]
+atlas = ExtResource("1_p8uyx")
 region = Rect2(64, 128, 64, 64)
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wmvff")
+"texture": SubResource("AtlasTexture_p0lhh")
 }],
 "loop": true,
 "name": &"idle_down_1",
@@ -30,7 +30,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2fowt")
+"texture": SubResource("AtlasTexture_5dcvy")
 }],
 "loop": true,
 "name": &"idle_left_1",
@@ -38,7 +38,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2krpu")
+"texture": SubResource("AtlasTexture_4ixm3")
 }],
 "loop": true,
 "name": &"idle_right_1",
@@ -46,9 +46,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wspn3")
+"texture": SubResource("AtlasTexture_tg7yb")
 }],
 "loop": true,
 "name": &"idle_top_1",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk_down_1",
 "speed": 5.0
 }]

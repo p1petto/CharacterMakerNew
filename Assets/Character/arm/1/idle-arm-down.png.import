@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bbn2wkg81lbk8"
-path="res://.godot/imported/idle-arm-down.png-a5845bc8d03ef15e2f7ab7c24a30b201.ctex"
+path="res://.godot/imported/idle-arm-down.png-62c23c50154a63b243b92d7ead7c3d35.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Character/arm/idle-arm-down.png"
-dest_files=["res://.godot/imported/idle-arm-down.png-a5845bc8d03ef15e2f7ab7c24a30b201.ctex"]
+source_file="res://Assets/Character/arm/1/idle-arm-down.png"
+dest_files=["res://.godot/imported/idle-arm-down.png-62c23c50154a63b243b92d7ead7c3d35.ctex"]
 
 [params]
 

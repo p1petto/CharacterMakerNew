@@ -15,9 +15,10 @@ script = ExtResource("1_qxlcm")
 
 [node name="Body" parent="." groups=["Dynamic"] instance=ExtResource("1_qwsbw")]
 clip_children = 2
-position = Vector2(25, 15)
+position = Vector2(25, 16)
 dynamic_part = ExtResource("3_0fwpx")
-idle_ainmation_offset = Array[Vector2]([Vector2(0, 0), Vector2(0, -1), Vector2(0, 0), Vector2(0, 1), Vector2(0, 0)])
+idle_ainmation_offset_vertical = Array[Vector2]([Vector2(0, 0), Vector2(0, -1), Vector2(0, 0), Vector2(0, 1), Vector2(0, 0)])
+walk_animation_offset_vertical = Array[Vector2]([Vector2(-1, 0), Vector2(1, 0), Vector2(1, -1), Vector2(1, 1), Vector2(-1, -1), Vector2(-1, 1)])
 
 [node name="RightLeg" parent="." node_paths=PackedStringArray("linked_symmetrical_element") groups=["ConditionallyDynamic"] instance=ExtResource("3_imctp")]
 position = Vector2(33, 29)
@@ -48,7 +49,8 @@ z_top = 3.0
 z_left = 1.0
 marker_y_pos = 32
 linked_symmetrical_element = NodePath("../RightArm")
-idle_ainmation_offset = Array[Vector2]([Vector2(0, 0), Vector2(0, -1), Vector2(0, 0), Vector2(0, 1), Vector2(0, 0)])
+idle_ainmation_offset_vertical = Array[Vector2]([Vector2(0, 0), Vector2(0, -1), Vector2(0, 0), Vector2(0, 1), Vector2(0, 0)])
+walk_animation_offset_vertical = Array[Vector2]([Vector2(-1, 0), Vector2(1, 0), Vector2(1, -1), Vector2(1, 1), Vector2(-1, -1), Vector2(-1, 1)])
 
 [node name="RightArm" parent="." node_paths=PackedStringArray("linked_symmetrical_element") groups=["ConditionallyDynamic"] instance=ExtResource("3_imctp")]
 position = Vector2(34, 32)
@@ -59,10 +61,12 @@ z_top = 2.0
 z_left = 5.0
 marker_y_pos = 32
 linked_symmetrical_element = NodePath("../LeftArm")
-idle_ainmation_offset = Array[Vector2]([Vector2(0, 0), Vector2(0, -1), Vector2(0, 0), Vector2(0, 1), Vector2(0, 0)])
+idle_ainmation_offset_vertical = Array[Vector2]([Vector2(0, 0), Vector2(0, -1), Vector2(0, 0), Vector2(0, 1), Vector2(0, 0)])
+walk_animation_offset_vertical = Array[Vector2]([Vector2(-1, 0), Vector2(1, 0), Vector2(1, -1), Vector2(1, 1), Vector2(-1, -1), Vector2(-1, 1)])
 
 [node name="Head" parent="." groups=["Dynamic"] instance=ExtResource("1_qwsbw")]
 clip_children = 2
 position = Vector2(25, 16)
 dynamic_part = ExtResource("2_60lhr")
-idle_ainmation_offset = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, -1), Vector2(0, 0), Vector2(0, 1)])
+idle_ainmation_offset_vertical = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, -1), Vector2(0, 0), Vector2(0, 1)])
+walk_animation_offset_vertical = Array[Vector2]([Vector2(-1, -1), Vector2(1, -1), Vector2(1, -1), Vector2(1, 1), Vector2(-1, 1), Vector2(-1, 1)])

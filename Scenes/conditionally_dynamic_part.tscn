@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bwi4hslosv760"]
 
 [ext_resource type="Script" path="res://Scripts/ConditionallyDynamicPart/conditionally_dynamic_part.gd" id="1_8wsnp"]
-[ext_resource type="SpriteFrames" uid="uid://m8pb07il8ekv" path="res://Resources/ConditionallyDynamicParts/Arms/Arm right/arm_r_animations.tres" id="1_uyn84"]
+[ext_resource type="SpriteFrames" uid="uid://boqweykkavowk" path="res://Resources/ConditionallyDynamicParts/Arms/Arm left/arm_l_animations.tres" id="2_3lpiv"]
 
 [node name="ConditionallyDynamicPart" type="Node2D"]
 texture_filter = 1
@@ -9,5 +9,5 @@ script = ExtResource("1_8wsnp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 3)
-sprite_frames = ExtResource("1_uyn84")
-animation = &"idle_down_1"
+sprite_frames = ExtResource("2_3lpiv")
+animation = &"walk_down_3"

@@ -2,6 +2,7 @@ extends Node
 
 var current_dir = "down"
 var current_animation = "idle"
+var animation_is_run = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bldc54a1tdwgy"
-path="res://.godot/imported/idle-arm-top.png-2b42383ce515b68930fe6f3a574f1b5f.ctex"
+uid="uid://hewebn3wt02q"
+path="res://.godot/imported/idle-leg.png-9e9ed2caa6312c83579e84bd8651806f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Character/arm/idle-arm-top.png"
-dest_files=["res://.godot/imported/idle-arm-top.png-2b42383ce515b68930fe6f3a574f1b5f.ctex"]
+source_file="res://Assets/Character/leg/1/idle-leg.png"
+dest_files=["res://.godot/imported/idle-leg.png-9e9ed2caa6312c83579e84bd8651806f.ctex"]
 
 [params]
 

@@ -3,6 +3,7 @@ extends Node2D
 class_name ConditionallyDynamicCharacterPart
 
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var body = $"../Body"
 
 @export var conditionally_dynamic: ConditionallyDynamic
 
@@ -16,7 +17,10 @@ class_name ConditionallyDynamicCharacterPart
 @export var linked_symmetrical_element: ConditionallyDynamicCharacterPart
 
 @export var cur_animation: String
-@export var idle_ainmation_offset: Array[Vector2]
+
+@export var idle_ainmation_offset_vertical: Array[Vector2]
+@export var walk_animation_offset_vertical: Array[Vector2]
+
 var cur_frame: int
 
 @onready var slider_containers = $"../../../../UI/SliderContainer"
@@ -27,6 +31,7 @@ var current_thickness: String = "1"
 var is_symmetrical = false
 
 func _ready() -> void:
+	
 	if conditionally_dynamic.sprite_frames:
 		animated_sprite.sprite_frames = conditionally_dynamic.sprite_frames
 	if cur_animation:
@@ -73,3 +78,6 @@ func update_animation() -> void:
 
 func _process(delta: float) -> void:
 	pass
+	
+func update_frame(frame_index):
+	animated_sprite.frame = frame_index

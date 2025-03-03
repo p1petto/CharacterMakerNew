@@ -2,7 +2,9 @@ extends Node2D
 
 @export var dynamic_part: DynamicBodyPart
 
-@export var idle_ainmation_offset: Array[Vector2]
+@export var idle_ainmation_offset_vertical: Array[Vector2]
+@export var walk_animation_offset_vertical: Array[Vector2]
+
 var cur_frame: int
 
 @onready var polygon2d = $Polygon2D
@@ -25,6 +27,9 @@ func _ready() -> void:
 		#var marker = marker_scene.instantiate()
 		#marker.position = polygon2d.polygon[m] * 5 
 		#marker_container.add_child(marker)
+
+#func set_start_position():
+	
 		
 func get_target_container_slider():
 	var character_part = get_name()

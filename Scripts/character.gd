@@ -50,3 +50,4 @@ func change_dir_for_parts():
 			child.change_direction(cur_dir)
 	for child in head.get_node("Accessories").get_children():
 		child.change_direction(cur_dir)
+		

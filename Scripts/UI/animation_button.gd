@@ -12,3 +12,7 @@ func _on_button_up() -> void:
 	Global.current_animation = animation_states[(current_index + 1) % animation_states.size()]
 	text = Global.current_animation
 	
+	for child in character.get_children():
+		if child.is_in_group("ConditionallyDynamic"):
+			child.change_state(Global.current_animation)
+	

@@ -8,4 +8,6 @@ min_value = -3.0
 max_value = 3.0
 script = ExtResource("1_bi2i6")
 
+[connection signal="drag_ended" from="." to="." method="_on_drag_ended"]
+[connection signal="drag_started" from="." to="." method="_on_drag_started"]
 [connection signal="value_changed" from="." to="." method="_on_value_changed"]
