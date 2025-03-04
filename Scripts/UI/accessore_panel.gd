@@ -36,9 +36,18 @@ func _on_accessory_selected(element):
 	
 func _on_accessory_deleted(button: AccessorieButton):
 	if button in accessorie_buttons:
-		accessorie_buttons.erase(button)  # Удаляем кнопку из списка
-		button.queue_free()  # Удаляем саму кнопку из сцены
-		call_deferred("_update_order_and_positions")  # Обновляем порядок после удаления
+		accessorie_buttons.erase(button)
+		var timer = Timer.new()
+		add_child(timer)
+		timer.wait_time = 0.05  
+		timer.one_shot = true
+		timer.timeout.connect(func(): 
+			_update_order_and_positions()
+			timer.queue_free()  
+		)
+		timer.start()
+		
+		button.queue_free()
 
 
 func swap_element(button):
