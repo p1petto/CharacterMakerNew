@@ -20,6 +20,8 @@ class_name ConditionallyDynamicCharacterPart
 
 @export var idle_ainmation_offset_vertical: Array[Vector2]
 @export var walk_animation_offset_vertical: Array[Vector2]
+@export var idle_ainmation_offset_horizontal: Array[Vector2]
+@export var walk_animation_offset_horizontal: Array[Vector2]
 
 var cur_frame: int
 

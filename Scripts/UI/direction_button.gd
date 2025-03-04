@@ -15,4 +15,5 @@ func _process(delta: float) -> void:
 
 
 func _on_button_up() -> void:
-	direction_changed.emit(direction)
+	Global.current_dir = direction
+	direction_changed.emit()

@@ -1,10 +1,15 @@
 extends Node2D
 @onready var character = $"../SubViewportContainer/SubViewport/Character"
+@onready var button_container = $"../UI/DirectionButtons"
 
 var animation_frame = 0  # To keep track of the current animation frame
 @export var animation_speed: float = 1.0  # Controls how fast the animation plays
 var animation_timer: float = 0.0  # Accumulates time between frame changes
 
+func _ready():
+	for button in button_container.get_children():
+		if button.is_in_group("DirectionButton"):
+			button.direction_changed.connect(set_start_position)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Global.animation_is_run:
