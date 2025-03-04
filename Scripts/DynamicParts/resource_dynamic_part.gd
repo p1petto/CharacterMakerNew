@@ -10,10 +10,10 @@ class_name  DynamicBodyPart
 @export var horizontal_glare_array_points: PackedVector2Array
 @export var top_glare_array_points: PackedVector2Array
 
-@export var position_x_down: float
-@export var position_x_right: float
-@export var position_x_top: float
-@export var position_x_left: float
+@export var position_down: Vector2
+@export var position_right: Vector2
+@export var position_top: Vector2
+@export var position_left: Vector2
 
 @export var z_down: float
 @export var z_right: float

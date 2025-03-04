@@ -18,10 +18,12 @@ func _process(delta: float) -> void:
 
 func _on_animation_player_toggled(toggled_on: bool) -> void:
 	Global.animation_is_run = toggled_on
-	# Reset animation frame and timer when toggled
-	if toggled_on:
-		animation_frame = 0
-		animation_timer = 0.0
+	
+	animation_frame = 0
+	animation_timer = 0.0
+	
+	set_start_position()
+	
 
 func animate_children() -> void:
 	if character == null:
@@ -48,14 +50,35 @@ func animate_children() -> void:
 				# Применяем смещение на основе текущего кадра анимации
 				var frame_index = animation_frame % offset_array.size()
 				var offset = offset_array[frame_index]
-				if offset is Vector2:
-					child.position += offset
+				
+				
 									
 				if child.is_in_group("ConditionallyDynamic") :
+					child.position += offset
 					child.update_frame(frame_index)
-					
+				elif child.is_in_group("Dynamic") :
+					var start_position
+					if Global.current_dir == "down":
+						start_position = child.dynamic_part.position_down
+					elif Global.current_dir == "top":
+						start_position = child.dynamic_part.position_top
+					elif Global.current_dir == "right":
+						start_position = child.dynamic_part.position_right
+					elif Global.current_dir == "left":
+						start_position = child.dynamic_part.position_left
+					child.position = start_position + offset
+				
 				child.cur_frame = frame_index
 				
 	
 	# Увеличиваем счетчик кадров ровно на единицу
 	animation_frame += 1
+	
+func set_start_position():
+	for child in character.get_children():
+		child.cur_frame = 0
+		if child.is_in_group("Dynamic"):
+			child.setup_polygon(Global.current_dir)
+		if child.is_in_group("ConditionallyDynamic"):
+			child.animated_sprite.frame = 0
+			child.position = child.start_position

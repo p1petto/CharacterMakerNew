@@ -1,5 +1,7 @@
 extends Button
 @onready var character = $"../../../SubViewportContainer/SubViewport/Character"
+@onready var animation_controller = $"../../../AnimationController"
+
 var animation_states = ["idle", "walk"]
 
 
@@ -15,4 +17,6 @@ func _on_button_up() -> void:
 	for child in character.get_children():
 		if child.is_in_group("ConditionallyDynamic"):
 			child.change_state(Global.current_animation)
+			
+	animation_controller.set_start_position()
 	

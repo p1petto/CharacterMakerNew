@@ -29,6 +29,7 @@ var current_state: String = "idle"
 var current_direction: String = "down"
 var current_thickness: String = "1"
 var is_symmetrical = false
+var start_position: Vector2
 
 func _ready() -> void:
 	
@@ -39,6 +40,7 @@ func _ready() -> void:
 	else:
 		# Установка анимации по умолчанию
 		update_animation()
+	start_position = position
 
 func change_direction(direction: String) -> void:
 	if direction not in ["top", "down", "left", "right"]:

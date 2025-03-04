@@ -10,6 +10,7 @@ extends Node2D
 
 var cur_dir = "down"
 
+
 signal direction_change_sliders
 
 func _ready() -> void:
@@ -24,6 +25,8 @@ func _ready() -> void:
 		static_element.name = element.item_class
 		static_element.change_direction(cur_dir)
 		head_static_elements.add_child(static_element)
+	
+	
 
 func _process(delta: float) -> void:
 	pass

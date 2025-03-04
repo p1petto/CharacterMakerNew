@@ -4,6 +4,8 @@ extends Node2D
 
 @export var idle_ainmation_offset_vertical: Array[Vector2]
 @export var walk_animation_offset_vertical: Array[Vector2]
+@export var idle_ainmation_offset_horizontal: Array[Vector2]
+@export var walk_animation_offset_horizontal: Array[Vector2]
 
 var cur_frame: int
 
@@ -18,6 +20,7 @@ var cur_frame: int
 #var marker_scene = preload("res://Scenes/marker.tscn")
 var central_bottom_point: int 
 var flag = true
+
 
 func _ready() -> void:
 	if dynamic_part:
@@ -53,7 +56,9 @@ func setup_polygon(dir) -> void:
 		line2d.points = dynamic_part.down_array_points
 		glare.polygon = dynamic_part.down_glare_array_points
 		
-		position.x = dynamic_part.position_x_down
+		position = dynamic_part.position_down
+	
+		
 		z_index = dynamic_part.z_down
 		
 		central_bottom_point = len(dynamic_part.down_array_points) / 2
@@ -71,7 +76,7 @@ func setup_polygon(dir) -> void:
 		line2d.points = dynamic_part.top_array_points
 		glare.polygon = dynamic_part.top_glare_array_points
 		
-		position.x = dynamic_part.position_x_top
+		position = dynamic_part.position_top
 		z_index = dynamic_part.z_top
 		
 		central_bottom_point = len(dynamic_part.top_array_points) / 2
@@ -82,7 +87,7 @@ func setup_polygon(dir) -> void:
 				line2d.points[slider.linked_marker].x = dynamic_part.top_array_points[slider.linked_marker].x - slider.value
 				var mirror_x = get_mirror_x(len(dynamic_part.top_array_points), slider.linked_marker)
 				polygon2d.polygon[mirror_x].x = dynamic_part.top_array_points[mirror_x].x + slider.value
-				line2d.points[mirror_x].x = dynamic_part.top_array_points[mirror_x].x + slider.value
+				line2d.points[mirror_x].x = dynamic_part.top_array_points[mirror_x].x + slider.value			
 				
 	if dir == "right":
 		polygon2d.polygon = dynamic_part.horizontal_array_points
@@ -96,7 +101,7 @@ func setup_polygon(dir) -> void:
 		# Теперь синхронизируем line2d с polygon2d
 		line2d.points = polygon2d.polygon.duplicate()
 
-		position.x = dynamic_part.position_x_right
+		position = dynamic_part.position_right
 		z_index = dynamic_part.z_right
 
 		central_bottom_point = len(dynamic_part.horizontal_array_points) / 2
@@ -128,11 +133,28 @@ func setup_polygon(dir) -> void:
 		glare.polygon = mirrored_glare_points
 		line2d.points = polygon2d.polygon.duplicate()
 		
-		position.x = dynamic_part.position_x_left
+		position = dynamic_part.position_left
 		z_index = dynamic_part.z_left
 		
 		central_bottom_point = len(dynamic_part.horizontal_array_points) / 2
 
+	if Global.animation_is_run:
+		var property_name = ""
+		if Global.current_animation == "idle":
+			property_name = "idle_ainmation_offset"
+		elif Global.current_animation == "walk":
+			property_name = "walk_animation_offset"
+		else:
+			property_name = "idle_ainmation_offset"  # По умолчанию
+		if Global.current_dir == "down" or Global.current_dir == "top":
+			property_name = property_name + "_vertical"
+		else:
+			property_name = property_name + "_horizontal"
+			
+		var offset_array = get(property_name)
+		position += offset_array[cur_frame]
+					
+	
 
 
 
