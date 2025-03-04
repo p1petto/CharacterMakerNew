@@ -11,10 +11,7 @@ signal accessory_element_selected
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#if accessories:
-		#for accessorie in accessories:
-			#add_accessorie_button(accessorie)
-	pass
+	catallog.tab_changed.connect(change_visible)
 
 func add_accessorie_button(accessorie, element):
 	var button_scene = preload("res://Scenes/UI/AccessoreButton.tscn")
@@ -129,3 +126,8 @@ func get_closest_button(button):
 				closest_button = child
 
 	return closest_button
+	
+	
+func change_visible():
+	visible = catallog.current_tab.is_in_group("Accessorie")
+		
