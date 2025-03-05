@@ -26,23 +26,32 @@ walk_animation_offset_horizontal = Array[Vector2]([Vector2(0, 0), Vector2(0, 0),
 position = Vector2(33, 29)
 conditionally_dynamic = ExtResource("5_hwtnd")
 z_down = 2.0
-z_right = 1.0
-z_top = 6.0
+z_right = 2.0
+z_top = 4.0
 z_left = 4.0
 marker_y_pos = 40
 linked_symmetrical_element = NodePath("../LeftLeg")
+idle_ainmation_offset_vertical = Array[Vector2]([Vector2(0, 0)])
+walk_animation_offset_vertical = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
+idle_ainmation_offset_horizontal = Array[Vector2]([Vector2(0, 0)])
+walk_animation_offset_horizontal = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
 
 [node name="LeftLeg" parent="." node_paths=PackedStringArray("linked_symmetrical_element") groups=["ConditionallyDynamic"] instance=ExtResource("3_imctp")]
 position = Vector2(33, 29)
 conditionally_dynamic = ExtResource("6_hqex5")
 z_down = 1.0
-z_right = 2.0
+z_right = 4.0
 z_top = 5.0
-z_left = 3.0
+z_left = 2.0
 marker_y_pos = 40
 linked_symmetrical_element = NodePath("../RightLeg")
+idle_ainmation_offset_vertical = Array[Vector2]([Vector2(0, 0)])
+walk_animation_offset_vertical = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
+idle_ainmation_offset_horizontal = Array[Vector2]([Vector2(0, 0)])
+walk_animation_offset_horizontal = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
 
 [node name="LeftArm" parent="." node_paths=PackedStringArray("linked_symmetrical_element") groups=["ConditionallyDynamic"] instance=ExtResource("3_imctp")]
+visible = false
 position = Vector2(32, 32)
 conditionally_dynamic = ExtResource("7_bhysn")
 z_down = 3.0
@@ -53,18 +62,23 @@ marker_y_pos = 32
 linked_symmetrical_element = NodePath("../RightArm")
 idle_ainmation_offset_vertical = Array[Vector2]([Vector2(0, 0), Vector2(0, -1), Vector2(0, 0), Vector2(0, 1), Vector2(0, 0)])
 walk_animation_offset_vertical = Array[Vector2]([Vector2(-1, 0), Vector2(1, 0), Vector2(1, -1), Vector2(1, 1), Vector2(-1, -1), Vector2(-1, 1)])
+idle_ainmation_offset_horizontal = Array[Vector2]([Vector2(0, 0)])
+walk_animation_offset_horizontal = Array[Vector2]([Vector2(0, 0)])
 
 [node name="RightArm" parent="." node_paths=PackedStringArray("linked_symmetrical_element") groups=["ConditionallyDynamic"] instance=ExtResource("3_imctp")]
+visible = false
 position = Vector2(34, 32)
 conditionally_dynamic = ExtResource("8_22m0c")
 z_down = 4.0
-z_right = 3.0
+z_right = 1.0
 z_top = 2.0
 z_left = 5.0
 marker_y_pos = 32
 linked_symmetrical_element = NodePath("../LeftArm")
 idle_ainmation_offset_vertical = Array[Vector2]([Vector2(0, 0), Vector2(0, -1), Vector2(0, 0), Vector2(0, 1), Vector2(0, 0)])
 walk_animation_offset_vertical = Array[Vector2]([Vector2(-1, 0), Vector2(1, 0), Vector2(1, -1), Vector2(1, 1), Vector2(-1, -1), Vector2(-1, 1)])
+idle_ainmation_offset_horizontal = Array[Vector2]([Vector2(0, 0)])
+walk_animation_offset_horizontal = Array[Vector2]([Vector2(0, 0)])
 
 [node name="Head" parent="." groups=["Dynamic"] instance=ExtResource("1_qwsbw")]
 clip_children = 2

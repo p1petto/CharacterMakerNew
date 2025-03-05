@@ -10,7 +10,7 @@ func _ready():
 	for button in button_container.get_children():
 		if button.is_in_group("DirectionButton"):
 			button.direction_changed.connect(set_start_position)
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+ #Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Global.animation_is_run:
 		# Accumulate time
@@ -23,9 +23,6 @@ func _process(delta: float) -> void:
 
 func _on_animation_player_toggled(toggled_on: bool) -> void:
 	Global.animation_is_run = toggled_on
-	
-	animation_frame = 0
-	animation_timer = 0.0
 	
 	set_start_position()
 	
@@ -80,6 +77,8 @@ func animate_children() -> void:
 	animation_frame += 1
 	
 func set_start_position():
+	animation_frame = 0
+	animation_timer = 0.0
 	for child in character.get_children():
 		child.cur_frame = 0
 		if child.is_in_group("Dynamic"):

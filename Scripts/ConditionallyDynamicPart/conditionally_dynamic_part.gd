@@ -70,6 +70,7 @@ func change_thickness(new_thickness) -> void:
 	update_animation()
 
 func update_animation() -> void:
+	cur_frame = 0
 	# Собираем имя анимации из компонентов через underscore
 	animated_sprite.sprite_frames = conditionally_dynamic.sprite_frames
 	var animation_name = "_".join([current_state, current_direction, current_thickness])
@@ -79,6 +80,22 @@ func update_animation() -> void:
 		animated_sprite.animation = animation_name
 	else:
 		print("Animation not found: ", animation_name)
+	
+	#if Global.animation_is_run:
+		#var property_name = ""
+		#if Global.current_animation == "idle":
+			#property_name = "idle_ainmation_offset"
+		#elif Global.current_animation == "walk":
+			#property_name = "walk_animation_offset"
+		#else:
+			#property_name = "idle_ainmation_offset"  # По умолчанию
+		#if Global.current_dir == "down" or Global.current_dir == "top":
+			#property_name = property_name + "_vertical"
+		#else:
+			#property_name = property_name + "_horizontal"
+			#
+		#var offset_array = get(property_name)
+		#position = start_position + offset_array[cur_frame]
 
 func _process(delta: float) -> void:
 	pass
