@@ -1,12 +1,10 @@
-[gd_resource type="Resource" script_class="CatalogItem" load_steps=4 format=3 uid="uid://rrelwntd3sqm"]
+[gd_resource type="Resource" script_class="CatalogItem" load_steps=3 format=3 uid="uid://rrelwntd3sqm"]
 
 [ext_resource type="Resource" uid="uid://br5mnj2pgkdc2" path="res://Resources/DynamicPart/Body/ManBodyTest.tres" id="1_ngnsr"]
-[ext_resource type="Texture2D" uid="uid://dtva1wv0dws8y" path="res://screenshot.png" id="2_myo26"]
 [ext_resource type="Script" path="res://Scripts/CatalogItemResource.gd" id="3_ouo7d"]
 
 [resource]
 script = ExtResource("3_ouo7d")
 item_type = "Dynamic"
 item_class = "Body"
-icon = ExtResource("2_myo26")
 dynamic_part = ExtResource("1_ngnsr")

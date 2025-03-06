@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CatalogItem" load_steps=3 format=3 uid="uid://cl0ajdt5ypwmh"]
+
+[ext_resource type="Resource" uid="uid://dc424wvsgatoa" path="res://Resources/DynamicPart/Body/ManBody.tres" id="1_a7cu3"]
+[ext_resource type="Script" path="res://Scripts/CatalogItemResource.gd" id="2_1ktcw"]
+
+[resource]
+script = ExtResource("2_1ktcw")
+item_type = "Dynamic"
+item_class = "Body"
+dynamic_part = ExtResource("1_a7cu3")

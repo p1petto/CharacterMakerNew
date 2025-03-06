@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://d0dglj26dw502" path="res://Scenes/UI/CatalogList.tscn" id="4_kavcm"]
 [ext_resource type="Script" path="res://Scripts/UI/catalog.gd" id="4_mledv"]
 [ext_resource type="Script" path="res://Scripts/CatalogItemResource.gd" id="5_sbt4v"]
-[ext_resource type="Resource" uid="uid://vqtoj1obq7f6" path="res://Resources/CatalogItems/DynamicPart/Body/ManBody.tres" id="6_ehmcq"]
 [ext_resource type="Script" path="res://Scripts/UI/position_controller.gd" id="7_b13vq"]
 [ext_resource type="Resource" uid="uid://rrelwntd3sqm" path="res://Resources/CatalogItems/DynamicPart/Body/ManBodyTest.tres" id="7_kywax"]
 [ext_resource type="Resource" uid="uid://bpqshk2eovrs8" path="res://Resources/CatalogItems/DynamicPart/Head/Head.tres" id="7_p4rey"]
@@ -16,6 +15,7 @@
 [ext_resource type="Resource" uid="uid://bcuftfs14fyvy" path="res://Resources/CatalogItems/ConditionallyDynamicPart/Arms/Right Arm/RightArm.tres" id="9_pxshc"]
 [ext_resource type="Resource" uid="uid://0xs0hm7qike0" path="res://Resources/CatalogItems/ConditionallyDynamicPart/Legs/Left Leg/LeftLeg.tres" id="10_1t4ok"]
 [ext_resource type="Resource" uid="uid://b121ijuxw03s3" path="res://Resources/CatalogItems/ConditionallyDynamicPart/Legs/Right Leg/RightLeg.tres" id="11_lknkn"]
+[ext_resource type="Resource" uid="uid://cl0ajdt5ypwmh" path="res://Resources/CatalogItems/DynamicPart/Body/Body.tres" id="11_wp1wm"]
 [ext_resource type="Texture2D" uid="uid://3yagfiq0l2yf" path="res://icon.svg" id="14_02jis"]
 [ext_resource type="Resource" uid="uid://danlbkb3wqnt4" path="res://Resources/CatalogItems/StaticElement/Eyes/Eye1/LeftEye/LeftEye.tres" id="14_7nups"]
 [ext_resource type="Script" path="res://Scripts/StaticElements/resource_static_element.gd" id="15_1qk7a"]
@@ -196,7 +196,7 @@ size_flags_vertical = 8
 
 [node name="Body" parent="UI/Catalog/CatalogContainer" instance=ExtResource("4_kavcm")]
 layout_mode = 2
-catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("6_ehmcq"), ExtResource("7_kywax"), ExtResource("7_kywax"), ExtResource("6_ehmcq"), ExtResource("7_kywax"), ExtResource("6_ehmcq"), ExtResource("7_kywax"), ExtResource("6_ehmcq"), ExtResource("7_kywax"), ExtResource("6_ehmcq")])
+catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("11_wp1wm"), ExtResource("7_kywax")])
 
 [node name="Head" parent="UI/Catalog/CatalogContainer" instance=ExtResource("4_kavcm")]
 visible = false
