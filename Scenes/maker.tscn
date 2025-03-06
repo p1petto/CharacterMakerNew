@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bm1ycyeyegmyw"]
+[gd_scene load_steps=34 format=3 uid="uid://bm1ycyeyegmyw"]
 
 [ext_resource type="PackedScene" uid="uid://bmajra62ohwsu" path="res://Scenes/character.tscn" id="1_12d3f"]
 [ext_resource type="Script" path="res://Scripts/maker.gd" id="1_wror2"]
@@ -25,6 +25,7 @@
 [ext_resource type="Script" path="res://Scripts/UI/animation_button.gd" id="23_b4y1g"]
 [ext_resource type="PackedScene" uid="uid://b2omgn2er4084" path="res://Scenes/UI/accessorie_panel.tscn" id="23_dbin5"]
 [ext_resource type="Script" path="res://Scripts/UI/animation_controller.gd" id="25_aee7t"]
+[ext_resource type="Script" path="res://Scripts/UI/export.gd" id="26_qf8ja"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_1urqw"]
 viewport_path = NodePath("SubViewportContainer/SubViewport")
@@ -338,6 +339,11 @@ toggle_mode = true
 text = "Run
 "
 
+[node name="Export" type="Button" parent="UI/HBoxContainer"]
+layout_mode = 2
+text = "снимок"
+script = ExtResource("26_qf8ja")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(577, 325)
 
@@ -347,3 +353,4 @@ animation_speed = 5.0
 
 [connection signal="button_up" from="UI/DirectionButtons/AnimationButton" to="UI/DirectionButtons/AnimationButton" method="_on_button_up"]
 [connection signal="toggled" from="UI/HBoxContainer/AnimationPlayer" to="AnimationController" method="_on_animation_player_toggled"]
+[connection signal="button_up" from="UI/HBoxContainer/Export" to="UI/HBoxContainer/Export" method="_on_button_up"]

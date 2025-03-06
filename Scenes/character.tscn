@@ -51,7 +51,6 @@ idle_ainmation_offset_horizontal = Array[Vector2]([Vector2(0, 0)])
 walk_animation_offset_horizontal = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
 
 [node name="LeftArm" parent="." node_paths=PackedStringArray("linked_symmetrical_element") groups=["ConditionallyDynamic"] instance=ExtResource("3_imctp")]
-visible = false
 position = Vector2(32, 32)
 conditionally_dynamic = ExtResource("7_bhysn")
 z_down = 3.0
@@ -66,7 +65,6 @@ idle_ainmation_offset_horizontal = Array[Vector2]([Vector2(0, 0)])
 walk_animation_offset_horizontal = Array[Vector2]([Vector2(0, 0)])
 
 [node name="RightArm" parent="." node_paths=PackedStringArray("linked_symmetrical_element") groups=["ConditionallyDynamic"] instance=ExtResource("3_imctp")]
-visible = false
 position = Vector2(34, 32)
 conditionally_dynamic = ExtResource("8_22m0c")
 z_down = 4.0

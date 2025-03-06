@@ -33,6 +33,8 @@ func _on_accessory_selected(element):
 	
 func _on_accessory_deleted(button: AccessorieButton):
 	if button in accessorie_buttons:
+		if button.is_selected:
+			position_controller.visible = false
 		accessorie_buttons.erase(button)
 		var timer = Timer.new()
 		add_child(timer)

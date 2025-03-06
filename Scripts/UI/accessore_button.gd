@@ -7,6 +7,7 @@ class_name AccessorieButton
 var dragging: bool = false
 var offset: Vector2
 var cur_position: Vector2
+var is_selected = false
 
 signal position_changed
 signal accessory_selected
@@ -37,6 +38,7 @@ func _input(event: InputEvent) -> void:
 		global_position = event.position + offset
 
 func _on_texture_button_button_up() -> void:
+	is_selected = true
 	accessory_selected.emit(accessorie_element)
 
 

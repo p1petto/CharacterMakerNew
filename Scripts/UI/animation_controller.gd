@@ -1,6 +1,8 @@
 extends Node2D
 @onready var character = $"../SubViewportContainer/SubViewport/Character"
 @onready var button_container = $"../UI/DirectionButtons"
+@onready var animation_button = $"../UI/DirectionButtons/AnimationButton"
+@onready var animation_player_button = $"../UI/HBoxContainer/AnimationPlayer"
 
 var animation_frame = 0  # To keep track of the current animation frame
 @export var animation_speed: float = 1.0  # Controls how fast the animation plays
@@ -10,6 +12,8 @@ func _ready():
 	for button in button_container.get_children():
 		if button.is_in_group("DirectionButton"):
 			button.direction_changed.connect(set_start_position)
+			
+	animation_button.animation_changed.connect(change_animation)
  #Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Global.animation_is_run:
@@ -86,3 +90,21 @@ func set_start_position():
 		if child.is_in_group("ConditionallyDynamic"):
 			child.animated_sprite.frame = 0
 			child.position = child.start_position
+
+
+func change_animation():
+		
+	for child in character.get_children():
+		if child.is_in_group("ConditionallyDynamic"):
+			child.change_state(Global.current_animation)
+			
+	set_start_position()
+	
+	
+func clear_all_states():
+	animation_player_button.button_pressed = false
+	Global.current_dir = "down"
+	Global.current_animation = "idle"
+	animation_button.text = Global.current_animation
+	change_animation()
+	character.on_direction_changed()

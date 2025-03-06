@@ -3,7 +3,7 @@ extends Button
 @onready var animation_controller = $"../../../AnimationController"
 
 var animation_states = ["idle", "walk"]
-
+signal animation_changed
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,10 +13,5 @@ func _on_button_up() -> void:
 	var current_index = animation_states.find(Global.current_animation)
 	Global.current_animation = animation_states[(current_index + 1) % animation_states.size()]
 	text = Global.current_animation
-	
-	for child in character.get_children():
-		if child.is_in_group("ConditionallyDynamic"):
-			child.change_state(Global.current_animation)
-			
-	animation_controller.set_start_position()
+	animation_changed.emit()
 	
