@@ -50,7 +50,7 @@ func _on_accessory_deleted(button: AccessorieButton):
 
 
 func swap_element(button):
-	print(button.position)
+	#print(button.position)
 	var closest_button = get_closest_button(button)
 
 	if closest_button != button:
@@ -122,7 +122,7 @@ func get_closest_button(button):
 	for child in button_container.get_children():
 		if child != button:  # Пропускаем сам button
 			var distance = abs(child.position.y - button.position.y)
-			print(distance)
+			#print(distance)
 			if distance < min_distance:
 				min_distance = distance
 				closest_button = child

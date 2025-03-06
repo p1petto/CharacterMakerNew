@@ -30,12 +30,8 @@ func _on_animation_player_toggled(toggled_on: bool) -> void:
 	
 	set_start_position()
 	
-
-func animate_children() -> void:
-	if character == null:
-		return
 	
-	# Определяем, какое свойство нужно использовать в зависимости от текущей анимации
+func get_offset_name():
 	var property_name = ""
 	if Global.current_animation == "idle":
 		property_name = "idle_ainmation_offset"
@@ -47,8 +43,18 @@ func animate_children() -> void:
 		property_name = property_name + "_vertical"
 	else:
 		property_name = property_name + "_horizontal"
+	return property_name
+	
+
+func animate_children() -> void:
+	if character == null:
+		return
+	
+	# Определяем, какое свойство нужно использовать в зависимости от текущей анимации
+	
 	
 	for child in character.get_children():
+		var property_name = get_offset_name()
 		# Проверяем, есть ли у дочернего элемента нужное свойство
 		if child.get(property_name) != null:
 			var offset_array = child.get(property_name)
@@ -74,7 +80,7 @@ func animate_children() -> void:
 						start_position = child.dynamic_part.position_left
 					child.position = start_position + offset
 				
-				child.cur_frame = frame_index
+				character.cur_frame = frame_index
 				
 	
 	# Увеличиваем счетчик кадров ровно на единицу
@@ -83,8 +89,9 @@ func animate_children() -> void:
 func set_start_position():
 	animation_frame = 0
 	animation_timer = 0.0
+	character.cur_frame = 0
 	for child in character.get_children():
-		child.cur_frame = 0
+		
 		if child.is_in_group("Dynamic"):
 			child.setup_polygon(Global.current_dir)
 		if child.is_in_group("ConditionallyDynamic"):

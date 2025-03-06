@@ -7,7 +7,7 @@ extends Node2D
 @export var idle_ainmation_offset_horizontal: Array[Vector2]
 @export var walk_animation_offset_horizontal: Array[Vector2]
 
-var cur_frame: int
+
 
 @onready var polygon2d = $Polygon2D
 @onready var testpolygon2d = $Polygon2D
@@ -50,7 +50,7 @@ func setup_polygon(dir) -> void:
 	var sliders
 	if !flag:
 		sliders = get_target_container_slider().get_children()
-		print(get_target_container_slider().name)
+		#print(get_target_container_slider().name)
 	if dir == "down":
 		polygon2d.polygon = dynamic_part.down_array_points
 		line2d.points = dynamic_part.down_array_points

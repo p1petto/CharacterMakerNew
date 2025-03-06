@@ -14,7 +14,6 @@ var is_symmetrical = false
 func _ready() -> void:
 	sprite_frames = static_resource.sprite_frames
 	position = static_resource.start_position
-	print (catallog.name)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -10,7 +10,7 @@ extends Node2D
 @onready var body = $Body
 @onready var arm_r = $RightArm
 @onready var arm_l = $LeftArm
-
+var cur_frame: int
 
 signal direction_change_sliders
 

@@ -23,7 +23,6 @@ class_name ConditionallyDynamicCharacterPart
 @export var idle_ainmation_offset_horizontal: Array[Vector2]
 @export var walk_animation_offset_horizontal: Array[Vector2]
 
-var cur_frame: int
 
 @onready var slider_containers = $"../../../../UI/SliderContainer"
 
@@ -70,7 +69,6 @@ func change_thickness(new_thickness) -> void:
 	update_animation()
 
 func update_animation() -> void:
-	cur_frame = 0
 	# Собираем имя анимации из компонентов через underscore
 	animated_sprite.sprite_frames = conditionally_dynamic.sprite_frames
 	var animation_name = "_".join([current_state, current_direction, current_thickness])
