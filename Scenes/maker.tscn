@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://lmog12ymre2p" path="res://Scenes/UI/position_controller_button.tscn" id="8_n6mgr"]
 [ext_resource type="Resource" uid="uid://cc1ysn1bfry3o" path="res://Resources/CatalogItems/ConditionallyDynamicPart/Arms/Left Arm/LeftArm.tres" id="8_r55wq"]
 [ext_resource type="PackedScene" uid="uid://ckn2cbvi5d5m" path="res://Scenes/UI/direction_button.tscn" id="8_sklk8"]
-[ext_resource type="PackedScene" uid="uid://cs7vnyyf6clmp" path="res://Scenes/UI/custom_color_picker_button.tscn" id="9_0pmjy"]
 [ext_resource type="Resource" uid="uid://bcuftfs14fyvy" path="res://Resources/CatalogItems/ConditionallyDynamicPart/Arms/Right Arm/RightArm.tres" id="9_pxshc"]
 [ext_resource type="Resource" uid="uid://0xs0hm7qike0" path="res://Resources/CatalogItems/ConditionallyDynamicPart/Legs/Left Leg/LeftLeg.tres" id="10_1t4ok"]
 [ext_resource type="Resource" uid="uid://b121ijuxw03s3" path="res://Resources/CatalogItems/ConditionallyDynamicPart/Legs/Right Leg/RightLeg.tres" id="11_lknkn"]
@@ -26,6 +25,7 @@
 [ext_resource type="Script" path="res://Scripts/UI/animation_button.gd" id="23_b4y1g"]
 [ext_resource type="PackedScene" uid="uid://b2omgn2er4084" path="res://Scenes/UI/accessorie_panel.tscn" id="23_dbin5"]
 [ext_resource type="Script" path="res://Scripts/UI/animation_controller.gd" id="25_aee7t"]
+[ext_resource type="Script" path="res://Scenes/color_picker_button_container.gd" id="26_hr221"]
 [ext_resource type="Script" path="res://Scripts/UI/export.gd" id="26_qf8ja"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_1urqw"]
@@ -265,19 +265,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="CustomColorPickerButton" parent="UI" instance=ExtResource("9_0pmjy")]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -92.0
-offset_top = -188.0
-offset_right = -40.0
-offset_bottom = -146.0
-grow_horizontal = 0
-grow_vertical = 0
-
 [node name="DirectionButtons" type="ColorRect" parent="UI"]
 offset_left = 132.0
 offset_top = 223.0
@@ -362,6 +349,13 @@ text = "Run
 layout_mode = 2
 text = "снимок"
 script = ExtResource("26_qf8ja")
+
+[node name="ColorPickerButtonContainer" type="Container" parent="UI"]
+offset_left = 1044.0
+offset_top = 454.0
+offset_right = 1116.0
+offset_bottom = 504.0
+script = ExtResource("26_hr221")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(577, 325)

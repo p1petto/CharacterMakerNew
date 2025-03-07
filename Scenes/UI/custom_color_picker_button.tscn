@@ -30,3 +30,4 @@ presets_visible = false
 script = ExtResource("2_pos8s")
 
 [connection signal="toggled" from="." to="." method="_on_toggled"]
+[connection signal="color_changed" from="ColorPicker" to="." method="_on_color_picker_color_changed"]

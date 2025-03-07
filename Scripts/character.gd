@@ -10,6 +10,9 @@ extends Node2D
 @onready var body = $Body
 @onready var arm_r = $RightArm
 @onready var arm_l = $LeftArm
+
+@onready var color_picker_button_container =  $"../../../UI/ColorPickerButtonContainer"
+
 var cur_frame: int
 
 signal direction_change_sliders
@@ -36,7 +39,10 @@ func _ready() -> void:
 	arm_r.walk_animation_offset_horizontal = body.walk_animation_offset_horizontal
 	arm_l.walk_animation_offset_horizontal = body.walk_animation_offset_horizontal
 	
-	
+	#
+#func initialize_color_picker_button(node_name):
+	#var color_picker_button = color_picker_button_container.get_node(NodePath(node_name)) 
+	#return color_picker_button
 
 func _process(delta: float) -> void:
 	pass

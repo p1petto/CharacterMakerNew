@@ -17,22 +17,22 @@ extends Node2D
 @onready var slider_containers = $"../../../../UI/SliderContainer"
 @onready var character = $".."
 
-#var marker_scene = preload("res://Scenes/marker.tscn")
 var central_bottom_point: int 
 var flag = true
 
+var color_picker_button
 
 func _ready() -> void:
 	if dynamic_part:
 		setup_polygon("down")
 	flag = false	
-	#for m in dynamic_part.markers:
-		#var marker = marker_scene.instantiate()
-		#marker.position = polygon2d.polygon[m] * 5 
-		#marker_container.add_child(marker)
+	call_deferred("_connect_color_changed_signal")
 
-#func set_start_position():
+func _connect_color_changed_signal():
+	color_picker_button.color_changed.connect(_on_color_changed)
 	
+func _on_color_changed(new_color: Color) -> void:
+	print("Color changed to: ", new_color)
 		
 func get_target_container_slider():
 	var character_part = get_name()

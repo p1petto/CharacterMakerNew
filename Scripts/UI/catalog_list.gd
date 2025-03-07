@@ -7,7 +7,6 @@ class_name CustomTab
 @onready var accecorie_panel = $"../../../AccessoriePanel"
 
 @export var catalog_items: Array[CatalogItem] = []
-
 @export var linked_symmetrical_element: CustomTab
 
 signal change_sliders

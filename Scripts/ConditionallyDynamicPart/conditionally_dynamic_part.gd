@@ -32,6 +32,8 @@ var current_thickness: String = "1"
 var is_symmetrical = false
 var start_position: Vector2
 
+var color_picker_button
+
 func _ready() -> void:
 	
 	if conditionally_dynamic.sprite_frames:
@@ -42,6 +44,13 @@ func _ready() -> void:
 		# Установка анимации по умолчанию
 		update_animation()
 	start_position = position
+	call_deferred("_connect_color_changed_signal")
+
+func _connect_color_changed_signal():
+	color_picker_button.color_changed.connect(_on_color_changed)
+	
+func _on_color_changed(new_color: Color) -> void:
+	print("Color changed to: ", new_color)
 
 func change_direction(direction: String) -> void:
 	if direction not in ["top", "down", "left", "right"]:
