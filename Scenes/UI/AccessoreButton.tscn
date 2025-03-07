@@ -1,13 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1l05wymmktbl"]
+[gd_scene load_steps=6 format=3 uid="uid://c1l05wymmktbl"]
 
 [ext_resource type="Texture2D" uid="uid://cv2eiy7uun2nb" path="res://Assets/UI/Button standart.png" id="1_5oeg8"]
 [ext_resource type="Script" path="res://Scripts/UI/accessore_button.gd" id="1_rqimy"]
 [ext_resource type="Texture2D" uid="uid://bo2x0ciffvb2f" path="res://Assets/Character/accessories/bow/bow.png" id="3_pm33h"]
 [ext_resource type="Texture2D" uid="uid://duuyc5riqc2c6" path="res://Assets/UI/icons/cross.png" id="4_rmm4u"]
+[ext_resource type="PackedScene" uid="uid://cs7vnyyf6clmp" path="res://Scenes/UI/custom_color_picker_button.tscn" id="5_q2ugw"]
 
 [node name="AccessoryButton" type="MarginContainer"]
 custom_minimum_size = Vector2(64, 64)
-offset_right = 64.0
+offset_right = 78.0
 offset_bottom = 64.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -42,6 +43,17 @@ layout_mode = 2
 texture_normal = ExtResource("4_rmm4u")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="Container" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="CustomColorPickerButton" parent="Container" instance=ExtResource("5_q2ugw")]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
 
 [connection signal="button_up" from="CenterContainer/TextureButton" to="." method="_on_texture_button_button_up"]
 [connection signal="button_up" from="MarginContainer/DeleteButton" to="." method="_on_delete_button_button_up"]

@@ -14,6 +14,7 @@ signal change_sliders
 #signal added_accessorie
 
 func _ready() -> void:
+		
 	for item in catalog_items:
 		add_catalog_item(item)
 

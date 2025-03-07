@@ -28,10 +28,12 @@ func add_accessorie_button(accessorie, element):
 	button_instance.cur_position = button_instance.position
 
 func _on_accessory_selected(element):
+	hide_color_picker()
 	position_controller.visible = true
 	accessory_element_selected.emit(element)
 	
 func _on_accessory_deleted(button: AccessorieButton):
+	hide_color_picker()
 	if button in accessorie_buttons:
 		if button.is_selected:
 			position_controller.visible = false
@@ -51,6 +53,7 @@ func _on_accessory_deleted(button: AccessorieButton):
 
 func swap_element(button):
 	#print(button.position)
+	hide_color_picker()
 	var closest_button = get_closest_button(button)
 
 	if closest_button != button:
@@ -132,4 +135,10 @@ func get_closest_button(button):
 	
 func change_visible():
 	visible = catallog.current_tab.is_in_group("Accessorie")
+	
+	
+func hide_color_picker():
+	for button in accessorie_buttons:
 		
+		button.color_picker_button._on_toggled(false)
+		button.color_picker_button.button_pressed = false

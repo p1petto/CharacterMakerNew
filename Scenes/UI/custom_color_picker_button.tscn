@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://cs7vnyyf6clmp"]
+
+[ext_resource type="Script" path="res://Scripts/UI/custom_color_picker_button.gd" id="1_1laor"]
+[ext_resource type="Script" path="res://Scripts/UI/color_picker.gd" id="2_pos8s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8vh4c"]
+bg_color = Color(1, 0.309786, 0.472127, 1)
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(8, 8)
+offset_right = 8.0
+offset_bottom = 8.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_8vh4c")
+toggle_mode = true
+script = ExtResource("1_1laor")
+
+[node name="ColorPicker" type="ColorPicker" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -372.0
+offset_top = -390.0
+offset_right = -74.0
+offset_bottom = -59.0
+edit_alpha = false
+color_modes_visible = false
+sliders_visible = false
+presets_visible = false
+script = ExtResource("2_pos8s")
+
+[connection signal="toggled" from="." to="." method="_on_toggled"]

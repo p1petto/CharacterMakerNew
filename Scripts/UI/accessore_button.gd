@@ -2,6 +2,8 @@ extends MarginContainer
 class_name AccessorieButton
 
 @onready var icon = $CenterContainer/icon
+@onready var color_picker_button = $Container/CustomColorPickerButton
+
 @export var accessorie: Accessorie
 @export var accessorie_element: AccessorieElement
 var dragging: bool = false

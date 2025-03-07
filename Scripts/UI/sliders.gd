@@ -6,6 +6,7 @@ extends Container
 var slider_scene = preload("res://Scenes/custom_h_slider.tscn")
 
 func _ready() -> void:
+	visible = true
 	character.direction_change_sliders.connect(_on_direction_changed)
 	
 	catallog.tab_changed.connect(_on_tab_changed)
@@ -23,6 +24,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_tab_changed() -> void:
+	visible = true
 	update_containers_visibility(Global.current_dir)
 
 func _on_direction_changed(dir):
