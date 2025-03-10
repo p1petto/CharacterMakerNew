@@ -26,3 +26,5 @@ class_name  DynamicBodyPart
 @export var hand_marker_for_body: int
 
 @export var color: Color
+@export var glare_color: Color
+@export var line_color: Color

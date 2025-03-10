@@ -10,8 +10,6 @@ class_name CustomTab
 @export var linked_symmetrical_element: CustomTab
 
 signal change_sliders
-#signal update_color
-#signal added_accessorie
 
 func _ready() -> void:
 		
@@ -60,6 +58,8 @@ func _handle_dynamic_item(slot_index, item_class):
 	await get_tree().process_frame
 	current_node.setup_polygon(Global.current_dir)
 	current_node.color_picker_button.set_new_bg_color(new_bg_color_button)
+	current_node.set_start_color()
+
 
 func _handle_conditionally_dynamic_item(slot_index, item_class):
 	var part = catalog_items[slot_index].conditionally_dynamic_part

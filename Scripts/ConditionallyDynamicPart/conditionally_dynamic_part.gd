@@ -33,6 +33,7 @@ var is_symmetrical = false
 var start_position: Vector2
 
 var color_picker_button
+var cur_color: Color
 
 func _ready() -> void:
 	
@@ -51,10 +52,11 @@ func _connect_color_changed_signal():
 	color_picker_button.color_changed.connect(_on_color_changed)
 	
 func _connect_color():
-	color_picker_button._on_color_picker_color_changed(conditionally_dynamic.color)
+	cur_color = conditionally_dynamic.color
+	color_picker_button._on_color_picker_color_changed(cur_color)
 		
 func _on_color_changed(new_color: Color) -> void:
-	print("Color changed to: ", new_color)
+	print(self.name, "Color changed to: ", new_color)
 
 func change_direction(direction: String) -> void:
 	if direction not in ["top", "down", "left", "right"]:

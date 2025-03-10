@@ -19,6 +19,7 @@ var central_bottom_point: int
 var flag = true
 
 var color_picker_button
+var cur_color: Color
 
 func _ready() -> void:
 	if dynamic_part:
@@ -31,10 +32,65 @@ func _connect_color_changed_signal():
 	color_picker_button.color_changed.connect(_on_color_changed)
 	
 func _connect_color():
-	color_picker_button._on_color_picker_color_changed(dynamic_part.color)
+	cur_color = dynamic_part.color
+	color_picker_button._on_color_picker_color_changed(cur_color)
+	material.set_shader_parameter("cur_color", cur_color)
+
+func set_start_color():
+	cur_color = dynamic_part.color  # Восстанавливаем исходный цвет
+	if material:
+		material.set_shader_parameter("cur_color", cur_color)
+	
+	# Восстанавливаем изначальный цвет Polygon2D
+	if polygon2d:
+		polygon2d.color = cur_color
+	
+	# Восстанавливаем изначальный цвет Line2D
+	if line2d:
+		line2d.default_color = dynamic_part.line_color
+	
+	# Восстанавливаем изначальный цвет Glare
+	if glare:
+		glare.color = dynamic_part.glare_color
+
 	
 func _on_color_changed(new_color: Color) -> void:
-	print("Color changed to: ", new_color)
+	print(self.name, "Color changed to: ", new_color)
+	cur_color = new_color
+	
+	# Применить шейдер к материалу, если он есть
+	if material:
+		material.set_shader_parameter("cur_color", cur_color)
+	
+	# Коэффициент смешивания
+	var interpolation_factor = 0.6
+	var base_glare_color = dynamic_part.glare_color
+	var base_line_color = dynamic_part.line_color
+	
+	# Для Polygon2D
+	if polygon2d:
+		# Используем точную формулу из примера для основного полигона
+		var r = (polygon2d.color.r - cur_color.r) * interpolation_factor + cur_color.r
+		var g = (polygon2d.color.g - cur_color.g) * interpolation_factor + cur_color.g
+		var b = (polygon2d.color.b - cur_color.b) * interpolation_factor + cur_color.b
+		polygon2d.color = Color(r, g, b, polygon2d.color.a)
+	
+	# Для Line2D используем dynamic_part.line_color как базовый цвет
+	if line2d and dynamic_part:
+		# Смешиваем базовый цвет линии с текущим цветом
+		var line_r = lerp(base_line_color.r, cur_color.r, 0.4)
+		var line_g = lerp(base_line_color.g, cur_color.g, 0.4)
+		var line_b = lerp(base_line_color.b, cur_color.b, 0.4)
+		line2d.default_color = Color(line_r, line_g, line_b, line2d.default_color.a)
+	
+	# Для glare используем dynamic_part.glare_color как базовый цвет
+	if glare and dynamic_part:
+		# Смешиваем базовый цвет блика с текущим цветом
+		var glare_r = lerp(base_glare_color.r, cur_color.r, 0.3) 
+		var glare_g = lerp(base_glare_color.g, cur_color.g, 0.3)
+		var glare_b = lerp(base_glare_color.b, cur_color.b, 0.3)
+		glare.color = Color(glare_r, glare_g, glare_b, glare.color.a)
+
 		
 func get_target_container_slider():
 	var character_part = get_name()
