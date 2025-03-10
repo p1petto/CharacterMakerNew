@@ -16,6 +16,7 @@ extends Node2D
 var cur_frame: int
 
 signal direction_change_sliders
+signal static_element_created
 
 func _ready() -> void:
 	for button in button_container.get_children():

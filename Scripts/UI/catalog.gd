@@ -25,14 +25,19 @@ func _ready() -> void:
 			catalog_item.add_child(new_check_button)
 			catalog_item.move_child(new_check_button, 0)
 			new_check_button.button_toggled.connect(_on_check_button_toggled)
+			
+		#catalog_item.update_color.connect(_on_color_updated)
 		
 	for catalog_class in button_container.get_children():
 		catalog_class.catalog_tab_changed.connect(_on_catalog_tab_changed)
 
 func _initialize_color_picker_button() -> void:
-	# Теперь безопасно присваиваем color_picker_button
 	color_picker_button = color_picker_button_container.get_node(NodePath(current_tab.name))  # Преобразуем строку в NodePath
 	color_picker_button.visible = true
+	
+#func _on_color_updated(color):
+	#
+	
 
 func _on_catalog_tab_changed(tab_name):
 	current_tab.visible = false

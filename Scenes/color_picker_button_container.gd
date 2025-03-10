@@ -1,6 +1,7 @@
 extends Container
 
-@onready var catalog = $"../Catalog"  # Получаем ссылку на каталог
+@onready var catalog = $"../Catalog"  
+@onready var character = $"../../SubViewportContainer/SubViewport/Character"
 var color_picker_button_scene = preload("res://Scenes/UI/custom_color_picker_button.tscn")
 
 # Called when the node enters the scene tree for the first time.
@@ -8,8 +9,19 @@ func _ready() -> void:
 	# Создаём кнопки для каждого дочернего элемента в catalog
 	for child in catalog.get_node("CatalogContainer").get_children():
 		if !child.is_in_group("Accessorie"):
-			var color_picker_button = color_picker_button_scene.instantiate()
-			color_picker_button.name = child.name  
-			color_picker_button.size = Vector2(40,30)
-			add_child(color_picker_button)
-			color_picker_button.visible = false
+			_create_and_assign_color_picker(child)
+
+func _create_and_assign_color_picker(child) -> void:
+	var color_picker_button = color_picker_button_scene.instantiate()
+	color_picker_button.name = child.name  
+	color_picker_button.size = Vector2(40, 30)
+	
+	add_child(color_picker_button)
+	color_picker_button.visible = false
+	
+	var character_element = character.find_child(child.name, true, false)
+	if character_element:
+		character_element.color_picker_button = color_picker_button
+
+			
+			

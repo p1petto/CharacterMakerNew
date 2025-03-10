@@ -6,3 +6,4 @@
 [resource]
 script = ExtResource("1_fj2d0")
 sprite_frames = ExtResource("2_tqod8")
+color = Color(0.768627, 0.588235, 0.490196, 1)

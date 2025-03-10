@@ -9,11 +9,23 @@ class_name StaticElement
 
 var current_direction: String = "down"
 var is_symmetrical = false
+var color_picker_button
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	sprite_frames = static_resource.sprite_frames
 	position = static_resource.start_position
+	call_deferred("_connect_color_changed_signal")
+	call_deferred("_connect_color")
+
+func _connect_color_changed_signal():
+	color_picker_button.color_changed.connect(_on_color_changed)
+	
+func _connect_color():
+	color_picker_button._on_color_picker_color_changed(static_resource.color)
+	
+func _on_color_changed(new_color: Color) -> void:
+	print("Color changed to: ", new_color)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

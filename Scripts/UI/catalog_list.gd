@@ -10,6 +10,7 @@ class_name CustomTab
 @export var linked_symmetrical_element: CustomTab
 
 signal change_sliders
+#signal update_color
 #signal added_accessorie
 
 func _ready() -> void:
@@ -32,29 +33,38 @@ func _on_catalog_slot_pressed(slot):
 	print("Pressed catalog slot index: ", slot_index)
 	var item_class = catalog_items[slot_index].item_class
 	var item_type = catalog_items[slot_index].item_type
+	
 
 	match item_type:
 		"Dynamic":
 			_handle_dynamic_item(slot_index, item_class)
+			#update_color.emit(new_bg_color_button)
 		"Conditionally_dynamic":
 			_handle_conditionally_dynamic_item(slot_index, item_class)
+			#update_color.emit(new_bg_color_button)
 		"Static":
 			_handle_static_item(slot_index, item_class)
+			#update_color.emit(new_bg_color_button)
 		"Accessories":
 			_handle_accessories_item(slot_index, item_class)
+			
+	
 
 func _handle_dynamic_item(slot_index, item_class):
 	var part = catalog_items[slot_index].dynamic_part	
 	var current_node = character.get_node(item_class)
+	var new_bg_color_button = catalog_items[slot_index].dynamic_part.color
 	current_node.dynamic_part = part
 	change_sliders.emit(item_class)
 	await get_tree().process_frame
 	await get_tree().process_frame
 	current_node.setup_polygon(Global.current_dir)
+	current_node.color_picker_button.set_new_bg_color(new_bg_color_button)
 
 func _handle_conditionally_dynamic_item(slot_index, item_class):
 	var part = catalog_items[slot_index].conditionally_dynamic_part
 	var current_node = character.get_node(item_class)
+	var new_bg_color_button = catalog_items[slot_index].conditionally_dynamic_part.color
 	current_node.conditionally_dynamic = part
 	change_sliders.emit(item_class)
 	await get_tree().process_frame
@@ -65,10 +75,13 @@ func _handle_conditionally_dynamic_item(slot_index, item_class):
 		var linked_part = linked_symmetrical_element.catalog_items[slot_index].conditionally_dynamic_part
 		current_node.linked_symmetrical_element.conditionally_dynamic = linked_part
 		current_node.linked_symmetrical_element.change_thickness(1)
+		
+	current_node.color_picker_button.set_new_bg_color(new_bg_color_button)
 
 func _handle_static_item(slot_index, item_class):
 	var part = catalog_items[slot_index].static_element
 	var current_node = character.get_node(part.target_part)
+	var new_bg_color_button = catalog_items[slot_index].static_element.color
 	current_node = current_node.get_node("Polygon2D").get_node(item_class)
 
 	current_node.static_resource = catalog_items[slot_index].static_element
@@ -77,7 +90,7 @@ func _handle_static_item(slot_index, item_class):
 	current_node.change_direction(Global.current_dir)
 
 	if linked_symmetrical_element:
-		var check_button = get_node("VBoxContainer/CustomCheckButton/CheckButton")
+		var check_button = get_node("CustomCheckButton/CheckButton")
 		if check_button.button_pressed:
 			var linked_part = linked_symmetrical_element.catalog_items[slot_index].static_element
 			var linked_item_class = linked_symmetrical_element.catalog_items[slot_index].item_class
@@ -87,6 +100,8 @@ func _handle_static_item(slot_index, item_class):
 			linked_node.position = linked_node.static_resource.start_position
 			linked_node.static_resource.cur_position = linked_node.static_resource.start_position
 			linked_node.change_direction(Global.current_dir)
+			
+	current_node.color_picker_button.set_new_bg_color(new_bg_color_button)
 			
 func _handle_accessories_item(slot_index, item_class):
 	var part = catalog_items[slot_index].accessorie

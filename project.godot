@@ -33,6 +33,8 @@ ConditionallyDynamic=""
 Static=""
 StaticTab=""
 Accessorie=""
+DynamicTab=""
+ConditionallyDynamicTab=""
 
 [rendering]
 

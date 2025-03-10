@@ -42,6 +42,7 @@ min_y = 0
 max_x = 0
 max_y = 0
 target_part = "Head"
+color = Color(0, 0, 0, 1)
 
 [sub_resource type="Resource" id="Resource_8gcpa"]
 script = ExtResource("5_sbt4v")
@@ -61,6 +62,7 @@ min_y = 0
 max_x = 0
 max_y = 0
 target_part = "Head"
+color = Color(0, 0, 0, 1)
 
 [sub_resource type="Resource" id="Resource_67v72"]
 script = ExtResource("5_sbt4v")
@@ -205,34 +207,34 @@ custom_minimum_size = Vector2(0, 170)
 layout_mode = 2
 size_flags_vertical = 8
 
-[node name="Body" parent="UI/Catalog/CatalogContainer" instance=ExtResource("4_kavcm")]
+[node name="Body" parent="UI/Catalog/CatalogContainer" groups=["DynamicTab"] instance=ExtResource("4_kavcm")]
 layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("11_wp1wm"), ExtResource("7_kywax")])
 
-[node name="Head" parent="UI/Catalog/CatalogContainer" instance=ExtResource("4_kavcm")]
+[node name="Head" parent="UI/Catalog/CatalogContainer" groups=["DynamicTab"] instance=ExtResource("4_kavcm")]
 visible = false
 layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("7_p4rey")])
 
-[node name="LeftArm" parent="UI/Catalog/CatalogContainer" node_paths=PackedStringArray("linked_symmetrical_element") instance=ExtResource("4_kavcm")]
+[node name="LeftArm" parent="UI/Catalog/CatalogContainer" node_paths=PackedStringArray("linked_symmetrical_element") groups=["ConditionallyDynamicTab"] instance=ExtResource("4_kavcm")]
 visible = false
 layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("8_r55wq")])
 linked_symmetrical_element = NodePath("../RightArm")
 
-[node name="RightArm" parent="UI/Catalog/CatalogContainer" node_paths=PackedStringArray("linked_symmetrical_element") instance=ExtResource("4_kavcm")]
+[node name="RightArm" parent="UI/Catalog/CatalogContainer" node_paths=PackedStringArray("linked_symmetrical_element") groups=["ConditionallyDynamicTab"] instance=ExtResource("4_kavcm")]
 visible = false
 layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("9_pxshc")])
 linked_symmetrical_element = NodePath("../LeftArm")
 
-[node name="LeftLeg" parent="UI/Catalog/CatalogContainer" node_paths=PackedStringArray("linked_symmetrical_element") instance=ExtResource("4_kavcm")]
+[node name="LeftLeg" parent="UI/Catalog/CatalogContainer" node_paths=PackedStringArray("linked_symmetrical_element") groups=["ConditionallyDynamicTab"] instance=ExtResource("4_kavcm")]
 visible = false
 layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("10_1t4ok")])
 linked_symmetrical_element = NodePath("../RightLeg")
 
-[node name="RightLeg" parent="UI/Catalog/CatalogContainer" node_paths=PackedStringArray("linked_symmetrical_element") instance=ExtResource("4_kavcm")]
+[node name="RightLeg" parent="UI/Catalog/CatalogContainer" node_paths=PackedStringArray("linked_symmetrical_element") groups=["ConditionallyDynamicTab"] instance=ExtResource("4_kavcm")]
 visible = false
 layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("11_lknkn")])

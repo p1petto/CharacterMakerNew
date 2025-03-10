@@ -7,8 +7,6 @@ extends Node2D
 @export var idle_ainmation_offset_horizontal: Array[Vector2]
 @export var walk_animation_offset_horizontal: Array[Vector2]
 
-
-
 @onready var polygon2d = $Polygon2D
 @onready var testpolygon2d = $Polygon2D
 @onready var line2d = $Line2D
@@ -27,9 +25,13 @@ func _ready() -> void:
 		setup_polygon("down")
 	flag = false	
 	call_deferred("_connect_color_changed_signal")
+	call_deferred("_connect_color")
 
 func _connect_color_changed_signal():
 	color_picker_button.color_changed.connect(_on_color_changed)
+	
+func _connect_color():
+	color_picker_button._on_color_picker_color_changed(dynamic_part.color)
 	
 func _on_color_changed(new_color: Color) -> void:
 	print("Color changed to: ", new_color)

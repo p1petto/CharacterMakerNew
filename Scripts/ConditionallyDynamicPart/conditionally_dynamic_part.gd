@@ -45,10 +45,14 @@ func _ready() -> void:
 		update_animation()
 	start_position = position
 	call_deferred("_connect_color_changed_signal")
+	call_deferred("_connect_color")
 
 func _connect_color_changed_signal():
 	color_picker_button.color_changed.connect(_on_color_changed)
 	
+func _connect_color():
+	color_picker_button._on_color_picker_color_changed(conditionally_dynamic.color)
+		
 func _on_color_changed(new_color: Color) -> void:
 	print("Color changed to: ", new_color)
 

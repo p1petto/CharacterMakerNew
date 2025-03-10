@@ -13,4 +13,6 @@ class_name Static
 @export_enum("Body", "Head") 
 var target_part: String = "Body"
 
+@export var color: Color
+
 var cur_position: Vector2 = start_position
