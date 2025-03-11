@@ -39,6 +39,7 @@ func _ready() -> void:
 func _connect_color_changed_signal():
 	color_picker_button.color_changed.connect(_on_color_changed)
 	
+	
 func _connect_color():
 	cur_color = dynamic_part.color
 	color_picker_button._on_color_picker_color_changed(cur_color)
@@ -51,6 +52,9 @@ func _connect_color():
 		line2d.default_color = initial_line_color
 	if glare:
 		glare.color = initial_glare_color
+		
+	color_picker_button.color_picker.color = cur_color
+	set_start_color()
 
 func set_start_color():
 	cur_color = dynamic_part.color
@@ -68,6 +72,8 @@ func set_start_color():
 	# Reset glare to its initial color
 	if glare:
 		glare.color = initial_glare_color
+	_on_color_changed(cur_color)
+	color_picker_button.color_picker.color = cur_color
 
 func _on_color_changed(new_color: Color) -> void:
 	print(self.name, "Color changed to: ", new_color)
@@ -82,23 +88,22 @@ func _on_color_changed(new_color: Color) -> void:
 		polygon2d.color = cur_color
 	
 	# For Line2D - blend the initial line color with the new color
-	if line2d:
-		var blend_factor = 0.4  # Adjust this value to control how much influence cur_color has
-		var new_line_color = Color(
-			lerp(initial_line_color.r, cur_color.r, blend_factor),
-			lerp(initial_line_color.g, cur_color.g, blend_factor),
-			lerp(initial_line_color.b, cur_color.b, blend_factor),
+	var new_line_color = Color(
+			initial_line_color.r + (cur_color.r - initial_line_color.r) * 0.3,
+			initial_line_color.g + (cur_color.g - initial_line_color.g) * 0.3,
+			initial_line_color.b + (cur_color.b - initial_line_color.b) * 0.3,
 			initial_line_color.a
 		)
-		line2d.default_color = new_line_color
+
+	line2d.default_color = new_line_color
 	
 	# For Glare - blend the initial glare color with the new color
 	if glare:
-		var blend_factor = 0.3  # Adjust this value to control how much influence cur_color has
+		print("GLARE")
 		var new_glare_color = Color(
-			lerp(initial_glare_color.r, cur_color.r, blend_factor),
-			lerp(initial_glare_color.g, cur_color.g, blend_factor),
-			lerp(initial_glare_color.b, cur_color.b, blend_factor),
+			initial_glare_color.r + (cur_color.r - initial_glare_color.r) * 0.6,
+			initial_glare_color.g + (cur_color.g - initial_glare_color.g) * 0.6,
+			initial_glare_color.b + (cur_color.b - initial_glare_color.b) * 0.6,
 			initial_glare_color.a
 		)
 		glare.color = new_glare_color

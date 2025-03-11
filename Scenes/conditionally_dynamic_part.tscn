@@ -1,10 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwi4hslosv760"]
+[gd_scene load_steps=5 format=3 uid="uid://bwi4hslosv760"]
 
+[ext_resource type="Shader" path="res://Scripts/Shaders/color_changing_shader.gdshader" id="1_5jswo"]
 [ext_resource type="Script" path="res://Scripts/ConditionallyDynamicPart/conditionally_dynamic_part.gd" id="1_8wsnp"]
 [ext_resource type="SpriteFrames" uid="uid://boqweykkavowk" path="res://Resources/ConditionallyDynamicParts/Arms/Arm left/arm_l_animations.tres" id="2_3lpiv"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gib0q"]
+shader = ExtResource("1_5jswo")
+shader_parameter/cur_color = Color(1, 1, 1, 1)
+shader_parameter/blend_factor = 0.6
+
 [node name="ConditionallyDynamicPart" type="Node2D"]
 texture_filter = 1
+material = SubResource("ShaderMaterial_gib0q")
 script = ExtResource("1_8wsnp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

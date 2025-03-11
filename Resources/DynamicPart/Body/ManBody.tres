@@ -22,5 +22,5 @@ vertical_markers = Array[int]([2, 3, 4])
 horizontal_markers = Array[int]([2, 3, 4])
 hand_marker_for_body = 2
 color = Color(0.768627, 0.588235, 0.490196, 1)
-glare_color = Color(0.909804, 0.768627, 0.686275, 1)
-line_color = Color(0.215686, 0.156863, 0.133333, 1)
+glare_color = Color(0.917647, 0.917647, 0.917647, 1)
+line_color = Color(0.243137, 0.133333, 0.105882, 1)

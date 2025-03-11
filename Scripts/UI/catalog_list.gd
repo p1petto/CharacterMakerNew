@@ -77,6 +77,7 @@ func _handle_conditionally_dynamic_item(slot_index, item_class):
 		current_node.linked_symmetrical_element.change_thickness(1)
 		
 	current_node.color_picker_button.set_new_bg_color(new_bg_color_button)
+	current_node.set_start_color()
 
 func _handle_static_item(slot_index, item_class):
 	var part = catalog_items[slot_index].static_element
