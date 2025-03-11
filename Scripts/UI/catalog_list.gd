@@ -103,6 +103,7 @@ func _handle_static_item(slot_index, item_class):
 			linked_node.change_direction(Global.current_dir)
 			
 	current_node.color_picker_button.set_new_bg_color(new_bg_color_button)
+	current_node.set_start_color()
 			
 func _handle_accessories_item(slot_index, item_class):
 	var part = catalog_items[slot_index].accessorie

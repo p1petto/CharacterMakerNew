@@ -12,3 +12,4 @@ min_y = 17
 max_x = 10
 max_y = 21
 target_part = "Head"
+color = Color(0.501961, 0.694118, 1, 1)

@@ -12,6 +12,7 @@ var is_symmetrical = false
 
 var color_picker_button
 var cur_color: Color
+var start_color: Color
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,6 +20,12 @@ func _ready() -> void:
 	position = static_resource.start_position
 	call_deferred("_connect_color_changed_signal")
 	call_deferred("_connect_color")
+	
+	if not material:
+		material = ShaderMaterial.new()
+		var shader = load("res://Scripts/Shaders/static_color_changing_shader.gdshader")  # Укажите правильный путь
+		material.shader = shader
+		self.material = material  # Присваиваем материал текущему экземпляру
 
 func _connect_color_changed_signal():
 	color_picker_button.color_changed.connect(_on_color_changed)
@@ -26,9 +33,29 @@ func _connect_color_changed_signal():
 func _connect_color():
 	cur_color = static_resource.color
 	color_picker_button._on_color_picker_color_changed(cur_color)
+	color_picker_button.color_picker.color = cur_color
+	start_color = cur_color
+	material.set_shader_parameter("oldcolor", cur_color)
+	set_start_color()
+	
+func set_start_color() -> void:
+	# Устанавливаем стартовый цвет белым
+	cur_color = start_color
+	_on_color_changed(cur_color)
 	
 func _on_color_changed(new_color: Color) -> void:
-	print(self.name, "Color changed to: ", new_color)
+
+	#material.set_shader_parameter("oldcolor", cur_color)
+	material.set_shader_parameter("newcolor", new_color)
+	
+	cur_color = new_color
+	#modulate = cur_color 
+	
+	if is_symmetrical:
+		var cur_linked_element = character.find_child(catallog.current_tab.linked_symmetrical_element.name, true, false)
+		cur_linked_element.material.set_shader_parameter("newcolor", new_color)
+		cur_linked_element.cur_color = new_color
+		cur_linked_element.color_picker_button.set_new_bg_color(new_color)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
