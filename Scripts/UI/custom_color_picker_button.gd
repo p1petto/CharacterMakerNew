@@ -39,6 +39,7 @@ func _on_color_picker_color_changed(color: Color) -> void:
 	set_new_bg_color(color)
 	color_changed.emit(color)
 	
+	
 func set_new_bg_color(color:Color)-> void:
 	var normal_bg_color = StyleBoxFlat.new()
 	normal_bg_color.bg_color = color

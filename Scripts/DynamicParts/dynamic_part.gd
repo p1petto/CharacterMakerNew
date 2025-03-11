@@ -20,11 +20,19 @@ var flag = true
 
 var color_picker_button
 var cur_color: Color
+var initial_line_color: Color
+var initial_glare_color: Color
 
 func _ready() -> void:
 	if dynamic_part:
 		setup_polygon("down")
-	flag = false	
+	flag = false
+	
+	# Store initial colors
+	if dynamic_part:
+		initial_line_color = dynamic_part.line_color
+		initial_glare_color = dynamic_part.glare_color
+	
 	call_deferred("_connect_color_changed_signal")
 	call_deferred("_connect_color")
 
@@ -35,66 +43,68 @@ func _connect_color():
 	cur_color = dynamic_part.color
 	color_picker_button._on_color_picker_color_changed(cur_color)
 	material.set_shader_parameter("cur_color", cur_color)
+	
+	# Set initial colors for all elements
+	if polygon2d:
+		polygon2d.color = cur_color
+	if line2d:
+		line2d.default_color = initial_line_color
+	if glare:
+		glare.color = initial_glare_color
 
 func set_start_color():
-	cur_color = dynamic_part.color  # Восстанавливаем исходный цвет
+	cur_color = dynamic_part.color
 	if material:
 		material.set_shader_parameter("cur_color", cur_color)
 	
-	# Восстанавливаем изначальный цвет Polygon2D
+	# Reset polygon2d to exact color from color picker
 	if polygon2d:
 		polygon2d.color = cur_color
 	
-	# Восстанавливаем изначальный цвет Line2D
+	# Reset line2d to its initial color
 	if line2d:
-		line2d.default_color = dynamic_part.line_color
+		line2d.default_color = initial_line_color
 	
-	# Восстанавливаем изначальный цвет Glare
+	# Reset glare to its initial color
 	if glare:
-		glare.color = dynamic_part.glare_color
+		glare.color = initial_glare_color
 
-	
 func _on_color_changed(new_color: Color) -> void:
 	print(self.name, "Color changed to: ", new_color)
 	cur_color = new_color
 	
-	# Применить шейдер к материалу, если он есть
+	# Apply shader to material if exists
 	if material:
 		material.set_shader_parameter("cur_color", cur_color)
 	
-	# Коэффициент смешивания
-	var interpolation_factor = 0.6
-	var base_glare_color = dynamic_part.glare_color
-	var base_line_color = dynamic_part.line_color
-	
-	# Для Polygon2D
+	# For Polygon2D - directly set to the color picker value
 	if polygon2d:
-		# Используем точную формулу из примера для основного полигона
-		var r = (polygon2d.color.r - cur_color.r) * interpolation_factor + cur_color.r
-		var g = (polygon2d.color.g - cur_color.g) * interpolation_factor + cur_color.g
-		var b = (polygon2d.color.b - cur_color.b) * interpolation_factor + cur_color.b
-		polygon2d.color = Color(r, g, b, polygon2d.color.a)
+		polygon2d.color = cur_color
 	
-	# Для Line2D используем dynamic_part.line_color как базовый цвет
-	if line2d and dynamic_part:
-		# Смешиваем базовый цвет линии с текущим цветом
-		var line_r = lerp(base_line_color.r, cur_color.r, 0.4)
-		var line_g = lerp(base_line_color.g, cur_color.g, 0.4)
-		var line_b = lerp(base_line_color.b, cur_color.b, 0.4)
-		line2d.default_color = Color(line_r, line_g, line_b, line2d.default_color.a)
+	# For Line2D - blend the initial line color with the new color
+	if line2d:
+		var blend_factor = 0.4  # Adjust this value to control how much influence cur_color has
+		var new_line_color = Color(
+			lerp(initial_line_color.r, cur_color.r, blend_factor),
+			lerp(initial_line_color.g, cur_color.g, blend_factor),
+			lerp(initial_line_color.b, cur_color.b, blend_factor),
+			initial_line_color.a
+		)
+		line2d.default_color = new_line_color
 	
-	# Для glare используем dynamic_part.glare_color как базовый цвет
-	if glare and dynamic_part:
-		# Смешиваем базовый цвет блика с текущим цветом
-		var glare_r = lerp(base_glare_color.r, cur_color.r, 0.3) 
-		var glare_g = lerp(base_glare_color.g, cur_color.g, 0.3)
-		var glare_b = lerp(base_glare_color.b, cur_color.b, 0.3)
-		glare.color = Color(glare_r, glare_g, glare_b, glare.color.a)
+	# For Glare - blend the initial glare color with the new color
+	if glare:
+		var blend_factor = 0.3  # Adjust this value to control how much influence cur_color has
+		var new_glare_color = Color(
+			lerp(initial_glare_color.r, cur_color.r, blend_factor),
+			lerp(initial_glare_color.g, cur_color.g, blend_factor),
+			lerp(initial_glare_color.b, cur_color.b, blend_factor),
+			initial_glare_color.a
+		)
+		glare.color = new_glare_color
 
-		
 func get_target_container_slider():
 	var character_part = get_name()
-	#var cur_dir = character.cur_dir
 	var cur_dir = Global.current_dir
 	var axis
 	if cur_dir == "top" or cur_dir == "down":
@@ -108,15 +118,13 @@ func setup_polygon(dir) -> void:
 	var sliders
 	if !flag:
 		sliders = get_target_container_slider().get_children()
-		#print(get_target_container_slider().name)
+	
 	if dir == "down":
 		polygon2d.polygon = dynamic_part.down_array_points
 		line2d.points = dynamic_part.down_array_points
 		glare.polygon = dynamic_part.down_glare_array_points
 		
 		position = dynamic_part.position_down
-	
-		
 		z_index = dynamic_part.z_down
 		
 		central_bottom_point = len(dynamic_part.down_array_points) / 2
@@ -151,12 +159,12 @@ func setup_polygon(dir) -> void:
 		polygon2d.polygon = dynamic_part.horizontal_array_points
 		glare.polygon = dynamic_part.horizontal_glare_array_points
 		
-		# Сначала обновляем полигон с учетом слайдеров
+		# First update polygon based on sliders
 		if !flag:
 			for slider in sliders:
 				polygon2d.polygon[slider.linked_marker].x += slider.value
 
-		# Теперь синхронизируем line2d с polygon2d
+		# Now sync line2d with polygon2d
 		line2d.points = polygon2d.polygon.duplicate()
 
 		position = dynamic_part.position_right
@@ -164,29 +172,28 @@ func setup_polygon(dir) -> void:
 
 		central_bottom_point = len(dynamic_part.horizontal_array_points) / 2
 
-
 	if dir == "left":
-		# Начинаем с оригинальных точек горизонтального набора
+		# Start with original horizontal points
 		polygon2d.polygon = dynamic_part.horizontal_array_points.duplicate()
 		glare.polygon = dynamic_part.horizontal_glare_array_points.duplicate()
 		
-		# Применяем изменения от слайдеров (аналогично как в right)
+		# Apply slider changes (similar to right direction)
 		if !flag:
 			sliders = get_target_container_slider().get_children()
 			for slider in sliders:
 				polygon2d.polygon[slider.linked_marker].x += slider.value
 		
-		# Теперь зеркалим все точки полигона
+		# Mirror all polygon points
 		var mirrored_points = []
 		for point in polygon2d.polygon:
 			mirrored_points.append(Vector2(7 - (point.x - 7), point.y))
 		
-		# Зеркалим блики
+		# Mirror glare points
 		var mirrored_glare_points = []
 		for point in glare.polygon:
 			mirrored_glare_points.append(Vector2(7 - (point.x - 7), point.y))
 		
-		# Применяем зеркальные координаты
+		# Apply mirrored coordinates
 		polygon2d.polygon = mirrored_points
 		glare.polygon = mirrored_glare_points
 		line2d.points = polygon2d.polygon.duplicate()
@@ -195,8 +202,6 @@ func setup_polygon(dir) -> void:
 		z_index = dynamic_part.z_left
 		
 		central_bottom_point = len(dynamic_part.horizontal_array_points) / 2
-
-
 
 func get_mirror_x(count_of_points, marker):
 	if count_of_points % 2 == 0:
