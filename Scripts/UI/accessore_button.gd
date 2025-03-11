@@ -6,6 +6,8 @@ class_name AccessorieButton
 
 @export var accessorie: Accessorie
 @export var accessorie_element: AccessorieElement
+
+
 var dragging: bool = false
 var offset: Vector2
 var cur_position: Vector2
@@ -16,12 +18,11 @@ signal accessory_selected
 signal element_deleted
 
 func _ready() -> void:
-	icon.texture = accessorie.down_texture
-	# Используем таймер для задержки, чтобы дать VBoxContainer время разместить ноды
+	icon.texture = accessorie.texture_icon
+	
 	#var timer = get_tree().create_timer(0.05)
 	#timer.timeout.connect(_update_position)
 
-# Этот метод обновит cur_position после того, как узел был полностью размещен в сцене
 #func _update_position() -> void:
 	#cur_position = position
 
@@ -42,6 +43,7 @@ func _input(event: InputEvent) -> void:
 func _on_texture_button_button_up() -> void:
 	is_selected = true
 	accessory_selected.emit(accessorie_element)
+	
 
 
 func _on_delete_button_button_up() -> void:

@@ -76,7 +76,6 @@ func set_start_color():
 	color_picker_button.color_picker.color = cur_color
 
 func _on_color_changed(new_color: Color) -> void:
-	print(self.name, "Color changed to: ", new_color)
 	cur_color = new_color
 	
 	# Apply shader to material if exists

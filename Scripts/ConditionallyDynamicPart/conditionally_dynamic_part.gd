@@ -65,7 +65,6 @@ func set_start_color() -> void:
 	_on_color_changed(cur_color)
 
 func _on_color_changed(new_color: Color) -> void:
-	print(self.name, "Color changed to: ", new_color)
 	
 	# Сохраняем cur_color как новый цвет без изменений
 	cur_color = new_color

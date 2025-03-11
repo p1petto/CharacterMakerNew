@@ -17,6 +17,9 @@ var z_left: int
 var z_right: int
 
 var accessorie_button: AccessorieButton
+var color_picker_button
+var cur_color: Color
+var start_color: Color
 
 func _ready() -> void:
 	cur_down_position = accessorie.start_down_position
@@ -30,6 +33,35 @@ func _ready() -> void:
 	
 	var child_index = get_index()
 	
+	call_deferred("_connect_color_changed_signal")
+	call_deferred("_connect_color")
+	
+
+func _connect_color_changed_signal():
+	color_picker_button.color_changed.connect(_on_color_changed)
+	
+func _connect_color():
+	cur_color = accessorie.color
+	color_picker_button._on_color_picker_color_changed(cur_color)
+	color_picker_button.color_picker.color = cur_color
+	start_color = cur_color
+	material.set_shader_parameter("oldcolor", cur_color)
+	set_start_color()
+	
+func set_start_color() -> void:
+	# Устанавливаем стартовый цвет белым
+	cur_color = start_color
+	_on_color_changed(cur_color)
+	
+func _on_color_changed(new_color: Color) -> void:
+
+	cur_color = new_color
+
+	material.set_shader_parameter("cur_color", cur_color)
+	material.set_shader_parameter("blend_factor", 0.9)
+
+	# Применяем цвет, с учётом разницы с белым для `animated_sprite`
+	sprite2d.modulate = cur_color 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

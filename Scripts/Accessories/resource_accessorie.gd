@@ -7,6 +7,8 @@ class_name Accessorie
 @export var right_texture: CompressedTexture2D
 @export var left_texture: CompressedTexture2D
 
+@export var texture_icon: CompressedTexture2D
+
 @export var start_down_position: Vector2
 @export var start_top_position: Vector2
 @export var start_right_position: Vector2
@@ -28,3 +30,5 @@ class_name Accessorie
 @export var max_y_right: float
 
 @export var not_can_top: bool
+
+@export var color: Color

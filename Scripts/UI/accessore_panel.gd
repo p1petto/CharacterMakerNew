@@ -26,6 +26,7 @@ func add_accessorie_button(accessorie, element):
 	call_deferred("_update_order_and_positions")
 	button_instance.element_deleted.connect(_on_accessory_deleted)
 	button_instance.cur_position = button_instance.position
+	element.color_picker_button = button_instance.color_picker_button
 
 func _on_accessory_selected(element):
 	hide_color_picker()
