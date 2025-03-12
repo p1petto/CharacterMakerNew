@@ -23,15 +23,68 @@ func add_accessorie_button(accessorie, element):
 	accessorie_buttons.append(button_instance)
 	element.accessorie_button = button_instance
 	button_instance.accessory_selected.connect(_on_accessory_selected)
-	call_deferred("_update_order_and_positions")
 	button_instance.element_deleted.connect(_on_accessory_deleted)
-	button_instance.cur_position = button_instance.position
+	
+	# Store the initial position after the button is added to the container
+	call_deferred("_store_button_position", button_instance)
+	
 	element.color_picker_button = button_instance.color_picker_button
+	
+	# Only update the z-index for the newly added element
+	_setup_z_index_for_new_element(button_instance)
+
+func _store_button_position(button):
+	# Store the button's position after it has been properly positioned in the container
+	button.cur_position = button.position
+
+func _setup_z_index_for_new_element(button):
+	# Set up the initial z-index values for this new button only
+	var z_index = 1000  # Base z-index value
+	var i = accessorie_buttons.size() - 1  # Index of the new button
+	
+	match Global.current_dir:
+		"down":
+			button.accessorie_element.z_down = z_index + i + 1
+			button.accessorie_element.z_top = -(z_index + i + 1)
+			button.accessorie_element.z_right = z_index + i + 1
+			button.accessorie_element.z_left = z_index + i + 1
+			
+			button.accessorie_element.z_index = button.accessorie_element.z_down
+		"top":
+			button.accessorie_element.z_down = -(z_index + i + 1)
+			button.accessorie_element.z_top = z_index + i + 1
+			button.accessorie_element.z_right = z_index + i + 1
+			button.accessorie_element.z_left = z_index + i + 1
+			
+			button.accessorie_element.z_index = button.accessorie_element.z_top
+		"right":
+			button.accessorie_element.z_down = z_index + i + 1
+			button.accessorie_element.z_top = -(z_index + i + 1)
+			button.accessorie_element.z_right = z_index + i + 1
+			button.accessorie_element.z_left = z_index + i + 1
+			
+			button.accessorie_element.z_index = button.accessorie_element.z_right
+		"left":
+			button.accessorie_element.z_down = z_index + i + 1
+			button.accessorie_element.z_top = -(z_index + i + 1)
+			button.accessorie_element.z_right = z_index + i + 1
+			button.accessorie_element.z_left = z_index + i + 1
+			
+			button.accessorie_element.z_index = button.accessorie_element.z_left
 
 func _on_accessory_selected(element):
 	hide_color_picker()
 	position_controller.visible = true
 	accessory_element_selected.emit(element)
+	
+	# Make sure positions are preserved after selection
+	call_deferred("_preserve_button_positions")
+	
+func _preserve_button_positions():
+	# Ensure all buttons maintain their positions
+	for button in accessorie_buttons:
+		if button.cur_position != Vector2.ZERO:
+			button.position = button.cur_position
 	
 func _on_accessory_deleted(button: AccessorieButton):
 	hide_color_picker()
@@ -44,16 +97,14 @@ func _on_accessory_deleted(button: AccessorieButton):
 		timer.wait_time = 0.05  
 		timer.one_shot = true
 		timer.timeout.connect(func(): 
-			_update_order_and_positions()
+			_update_swapped_positions()  # Only update positions, not z-indices
 			timer.queue_free()  
 		)
 		timer.start()
 		
 		button.queue_free()
 
-
 func swap_element(button):
-	#print(button.position)
 	hide_color_picker()
 	var closest_button = get_closest_button(button)
 
@@ -61,85 +112,78 @@ func swap_element(button):
 		var button_index = button.get_index()
 		var closest_button_index = closest_button.get_index()
 
-		# Меняем местами в контейнере
+		# Swap in container
 		button_container.move_child(button, closest_button_index)
 		button_container.move_child(closest_button, button_index)
 
-		# Обновляем порядок в accessorie_buttons
+		# Update order in accessorie_buttons
 		var temp = accessorie_buttons[button_index]
 		accessorie_buttons[button_index] = accessorie_buttons[closest_button_index]
 		accessorie_buttons[closest_button_index] = temp
 
-		# Обновляем порядок z_index и позиции
-		call_deferred("_update_order_and_positions")
-
+		# Only update positions after swap, not z-indices
+		call_deferred("_update_swapped_positions")
+		
+		# Swap z-indices between the two swapped buttons
+		_swap_z_indices(button, closest_button)
 	else:
 		button.position = button.cur_position
 
-func _update_order_and_positions():
-	# Обновляем cur_position и z_index для всех кнопок в правильном порядке
-	for i in range(accessorie_buttons.size()):
-		var button = accessorie_buttons[i]
-		button.cur_position = button.position
-		
+func _swap_z_indices(button1, button2):
+	# Swap all z-index values between the two elements
+	var temp_z_down = button1.accessorie_element.z_down
+	var temp_z_top = button1.accessorie_element.z_top
+	var temp_z_right = button1.accessorie_element.z_right
+	var temp_z_left = button1.accessorie_element.z_left
+	
+	button1.accessorie_element.z_down = button2.accessorie_element.z_down
+	button1.accessorie_element.z_top = button2.accessorie_element.z_top
+	button1.accessorie_element.z_right = button2.accessorie_element.z_right
+	button1.accessorie_element.z_left = button2.accessorie_element.z_left
+	
+	button2.accessorie_element.z_down = temp_z_down
+	button2.accessorie_element.z_top = temp_z_top
+	button2.accessorie_element.z_right = temp_z_right
+	button2.accessorie_element.z_left = temp_z_left
+	
+	# Update current z_index based on current direction
+	_update_current_z_indices()
+
+func _update_current_z_indices():
+	# Only update the current z_index based on the current direction, not recalculating all z values
+	for button in accessorie_buttons:
 		match Global.current_dir:
 			"down":
-				button.accessorie_element.z_down = z_index + i + 1
-				button.accessorie_element.z_top = -(z_index  + i + 1)
-				button.accessorie_element.z_right = z_index + i + 1
-				button.accessorie_element.z_left = z_index + i + 1
-				
 				button.accessorie_element.z_index = button.accessorie_element.z_down
 			"top":
-				button.accessorie_element.z_down = -(z_index  + i + 1)
-				button.accessorie_element.z_top = z_index  + i + 1
-				button.accessorie_element.z_right = z_index  + i + 1
-				button.accessorie_element.z_left = z_index + i + 1
-				
 				button.accessorie_element.z_index = button.accessorie_element.z_top
 			"right":
-				button.accessorie_element.z_down = z_index   + i + 1
-				button.accessorie_element.z_top = -(z_index  + i + 1)
-				button.accessorie_element.z_right = z_index   + i + 1
-				button.accessorie_element.z_left = z_index   + i + 1
-				
 				button.accessorie_element.z_index = button.accessorie_element.z_right
 			"left":
-				button.accessorie_element.z_down = z_index   + i + 1
-				button.accessorie_element.z_top = -(z_index  + i + 1)
-				button.accessorie_element.z_right = z_index   + i + 1
-				button.accessorie_element.z_left = z_index  + i + 1
-				
 				button.accessorie_element.z_index = button.accessorie_element.z_left
 
-
-#func _update_cur_positions(button, closest_button):
-	## Обновляем cur_position для обеих кнопок
-	#button.cur_position = button.position
-	#closest_button.cur_position = closest_button.position
+func _update_swapped_positions():
+	# Only update the cur_position for all buttons after a swap
+	for button in accessorie_buttons:
+		button.cur_position = button.position
 
 func get_closest_button(button):
-	var closest_button = button  # Изначально ближайший — это сам переданный button
+	var closest_button = button
 	var min_distance = abs(button.cur_position.y - button.position.y)
 
-	# Проходим по всем детям в button_container
 	for child in button_container.get_children():
-		if child != button:  # Пропускаем сам button
+		if child != button:
 			var distance = abs(child.position.y - button.position.y)
-			#print(distance)
 			if distance < min_distance:
 				min_distance = distance
 				closest_button = child
 
 	return closest_button
 	
-	
 func change_visible():
 	visible = catallog.current_tab.is_in_group("Accessorie")
 	
-	
 func hide_color_picker():
 	for button in accessorie_buttons:
-		
 		button.color_picker_button._on_toggled(false)
 		button.color_picker_button.button_pressed = false
