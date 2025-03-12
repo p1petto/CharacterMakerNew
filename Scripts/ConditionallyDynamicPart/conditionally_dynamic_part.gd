@@ -23,8 +23,11 @@ class_name ConditionallyDynamicCharacterPart
 @export var idle_ainmation_offset_horizontal: Array[Vector2]
 @export var walk_animation_offset_horizontal: Array[Vector2]
 
+#@export var resource_dynamic_clothes: DynamicClothes
 
 @onready var slider_containers = $"../../../../UI/SliderContainer"
+@onready var dynamic_clothes = $AnimatedSprite2D/DynamicClothes
+
 
 var current_state: String = "idle"
 var current_direction: String = "down"
@@ -48,6 +51,11 @@ func _ready() -> void:
 	start_position = position
 	call_deferred("_connect_color_changed_signal")
 	call_deferred("_connect_color")
+	
+	dynamic_clothes.size = Vector2(0, 0)
+	
+	
+
 
 func _connect_color_changed_signal():
 	color_picker_button.color_changed.connect(_on_color_changed)
@@ -74,7 +82,7 @@ func _on_color_changed(new_color: Color) -> void:
 
 	# Применяем цвет, с учётом разницы с белым для `animated_sprite`
 	if animated_sprite:
-		animated_sprite.modulate = cur_color 
+		animated_sprite.self_modulate = cur_color
 
 	# Если есть симметричный элемент, обновляем его отдельно
 	if linked_symmetrical_element and is_symmetrical:
@@ -95,7 +103,7 @@ func _apply_color_without_propagation(new_color: Color) -> void:
 
 	# Обновляем цвет `animated_sprite` с разницей с белым
 	if animated_sprite:
-		animated_sprite.modulate = new_color
+		animated_sprite.self_modulate = new_color
 
 
 func change_direction(direction: String) -> void:
@@ -114,10 +122,14 @@ func change_direction(direction: String) -> void:
 			
 	current_direction = direction
 	update_animation()
+	if dynamic_clothes.resource_dynamic_clothes:
+		dynamic_clothes.change_direction()
 
 func change_state(new_state: String) -> void:
 	current_state = new_state
 	update_animation()
+	if dynamic_clothes.resource_dynamic_clothes:
+		dynamic_clothes.change_direction()
 
 func change_thickness(new_thickness) -> void:
 	current_thickness = str(new_thickness)
@@ -134,24 +146,15 @@ func update_animation() -> void:
 	else:
 		print("Animation not found: ", animation_name)
 	
-	#if Global.animation_is_run:
-		#var property_name = ""
-		#if Global.current_animation == "idle":
-			#property_name = "idle_ainmation_offset"
-		#elif Global.current_animation == "walk":
-			#property_name = "walk_animation_offset"
-		#else:
-			#property_name = "idle_ainmation_offset"  # По умолчанию
-		#if Global.current_dir == "down" or Global.current_dir == "top":
-			#property_name = property_name + "_vertical"
-		#else:
-			#property_name = property_name + "_horizontal"
-			#
-		#var offset_array = get(property_name)
-		#position = start_position + offset_array[cur_frame]
 
 func _process(delta: float) -> void:
 	pass
 	
 func update_frame(frame_index):
 	animated_sprite.frame = frame_index
+	
+func initialize_dynamic_clothes(clothes):
+	dynamic_clothes.resource_dynamic_clothes = clothes
+	dynamic_clothes.change_direction()
+	
+	

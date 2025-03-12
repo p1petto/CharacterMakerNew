@@ -46,6 +46,9 @@ func _on_catalog_slot_pressed(slot):
 		"Accessories":
 			_handle_accessories_item(slot_index, item_class)
 			
+		"Dynamic_clothes":
+			_handle_dynamic_clothes_item(slot_index, item_class)
+			
 	
 
 func _handle_dynamic_item(slot_index, item_class):
@@ -129,4 +132,7 @@ func _handle_accessories_item(slot_index, item_class):
 	#added_accessorie.emit()
 
 
-	
+func _handle_dynamic_clothes_item(slot_index, item_class):
+	var part = catalog_items[slot_index].dynamic_clothes
+	var current_node = character.get_node(item_class)
+	current_node.initialize_dynamic_clothes(part)

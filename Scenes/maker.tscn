@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bm1ycyeyegmyw"]
+[gd_scene load_steps=41 format=3 uid="uid://bm1ycyeyegmyw"]
 
 [ext_resource type="PackedScene" uid="uid://bmajra62ohwsu" path="res://Scenes/character.tscn" id="1_12d3f"]
 [ext_resource type="Script" path="res://Scripts/maker.gd" id="1_wror2"]
@@ -22,9 +22,13 @@
 [ext_resource type="Resource" uid="uid://xb00p14w71s4" path="res://Resources/CatalogItems/StaticElement/Eyes/Eye1/RightEye/RightEye.tres" id="17_nc5m7"]
 [ext_resource type="Resource" uid="uid://iu27d1bg1axf" path="res://Resources/CatalogItems/Accessories/Bow.tres" id="20_emeal"]
 [ext_resource type="Resource" uid="uid://cww0wllumgai8" path="res://Resources/CatalogItems/Accessories/Glass.tres" id="21_adrnn"]
+[ext_resource type="Resource" uid="uid://c2547tkdm21sm" path="res://Resources/CatalogItems/Clothes/DynamicClothes/Sleeve/standart/Sleeve3.tres" id="23_0wu6d"]
 [ext_resource type="Script" path="res://Scripts/UI/animation_button.gd" id="23_b4y1g"]
 [ext_resource type="PackedScene" uid="uid://b2omgn2er4084" path="res://Scenes/UI/accessorie_panel.tscn" id="23_dbin5"]
+[ext_resource type="Resource" uid="uid://1g45qsxi75b6" path="res://Resources/Clothes/Limbs/LeftSleeve2.tres" id="23_k72u1"]
+[ext_resource type="Resource" uid="uid://ca4h3lkt8v78y" path="res://Resources/Clothes/Limbs/LeftSleeve3.tres" id="24_k5f1o"]
 [ext_resource type="Script" path="res://Scripts/UI/animation_controller.gd" id="25_aee7t"]
+[ext_resource type="Resource" uid="uid://s7km1bae4h0c" path="res://Resources/CatalogItems/Clothes/DynamicClothes/Sleeve/standart/Sleeve2.tres" id="25_ot8fs"]
 [ext_resource type="Script" path="res://Scenes/color_picker_button_container.gd" id="26_hr221"]
 [ext_resource type="Script" path="res://Scripts/UI/export.gd" id="26_qf8ja"]
 
@@ -69,6 +73,18 @@ script = ExtResource("5_sbt4v")
 item_type = "Static"
 item_class = "RightEye"
 static_element = SubResource("Resource_87sjp")
+
+[sub_resource type="Resource" id="Resource_diamt"]
+script = ExtResource("5_sbt4v")
+item_type = "Dynamic_clothes"
+item_class = "LeftArm"
+dynamic_clothes = ExtResource("23_k72u1")
+
+[sub_resource type="Resource" id="Resource_jvjqr"]
+script = ExtResource("5_sbt4v")
+item_type = "Dynamic_clothes"
+item_class = "LeftArm"
+dynamic_clothes = ExtResource("24_k5f1o")
 
 [node name="Maker" type="Node2D"]
 texture_filter = 1
@@ -256,6 +272,14 @@ linked_symmetrical_element = NodePath("../LeftEye")
 visible = false
 layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("20_emeal"), ExtResource("21_adrnn")])
+
+[node name="LeftSleeve" parent="UI/Catalog/CatalogContainer" instance=ExtResource("4_kavcm")]
+layout_mode = 2
+catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_diamt"), SubResource("Resource_jvjqr")])
+
+[node name="RightSleeve" parent="UI/Catalog/CatalogContainer" instance=ExtResource("4_kavcm")]
+layout_mode = 2
+catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("25_ot8fs"), ExtResource("23_0wu6d")])
 
 [node name="ButtonsScrollContainer" type="ScrollContainer" parent="UI/Catalog"]
 custom_minimum_size = Vector2(0, 64.295)

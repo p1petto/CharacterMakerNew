@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="DynamicClothes" load_steps=2 format=3 uid="uid://c6j4xllp2laep"]
+
+[ext_resource type="Script" path="res://Scripts/Clothes/resource_dynamic_clothes.gd" id="1_1nk1j"]
+
+[resource]
+script = ExtResource("1_1nk1j")
+down_position = Vector2(-11, -20)
+right_position = Vector2(0, 0)
+left_position = Vector2(-8, -20)
+top_position = Vector2(-12, -19)
+down_size = Vector2(20, 20)
+right_size = Vector2(20, 20)
+left_size = Vector2(20, 20)
+top_size = Vector2(20, 20)
+down_position_walk = Vector2(-11, -19)
+right_position_walk = Vector2(-12, -21)
+left_position_walk = Vector2(-11, -21)
+top_position_walk = Vector2(-11, -18)
