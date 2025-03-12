@@ -16,6 +16,7 @@ shader = ExtResource("4_6408r")
 shader_parameter/radius = 0.5
 shader_parameter/border_width = 0.0
 shader_parameter/border_color = Color(0, 0, 0, 1)
+shader_parameter/newcolor = null
 
 [node name="ConditionallyDynamicPart" type="Node2D"]
 texture_filter = 1

@@ -136,3 +136,13 @@ func _handle_dynamic_clothes_item(slot_index, item_class):
 	var part = catalog_items[slot_index].dynamic_clothes
 	var current_node = character.get_node(item_class)
 	current_node.initialize_dynamic_clothes(part)
+	
+	if linked_symmetrical_element:
+		var check_button = get_node("CustomCheckButton/CheckButton")
+		if check_button.button_pressed:
+			var linked_part = linked_symmetrical_element.catalog_items[slot_index].dynamic_clothes
+			var linked_item_class = linked_symmetrical_element.catalog_items[slot_index].item_class
+			var linked_node = character.get_node(linked_item_class)
+			linked_node.initialize_dynamic_clothes(part)
+			
+		

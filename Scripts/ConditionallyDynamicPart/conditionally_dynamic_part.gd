@@ -156,5 +156,6 @@ func update_frame(frame_index):
 func initialize_dynamic_clothes(clothes):
 	dynamic_clothes.resource_dynamic_clothes = clothes
 	dynamic_clothes.change_direction()
+	dynamic_clothes.set_start_color()
 	
 	

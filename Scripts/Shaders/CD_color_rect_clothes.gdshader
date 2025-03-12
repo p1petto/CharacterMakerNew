@@ -3,6 +3,7 @@ shader_type canvas_item;
 uniform float radius : hint_range(0.0, 1.0) = 0.5;
 uniform float border_width : hint_range(0.0, 0.5) = 0.0;
 uniform vec4 border_color : source_color = vec4(0.0, 0.0, 0.0, 1.0);
+uniform vec4 newcolor : source_color;
 
 void fragment() {
     // Преобразуем координаты UV так, чтобы центр был в (0.5, 0.5)

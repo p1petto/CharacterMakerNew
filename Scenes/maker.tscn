@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bm1ycyeyegmyw"]
+[gd_scene load_steps=46 format=3 uid="uid://bm1ycyeyegmyw"]
 
 [ext_resource type="PackedScene" uid="uid://bmajra62ohwsu" path="res://Scenes/character.tscn" id="1_12d3f"]
 [ext_resource type="Script" path="res://Scripts/maker.gd" id="1_wror2"]
@@ -25,6 +25,7 @@
 [ext_resource type="Resource" uid="uid://c2547tkdm21sm" path="res://Resources/CatalogItems/Clothes/DynamicClothes/Sleeve/standart/Sleeve3.tres" id="23_0wu6d"]
 [ext_resource type="Script" path="res://Scripts/UI/animation_button.gd" id="23_b4y1g"]
 [ext_resource type="PackedScene" uid="uid://b2omgn2er4084" path="res://Scenes/UI/accessorie_panel.tscn" id="23_dbin5"]
+[ext_resource type="Script" path="res://Scripts/Clothes/resource_dynamic_clothes.gd" id="23_jyf5e"]
 [ext_resource type="Resource" uid="uid://1g45qsxi75b6" path="res://Resources/Clothes/Limbs/LeftSleeve2.tres" id="23_k72u1"]
 [ext_resource type="Resource" uid="uid://ca4h3lkt8v78y" path="res://Resources/Clothes/Limbs/LeftSleeve3.tres" id="24_k5f1o"]
 [ext_resource type="Script" path="res://Scripts/UI/animation_controller.gd" id="25_aee7t"]
@@ -74,6 +75,27 @@ item_type = "Static"
 item_class = "RightEye"
 static_element = SubResource("Resource_87sjp")
 
+[sub_resource type="Resource" id="Resource_7a0hw"]
+script = ExtResource("23_jyf5e")
+down_position = Vector2(0, 0)
+right_position = Vector2(0, 0)
+left_position = Vector2(0, 0)
+top_position = Vector2(0, 0)
+down_size = Vector2(0, 0)
+right_size = Vector2(0, 0)
+left_size = Vector2(0, 0)
+top_size = Vector2(0, 0)
+down_position_walk = Vector2(0, 0)
+right_position_walk = Vector2(0, 0)
+left_position_walk = Vector2(0, 0)
+top_position_walk = Vector2(0, 0)
+
+[sub_resource type="Resource" id="Resource_y02ex"]
+script = ExtResource("5_sbt4v")
+item_type = "Dynamic_clothes"
+item_class = "LeftArm"
+dynamic_clothes = SubResource("Resource_7a0hw")
+
 [sub_resource type="Resource" id="Resource_diamt"]
 script = ExtResource("5_sbt4v")
 item_type = "Dynamic_clothes"
@@ -85,6 +107,27 @@ script = ExtResource("5_sbt4v")
 item_type = "Dynamic_clothes"
 item_class = "LeftArm"
 dynamic_clothes = ExtResource("24_k5f1o")
+
+[sub_resource type="Resource" id="Resource_kq323"]
+script = ExtResource("23_jyf5e")
+down_position = Vector2(0, 0)
+right_position = Vector2(0, 0)
+left_position = Vector2(0, 0)
+top_position = Vector2(0, 0)
+down_size = Vector2(0, 0)
+right_size = Vector2(0, 0)
+left_size = Vector2(0, 0)
+top_size = Vector2(0, 0)
+down_position_walk = Vector2(0, 0)
+right_position_walk = Vector2(0, 0)
+left_position_walk = Vector2(0, 0)
+top_position_walk = Vector2(0, 0)
+
+[sub_resource type="Resource" id="Resource_xwrnx"]
+script = ExtResource("5_sbt4v")
+item_type = "Dynamic_clothes"
+item_class = "RightArm"
+dynamic_clothes = SubResource("Resource_kq323")
 
 [node name="Maker" type="Node2D"]
 texture_filter = 1
@@ -273,13 +316,17 @@ visible = false
 layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("20_emeal"), ExtResource("21_adrnn")])
 
-[node name="LeftSleeve" parent="UI/Catalog/CatalogContainer" instance=ExtResource("4_kavcm")]
+[node name="LeftSleeve" parent="UI/Catalog/CatalogContainer" node_paths=PackedStringArray("linked_symmetrical_element") groups=["DynamicClothesTab"] instance=ExtResource("4_kavcm")]
+visible = false
 layout_mode = 2
-catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_diamt"), SubResource("Resource_jvjqr")])
+catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_y02ex"), SubResource("Resource_diamt"), SubResource("Resource_jvjqr")])
+linked_symmetrical_element = NodePath("../RightSleeve")
 
-[node name="RightSleeve" parent="UI/Catalog/CatalogContainer" instance=ExtResource("4_kavcm")]
+[node name="RightSleeve" parent="UI/Catalog/CatalogContainer" node_paths=PackedStringArray("linked_symmetrical_element") groups=["DynamicClothesTab"] instance=ExtResource("4_kavcm")]
+visible = false
 layout_mode = 2
-catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("25_ot8fs"), ExtResource("23_0wu6d")])
+catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_xwrnx"), ExtResource("25_ot8fs"), ExtResource("23_0wu6d")])
+linked_symmetrical_element = NodePath("../LeftSleeve")
 
 [node name="ButtonsScrollContainer" type="ScrollContainer" parent="UI/Catalog"]
 custom_minimum_size = Vector2(0, 64.295)

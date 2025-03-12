@@ -60,17 +60,19 @@ func _on_check_button_toggled(toggled_on):
 		if linked_check_button and linked_check_button.get_node("CheckButton").button_pressed != toggled_on:
 			linked_check_button.get_node("CheckButton").set_pressed_no_signal(toggled_on)
 		
+		var linked_node
+		var current_node
 		# Поиск ноды внутри character или его дочерних элементов
-		var current_node = character.find_child(str(current_tab.name), true, false)
-		var linked_node = character.find_child(str(linked_tab.name), true, false)
-
-		# Проверка, что ноды найдены
-		if current_node:
-			current_node.is_symmetrical = toggled_on
+		if !current_tab.is_in_group("DynamicClothesTab"):
+			current_node = character.find_child(str(current_tab.name), true, false)
+			linked_node = character.find_child(str(linked_tab.name), true, false)
+			
 		else:
-			print("Ошибка: Не найдена нода для", current_tab.name)
+			current_node = character.find_child(str(current_tab.catalog_items[0].item_class), true, false)
+			current_node = current_node.find_child("DynamicClothes", true, false)
+			linked_node = character.find_child(str(current_tab.linked_symmetrical_element.catalog_items[0].item_class), true, false)
+			linked_node = linked_node.find_child("DynamicClothes", true, false)
+			
+		current_node.is_symmetrical = toggled_on
+		linked_node.is_symmetrical = toggled_on
 		
-		if linked_node:
-			linked_node.is_symmetrical = toggled_on
-		else:
-			print("Ошибка: Не найдена нода для", linked_tab.name)
