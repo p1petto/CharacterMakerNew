@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bm1ycyeyegmyw"]
+[gd_scene load_steps=54 format=3 uid="uid://bm1ycyeyegmyw"]
 
 [ext_resource type="PackedScene" uid="uid://bmajra62ohwsu" path="res://Scenes/character.tscn" id="1_12d3f"]
 [ext_resource type="Script" path="res://Scripts/maker.gd" id="1_wror2"]
@@ -32,6 +32,10 @@
 [ext_resource type="Resource" uid="uid://s7km1bae4h0c" path="res://Resources/CatalogItems/Clothes/DynamicClothes/Sleeve/standart/Sleeve2.tres" id="25_ot8fs"]
 [ext_resource type="Script" path="res://Scenes/color_picker_button_container.gd" id="26_hr221"]
 [ext_resource type="Script" path="res://Scripts/UI/export.gd" id="26_qf8ja"]
+[ext_resource type="Resource" uid="uid://dj83oj66oel5y" path="res://Resources/CatalogItems/Clothes/DynamicClothes/PantLeg/Standart/PantLeg2.tres" id="28_unnd6"]
+[ext_resource type="Resource" uid="uid://cxglawle4tnbe" path="res://Resources/CatalogItems/Clothes/DynamicClothes/PantLeg/Standart/PantLeg3.tres" id="29_n1m6g"]
+[ext_resource type="Resource" uid="uid://btraubnuykgwh" path="res://Resources/CatalogItems/Clothes/DynamicClothes/PantLeg/Standart/PantLegR2.tres" id="30_fow5y"]
+[ext_resource type="Resource" uid="uid://b16c10w3q2yp1" path="res://Resources/CatalogItems/Clothes/DynamicClothes/PantLeg/Standart/PantLegR3.tres" id="31_ylgi3"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_1urqw"]
 viewport_path = NodePath("SubViewportContainer/SubViewport")
@@ -128,6 +132,48 @@ script = ExtResource("5_sbt4v")
 item_type = "Dynamic_clothes"
 item_class = "RightArm"
 dynamic_clothes = SubResource("Resource_kq323")
+
+[sub_resource type="Resource" id="Resource_em6g8"]
+script = ExtResource("23_jyf5e")
+down_position = Vector2(0, 0)
+right_position = Vector2(0, 0)
+left_position = Vector2(0, 0)
+top_position = Vector2(0, 0)
+down_size = Vector2(0, 0)
+right_size = Vector2(0, 0)
+left_size = Vector2(0, 0)
+top_size = Vector2(0, 0)
+down_position_walk = Vector2(0, 0)
+right_position_walk = Vector2(0, 0)
+left_position_walk = Vector2(0, 0)
+top_position_walk = Vector2(0, 0)
+
+[sub_resource type="Resource" id="Resource_fr3tu"]
+script = ExtResource("5_sbt4v")
+item_type = "Dynamic_clothes"
+item_class = "LeftLeg"
+dynamic_clothes = SubResource("Resource_em6g8")
+
+[sub_resource type="Resource" id="Resource_hcv58"]
+script = ExtResource("23_jyf5e")
+down_position = Vector2(0, 0)
+right_position = Vector2(0, 0)
+left_position = Vector2(0, 0)
+top_position = Vector2(0, 0)
+down_size = Vector2(0, 0)
+right_size = Vector2(0, 0)
+left_size = Vector2(0, 0)
+top_size = Vector2(0, 0)
+down_position_walk = Vector2(0, 0)
+right_position_walk = Vector2(0, 0)
+left_position_walk = Vector2(0, 0)
+top_position_walk = Vector2(0, 0)
+
+[sub_resource type="Resource" id="Resource_l51j6"]
+script = ExtResource("5_sbt4v")
+item_type = "Dynamic_clothes"
+item_class = "RightLeg"
+dynamic_clothes = SubResource("Resource_hcv58")
 
 [node name="Maker" type="Node2D"]
 texture_filter = 1
@@ -327,6 +373,18 @@ visible = false
 layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_xwrnx"), ExtResource("25_ot8fs"), ExtResource("23_0wu6d")])
 linked_symmetrical_element = NodePath("../LeftSleeve")
+
+[node name="LeftPantLeg" parent="UI/Catalog/CatalogContainer" node_paths=PackedStringArray("linked_symmetrical_element") groups=["DynamicClothesTab"] instance=ExtResource("4_kavcm")]
+visible = false
+layout_mode = 2
+catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_fr3tu"), ExtResource("28_unnd6"), ExtResource("29_n1m6g")])
+linked_symmetrical_element = NodePath("../RightPantLeg")
+
+[node name="RightPantLeg" parent="UI/Catalog/CatalogContainer" node_paths=PackedStringArray("linked_symmetrical_element") groups=["DynamicClothesTab"] instance=ExtResource("4_kavcm")]
+visible = false
+layout_mode = 2
+catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_l51j6"), ExtResource("30_fow5y"), ExtResource("31_ylgi3")])
+linked_symmetrical_element = NodePath("../LeftPantLeg")
 
 [node name="ButtonsScrollContainer" type="ScrollContainer" parent="UI/Catalog"]
 custom_minimum_size = Vector2(0, 64.295)

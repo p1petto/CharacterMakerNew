@@ -27,6 +27,7 @@ class_name ConditionallyDynamicCharacterPart
 
 @onready var slider_containers = $"../../../../UI/SliderContainer"
 @onready var dynamic_clothes = $AnimatedSprite2D/DynamicClothes
+@onready var border = $AnimatedSpriteBorder
 
 
 var current_state: String = "idle"
@@ -43,8 +44,10 @@ func _ready() -> void:
 	
 	if conditionally_dynamic.sprite_frames:
 		animated_sprite.sprite_frames = conditionally_dynamic.sprite_frames
+		border.sprite_frames = conditionally_dynamic.border_frames
 	if cur_animation:
 		animated_sprite.animation = cur_animation
+		border.animation = cur_animation
 	else:
 		# Установка анимации по умолчанию
 		update_animation()
@@ -83,6 +86,7 @@ func _on_color_changed(new_color: Color) -> void:
 	# Применяем цвет, с учётом разницы с белым для `animated_sprite`
 	if animated_sprite:
 		animated_sprite.self_modulate = cur_color
+		border.self_modulate = cur_color
 
 	# Если есть симметричный элемент, обновляем его отдельно
 	if linked_symmetrical_element and is_symmetrical:
@@ -143,6 +147,7 @@ func update_animation() -> void:
 	# Проверяем, существует ли такая анимация
 	if animated_sprite.sprite_frames.has_animation(animation_name):
 		animated_sprite.animation = animation_name
+		border.animation = animation_name
 	else:
 		print("Animation not found: ", animation_name)
 	
@@ -152,6 +157,7 @@ func _process(delta: float) -> void:
 	
 func update_frame(frame_index):
 	animated_sprite.frame = frame_index
+	border.frame = frame_index
 	
 func initialize_dynamic_clothes(clothes):
 	dynamic_clothes.resource_dynamic_clothes = clothes

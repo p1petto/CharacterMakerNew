@@ -96,6 +96,7 @@ func set_start_position():
 			child.setup_polygon(Global.current_dir)
 		if child.is_in_group("ConditionallyDynamic"):
 			child.animated_sprite.frame = 0
+			child.border.frame = 0
 			child.position = child.start_position
 
 

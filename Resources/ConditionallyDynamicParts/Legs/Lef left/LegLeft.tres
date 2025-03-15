@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="ConditionallyDynamic" load_steps=3 format=3 uid="uid://bolc5spph738q"]
+[gd_resource type="Resource" script_class="ConditionallyDynamic" load_steps=4 format=3 uid="uid://bolc5spph738q"]
 
 [ext_resource type="Script" path="res://Scripts/ConditionallyDynamicPart/resource_conditionally_dynamic_part.gd" id="1_iyd3f"]
+[ext_resource type="SpriteFrames" uid="uid://ddjwg7heeid7w" path="res://Resources/ConditionallyDynamicParts/Legs/Lef left/leg_l_animations_border.tres" id="1_vfwfa"]
 [ext_resource type="SpriteFrames" uid="uid://dtu0afq7fxtq3" path="res://Resources/ConditionallyDynamicParts/Legs/Lef left/leg_l_animations.tres" id="2_we0nh"]
 
 [resource]
 script = ExtResource("1_iyd3f")
 sprite_frames = ExtResource("2_we0nh")
+border_frames = ExtResource("1_vfwfa")
 color = Color(0.768627, 0.588235, 0.490196, 1)
