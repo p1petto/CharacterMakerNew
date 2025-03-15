@@ -108,6 +108,7 @@ func _apply_color_without_propagation(new_color: Color) -> void:
 	# Обновляем цвет `animated_sprite` с разницей с белым
 	if animated_sprite:
 		animated_sprite.self_modulate = new_color
+		border.self_modulate = new_color
 
 
 func change_direction(direction: String) -> void:
