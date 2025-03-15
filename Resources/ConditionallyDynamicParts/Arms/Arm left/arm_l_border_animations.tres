@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://c5o2lew8ecf60"]
+
+[ext_resource type="Texture2D" uid="uid://ceef1jqx7qtmr" path="res://Assets/Character/arm/1/border/idle-arm-down.png" id="1_rmnok"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssm5d"]
+atlas = ExtResource("1_rmnok")
+region = Rect2(0, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssm5d")
+}],
+"loop": true,
+"name": &"idle_down_1",
+"speed": 5.0
+}]

@@ -143,6 +143,6 @@ func _handle_dynamic_clothes_item(slot_index, item_class):
 			var linked_part = linked_symmetrical_element.catalog_items[slot_index].dynamic_clothes
 			var linked_item_class = linked_symmetrical_element.catalog_items[slot_index].item_class
 			var linked_node = character.get_node(linked_item_class)
-			linked_node.initialize_dynamic_clothes(part)
+			linked_node.initialize_dynamic_clothes(linked_part)
 			
 		
