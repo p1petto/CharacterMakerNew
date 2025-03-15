@@ -1,11 +1,11 @@
 extends MarginContainer
 
 @onready var catallog_container = $CatalogContainer
-@onready var button_container = $ButtonsScrollContainer/HBoxContainer
-@onready var button_scroll_container = $ButtonsScrollContainer
+@onready var button_container = $MarginContainer/HBoxContainer/ButtonsScrollContainer/HBoxContainer
+@onready var button_scroll_container = $MarginContainer/HBoxContainer/ButtonsScrollContainer
 @onready var character = $"../../SubViewportContainer/SubViewport/Character"
 var color_picker_button
-@onready var color_picker_button_container =  $"../ColorPickerButtonContainer"
+@onready var color_picker_button_container =  $MarginContainer/HBoxContainer/ColorPickerButtonContainer
 
 @export var current_tab: CustomTab
 

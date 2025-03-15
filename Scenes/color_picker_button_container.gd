@@ -1,7 +1,8 @@
 extends Container
 
-@onready var catalog = $"../Catalog"  
-@onready var character = $"../../SubViewportContainer/SubViewport/Character"
+@onready var catalog = $"../../.."
+@onready var character = $"../../../../../SubViewportContainer/SubViewport/Character"
+@onready var button_scroll_container = $"../ButtonsScrollContainer"
 var color_picker_button_scene = preload("res://Scenes/UI/custom_color_picker_button.tscn")
 
 # Called when the node enters the scene tree for the first time.

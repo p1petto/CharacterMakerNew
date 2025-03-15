@@ -19,10 +19,8 @@ script = ExtResource("1_1laor")
 [node name="ColorPicker" type="ColorPicker" parent="."]
 visible = false
 layout_mode = 0
-offset_left = -372.0
-offset_top = -390.0
-offset_right = -74.0
-offset_bottom = -59.0
+offset_right = 298.0
+offset_bottom = 331.0
 edit_alpha = false
 color_modes_visible = false
 sliders_visible = false

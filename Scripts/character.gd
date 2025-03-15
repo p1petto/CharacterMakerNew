@@ -11,7 +11,7 @@ extends Node2D
 @onready var arm_r = $RightArm
 @onready var arm_l = $LeftArm
 
-@onready var color_picker_button_container =  $"../../../UI/ColorPickerButtonContainer"
+@onready var color_picker_button_container =  $"../../../UI/Catalog/MarginContainer/HBoxContainer/ColorPickerButtonContainer"
 
 var cur_frame: int
 

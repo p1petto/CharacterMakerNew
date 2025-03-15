@@ -300,7 +300,9 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -221.0
+offset_left = -2.0
+offset_top = -228.0
+offset_right = 2.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
@@ -386,15 +388,31 @@ layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_l51j6"), ExtResource("30_fow5y"), ExtResource("31_ylgi3")])
 linked_symmetrical_element = NodePath("../LeftPantLeg")
 
-[node name="ButtonsScrollContainer" type="ScrollContainer" parent="UI/Catalog"]
-custom_minimum_size = Vector2(0, 64.295)
+[node name="MarginContainer" type="CenterContainer" parent="UI/Catalog"]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/Catalog/ButtonsScrollContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Catalog/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="ButtonsScrollContainer" type="ScrollContainer" parent="UI/Catalog/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(880, 64.295)
+layout_mode = 2
+size_flags_vertical = 8
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Catalog/MarginContainer/HBoxContainer/ButtonsScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
+
+[node name="ColorPickerButtonContainer" type="Container" parent="UI/Catalog/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+script = ExtResource("26_hr221")
 
 [node name="DirectionButtons" type="ColorRect" parent="UI"]
 offset_left = 132.0
@@ -480,13 +498,6 @@ text = "Run
 layout_mode = 2
 text = "снимок"
 script = ExtResource("26_qf8ja")
-
-[node name="ColorPickerButtonContainer" type="Container" parent="UI"]
-offset_left = 1044.0
-offset_top = 454.0
-offset_right = 1116.0
-offset_bottom = 504.0
-script = ExtResource("26_hr221")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(577, 325)

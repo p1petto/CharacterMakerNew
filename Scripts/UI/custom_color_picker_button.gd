@@ -26,6 +26,7 @@ func _ready() -> void:
 
 func _on_toggled(toggled_on: bool) -> void:
 	if toggled_on:
+		color_picker.global_position = Vector2(800,40)
 		color_picker.visible = true
 		slider_container.visible = false
 		position_container.visible = false
