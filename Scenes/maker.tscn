@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://bm1ycyeyegmyw"]
+[gd_scene load_steps=62 format=3 uid="uid://bm1ycyeyegmyw"]
 
 [ext_resource type="PackedScene" uid="uid://bmajra62ohwsu" path="res://Scenes/character.tscn" id="1_12d3f"]
 [ext_resource type="Script" path="res://Scripts/maker.gd" id="1_wror2"]
@@ -32,10 +32,17 @@
 [ext_resource type="Resource" uid="uid://s7km1bae4h0c" path="res://Resources/CatalogItems/Clothes/DynamicClothes/Sleeve/standart/Sleeve2.tres" id="25_ot8fs"]
 [ext_resource type="Script" path="res://Scenes/color_picker_button_container.gd" id="26_hr221"]
 [ext_resource type="Script" path="res://Scripts/UI/export.gd" id="26_qf8ja"]
+[ext_resource type="Resource" uid="uid://b5ku4nga13ref" path="res://Resources/Clothes/Pants/Pants/Pants.tres" id="28_h8v44"]
 [ext_resource type="Resource" uid="uid://dj83oj66oel5y" path="res://Resources/CatalogItems/Clothes/DynamicClothes/PantLeg/Standart/PantLeg2.tres" id="28_unnd6"]
 [ext_resource type="Resource" uid="uid://cxglawle4tnbe" path="res://Resources/CatalogItems/Clothes/DynamicClothes/PantLeg/Standart/PantLeg3.tres" id="29_n1m6g"]
+[ext_resource type="Resource" uid="uid://df72s0b13wx4n" path="res://Resources/CatalogItems/Clothes/Clothes/Pants/Pants1.tres" id="29_vr24w"]
+[ext_resource type="Resource" uid="uid://i38m8v2gb63o" path="res://Resources/CatalogItems/Clothes/Clothes/Pants/Pants2.tres" id="30_a1s8y"]
 [ext_resource type="Resource" uid="uid://btraubnuykgwh" path="res://Resources/CatalogItems/Clothes/DynamicClothes/PantLeg/Standart/PantLegR2.tres" id="30_fow5y"]
+[ext_resource type="Resource" uid="uid://d8lty4e06bbo" path="res://Resources/CatalogItems/Clothes/Clothes/Pants/Pants3.tres" id="31_mmwkf"]
 [ext_resource type="Resource" uid="uid://b16c10w3q2yp1" path="res://Resources/CatalogItems/Clothes/DynamicClothes/PantLeg/Standart/PantLegR3.tres" id="31_ylgi3"]
+[ext_resource type="Resource" uid="uid://clnhqp6wr2hj8" path="res://Resources/CatalogItems/Clothes/Clothes/Pants/overall1.tres" id="32_ba0ri"]
+[ext_resource type="Resource" uid="uid://bevuxacp5vbpd" path="res://Resources/CatalogItems/Clothes/Clothes/Pants/overall2.tres" id="33_f3a3y"]
+[ext_resource type="Resource" uid="uid://cc2qhrmkmu454" path="res://Resources/CatalogItems/Clothes/Clothes/Pants/overall3.tres" id="34_3iy82"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_1urqw"]
 viewport_path = NodePath("SubViewportContainer/SubViewport")
@@ -132,6 +139,12 @@ script = ExtResource("5_sbt4v")
 item_type = "Dynamic_clothes"
 item_class = "RightArm"
 dynamic_clothes = SubResource("Resource_kq323")
+
+[sub_resource type="Resource" id="Resource_rr2v3"]
+script = ExtResource("5_sbt4v")
+item_type = "Clothes"
+item_class = "Body"
+clothes = ExtResource("28_h8v44")
 
 [sub_resource type="Resource" id="Resource_em6g8"]
 script = ExtResource("23_jyf5e")
@@ -375,6 +388,11 @@ visible = false
 layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_xwrnx"), ExtResource("25_ot8fs"), ExtResource("23_0wu6d")])
 linked_symmetrical_element = NodePath("../LeftSleeve")
+
+[node name="Pants" parent="UI/Catalog/CatalogContainer" groups=["ClothesTab"] instance=ExtResource("4_kavcm")]
+visible = false
+layout_mode = 2
+catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_rr2v3"), ExtResource("29_vr24w"), ExtResource("30_a1s8y"), ExtResource("31_mmwkf"), ExtResource("32_ba0ri"), ExtResource("33_f3a3y"), ExtResource("34_3iy82")])
 
 [node name="LeftPantLeg" parent="UI/Catalog/CatalogContainer" node_paths=PackedStringArray("linked_symmetrical_element") groups=["DynamicClothesTab"] instance=ExtResource("4_kavcm")]
 visible = false

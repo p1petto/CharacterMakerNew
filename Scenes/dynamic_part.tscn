@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dy613l8j7trug"]
+[gd_scene load_steps=6 format=3 uid="uid://dy613l8j7trug"]
 
 [ext_resource type="Script" path="res://Scripts/DynamicParts/dynamic_part.gd" id="1_aptrw"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/color_changing_shader.gdshader" id="1_dcyy3"]
 [ext_resource type="Texture2D" uid="uid://b6c2oobtn80w5" path="res://idle-Sheet2.png" id="3_8aldy"]
+[ext_resource type="Script" path="res://Scripts/clothes.gd" id="5_r7jug"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oo8fd"]
 shader = ExtResource("1_dcyy3")
@@ -73,6 +74,13 @@ color = Color(0.768627, 0.588235, 0.490196, 1)
 
 [node name="glare" type="Polygon2D" parent="Polygon2D"]
 color = Color(0.909804, 0.768627, 0.686275, 1)
+
+[node name="Clothes" type="TextureRect" parent="Polygon2D"]
+offset_left = -12.0
+offset_top = 14.0
+offset_right = 26.0
+offset_bottom = 23.0
+script = ExtResource("5_r7jug")
 
 [node name="Line2D" type="Line2D" parent="."]
 closed = true

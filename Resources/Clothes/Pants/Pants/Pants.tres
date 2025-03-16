@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Clothes" load_steps=2 format=3 uid="uid://b5ku4nga13ref"]
+
+[ext_resource type="Script" path="res://Scripts/Clothes/resource_clothes.gd" id="1_5qmyv"]
+
+[resource]
+script = ExtResource("1_5qmyv")
+down_idle_position = Vector2(0, 0)
+right_idle_position = Vector2(0, 0)
+top_idle_position = Vector2(0, 0)
+left_idle_position = Vector2(0, 0)
+down_walk_position = Vector2(0, 0)
+right_walk_position = Vector2(0, 0)
+top_walk_position = Vector2(0, 0)
+left_walk_position = Vector2(0, 0)

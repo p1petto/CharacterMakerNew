@@ -28,6 +28,8 @@ func _create_and_assign_color_picker(child) -> void:
 		character_element.color_picker_button = color_picker_button
 		character_element._connect_color_changed_signal()
 		character_element._connect_color()
+	elif child.is_in_group("ClothesTab"):
+		print ()
 	else:
 		character_element = character.find_child(child.name, true, false)
 		character_element.color_picker_button = color_picker_button

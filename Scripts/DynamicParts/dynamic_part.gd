@@ -7,6 +7,8 @@ extends Node2D
 @export var idle_ainmation_offset_horizontal: Array[Vector2]
 @export var walk_animation_offset_horizontal: Array[Vector2]
 
+
+
 @onready var polygon2d = $Polygon2D
 @onready var testpolygon2d = $Polygon2D
 @onready var line2d = $Line2D
@@ -14,6 +16,7 @@ extends Node2D
 
 @onready var slider_containers = $"../../../../UI/SliderContainer"
 @onready var character = $".."
+@onready var clothes = $Polygon2D/Clothes
 
 var central_bottom_point: int 
 var flag = true
@@ -22,6 +25,7 @@ var color_picker_button
 var cur_color: Color
 var initial_line_color: Color
 var initial_glare_color: Color
+
 
 func _ready() -> void:
 	if dynamic_part:
@@ -98,7 +102,6 @@ func _on_color_changed(new_color: Color) -> void:
 	
 	# For Glare - blend the initial glare color with the new color
 	if glare:
-		print("GLARE")
 		var new_glare_color = Color(
 			initial_glare_color.r + (cur_color.r - initial_glare_color.r) * 0.6,
 			initial_glare_color.g + (cur_color.g - initial_glare_color.g) * 0.6,
@@ -122,6 +125,8 @@ func setup_polygon(dir) -> void:
 	var sliders
 	if !flag:
 		sliders = get_target_container_slider().get_children()
+	
+	clothes.change_dir()
 	
 	if dir == "down":
 		polygon2d.polygon = dynamic_part.down_array_points
@@ -158,7 +163,7 @@ func setup_polygon(dir) -> void:
 				var mirror_x = get_mirror_x(len(dynamic_part.top_array_points), slider.linked_marker)
 				polygon2d.polygon[mirror_x].x = dynamic_part.top_array_points[mirror_x].x + slider.value
 				line2d.points[mirror_x].x = dynamic_part.top_array_points[mirror_x].x + slider.value			
-				
+		
 	if dir == "right":
 		polygon2d.polygon = dynamic_part.horizontal_array_points
 		glare.polygon = dynamic_part.horizontal_glare_array_points
@@ -207,7 +212,13 @@ func setup_polygon(dir) -> void:
 		
 		central_bottom_point = len(dynamic_part.horizontal_array_points) / 2
 
+			
 func get_mirror_x(count_of_points, marker):
 	if count_of_points % 2 == 0:
 		return count_of_points - marker
 	return count_of_points - marker - 1
+	
+	
+func initialize_clothes(resource_clothes: Clothes):
+	clothes.resource_clothes = resource_clothes
+	clothes.initialize()

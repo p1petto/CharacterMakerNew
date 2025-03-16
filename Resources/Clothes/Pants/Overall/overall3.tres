@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Clothes" load_steps=3 format=3 uid="uid://b5bbyuck62y3t"]
+
+[ext_resource type="Texture2D" uid="uid://d03syub8vhwpe" path="res://Assets/Character/Clothes/Pants/overall.png" id="1_5vaur"]
+[ext_resource type="Script" path="res://Scripts/Clothes/resource_clothes.gd" id="1_lefa3"]
+
+[resource]
+script = ExtResource("1_lefa3")
+clothes_texture = ExtResource("1_5vaur")
+down_idle_position = Vector2(-12, 9)
+right_idle_position = Vector2(-12, 11)
+top_idle_position = Vector2(-12, 11)
+left_idle_position = Vector2(-12, 11)
+down_walk_position = Vector2(-12, 9)
+right_walk_position = Vector2(-12, 11)
+top_walk_position = Vector2(-12, 11)
+left_walk_position = Vector2(-12, 11)

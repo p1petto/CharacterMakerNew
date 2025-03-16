@@ -49,6 +49,9 @@ func _on_catalog_slot_pressed(slot):
 		"Dynamic_clothes":
 			_handle_dynamic_clothes_item(slot_index, item_class)
 			
+		"Clothes":
+			_handle_clothes_item(slot_index, item_class)
+			
 	
 
 func _handle_dynamic_item(slot_index, item_class):
@@ -146,3 +149,7 @@ func _handle_dynamic_clothes_item(slot_index, item_class):
 			linked_node.initialize_dynamic_clothes(linked_part)
 			
 		
+func _handle_clothes_item(slot_index, item_class):
+	var part = catalog_items[slot_index].clothes
+	var current_node = character.get_node(item_class)
+	current_node.initialize_clothes(part)
