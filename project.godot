@@ -37,6 +37,7 @@ DynamicTab=""
 ConditionallyDynamicTab=""
 DynamicClothesTab=""
 ClothesTab=""
+Clothes=""
 
 [rendering]
 

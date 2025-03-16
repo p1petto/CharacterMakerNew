@@ -152,4 +152,5 @@ func _handle_dynamic_clothes_item(slot_index, item_class):
 func _handle_clothes_item(slot_index, item_class):
 	var part = catalog_items[slot_index].clothes
 	var current_node = character.get_node(item_class)
-	current_node.initialize_clothes(part)
+	
+	current_node.initialize_clothes(part, part.clothes_type)

@@ -4,6 +4,8 @@ var color_picker_button
 var cur_color: Color = Color(1, 1, 1)
 var start_color: Color = Color(1, 1, 1)
 
+
+
 func initialize():
 	texture = resource_clothes.clothes_texture
 	change_dir()

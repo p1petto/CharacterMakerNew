@@ -16,7 +16,7 @@ extends Node2D
 
 @onready var slider_containers = $"../../../../UI/SliderContainer"
 @onready var character = $".."
-@onready var clothes = $Polygon2D/Clothes
+#@onready var clothes = $Polygon2D/Clothes
 
 var central_bottom_point: int 
 var flag = true
@@ -126,7 +126,9 @@ func setup_polygon(dir) -> void:
 	if !flag:
 		sliders = get_target_container_slider().get_children()
 	
-	clothes.change_dir()
+	for child in polygon2d.get_children():
+		if child.is_in_group("Clothes"):
+			child.change_dir()
 	
 	if dir == "down":
 		polygon2d.polygon = dynamic_part.down_array_points
@@ -219,6 +221,7 @@ func get_mirror_x(count_of_points, marker):
 	return count_of_points - marker - 1
 	
 	
-func initialize_clothes(resource_clothes: Clothes):
+func initialize_clothes(resource_clothes: Clothes, clothes_name):
+	var clothes = polygon2d.get_node(clothes_name)
 	clothes.resource_clothes = resource_clothes
 	clothes.initialize()

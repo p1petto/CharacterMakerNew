@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dasyrmffqsrml"]
+
+[ext_resource type="Script" path="res://Scripts/clothes.gd" id="1_sunke"]
+
+[node name="Clothes" type="TextureRect" groups=["Clothes"]]
+offset_left = -12.0
+offset_top = 14.0
+offset_right = 26.0
+offset_bottom = 23.0
+script = ExtResource("1_sunke")

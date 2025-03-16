@@ -13,3 +13,6 @@ class_name Clothes
 @export var right_walk_position: Vector2
 @export var top_walk_position: Vector2
 @export var left_walk_position: Vector2
+
+@export_enum("Pants", "T-shirt") 
+var clothes_type: String = "Pants"

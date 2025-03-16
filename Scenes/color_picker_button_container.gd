@@ -21,13 +21,19 @@ func _create_and_assign_color_picker(child) -> void:
 	color_picker_button.visible = false
 	
 	var character_element
-	if child.is_in_group("DynamicClothesTab") or child.is_in_group("ClothesTab"):
+	if child.is_in_group("DynamicClothesTab"):
 		var target_node = child.catalog_items[0].item_class
 		target_node = character.find_child(target_node, true, false)
-		if child.is_in_group("DynamicClothesTab"):
-			character_element = target_node.find_child("DynamicClothes", true, false)
-		else:
-			character_element = target_node.find_child("Clothes", true, false)
+		character_element = target_node.find_child("DynamicClothes", true, false)
+		character_element.color_picker_button = color_picker_button
+		character_element._connect_color_changed_signal()
+		character_element._connect_color()
+	elif child.is_in_group("ClothesTab"):
+		var target_node = child.catalog_items[0].item_class
+		target_node = character.find_child(target_node, true, false)
+		var polygon2d = target_node.find_child("Polygon2D", true, false)
+		character_element = polygon2d.find_child(child.name, true, false)
+		print(child.name)
 		character_element.color_picker_button = color_picker_button
 		character_element._connect_color_changed_signal()
 		character_element._connect_color()
