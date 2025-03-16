@@ -33,10 +33,10 @@ func _create_and_assign_color_picker(child) -> void:
 		target_node = character.find_child(target_node, true, false)
 		var polygon2d = target_node.find_child("Polygon2D", true, false)
 		character_element = polygon2d.find_child(child.name, true, false)
-		print(child.name)
 		character_element.color_picker_button = color_picker_button
 		character_element._connect_color_changed_signal()
 		character_element._connect_color()
+		print(child.name)
 	else:
 		character_element = character.find_child(child.name, true, false)
 		character_element.color_picker_button = color_picker_button

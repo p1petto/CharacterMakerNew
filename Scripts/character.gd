@@ -41,12 +41,12 @@ func _ready() -> void:
 	arm_l.walk_animation_offset_horizontal = body.walk_animation_offset_horizontal
 	
 	var clothes_scene = preload("res://Scenes/clothes.tscn")
-	var clothes_plants_instance = clothes_scene.instantiate()
-	clothes_plants_instance.name = "Pants"
-	body.polygon2d.add_child(clothes_plants_instance)
 	var clothes_tshirt_instance = clothes_scene.instantiate()
 	clothes_tshirt_instance.name = "T-shirt"
 	body.polygon2d.add_child(clothes_tshirt_instance)
+	var clothes_plants_instance = clothes_scene.instantiate()
+	clothes_plants_instance.name = "Pants"
+	body.polygon2d.add_child(clothes_plants_instance)
 	
 	#
 #func initialize_color_picker_button(node_name):
