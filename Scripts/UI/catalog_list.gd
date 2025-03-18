@@ -5,7 +5,6 @@ class_name CustomTab
 @onready var grid = $VBoxContainer/ScrollContainer/GridContainer
 @onready var character = $"../../../../SubViewportContainer/SubViewport/Character"
 @onready var accecorie_panel = $"../../../AccessoriePanel"
-
 @export var catalog_items: Array[CatalogItem] = []
 @export var linked_symmetrical_element: CustomTab
 
@@ -28,7 +27,6 @@ func add_catalog_item(item):
 
 func _on_catalog_slot_pressed(slot):
 	var slot_index = slot.get_index()
-	print("Pressed catalog slot index: ", slot_index)
 	var item_class = catalog_items[slot_index].item_class
 	var item_type = catalog_items[slot_index].item_type
 	
@@ -132,6 +130,7 @@ func _handle_accessories_item(slot_index, item_class):
 	#button_instance.accessorie = part
 	#accecorie_panel.add_accessorie_button(button_instance)
 	accecorie_panel.add_accessorie_button(part, accessory_instance)
+	
 	#added_accessorie.emit()
 
 

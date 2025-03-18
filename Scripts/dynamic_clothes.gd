@@ -27,7 +27,6 @@ func _connect_color():
 func set_start_color() -> void:
 	_on_color_changed(start_color)
 	color_picker_button.color_picker.color = start_color
-	print(start_color)
 	
 func _on_color_changed(new_color: Color) -> void:
 	cur_color = new_color

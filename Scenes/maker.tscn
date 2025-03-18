@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://bm1ycyeyegmyw"]
+[gd_scene load_steps=69 format=3 uid="uid://bm1ycyeyegmyw"]
 
 [ext_resource type="PackedScene" uid="uid://bmajra62ohwsu" path="res://Scenes/character.tscn" id="1_12d3f"]
 [ext_resource type="Script" path="res://Scripts/maker.gd" id="1_wror2"]
@@ -46,7 +46,8 @@
 [ext_resource type="Resource" uid="uid://bevuxacp5vbpd" path="res://Resources/CatalogItems/Clothes/Clothes/Pants/overall2.tres" id="33_f3a3y"]
 [ext_resource type="Resource" uid="uid://cc2qhrmkmu454" path="res://Resources/CatalogItems/Clothes/Clothes/Pants/overall3.tres" id="34_3iy82"]
 [ext_resource type="Script" path="res://Scripts/UI/color_scheme_controller.gd" id="41_nvgda"]
-[ext_resource type="PackedScene" uid="uid://c5g25vaej7j3d" path="res://Scenes/color_scheme_button.tscn" id="42_sa4c0"]
+[ext_resource type="Script" path="res://Scripts/UI/color_scheme_check_boxes.gd" id="42_7jrcx"]
+[ext_resource type="PackedScene" uid="uid://ce7rp68ov1aw6" path="res://Scenes/UI/color_scheme_check_button.tscn" id="42_axf45"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_1urqw"]
 viewport_path = NodePath("SubViewportContainer/SubViewport")
@@ -447,7 +448,10 @@ script = ExtResource("41_nvgda")
 [node name="SettingsContainer" type="VBoxContainer" parent="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController"]
 layout_mode = 2
 
-[node name="SchemeMenuButton" type="MenuButton" parent="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController/SettingsContainer"]
+[node name="СolorScheme" type="HBoxContainer" parent="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController/SettingsContainer"]
+layout_mode = 2
+
+[node name="SchemeMenuButton" type="MenuButton" parent="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController/SettingsContainer/СolorScheme"]
 custom_minimum_size = Vector2(200, 30)
 layout_mode = 2
 clip_text = true
@@ -464,11 +468,40 @@ popup/item_4/id = 4
 popup/item_5/text = "6. Монохромная"
 popup/item_5/id = 5
 
-[node name="СolorSchemeButtons" type="HBoxContainer" parent="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController"]
+[node name="СolorSchemeRects" type="HBoxContainer" parent="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController/SettingsContainer/СolorScheme"]
 layout_mode = 2
 
-[node name="ColorSchemeButton" parent="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController/СolorSchemeButtons" instance=ExtResource("42_sa4c0")]
+[node name="CheckBoxes" type="HBoxContainer" parent="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController/SettingsContainer"]
 layout_mode = 2
+script = ExtResource("42_7jrcx")
+
+[node name="CheckButton" parent="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController/SettingsContainer/CheckBoxes" instance=ExtResource("42_axf45")]
+layout_mode = 2
+text = "Тело"
+clothes_type = "Body"
+
+[node name="CheckButton2" parent="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController/SettingsContainer/CheckBoxes" instance=ExtResource("42_axf45")]
+layout_mode = 2
+text = "Одежда"
+clothes_type = "Clothes"
+
+[node name="CheckButton3" parent="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController/SettingsContainer/CheckBoxes" instance=ExtResource("42_axf45")]
+layout_mode = 2
+text = "Аксессуары"
+clothes_type = "Accessory"
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Accept" type="Button" parent="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController/MarginContainer"]
+custom_minimum_size = Vector2(81.815, 0)
+layout_mode = 2
+disabled = true
+text = "Принять"
 
 [node name="MarginContainer" type="CenterContainer" parent="UI/Catalog"]
 layout_mode = 2
@@ -600,6 +633,7 @@ position = Vector2(577, 325)
 script = ExtResource("25_aee7t")
 animation_speed = 5.0
 
+[connection signal="button_up" from="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController/MarginContainer/Accept" to="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController" method="_on_accept_button_up"]
 [connection signal="color_changed" from="UI/ColorSchemeColorPicker" to="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController" method="_on_color_scheme_color_picker_color_changed"]
 [connection signal="button_up" from="UI/DirectionButtons/AnimationButton" to="UI/DirectionButtons/AnimationButton" method="_on_button_up"]
 [connection signal="toggled" from="UI/HBoxContainer/AnimationPlayer" to="AnimationController" method="_on_animation_player_toggled"]

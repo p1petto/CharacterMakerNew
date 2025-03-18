@@ -3,6 +3,7 @@ extends MarginContainer
 @onready var catallog = $"../Catalog"
 @onready var button_container = $VScrollBar/VBoxContainer
 @onready var position_controller = $"../PositionController"
+@onready var color_scheme_controller = $"../Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController"
 
 #@export var accessories: Array[Accessorie]
 @export var accessorie_buttons: Array[AccessorieButton]
@@ -32,6 +33,8 @@ func add_accessorie_button(accessorie, element):
 	
 	# Only update the z-index for the newly added element
 	_setup_z_index_for_new_element(button_instance)
+	
+	color_scheme_controller.accessory_buttons.append(button_instance)
 
 func _store_button_position(button):
 	# Store the button's position after it has been properly positioned in the container
