@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5g25vaej7j3d"]
+
+[ext_resource type="Script" path="res://Scripts/UI/color_scheme_button.gd" id="1_mab5n"]
+
+[node name="ColorSchemeButton" type="Button"]
+custom_minimum_size = Vector2(40, 30)
+script = ExtResource("1_mab5n")

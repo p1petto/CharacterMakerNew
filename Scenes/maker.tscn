@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://bm1ycyeyegmyw"]
+[gd_scene load_steps=68 format=3 uid="uid://bm1ycyeyegmyw"]
 
 [ext_resource type="PackedScene" uid="uid://bmajra62ohwsu" path="res://Scenes/character.tscn" id="1_12d3f"]
 [ext_resource type="Script" path="res://Scripts/maker.gd" id="1_wror2"]
@@ -45,6 +45,8 @@
 [ext_resource type="Resource" uid="uid://clnhqp6wr2hj8" path="res://Resources/CatalogItems/Clothes/Clothes/Pants/overall1.tres" id="32_ba0ri"]
 [ext_resource type="Resource" uid="uid://bevuxacp5vbpd" path="res://Resources/CatalogItems/Clothes/Clothes/Pants/overall2.tres" id="33_f3a3y"]
 [ext_resource type="Resource" uid="uid://cc2qhrmkmu454" path="res://Resources/CatalogItems/Clothes/Clothes/Pants/overall3.tres" id="34_3iy82"]
+[ext_resource type="Script" path="res://Scripts/UI/color_scheme_controller.gd" id="41_nvgda"]
+[ext_resource type="PackedScene" uid="uid://c5g25vaej7j3d" path="res://Scenes/color_scheme_button.tscn" id="42_sa4c0"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_1urqw"]
 viewport_path = NodePath("SubViewportContainer/SubViewport")
@@ -348,6 +350,7 @@ layout_mode = 2
 size_flags_vertical = 8
 
 [node name="Body" parent="UI/Catalog/CatalogContainer" groups=["DynamicTab"] instance=ExtResource("4_kavcm")]
+visible = false
 layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("11_wp1wm"), ExtResource("7_kywax")])
 
@@ -432,7 +435,39 @@ catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_l51j6"), Ex
 linked_symmetrical_element = NodePath("../LeftPantLeg")
 
 [node name="ColorSettings" parent="UI/Catalog/CatalogContainer" groups=["SettingsTab"] instance=ExtResource("4_kavcm")]
-visible = false
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/Catalog/CatalogContainer/ColorSettings"]
+layout_mode = 2
+
+[node name="ColorSchemeController" type="HBoxContainer" parent="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer"]
+layout_mode = 2
+script = ExtResource("41_nvgda")
+
+[node name="SettingsContainer" type="VBoxContainer" parent="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController"]
+layout_mode = 2
+
+[node name="SchemeMenuButton" type="MenuButton" parent="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController/SettingsContainer"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+clip_text = true
+item_count = 6
+popup/item_0/text = "1. Комплементарная"
+popup/item_1/text = "2. Триада"
+popup/item_1/id = 1
+popup/item_2/text = "3. Сплит-комплементарная"
+popup/item_2/id = 2
+popup/item_3/text = "4. Аналоговая триада"
+popup/item_3/id = 3
+popup/item_4/text = "5. Тетрада"
+popup/item_4/id = 4
+popup/item_5/text = "6. Монохромная"
+popup/item_5/id = 5
+
+[node name="СolorSchemeButtons" type="HBoxContainer" parent="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController"]
+layout_mode = 2
+
+[node name="ColorSchemeButton" parent="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController/СolorSchemeButtons" instance=ExtResource("42_sa4c0")]
 layout_mode = 2
 
 [node name="MarginContainer" type="CenterContainer" parent="UI/Catalog"]
@@ -460,6 +495,18 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 script = ExtResource("26_hr221")
+
+[node name="ColorSchemeColorPicker" type="ColorPicker" parent="UI"]
+offset_left = 823.0
+offset_top = 131.0
+offset_right = 1121.0
+offset_bottom = 431.0
+size_flags_horizontal = 4
+picker_shape = 2
+color_modes_visible = false
+sliders_visible = false
+hex_visible = false
+presets_visible = false
 
 [node name="DirectionButtons" type="ColorRect" parent="UI"]
 offset_left = 132.0
@@ -553,6 +600,7 @@ position = Vector2(577, 325)
 script = ExtResource("25_aee7t")
 animation_speed = 5.0
 
+[connection signal="color_changed" from="UI/ColorSchemeColorPicker" to="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController" method="_on_color_scheme_color_picker_color_changed"]
 [connection signal="button_up" from="UI/DirectionButtons/AnimationButton" to="UI/DirectionButtons/AnimationButton" method="_on_button_up"]
 [connection signal="toggled" from="UI/HBoxContainer/AnimationPlayer" to="AnimationController" method="_on_animation_player_toggled"]
 [connection signal="button_up" from="UI/HBoxContainer/Export" to="UI/HBoxContainer/Export" method="_on_button_up"]

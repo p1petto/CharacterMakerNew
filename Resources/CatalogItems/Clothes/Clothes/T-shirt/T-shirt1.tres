@@ -14,7 +14,7 @@ left_idle_position = Vector2(-16, 12)
 down_walk_position = Vector2(-12, 12)
 right_walk_position = Vector2(-8, 12)
 top_walk_position = Vector2(-12, 9)
-left_walk_position = Vector2(-16, 0)
+left_walk_position = Vector2(-16, 12)
 clothes_type = "T-shirt"
 
 [resource]
