@@ -431,6 +431,10 @@ layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_l51j6"), ExtResource("30_fow5y"), ExtResource("31_ylgi3")])
 linked_symmetrical_element = NodePath("../LeftPantLeg")
 
+[node name="ColorSettings" parent="UI/Catalog/CatalogContainer" groups=["SettingsTab"] instance=ExtResource("4_kavcm")]
+visible = false
+layout_mode = 2
+
 [node name="MarginContainer" type="CenterContainer" parent="UI/Catalog"]
 layout_mode = 2
 size_flags_vertical = 0

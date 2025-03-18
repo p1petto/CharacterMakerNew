@@ -46,7 +46,7 @@ func _on_catalog_tab_changed(tab_name):
 	tab_changed.emit()
 	color_picker_button.button_pressed = false
 	color_picker_button.visible = false
-	if !current_tab.is_in_group("Accessorie"):
+	if !current_tab.is_in_group("Accessorie") and !current_tab.is_in_group("SettingsTab"):
 		_initialize_color_picker_button()
 		color_picker_button.visible = true
 

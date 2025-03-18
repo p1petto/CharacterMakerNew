@@ -15,6 +15,7 @@ down_walk_position = Vector2(-12, 17)
 right_walk_position = Vector2(-12, 17)
 top_walk_position = Vector2(-12, 17)
 left_walk_position = Vector2(-12, 17)
+clothes_type = "Pants"
 
 [resource]
 script = ExtResource("1_203sh")
