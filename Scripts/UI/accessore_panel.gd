@@ -34,7 +34,7 @@ func add_accessorie_button(accessorie, element):
 	# Only update the z-index for the newly added element
 	_setup_z_index_for_new_element(button_instance)
 	
-	color_scheme_controller.accessory_buttons.append(button_instance)
+	color_scheme_controller.accessory_buttons.append(button_instance.color_picker_button)
 
 func _store_button_position(button):
 	# Store the button's position after it has been properly positioned in the container

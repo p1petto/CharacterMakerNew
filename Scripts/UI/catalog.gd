@@ -6,7 +6,7 @@ extends MarginContainer
 @onready var character = $"../../SubViewportContainer/SubViewport/Character"
 var color_picker_button
 @onready var color_picker_button_container =  $MarginContainer/HBoxContainer/ColorPickerButtonContainer
-
+@onready var color_scheme_color_picker = $"../ColorSchemeColorPicker"
 @export var current_tab: CustomTab
 
 signal tab_changed
@@ -46,9 +46,12 @@ func _on_catalog_tab_changed(tab_name):
 	tab_changed.emit()
 	color_picker_button.button_pressed = false
 	color_picker_button.visible = false
+	color_scheme_color_picker.visible = false
 	if !current_tab.is_in_group("Accessorie") and !current_tab.is_in_group("SettingsTab"):
 		_initialize_color_picker_button()
 		color_picker_button.visible = true
+	elif current_tab.is_in_group("SettingsTab"):
+		color_scheme_color_picker.visible = true
 
 func find_tab(tab_name):
 	return catallog_container.get_node(tab_name)

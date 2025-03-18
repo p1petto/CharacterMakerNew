@@ -6,6 +6,7 @@ class_name StaticElement
 
 @onready var character = $"../../../"
 @onready var catallog = $"../../../../../../UI/Catalog"
+@onready var catallog_container =$"../../../../../../UI/Catalog/CatalogContainer"
 
 var current_direction: String = "down"
 var is_symmetrical = false
@@ -52,7 +53,12 @@ func _on_color_changed(new_color: Color) -> void:
 	#modulate = cur_color 
 	
 	if is_symmetrical:
-		var cur_linked_element = character.find_child(catallog.current_tab.linked_symmetrical_element.name, true, false)
+		var linked_tab 
+		for tab in catallog_container.get_children():
+			if tab.name == self.name:
+				linked_tab = tab.linked_symmetrical_element
+				break
+		var cur_linked_element = character.find_child(linked_tab.name, true, false)
 		cur_linked_element.material.set_shader_parameter("newcolor", new_color)
 		cur_linked_element.cur_color = new_color
 		cur_linked_element.color_picker_button.set_new_bg_color(new_color)

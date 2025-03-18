@@ -3,6 +3,7 @@ extends HBoxContainer
 @onready var scheme_menu_button = $"SettingsContainer/СolorScheme/SchemeMenuButton"
 @onready var color_scheme_rects = $"SettingsContainer/СolorScheme/СolorSchemeRects"
 @onready var character = $"../../../../../../SubViewportContainer/SubViewport/Character"
+@onready var checkbox_controller = $SettingsContainer/CheckBoxes
 
 var body_buttons = []
 var clothes_buttons = []
@@ -154,4 +155,30 @@ func _on_color_scheme_color_picker_color_changed(color: Color) -> void:
 	update_colors(color)
 
 func _on_accept_button_up() -> void:
-	pass # Replace with function body.
+	for index in checkbox_controller.check_button_pressed:
+		set_color_scheme(index)
+		print(index)
+		
+		
+func set_color_scheme(checkbox_index):
+	var buttons_array = []
+	
+	match checkbox_index:
+		0: 
+			print("ACCEPT 0")
+			buttons_array = body_buttons
+		1:
+			print("ACCEPT 1")
+			buttons_array = clothes_buttons
+		2:
+			print("ACCEPT 2")
+			buttons_array = accessory_buttons 
+
+	var colors = get_colors_for_scheme(base_color)
+	var colors_count = colors.size()
+
+	for i in range(buttons_array.size()):
+		var button = buttons_array[i]
+		if button.has_method("_on_color_picker_color_changed"):
+			var color_index = i % colors_count  # Цикличный выбор цветов
+			button._on_color_picker_color_changed(colors[color_index])

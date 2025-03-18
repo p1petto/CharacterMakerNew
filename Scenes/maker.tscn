@@ -351,7 +351,6 @@ layout_mode = 2
 size_flags_vertical = 8
 
 [node name="Body" parent="UI/Catalog/CatalogContainer" groups=["DynamicTab"] instance=ExtResource("4_kavcm")]
-visible = false
 layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("11_wp1wm"), ExtResource("7_kywax")])
 
@@ -436,6 +435,7 @@ catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_l51j6"), Ex
 linked_symmetrical_element = NodePath("../LeftPantLeg")
 
 [node name="ColorSettings" parent="UI/Catalog/CatalogContainer" groups=["SettingsTab"] instance=ExtResource("4_kavcm")]
+visible = false
 layout_mode = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="UI/Catalog/CatalogContainer/ColorSettings"]
@@ -530,6 +530,7 @@ size_flags_vertical = 8
 script = ExtResource("26_hr221")
 
 [node name="ColorSchemeColorPicker" type="ColorPicker" parent="UI"]
+visible = false
 offset_left = 823.0
 offset_top = 131.0
 offset_right = 1121.0

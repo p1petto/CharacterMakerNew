@@ -8,6 +8,7 @@ var start_color: Color = Color(1, 1, 1)
 var root
 var character 
 var catallog
+var catallog_container
 var parent_part  # Reference to the parent ConditionallyDynamicCharacterPart
 
 func _ready() -> void:
@@ -15,7 +16,7 @@ func _ready() -> void:
 	character = root.find_child("Character", true, false)
 	catallog = root.find_child("Catalog", true, false)
 	parent_part = get_parent().get_parent()  # Get reference to parent ConditionallyDynamicCharacterPart
-
+	catallog_container = catallog.get_node("CatalogContainer")
 func _connect_color_changed_signal():
 	color_picker_button.color_changed.connect(_on_color_changed)
 	
@@ -33,9 +34,15 @@ func _on_color_changed(new_color: Color) -> void:
 	self_modulate = cur_color
 	color_picker_button.set_new_bg_color(new_color)
 	
+	
 	if is_symmetrical:
-		var target_node = catallog.current_tab.linked_symmetrical_element.catalog_items[0].item_class
-		target_node = character.find_child(target_node, true, false)
+		var linked_parrent_tab 
+		var parrent = get_node("../../")
+		for tab in catallog_container.get_children():
+			if tab.name == parrent.name:
+				linked_parrent_tab = tab.linked_symmetrical_element
+				break
+		var target_node = character.find_child(linked_parrent_tab.name, true, false)
 		var cur_linked_element = target_node.find_child("DynamicClothes", true, false)
 		cur_linked_element.self_modulate = cur_color
 		cur_linked_element.color_picker_button.set_new_bg_color(new_color)
