@@ -22,6 +22,7 @@ var central_bottom_point: int
 var flag = true
 
 var color_picker_button
+var color_picker_button_border
 var cur_color: Color
 var initial_line_color: Color
 var initial_glare_color: Color
@@ -32,7 +33,6 @@ func _ready() -> void:
 		setup_polygon("down")
 	flag = false
 	
-	# Store initial colors
 	if dynamic_part:
 		initial_line_color = dynamic_part.line_color
 		initial_glare_color = dynamic_part.glare_color
@@ -42,22 +42,22 @@ func _ready() -> void:
 
 func _connect_color_changed_signal():
 	color_picker_button.color_changed.connect(_on_color_changed)
+	color_picker_button_border.color_changed.connect(_on_border_color_changed)
 	
 	
 func _connect_color():
 	cur_color = dynamic_part.color
 	color_picker_button._on_color_picker_color_changed(cur_color)
+	color_picker_button_border._on_color_picker_color_changed(initial_line_color)
 	material.set_shader_parameter("cur_color", cur_color)
 	
-	# Set initial colors for all elements
 	if polygon2d:
 		polygon2d.color = cur_color
 	if line2d:
-		line2d.default_color = initial_line_color
+		line2d.default_color = Color(1,1,1)
 	if glare:
 		glare.color = initial_glare_color
 		
-	color_picker_button.color_picker.color = cur_color
 	set_start_color()
 
 func set_start_color():
@@ -65,19 +65,19 @@ func set_start_color():
 	if material:
 		material.set_shader_parameter("cur_color", cur_color)
 	
-	# Reset polygon2d to exact color from color picker
 	if polygon2d:
 		polygon2d.color = cur_color
 	
-	# Reset line2d to its initial color
 	if line2d:
-		line2d.default_color = initial_line_color
+		line2d.self_modulate = initial_line_color
 	
-	# Reset glare to its initial color
 	if glare:
 		glare.color = initial_glare_color
 	_on_color_changed(cur_color)
+	_on_border_color_changed(initial_line_color)
 	color_picker_button.color_picker.color = cur_color
+	color_picker_button_border.color_picker.color = initial_line_color
+	color_picker_button_border.set_new_bg_color(initial_line_color) 
 
 func _on_color_changed(new_color: Color) -> void:
 	cur_color = new_color
@@ -89,18 +89,7 @@ func _on_color_changed(new_color: Color) -> void:
 	# For Polygon2D - directly set to the color picker value
 	if polygon2d:
 		polygon2d.color = cur_color
-	
-	# For Line2D - blend the initial line color with the new color
-	var new_line_color = Color(
-			initial_line_color.r + (cur_color.r - initial_line_color.r) * 0.3,
-			initial_line_color.g + (cur_color.g - initial_line_color.g) * 0.3,
-			initial_line_color.b + (cur_color.b - initial_line_color.b) * 0.3,
-			initial_line_color.a
-		)
-
-	line2d.default_color = new_line_color
-	
-	# For Glare - blend the initial glare color with the new color
+			
 	if glare:
 		var new_glare_color = Color(
 			initial_glare_color.r + (cur_color.r - initial_glare_color.r) * 0.6,
@@ -109,6 +98,9 @@ func _on_color_changed(new_color: Color) -> void:
 			initial_glare_color.a
 		)
 		glare.color = new_glare_color
+		
+func _on_border_color_changed(new_color: Color):
+	line2d.self_modulate = new_color
 
 func get_target_container_slider():
 	var character_part = get_name()

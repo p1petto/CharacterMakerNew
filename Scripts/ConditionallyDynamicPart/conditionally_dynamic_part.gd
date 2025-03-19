@@ -37,8 +37,10 @@ var is_symmetrical = false
 var start_position: Vector2
 
 var color_picker_button
+var color_picker_button_border
 var cur_color: Color
 var start_color: Color
+@export var initial_line_color:Color
 
 func _ready() -> void:
 	
@@ -62,6 +64,7 @@ func _ready() -> void:
 
 func _connect_color_changed_signal():
 	color_picker_button.color_changed.connect(_on_color_changed)
+	color_picker_button_border.color_changed.connect(_on_border_color_changed)
 	
 func _connect_color():
 	cur_color = conditionally_dynamic.color
@@ -74,6 +77,7 @@ func set_start_color() -> void:
 	# Устанавливаем стартовый цвет белым
 	cur_color = start_color
 	_on_color_changed(cur_color)
+	_on_border_color_changed(initial_line_color)
 
 func _on_color_changed(new_color: Color) -> void:
 	
@@ -86,12 +90,19 @@ func _on_color_changed(new_color: Color) -> void:
 	# Применяем цвет, с учётом разницы с белым для `animated_sprite`
 	if animated_sprite:
 		animated_sprite.self_modulate = cur_color
-		border.self_modulate = cur_color
+		#border.self_modulate = cur_color
 
 	# Если есть симметричный элемент, обновляем его отдельно
 	if linked_symmetrical_element and is_symmetrical:
 		linked_symmetrical_element._apply_color_without_propagation(new_color)
 		linked_symmetrical_element.color_picker_button.set_new_bg_color(new_color)
+		
+func _on_border_color_changed(new_color: Color) -> void:
+	border.self_modulate = new_color
+	color_picker_button_border.set_new_bg_color(new_color)
+	if linked_symmetrical_element and is_symmetrical:
+		linked_symmetrical_element.border.self_modulate = new_color
+		linked_symmetrical_element.color_picker_button_border.set_new_bg_color(new_color)
 
 # Функция для обновления цвета у симметричного элемента без рекурсии
 func _apply_color_without_propagation(new_color: Color) -> void:
@@ -108,7 +119,7 @@ func _apply_color_without_propagation(new_color: Color) -> void:
 	# Обновляем цвет `animated_sprite` с разницей с белым
 	if animated_sprite:
 		animated_sprite.self_modulate = new_color
-		border.self_modulate = new_color
+		#border.self_modulate = new_color
 
 
 func change_direction(direction: String) -> void:

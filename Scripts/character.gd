@@ -11,8 +11,6 @@ extends Node2D
 @onready var arm_r = $RightArm
 @onready var arm_l = $LeftArm
 
-@onready var color_picker_button_container =  $"../../../UI/Catalog/MarginContainer/HBoxContainer/ColorPickerButtonContainer"
-
 var cur_frame: int
 
 signal direction_change_sliders
@@ -47,11 +45,6 @@ func _ready() -> void:
 	var clothes_plants_instance = clothes_scene.instantiate()
 	clothes_plants_instance.name = "Pants"
 	body.polygon2d.add_child(clothes_plants_instance)
-	
-	#
-#func initialize_color_picker_button(node_name):
-	#var color_picker_button = color_picker_button_container.get_node(NodePath(node_name)) 
-	#return color_picker_button
 
 func _process(delta: float) -> void:
 	pass

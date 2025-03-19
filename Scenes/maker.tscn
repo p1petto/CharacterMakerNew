@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://bm1ycyeyegmyw"]
+[gd_scene load_steps=70 format=3 uid="uid://bm1ycyeyegmyw"]
 
 [ext_resource type="PackedScene" uid="uid://bmajra62ohwsu" path="res://Scenes/character.tscn" id="1_12d3f"]
 [ext_resource type="Script" path="res://Scripts/maker.gd" id="1_wror2"]
@@ -48,6 +48,7 @@
 [ext_resource type="Script" path="res://Scripts/UI/color_scheme_controller.gd" id="41_nvgda"]
 [ext_resource type="Script" path="res://Scripts/UI/color_scheme_check_boxes.gd" id="42_7jrcx"]
 [ext_resource type="PackedScene" uid="uid://ce7rp68ov1aw6" path="res://Scenes/UI/color_scheme_check_button.tscn" id="42_axf45"]
+[ext_resource type="Script" path="res://Scripts/UI/color_picker_button_container_border.gd" id="45_5q11q"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_1urqw"]
 viewport_path = NodePath("SubViewportContainer/SubViewport")
@@ -528,6 +529,13 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 script = ExtResource("26_hr221")
+
+[node name="ColorPickerButtonContainerBorder" type="Container" parent="UI/Catalog/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+script = ExtResource("45_5q11q")
 
 [node name="ColorSchemeColorPicker" type="ColorPicker" parent="UI"]
 visible = false

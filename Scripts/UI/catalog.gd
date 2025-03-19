@@ -5,7 +5,9 @@ extends MarginContainer
 @onready var button_scroll_container = $MarginContainer/HBoxContainer/ButtonsScrollContainer
 @onready var character = $"../../SubViewportContainer/SubViewport/Character"
 var color_picker_button
+var color_picker_button_border
 @onready var color_picker_button_container =  $MarginContainer/HBoxContainer/ColorPickerButtonContainer
+@onready var color_picker_button_container_border =  $MarginContainer/HBoxContainer/ColorPickerButtonContainerBorder
 @onready var color_scheme_color_picker = $"../ColorSchemeColorPicker"
 @export var current_tab: CustomTab
 
@@ -34,6 +36,9 @@ func _ready() -> void:
 func _initialize_color_picker_button() -> void:
 	color_picker_button = color_picker_button_container.get_node(NodePath(current_tab.name))  # Преобразуем строку в NodePath
 	color_picker_button.visible = true
+	if current_tab.is_in_group("ConditionallyDynamicTab") or current_tab.is_in_group("DynamicTab"):
+		color_picker_button_border= color_picker_button_container_border.get_node(NodePath(current_tab.name))  # Преобразуем строку в NodePath
+		color_picker_button_border.visible = true
 	
 #func _on_color_updated(color):
 	#
@@ -46,6 +51,9 @@ func _on_catalog_tab_changed(tab_name):
 	tab_changed.emit()
 	color_picker_button.button_pressed = false
 	color_picker_button.visible = false
+	if color_picker_button_border:
+		color_picker_button_border.button_pressed = false
+		color_picker_button_border.visible = false
 	color_scheme_color_picker.visible = false
 	if !current_tab.is_in_group("Accessorie") and !current_tab.is_in_group("SettingsTab"):
 		_initialize_color_picker_button()
