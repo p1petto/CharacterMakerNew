@@ -81,6 +81,8 @@ func _preserve_button_positions():
 func _on_accessory_deleted(button: AccessorieButton):
 	hide_color_picker()
 	if button in accessorie_buttons:
+		if button.color_picker_button in color_scheme_controller.accessory_buttons:
+			color_scheme_controller.accessory_buttons.erase(button.color_picker_button)
 		if button.is_selected:
 			position_controller.visible = false
 		accessorie_buttons.erase(button)
