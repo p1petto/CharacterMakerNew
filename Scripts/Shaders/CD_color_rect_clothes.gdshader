@@ -6,17 +6,10 @@ uniform vec4 border_color : source_color = vec4(0.0, 0.0, 0.0, 1.0);
 uniform vec4 newcolor : source_color;
 
 void fragment() {
-    // Преобразуем координаты UV так, чтобы центр был в (0.5, 0.5)
     vec2 uv = UV - 0.5;
-    
-    // Учитываем соотношение сторон ColorRect, чтобы круг не был овалом
     float aspect_ratio = TEXTURE_PIXEL_SIZE.y / TEXTURE_PIXEL_SIZE.x;
     uv.x *= aspect_ratio;
-    
-    // Вычисляем расстояние от центра
     float dist = length(uv);
-    
-    // Берем цвет из ColorRect
     vec4 base_color = texture(TEXTURE, UV) * COLOR;
     
     // Если расстояние меньше радиуса - это внутренняя часть круга

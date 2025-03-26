@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="CatalogItem" load_steps=3 format=3 uid="uid://cxglawle4tnbe"]
+[gd_resource type="Resource" script_class="CatalogItem" load_steps=4 format=3 uid="uid://cxglawle4tnbe"]
 
 [ext_resource type="Resource" uid="uid://dnmtwq1xtf760" path="res://Resources/Clothes/PantLeg/PantLeg3.tres" id="1_6kujc"]
+[ext_resource type="Texture2D" uid="uid://chmnkl2if0mi1" path="res://Assets/UI/icons/Catallog item/left_pant_leg2.png" id="2_abqw6"]
 [ext_resource type="Script" path="res://Scripts/CatalogItemResource.gd" id="2_q2aim"]
 
 [resource]
 script = ExtResource("2_q2aim")
 item_type = "Dynamic_clothes"
 item_class = "LeftLeg"
+icon = ExtResource("2_abqw6")
 dynamic_clothes = ExtResource("1_6kujc")

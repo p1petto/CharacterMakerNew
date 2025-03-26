@@ -41,38 +41,27 @@ func _store_button_position(button):
 	button.cur_position = button.position
 
 func _setup_z_index_for_new_element(button):
-	# Set up the initial z-index values for this new button only
-	var z_index = 1000  # Base z-index value
-	var i = accessorie_buttons.size() - 1  # Index of the new button
-	
+	var z_index = 1000  
+	var i = accessorie_buttons.size() - 1  
+	button.accessorie_element.z_right = z_index + i + 1
+	button.accessorie_element.z_left = z_index + i + 1
+
 	match Global.current_dir:
 		"down":
 			button.accessorie_element.z_down = z_index + i + 1
 			button.accessorie_element.z_top = -(z_index + i + 1)
-			button.accessorie_element.z_right = z_index + i + 1
-			button.accessorie_element.z_left = z_index + i + 1
-			
 			button.accessorie_element.z_index = button.accessorie_element.z_down
 		"top":
 			button.accessorie_element.z_down = -(z_index + i + 1)
 			button.accessorie_element.z_top = z_index + i + 1
-			button.accessorie_element.z_right = z_index + i + 1
-			button.accessorie_element.z_left = z_index + i + 1
-			
 			button.accessorie_element.z_index = button.accessorie_element.z_top
 		"right":
 			button.accessorie_element.z_down = z_index + i + 1
 			button.accessorie_element.z_top = -(z_index + i + 1)
-			button.accessorie_element.z_right = z_index + i + 1
-			button.accessorie_element.z_left = z_index + i + 1
-			
 			button.accessorie_element.z_index = button.accessorie_element.z_right
 		"left":
 			button.accessorie_element.z_down = z_index + i + 1
 			button.accessorie_element.z_top = -(z_index + i + 1)
-			button.accessorie_element.z_right = z_index + i + 1
-			button.accessorie_element.z_left = z_index + i + 1
-			
 			button.accessorie_element.z_index = button.accessorie_element.z_left
 
 func _on_accessory_selected(element):

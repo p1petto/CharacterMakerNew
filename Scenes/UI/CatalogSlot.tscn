@@ -1,6 +1,5 @@
-[gd_scene load_steps=4 format=3 uid="uid://c3gxla3jmp05m"]
+[gd_scene load_steps=3 format=3 uid="uid://c3gxla3jmp05m"]
 
-[ext_resource type="Texture2D" uid="uid://3yagfiq0l2yf" path="res://icon.svg" id="1_6lrrw"]
 [ext_resource type="Texture2D" uid="uid://cv2eiy7uun2nb" path="res://Assets/UI/Button standart.png" id="1_8n6r8"]
 [ext_resource type="Script" path="res://Scripts/UI/catalog_slot.gd" id="2_rl6lr"]
 
@@ -24,7 +23,6 @@ grow_vertical = 2
 [node name="TextureRect" type="TextureRect" parent="CenterContainer"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
-texture = ExtResource("1_6lrrw")
 expand_mode = 1
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CatalogItem" load_steps=4 format=3 uid="uid://cqf20f5yj65w8"]
+
+[ext_resource type="Resource" uid="uid://ca4h3lkt8v78y" path="res://Resources/Clothes/Limbs/LeftSleeve3.tres" id="1_u025i"]
+[ext_resource type="Texture2D" uid="uid://corpqy6ad7wvd" path="res://Assets/UI/icons/Catallog item/left_sleeve_2.png" id="2_ncmdq"]
+[ext_resource type="Script" path="res://Scripts/CatalogItemResource.gd" id="3_wa5lu"]
+
+[resource]
+script = ExtResource("3_wa5lu")
+item_type = "Dynamic_clothes"
+item_class = "LeftArm"
+icon = ExtResource("2_ncmdq")
+dynamic_clothes = ExtResource("1_u025i")

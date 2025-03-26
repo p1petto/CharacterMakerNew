@@ -89,14 +89,12 @@ func get_colors_for_scheme(color: Color) -> Array:
 	result.append_array(additional_colors)
 	return result
 
-# Функции расчёта цветовых схем
+
 func calculate_complementary(base_color: Color) -> Array:
-	# Комплиментарный цвет находится на противоположной стороне цветового круга (смещение на 180 градусов)
 	var h = fposmod(base_color.h + 0.5, 1.0) # Смещение на 180 градусов в HSV (0.5 = 180/360)
 	return [Color.from_hsv(h, base_color.s, base_color.v)]
 
 func calculate_triad(base_color: Color) -> Array:
-	# Цвета триады находятся на расстоянии 120 градусов друг от друга
 	var h1 = fposmod(base_color.h + 1.0/3, 1.0) # +120 градусов
 	var h2 = fposmod(base_color.h + 2.0/3, 1.0) # +240 градусов
 	return [
@@ -105,7 +103,6 @@ func calculate_triad(base_color: Color) -> Array:
 	]
 
 func calculate_split_complementary(base_color: Color) -> Array:
-	# Сплит-комплиментарная схема: цвет напротив основного с отклонением на 30 градусов в обе стороны
 	var h_complement = fposmod(base_color.h + 0.5, 1.0) # Противоположный цвет
 	var h1 = fposmod(h_complement - 1.0/12, 1.0) # -30 градусов
 	var h2 = fposmod(h_complement + 1.0/12, 1.0) # +30 градусов
@@ -115,7 +112,6 @@ func calculate_split_complementary(base_color: Color) -> Array:
 	]
 
 func calculate_analogous_triad(base_color: Color) -> Array:
-	# Аналоговая триада: соседние цвета на цветовом круге (±30 градусов)
 	var h1 = fposmod(base_color.h - 1.0/12, 1.0) # -30 градусов
 	var h2 = fposmod(base_color.h + 1.0/12, 1.0) # +30 градусов
 	return [
@@ -124,7 +120,6 @@ func calculate_analogous_triad(base_color: Color) -> Array:
 	]
 
 func calculate_tetrad(base_color: Color) -> Array:
-	# Тетрада: цвета на расстоянии 90 градусов друг от друга
 	var h1 = fposmod(base_color.h + 1.0/4, 1.0) # +90 градусов
 	var h2 = fposmod(base_color.h + 2.0/4, 1.0) # +180 градусов
 	var h3 = fposmod(base_color.h + 3.0/4, 1.0) # +270 градусов
@@ -135,7 +130,6 @@ func calculate_tetrad(base_color: Color) -> Array:
 	]
 
 func calculate_monochromatic(base_color: Color) -> Array:
-	# Монохромная схема: тот же оттенок, но разная насыщенность и яркость
 	var s1 = max(base_color.s - 0.3, 0.0)
 	var v1 = min(base_color.v + 0.1, 1.0)
 	

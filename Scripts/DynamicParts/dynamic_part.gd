@@ -18,7 +18,6 @@ extends Node2D
 @onready var character = $".."
 #@onready var clothes = $Polygon2D/Clothes
 
-var central_bottom_point: int 
 var flag = true
 
 var color_picker_button
@@ -26,6 +25,8 @@ var color_picker_button_border
 var cur_color: Color
 var initial_line_color: Color
 var initial_glare_color: Color
+
+var central_point = 7
 
 
 func _ready() -> void:
@@ -52,29 +53,20 @@ func _connect_color():
 	material.set_shader_parameter("cur_color", cur_color)
 	
 	if polygon2d:
-		polygon2d.color = cur_color
+		polygon2d.self_modulate = cur_color
 	if line2d:
 		line2d.default_color = Color(1,1,1)
 	if glare:
-		glare.color = initial_glare_color
+		glare.self_modulate = initial_glare_color
 		
 	set_start_color()
 
 func set_start_color():
 	cur_color = dynamic_part.color
-	if material:
-		material.set_shader_parameter("cur_color", cur_color)
-	
-	if polygon2d:
-		polygon2d.color = cur_color
-	
-	if line2d:
-		line2d.self_modulate = initial_line_color
-	
-	if glare:
-		glare.color = initial_glare_color
+
 	_on_color_changed(cur_color)
 	_on_border_color_changed(initial_line_color)
+	
 	color_picker_button.color_picker.color = cur_color
 	color_picker_button_border.color_picker.color = initial_line_color
 	color_picker_button_border.set_new_bg_color(initial_line_color) 
@@ -82,13 +74,8 @@ func set_start_color():
 func _on_color_changed(new_color: Color) -> void:
 	cur_color = new_color
 	
-	# Apply shader to material if exists
-	if material:
-		material.set_shader_parameter("cur_color", cur_color)
-	
-	# For Polygon2D - directly set to the color picker value
 	if polygon2d:
-		polygon2d.color = cur_color
+		polygon2d.self_modulate = cur_color
 			
 	if glare:
 		var new_glare_color = Color(
@@ -97,7 +84,7 @@ func _on_color_changed(new_color: Color) -> void:
 			initial_glare_color.b + (cur_color.b - initial_glare_color.b) * 0.6,
 			initial_glare_color.a
 		)
-		glare.color = new_glare_color
+		glare.self_modulate = new_glare_color
 		
 func _on_border_color_changed(new_color: Color):
 	line2d.self_modulate = new_color
@@ -129,9 +116,7 @@ func setup_polygon(dir) -> void:
 		
 		position = dynamic_part.position_down
 		z_index = dynamic_part.z_down
-		
-		central_bottom_point = len(dynamic_part.down_array_points) / 2
-		
+				
 		if !flag:
 			for slider in sliders:
 				polygon2d.polygon[slider.linked_marker].x = dynamic_part.down_array_points[slider.linked_marker].x - slider.value
@@ -147,9 +132,7 @@ func setup_polygon(dir) -> void:
 		
 		position = dynamic_part.position_top
 		z_index = dynamic_part.z_top
-		
-		central_bottom_point = len(dynamic_part.top_array_points) / 2
-		
+				
 		if !flag:
 			for slider in sliders:
 				polygon2d.polygon[slider.linked_marker].x = dynamic_part.top_array_points[slider.linked_marker].x - slider.value
@@ -173,30 +156,21 @@ func setup_polygon(dir) -> void:
 		position = dynamic_part.position_right
 		z_index = dynamic_part.z_right
 
-		central_bottom_point = len(dynamic_part.horizontal_array_points) / 2
-
 	if dir == "left":
-		# Start with original horizontal points
 		polygon2d.polygon = dynamic_part.horizontal_array_points.duplicate()
 		glare.polygon = dynamic_part.horizontal_glare_array_points.duplicate()
-		
-		# Apply slider changes (similar to right direction)
 		if !flag:
 			sliders = get_target_container_slider().get_children()
 			for slider in sliders:
 				polygon2d.polygon[slider.linked_marker].x += slider.value
-		
-		# Mirror all polygon points
+
 		var mirrored_points = []
 		for point in polygon2d.polygon:
-			mirrored_points.append(Vector2(7 - (point.x - 7), point.y))
-		
-		# Mirror glare points
+			mirrored_points.append(Vector2(central_point - (point.x - central_point), point.y))
 		var mirrored_glare_points = []
 		for point in glare.polygon:
-			mirrored_glare_points.append(Vector2(7 - (point.x - 7), point.y))
+			mirrored_glare_points.append(Vector2(central_point - (point.x - central_point), point.y))
 		
-		# Apply mirrored coordinates
 		polygon2d.polygon = mirrored_points
 		glare.polygon = mirrored_glare_points
 		line2d.points = polygon2d.polygon.duplicate()
@@ -204,8 +178,6 @@ func setup_polygon(dir) -> void:
 		position = dynamic_part.position_left
 		z_index = dynamic_part.z_left
 		
-		central_bottom_point = len(dynamic_part.horizontal_array_points) / 2
-
 			
 func get_mirror_x(count_of_points, marker):
 	if count_of_points % 2 == 0:

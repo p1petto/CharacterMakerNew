@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="CatalogItem" load_steps=4 format=3 uid="uid://bpqshk2eovrs8"]
 
 [ext_resource type="Resource" uid="uid://bhs6b6rnrwmce" path="res://Resources/DynamicPart/Head/head.tres" id="2_0csj4"]
-[ext_resource type="Texture2D" uid="uid://b6c2oobtn80w5" path="res://idle-Sheet2.png" id="2_o3vjw"]
+[ext_resource type="Texture2D" uid="uid://c0xkpxtb74kcq" path="res://Assets/UI/icons/Catallog item/head1.png" id="2_bke2b"]
 [ext_resource type="Script" path="res://Scripts/CatalogItemResource.gd" id="3_h1j2g"]
 
 [resource]
 script = ExtResource("3_h1j2g")
 item_type = "Dynamic"
 item_class = "Head"
-icon = ExtResource("2_o3vjw")
+icon = ExtResource("2_bke2b")
 dynamic_part = ExtResource("2_0csj4")

@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="CatalogItem" load_steps=5 format=3 uid="uid://d8lty4e06bbo"]
+[gd_resource type="Resource" script_class="CatalogItem" load_steps=6 format=3 uid="uid://d8lty4e06bbo"]
 
 [ext_resource type="Script" path="res://Scripts/CatalogItemResource.gd" id="1_203sh"]
 [ext_resource type="Texture2D" uid="uid://gitafu1elvu5" path="res://Assets/Character/Clothes/Pants/pants.png" id="1_ts05r"]
 [ext_resource type="Script" path="res://Scripts/Clothes/resource_clothes.gd" id="2_fdk8w"]
+[ext_resource type="Texture2D" uid="uid://blnm6a430a7v0" path="res://Assets/UI/icons/Catallog item/pants3.png" id="3_tke2n"]
 
 [sub_resource type="Resource" id="Resource_r4qw8"]
 script = ExtResource("2_fdk8w")
@@ -21,4 +22,5 @@ clothes_type = "Pants"
 script = ExtResource("1_203sh")
 item_type = "Clothes"
 item_class = "Body"
+icon = ExtResource("3_tke2n")
 clothes = SubResource("Resource_r4qw8")

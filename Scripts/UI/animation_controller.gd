@@ -14,22 +14,30 @@ func _ready():
 			button.direction_changed.connect(set_start_position)
 			
 	animation_button.animation_changed.connect(change_animation)
- #Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta: float) -> void:
 	if Global.animation_is_run:
-		# Accumulate time
 		animation_timer += delta * animation_speed
 		
-		# Check if it's time to update the animation
-		if animation_timer >= 1.0:  # Update once per second divided by animation_speed
+		if animation_timer >= 1.0: 
 			animate_children()
-			animation_timer = 0.0  # Reset timer after updating
+			animation_timer = 0.0  
 
 func _on_animation_player_toggled(toggled_on: bool) -> void:
 	Global.animation_is_run = toggled_on
-	
 	set_start_position()
 	
+func set_start_position():
+	animation_frame = 0
+	animation_timer = 0.0
+	character.cur_frame = 0
+	for child in character.get_children():
+		if child.is_in_group("Dynamic"):
+			child.setup_polygon(Global.current_dir)
+		if child.is_in_group("ConditionallyDynamic"):
+			child.animated_sprite.frame = 0
+			child.border.frame = 0
+			child.position = child.start_position
 	
 func get_offset_name():
 	var property_name = ""
@@ -47,12 +55,7 @@ func get_offset_name():
 	
 
 func animate_children() -> void:
-	if character == null:
-		return
-	
-	# Определяем, какое свойство нужно использовать в зависимости от текущей анимации
-	
-	
+
 	for child in character.get_children():
 		var property_name = get_offset_name()
 		# Проверяем, есть ли у дочернего элемента нужное свойство
@@ -86,18 +89,7 @@ func animate_children() -> void:
 	# Увеличиваем счетчик кадров ровно на единицу
 	animation_frame += 1
 	
-func set_start_position():
-	animation_frame = 0
-	animation_timer = 0.0
-	character.cur_frame = 0
-	for child in character.get_children():
-		
-		if child.is_in_group("Dynamic"):
-			child.setup_polygon(Global.current_dir)
-		if child.is_in_group("ConditionallyDynamic"):
-			child.animated_sprite.frame = 0
-			child.border.frame = 0
-			child.position = child.start_position
+
 
 
 func change_animation():

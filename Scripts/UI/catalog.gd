@@ -20,7 +20,9 @@ func _ready() -> void:
 	for catalog_item in catallog_container.get_children():
 		var new_slot = load("res://Scenes/UI/catalog_type_slot.tscn").instantiate()
 		new_slot.tab_name = catalog_item.name
+		
 		button_container.add_child(new_slot)
+		new_slot.set_label(String(catalog_item.name))
 		
 		if catalog_item.linked_symmetrical_element:
 			var new_check_button = load("res://Scenes/UI/custom_check_button.tscn").instantiate()
