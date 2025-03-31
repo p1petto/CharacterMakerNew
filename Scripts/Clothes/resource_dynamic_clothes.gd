@@ -16,3 +16,5 @@ class_name DynamicClothes
 @export var right_position_walk: Vector2
 @export var left_position_walk: Vector2
 @export var top_position_walk: Vector2
+
+@export var is_flooded_inside: bool = true

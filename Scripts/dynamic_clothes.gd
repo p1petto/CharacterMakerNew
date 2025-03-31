@@ -17,6 +17,17 @@ func _ready() -> void:
 	catallog = root.find_child("Catalog", true, false)
 	parent_part = get_parent().get_parent()  # Get reference to parent ConditionallyDynamicCharacterPart
 	catallog_container = catallog.get_node("CatalogContainer")
+	
+	# Проверяем наличие и инициализируем материал
+	if !material && resource_dynamic_clothes:
+		var shader = load("res://Scripts/Shaders/CD_color_rect_clothes.gdshader")  # Замените на фактический путь
+		material = ShaderMaterial.new()
+		material.shader = shader
+		material.set_shader_parameter("is_flooded_inside", resource_dynamic_clothes.is_flooded_inside)
+		material.set_shader_parameter("radius", 0.5)
+		material.set_shader_parameter("border_width", 0.0)
+		material.set_shader_parameter("border_color", Color(0, 0, 0, 1))
+		
 func _connect_color_changed_signal():
 	color_picker_button.color_changed.connect(_on_color_changed)
 	
@@ -36,6 +47,7 @@ func _on_color_changed(new_color: Color) -> void:
 	
 	
 	if is_symmetrical:
+		print("is_symmetrical")
 		var linked_parrent_tab 
 		var parrent = get_node("../../")
 		for tab in catallog_container.get_children():
@@ -43,13 +55,29 @@ func _on_color_changed(new_color: Color) -> void:
 				linked_parrent_tab = tab.linked_symmetrical_element
 				break
 		var target_node = character.find_child(linked_parrent_tab.name, true, false)
-		var cur_linked_element = target_node.find_child("DynamicClothes", true, false)
+		var cur_linked_element
+		if resource_dynamic_clothes.is_flooded_inside:
+			print("!!!!!!")
+			cur_linked_element = target_node.find_child("DynamicClothes", true, false)
+		else:
+			print("ELSE")
+			cur_linked_element = target_node.find_child("TipWear", true, false)
 		cur_linked_element.self_modulate = cur_color
 		cur_linked_element.color_picker_button.set_new_bg_color(new_color)
 	
 func change_direction() -> void:
 	# Use the part-specific ID to determine positions
 	var part_id = parent_part.name  # or any other identifier for the specific part
+	
+	# Проверяем наличие материала и создаем его при необходимости
+	if !material:
+		var shader = load("res://Scripts/Shaders/CD_color_rect_clothes.gdshader")  # Замените на фактический путь
+		material = ShaderMaterial.new()
+		material.shader = shader
+	
+	# Обновляем параметр шейдера в любом случае
+	if resource_dynamic_clothes:
+		material.set_shader_parameter("is_flooded_inside", resource_dynamic_clothes.is_flooded_inside)
 	
 	if Global.current_animation == "idle":
 		match Global.current_dir:

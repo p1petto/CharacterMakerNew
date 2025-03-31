@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://bm1ycyeyegmyw"]
+[gd_scene load_steps=73 format=3 uid="uid://bm1ycyeyegmyw"]
 
 [ext_resource type="PackedScene" uid="uid://bmajra62ohwsu" path="res://Scenes/character.tscn" id="1_12d3f"]
 [ext_resource type="Script" path="res://Scripts/maker.gd" id="1_wror2"]
@@ -44,7 +44,9 @@
 [ext_resource type="Resource" uid="uid://clnhqp6wr2hj8" path="res://Resources/CatalogItems/Clothes/Clothes/Pants/overall1.tres" id="32_ba0ri"]
 [ext_resource type="Resource" uid="uid://bevuxacp5vbpd" path="res://Resources/CatalogItems/Clothes/Clothes/Pants/overall2.tres" id="33_f3a3y"]
 [ext_resource type="Resource" uid="uid://cc2qhrmkmu454" path="res://Resources/CatalogItems/Clothes/Clothes/Pants/overall3.tres" id="34_3iy82"]
+[ext_resource type="Resource" uid="uid://vqi2uhou85nc" path="res://Resources/CatalogItems/Clothes/DynamicClothes/Footwear/FootwearLeft1.tres" id="40_cy13n"]
 [ext_resource type="Script" path="res://Scripts/UI/color_scheme_controller.gd" id="41_nvgda"]
+[ext_resource type="Resource" uid="uid://ck7tydxcgip1h" path="res://Resources/CatalogItems/Clothes/DynamicClothes/Footwear/FootwearRight1.tres" id="41_sr111"]
 [ext_resource type="Script" path="res://Scripts/UI/color_scheme_check_boxes.gd" id="42_7jrcx"]
 [ext_resource type="PackedScene" uid="uid://ce7rp68ov1aw6" path="res://Scenes/UI/color_scheme_check_button.tscn" id="42_axf45"]
 [ext_resource type="Script" path="res://Scripts/UI/color_picker_button_container_border.gd" id="45_5q11q"]
@@ -122,6 +124,7 @@ down_position_walk = Vector2(0, 0)
 right_position_walk = Vector2(0, 0)
 left_position_walk = Vector2(0, 0)
 top_position_walk = Vector2(0, 0)
+is_flooded_inside = true
 
 [sub_resource type="Resource" id="Resource_y02ex"]
 script = ExtResource("5_sbt4v")
@@ -143,6 +146,7 @@ down_position_walk = Vector2(0, 0)
 right_position_walk = Vector2(0, 0)
 left_position_walk = Vector2(0, 0)
 top_position_walk = Vector2(0, 0)
+is_flooded_inside = true
 
 [sub_resource type="Resource" id="Resource_xwrnx"]
 script = ExtResource("5_sbt4v")
@@ -170,6 +174,7 @@ down_position_walk = Vector2(0, 0)
 right_position_walk = Vector2(0, 0)
 left_position_walk = Vector2(0, 0)
 top_position_walk = Vector2(0, 0)
+is_flooded_inside = true
 
 [sub_resource type="Resource" id="Resource_fr3tu"]
 script = ExtResource("5_sbt4v")
@@ -191,12 +196,57 @@ down_position_walk = Vector2(0, 0)
 right_position_walk = Vector2(0, 0)
 left_position_walk = Vector2(0, 0)
 top_position_walk = Vector2(0, 0)
+is_flooded_inside = true
 
 [sub_resource type="Resource" id="Resource_l51j6"]
 script = ExtResource("5_sbt4v")
 item_type = "Dynamic_clothes"
 item_class = "RightLeg"
 dynamic_clothes = SubResource("Resource_hcv58")
+
+[sub_resource type="Resource" id="Resource_8bld8"]
+script = ExtResource("23_jyf5e")
+down_position = Vector2(0, 0)
+right_position = Vector2(0, 0)
+left_position = Vector2(0, 0)
+top_position = Vector2(0, 0)
+down_size = Vector2(0, 0)
+right_size = Vector2(0, 0)
+left_size = Vector2(0, 0)
+top_size = Vector2(0, 0)
+down_position_walk = Vector2(0, 0)
+right_position_walk = Vector2(0, 0)
+left_position_walk = Vector2(0, 0)
+top_position_walk = Vector2(0, 0)
+is_flooded_inside = false
+
+[sub_resource type="Resource" id="Resource_52f4k"]
+script = ExtResource("5_sbt4v")
+item_type = "Dynamic_clothes"
+item_class = "LeftLeg"
+dynamic_clothes = SubResource("Resource_8bld8")
+
+[sub_resource type="Resource" id="Resource_kpkwv"]
+script = ExtResource("23_jyf5e")
+down_position = Vector2(0, 0)
+right_position = Vector2(0, 0)
+left_position = Vector2(0, 0)
+top_position = Vector2(0, 0)
+down_size = Vector2(0, 0)
+right_size = Vector2(0, 0)
+left_size = Vector2(0, 0)
+top_size = Vector2(0, 0)
+down_position_walk = Vector2(0, 0)
+right_position_walk = Vector2(0, 0)
+left_position_walk = Vector2(0, 0)
+top_position_walk = Vector2(0, 0)
+is_flooded_inside = false
+
+[sub_resource type="Resource" id="Resource_c3a1m"]
+script = ExtResource("5_sbt4v")
+item_type = "Dynamic_clothes"
+item_class = "RightLeg"
+dynamic_clothes = SubResource("Resource_kpkwv")
 
 [node name="Maker" type="Node2D"]
 texture_filter = 1
@@ -420,6 +470,18 @@ visible = false
 layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_l51j6"), ExtResource("30_fow5y"), ExtResource("31_ylgi3")])
 linked_symmetrical_element = NodePath("../LeftPantLeg")
+
+[node name="LeftFootwear" parent="UI/Catalog/CatalogContainer" node_paths=PackedStringArray("linked_symmetrical_element") groups=["DynamicClothesTab"] instance=ExtResource("4_kavcm")]
+visible = false
+layout_mode = 2
+catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_52f4k"), ExtResource("40_cy13n")])
+linked_symmetrical_element = NodePath("../RightFootwear")
+
+[node name="RightFootwear" parent="UI/Catalog/CatalogContainer" node_paths=PackedStringArray("linked_symmetrical_element") groups=["DynamicClothesTab"] instance=ExtResource("4_kavcm")]
+visible = false
+layout_mode = 2
+catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_c3a1m"), ExtResource("41_sr111")])
+linked_symmetrical_element = NodePath("../LeftFootwear")
 
 [node name="ColorSettings" parent="UI/Catalog/CatalogContainer" groups=["SettingsTab"] instance=ExtResource("4_kavcm")]
 visible = false

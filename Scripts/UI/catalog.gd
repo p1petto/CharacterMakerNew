@@ -82,9 +82,15 @@ func _on_check_button_toggled(toggled_on):
 			
 		else:
 			current_node = character.find_child(str(current_tab.catalog_items[0].item_class), true, false)
-			current_node = current_node.find_child("DynamicClothes", true, false)
 			linked_node = character.find_child(str(current_tab.linked_symmetrical_element.catalog_items[0].item_class), true, false)
-			linked_node = linked_node.find_child("DynamicClothes", true, false)
+			if current_tab.catalog_items[0].dynamic_clothes.is_flooded_inside:
+				current_node = current_node.find_child("DynamicClothes", true, false)
+				linked_node = linked_node.find_child("DynamicClothes", true, false)
+			else:
+				current_node = current_node.find_child("TipWear", true, false)
+				linked_node = linked_node.find_child("TipWear", true, false)
+			
+			
 			
 		current_node.is_symmetrical = toggled_on
 		linked_node.is_symmetrical = toggled_on

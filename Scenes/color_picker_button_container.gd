@@ -25,7 +25,10 @@ func _create_and_assign_color_picker(child) -> void:
 	if child.is_in_group("DynamicClothesTab"):
 		var target_node = child.catalog_items[0].item_class
 		target_node = character.find_child(target_node, true, false)
-		character_element = target_node.find_child("DynamicClothes", true, false)
+		if child.catalog_items[0].dynamic_clothes.is_flooded_inside:
+			character_element = target_node.find_child("DynamicClothes", true, false)
+		else:
+			character_element = target_node.find_child("TipWear", true, false)
 		character_element.color_picker_button = color_picker_button
 		character_element._connect_color_changed_signal()
 		character_element._connect_color()

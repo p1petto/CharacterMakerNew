@@ -27,6 +27,7 @@ class_name ConditionallyDynamicCharacterPart
 
 @onready var slider_containers = $"../../../../UI/SliderContainer"
 @onready var dynamic_clothes = $AnimatedSprite2D/DynamicClothes
+@onready var tip_wear = $AnimatedSprite2D/TipWear
 @onready var border = $AnimatedSpriteBorder
 
 
@@ -58,6 +59,7 @@ func _ready() -> void:
 	call_deferred("_connect_color")
 	
 	dynamic_clothes.size = Vector2(0, 0)
+	tip_wear.size = Vector2(0, 0)
 	
 	
 
@@ -140,12 +142,17 @@ func change_direction(direction: String) -> void:
 	update_animation()
 	if dynamic_clothes.resource_dynamic_clothes:
 		dynamic_clothes.change_direction()
+	if tip_wear.resource_dynamic_clothes:
+		tip_wear.change_direction()
 
 func change_state(new_state: String) -> void:
 	current_state = new_state
 	update_animation()
 	if dynamic_clothes.resource_dynamic_clothes:
 		dynamic_clothes.change_direction()
+	if tip_wear.resource_dynamic_clothes:
+		tip_wear.change_direction()	
+		
 
 func change_thickness(new_thickness) -> void:
 	current_thickness = str(new_thickness)
@@ -171,9 +178,55 @@ func update_frame(frame_index):
 	animated_sprite.frame = frame_index
 	border.frame = frame_index
 	
+#func initialize_dynamic_clothes(clothes):
+	#if clothes.is_flooded_inside:
+		#dynamic_clothes.resource_dynamic_clothes = clothes
+		#dynamic_clothes.change_direction()
+		#dynamic_clothes.set_start_color()
+	#else:
+		#tip_wear.resource_dynamic_clothes = clothes
+		#tip_wear.change_direction()
+		#tip_wear.set_start_color()
+
+
 func initialize_dynamic_clothes(clothes):
-	dynamic_clothes.resource_dynamic_clothes = clothes
-	dynamic_clothes.change_direction()
-	dynamic_clothes.set_start_color()
+	# Создаем новый материал для каждого объекта одежды
+	var shader = load("res://Scripts/Shaders/CD_color_rect_clothes.gdshader")  # Замените на фактический путь к вашему шейдеру
 	
+	if clothes.is_flooded_inside:
+		# Инициализация для DynamicClothes
+		dynamic_clothes.resource_dynamic_clothes = clothes
+		
+		# Создаем новый материал с собственными параметрами
+		var dynamic_material = ShaderMaterial.new()
+		dynamic_material.shader = shader
+		dynamic_material.set_shader_parameter("is_flooded_inside", true)
+		dynamic_material.set_shader_parameter("radius", 0.5)
+		dynamic_material.set_shader_parameter("border_width", 0.0)
+		dynamic_material.set_shader_parameter("border_color", Color(0, 0, 0, 1))
+		
+		# Применяем материал
+		dynamic_clothes.material = dynamic_material
+		
+		# Обновляем состояние
+		dynamic_clothes.change_direction()
+		dynamic_clothes.set_start_color()
+	else:
+		# Инициализация для TipWear
+		tip_wear.resource_dynamic_clothes = clothes
+		
+		# Создаем новый материал с собственными параметрами
+		var tip_material = ShaderMaterial.new()
+		tip_material.shader = shader
+		tip_material.set_shader_parameter("is_flooded_inside", false)
+		tip_material.set_shader_parameter("radius", 0.25)
+		tip_material.set_shader_parameter("border_width", 0.0)
+		tip_material.set_shader_parameter("border_color", Color(0, 0, 0, 1))
+		
+		# Применяем материал
+		tip_wear.material = tip_material
+		
+		# Обновляем состояние
+		tip_wear.change_direction()
+		tip_wear.set_start_color()	
 	

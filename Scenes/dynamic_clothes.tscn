@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://7tfduoooxvq1"]
+
+[ext_resource type="Script" path="res://Scripts/dynamic_clothes.gd" id="2_krxlc"]
+
+[node name="DynamicClothes" type="ColorRect"]
+offset_left = -11.0
+offset_top = -17.0
+offset_right = 9.0
+offset_bottom = 3.0
+pivot_offset = Vector2(10, 10)
+script = ExtResource("2_krxlc")

@@ -1,23 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://bwi4hslosv760"]
+[gd_scene load_steps=7 format=3 uid="uid://bwi4hslosv760"]
 
 [ext_resource type="Shader" path="res://Scripts/Shaders/color_changing_shader.gdshader" id="1_5jswo"]
 [ext_resource type="Script" path="res://Scripts/ConditionallyDynamicPart/conditionally_dynamic_part.gd" id="1_8wsnp"]
 [ext_resource type="SpriteFrames" uid="uid://boqweykkavowk" path="res://Resources/ConditionallyDynamicParts/Arms/Arm left/arm_l_animations.tres" id="2_3lpiv"]
-[ext_resource type="Shader" path="res://Scripts/Shaders/CD_color_rect_clothes.gdshader" id="4_6408r"]
-[ext_resource type="Script" path="res://Scripts/dynamic_clothes.gd" id="5_dstxd"]
+[ext_resource type="PackedScene" uid="uid://7tfduoooxvq1" path="res://Scenes/dynamic_clothes.tscn" id="4_0j8d2"]
 [ext_resource type="SpriteFrames" uid="uid://cdif7a1mhtf0t" path="res://Resources/ConditionallyDynamicParts/Arms/Arm left/arm_l_animations_border.tres" id="6_2rjfa"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_knqrr"]
 shader = ExtResource("1_5jswo")
 shader_parameter/cur_color = Color(1, 1, 1, 1)
 shader_parameter/blend_factor = 0.6
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7w0tb"]
-shader = ExtResource("4_6408r")
-shader_parameter/radius = 0.5
-shader_parameter/border_width = 0.0
-shader_parameter/border_color = Color(0, 0, 0, 1)
-shader_parameter/newcolor = null
 
 [node name="ConditionallyDynamicPart" type="Node2D"]
 texture_filter = 1
@@ -30,14 +22,9 @@ position = Vector2(0, 3)
 sprite_frames = ExtResource("2_3lpiv")
 animation = &"idle_top_1"
 
-[node name="DynamicClothes" type="ColorRect" parent="AnimatedSprite2D"]
-material = SubResource("ShaderMaterial_7w0tb")
-offset_left = -11.0
-offset_top = -17.0
-offset_right = 9.0
-offset_bottom = 3.0
-pivot_offset = Vector2(10, 10)
-script = ExtResource("5_dstxd")
+[node name="DynamicClothes" parent="AnimatedSprite2D" instance=ExtResource("4_0j8d2")]
+
+[node name="TipWear" parent="AnimatedSprite2D" instance=ExtResource("4_0j8d2")]
 
 [node name="AnimatedSpriteBorder" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 3)
