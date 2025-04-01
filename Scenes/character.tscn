@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bmajra62ohwsu"]
+[gd_scene load_steps=11 format=3 uid="uid://bmajra62ohwsu"]
 
 [ext_resource type="PackedScene" uid="uid://dy613l8j7trug" path="res://Scenes/dynamic_part.tscn" id="1_qwsbw"]
 [ext_resource type="Script" path="res://Scripts/character.gd" id="1_qxlcm"]
@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://bolc5spph738q" path="res://Resources/ConditionallyDynamicParts/Legs/Lef left/LegLeft.tres" id="6_hqex5"]
 [ext_resource type="Resource" uid="uid://ba3fdcbmh34d8" path="res://Resources/ConditionallyDynamicParts/Arms/Arm left/ArmLeft.tres" id="7_bhysn"]
 [ext_resource type="Resource" uid="uid://b5huybpsmaodu" path="res://Resources/ConditionallyDynamicParts/Arms/Arm right/ArmRight.tres" id="8_22m0c"]
+[ext_resource type="PackedScene" uid="uid://ckykjcugbmj7g" path="res://Scenes/static_wear.tscn" id="10_3qe68"]
 
 [node name="Character" type="Node2D"]
 script = ExtResource("1_qxlcm")
@@ -90,3 +91,5 @@ idle_ainmation_offset_vertical = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), V
 walk_animation_offset_vertical = Array[Vector2]([Vector2(-1, -1), Vector2(1, -1), Vector2(1, -1), Vector2(1, 1), Vector2(-1, 1), Vector2(-1, 1)])
 idle_ainmation_offset_horizontal = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, -1), Vector2(0, 0), Vector2(0, 1)])
 walk_animation_offset_horizontal = Array[Vector2]([Vector2(0, -1), Vector2(0, -1), Vector2(0, -1), Vector2(0, 1), Vector2(0, 1), Vector2(0, 1)])
+
+[node name="Skirt" parent="." instance=ExtResource("10_3qe68")]

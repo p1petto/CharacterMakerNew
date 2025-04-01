@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckykjcugbmj7g"]
+
+[ext_resource type="Script" path="res://Scripts/Clothes/static_clothing.gd" id="1_ea63t"]
+
+[node name="StaticWear" type="Node2D" groups=["StaticClothes"]]
+position = Vector2(32, 32)
+script = ExtResource("1_ea63t")
+
+[node name="Base" type="AnimatedSprite2D" parent="."]
+
+[node name="Line" type="AnimatedSprite2D" parent="."]

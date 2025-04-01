@@ -84,6 +84,25 @@ func animate_children() -> void:
 					child.position = start_position + offset
 				
 				character.cur_frame = frame_index
+		
+		elif child.is_in_group("StaticClothes"):
+			var anchor_node = character
+			if child.resource_clothing.anchor_node:
+				anchor_node = anchor_node.get_node(child.resource_clothing.anchor_node)
+			
+			if anchor_node.get(property_name) != null:
+				var offset_array = anchor_node.get(property_name)
+				if offset_array is Array and offset_array.size() > 0:
+					# Получаем индекс текущего кадра
+					var frame_index = animation_frame % offset_array.size()
+					var offset = offset_array[frame_index]
+					
+					# Применяем смещение к положению элемента одежды
+					child.position = child.resource_clothing.pos + offset
+					
+					# Если у элемента одежды есть метод update_frame, вызываем его
+					if child.has_method("update_frame"):
+						child.update_frame(frame_index)
 				
 	
 	# Увеличиваем счетчик кадров ровно на единицу

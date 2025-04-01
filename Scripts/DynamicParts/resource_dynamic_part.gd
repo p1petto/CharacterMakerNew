@@ -1,6 +1,6 @@
 extends Resource
 
-class_name  DynamicBodyPart
+class_name  Dynamic
 
 @export var down_array_points: PackedVector2Array
 @export var horizontal_array_points: PackedVector2Array

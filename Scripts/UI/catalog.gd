@@ -41,6 +41,9 @@ func _initialize_color_picker_button() -> void:
 	if current_tab.is_in_group("ConditionallyDynamicTab") or current_tab.is_in_group("DynamicTab"):
 		color_picker_button_border= color_picker_button_container_border.get_node(NodePath(current_tab.name))  # Преобразуем строку в NodePath
 		color_picker_button_border.visible = true
+	elif current_tab.is_in_group("StaticClothesTab"):
+		color_picker_button_border= color_picker_button_container_border.get_node(current_tab.catalog_items[0].static_clothing.name_clothing)  
+		color_picker_button_border.visible = true
 	
 #func _on_color_updated(color):
 	#
@@ -76,11 +79,11 @@ func _on_check_button_toggled(toggled_on):
 		var linked_node
 		var current_node
 		# Поиск ноды внутри character или его дочерних элементов
-		if !current_tab.is_in_group("DynamicClothesTab"):
+		if !current_tab.is_in_group("DynamicClothesTab") and !current_tab.is_in_group("StaticClothesTab"):
 			current_node = character.find_child(str(current_tab.name), true, false)
 			linked_node = character.find_child(str(linked_tab.name), true, false)
 			
-		else:
+		elif current_tab.is_in_group("DynamicClothesTab"):
 			current_node = character.find_child(str(current_tab.catalog_items[0].item_class), true, false)
 			linked_node = character.find_child(str(current_tab.linked_symmetrical_element.catalog_items[0].item_class), true, false)
 			if current_tab.catalog_items[0].dynamic_clothes.is_flooded_inside:
@@ -89,8 +92,7 @@ func _on_check_button_toggled(toggled_on):
 			else:
 				current_node = current_node.find_child("TipWear", true, false)
 				linked_node = linked_node.find_child("TipWear", true, false)
-			
-			
+				
 			
 		current_node.is_symmetrical = toggled_on
 		linked_node.is_symmetrical = toggled_on

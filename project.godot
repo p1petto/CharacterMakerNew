@@ -40,6 +40,8 @@ ClothesTab=""
 Clothes=""
 SettingsTab=""
 DynamicClothes=""
+StaticClothes=""
+StaticClothesTab=""
 
 [rendering]
 

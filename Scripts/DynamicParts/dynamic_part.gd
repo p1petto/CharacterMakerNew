@@ -1,6 +1,8 @@
 extends Node2D
 
-@export var dynamic_part: DynamicBodyPart
+class_name DynamicBodyPart
+
+@export var dynamic_part: Dynamic
 
 @export var idle_ainmation_offset_vertical: Array[Vector2]
 @export var walk_animation_offset_vertical: Array[Vector2]

@@ -50,6 +50,9 @@ func _on_catalog_slot_pressed(slot):
 		"Clothes":
 			_handle_clothes_item(slot_index, item_class)
 			
+		"Static_Clothing":
+			_handle_static_clothes_item(slot_index, item_class)
+			
 	
 
 func _handle_dynamic_item(slot_index, item_class):
@@ -153,3 +156,14 @@ func _handle_clothes_item(slot_index, item_class):
 	var current_node = character.get_node(item_class)
 	
 	current_node.initialize_clothes(part, part.clothes_type)
+	
+	
+func _handle_static_clothes_item(slot_index, item_class):
+	var resource_part = catalog_items[slot_index].static_clothing
+	var parent_node = character
+	if catalog_items[slot_index].static_clothing.anchor_node:
+		parent_node.get_node(catalog_items[slot_index].static_clothing.anchor_node)
+		
+	var current_node = parent_node.get_node(catalog_items[slot_index].static_clothing.name_clothing)
+	current_node.resource_clothing = resource_part
+	current_node.initialize()

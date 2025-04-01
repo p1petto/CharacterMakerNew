@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/UI/color_picker.gd" id="2_pos8s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8vh4c"]
-bg_color = Color(1, 0.309786, 0.472127, 1)
+bg_color = Color(0, 0, 0, 1)
 
 [node name="Button" type="Button"]
 custom_minimum_size = Vector2(8, 8)

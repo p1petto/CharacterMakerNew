@@ -22,7 +22,12 @@ func _create_and_assign_color_picker(child) -> void:
 	var character_element
 	character_element = character.find_child(child.name, true, false)
 	character_element.color_picker_button_border = color_picker_button
-	#color_scheme_controller.body_buttons.append(color_picker_button)
-#
-			#
-			#
+
+func _create_and_assign_color_picker_static_clothes(element):
+	var color_picker_button = color_picker_button_scene.instantiate()
+	color_picker_button.name = element.name  
+	color_picker_button.size = Vector2(40, 30)
+	
+	add_child(color_picker_button)
+	color_picker_button.visible = false
+	element.color_picker_button_line = color_picker_button

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DynamicBodyPart" load_steps=2 format=3 uid="uid://br5mnj2pgkdc2"]
+[gd_resource type="Resource" script_class="Dynamic" load_steps=2 format=3 uid="uid://br5mnj2pgkdc2"]
 
 [ext_resource type="Script" path="res://Scripts/DynamicParts/resource_dynamic_part.gd" id="1_5q36s"]
 

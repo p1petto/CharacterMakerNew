@@ -12,6 +12,10 @@ shader_parameter/blend_factor = 0.6
 [node name="DynamicPart" type="Node2D"]
 material = SubResource("ShaderMaterial_oo8fd")
 script = ExtResource("1_aptrw")
+idle_ainmation_offset_vertical = null
+walk_animation_offset_vertical = null
+idle_ainmation_offset_horizontal = null
+walk_animation_offset_horizontal = null
 
 [node name="Idle-sheet2" type="Sprite2D" parent="."]
 visible = false

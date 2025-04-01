@@ -45,6 +45,7 @@ func _ready() -> void:
 	var clothes_plants_instance = clothes_scene.instantiate()
 	clothes_plants_instance.name = "Pants"
 	body.polygon2d.add_child(clothes_plants_instance)
+	
 
 func _process(delta: float) -> void:
 	pass
@@ -60,6 +61,8 @@ func change_dir_for_parts():
 			child.setup_polygon(Global.current_dir)
 		elif child.is_in_group("ConditionallyDynamic"):
 			child.change_direction(Global.current_dir)
+		elif child.is_in_group("StaticClothes"):
+			child.change_direction()
 	for child in head_static_elements.get_children():
 		if child.is_in_group("Static"): 
 			child.change_direction(Global.current_dir)

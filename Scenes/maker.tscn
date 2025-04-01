@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://bm1ycyeyegmyw"]
+[gd_scene load_steps=75 format=3 uid="uid://bm1ycyeyegmyw"]
 
 [ext_resource type="PackedScene" uid="uid://bmajra62ohwsu" path="res://Scenes/character.tscn" id="1_12d3f"]
 [ext_resource type="Script" path="res://Scripts/maker.gd" id="1_wror2"]
@@ -16,6 +16,7 @@
 [ext_resource type="Resource" uid="uid://0xs0hm7qike0" path="res://Resources/CatalogItems/ConditionallyDynamicPart/Legs/Left Leg/LeftLeg.tres" id="10_1t4ok"]
 [ext_resource type="Resource" uid="uid://b121ijuxw03s3" path="res://Resources/CatalogItems/ConditionallyDynamicPart/Legs/Right Leg/RightLeg.tres" id="11_lknkn"]
 [ext_resource type="Resource" uid="uid://cl0ajdt5ypwmh" path="res://Resources/CatalogItems/DynamicPart/Body/Body.tres" id="11_wp1wm"]
+[ext_resource type="Resource" uid="uid://cg0sha23o3bcm" path="res://Resources/Clothes/Skirt/Skirt1.tres" id="12_lmhk2"]
 [ext_resource type="Resource" uid="uid://danlbkb3wqnt4" path="res://Resources/CatalogItems/StaticElement/Eyes/Eye1/LeftEye/LeftEye.tres" id="14_7nups"]
 [ext_resource type="Script" path="res://Scripts/StaticElements/resource_static_element.gd" id="15_1qk7a"]
 [ext_resource type="Resource" uid="uid://xb00p14w71s4" path="res://Resources/CatalogItems/StaticElement/Eyes/Eye1/RightEye/RightEye.tres" id="17_nc5m7"]
@@ -247,6 +248,12 @@ script = ExtResource("5_sbt4v")
 item_type = "Dynamic_clothes"
 item_class = "RightLeg"
 dynamic_clothes = SubResource("Resource_kpkwv")
+
+[sub_resource type="Resource" id="Resource_aeajo"]
+script = ExtResource("5_sbt4v")
+item_type = "Static_Clothing"
+item_class = "Body"
+static_clothing = ExtResource("12_lmhk2")
 
 [node name="Maker" type="Node2D"]
 texture_filter = 1
@@ -482,6 +489,11 @@ visible = false
 layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_c3a1m"), ExtResource("41_sr111")])
 linked_symmetrical_element = NodePath("../LeftFootwear")
+
+[node name="Skirt" parent="UI/Catalog/CatalogContainer" groups=["StaticClothesTab"] instance=ExtResource("4_kavcm")]
+visible = false
+layout_mode = 2
+catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_aeajo")])
 
 [node name="ColorSettings" parent="UI/Catalog/CatalogContainer" groups=["SettingsTab"] instance=ExtResource("4_kavcm")]
 visible = false
