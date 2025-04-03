@@ -171,6 +171,7 @@ func _handle_static_clothes_item(slot_index, item_class):
 	current_node.initialize()
 	
 func _handle_hair_item(slot_index, item_class):
+	
 	var resource_part = catalog_items[slot_index].hair
 	var target_node
 	match resource_part.hair_type:
@@ -178,3 +179,4 @@ func _handle_hair_item(slot_index, item_class):
 			target_node = character.head.polygon2d.get_node("Crown")
 			target_node.hair_resource = resource_part
 			target_node.initialize()
+	change_sliders.emit(resource_part.hair_type)

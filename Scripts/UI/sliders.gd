@@ -1,7 +1,7 @@
 extends Container
 
 @onready var catallog = $"../Catalog"
-@onready var catallog_list = $"../Catalog/CatalogContainer"
+@onready var catallog_lists = $"../Catalog/CatalogContainer"
 @onready var character = $"../../SubViewportContainer/SubViewport/Character"
 var slider_scene = preload("res://Scenes/custom_h_slider.tscn")
 
@@ -11,7 +11,7 @@ func _ready() -> void:
 	
 	catallog.tab_changed.connect(_on_tab_changed)
 	
-	for part in catallog_list.get_children():
+	for part in catallog_lists.get_children():
 		part.change_sliders.connect(update_sliders)
 
 	for part in character.get_children():
@@ -47,7 +47,8 @@ func update_containers_visibility(direction: String) -> void:
 		pass
 
 func _on_value_slider_changed(val, m, character_part_name, axis):
-	var character_part = character.get_node(character_part_name)
+	var character_part = character.find_child(character_part_name, true, false)
+
 	var cur_dir = Global.current_dir
 	if character_part.is_in_group("Dynamic"):
 		
@@ -60,16 +61,17 @@ func _on_value_slider_changed(val, m, character_part_name, axis):
 		elif cur_dir == "left":
 			character_part.setup_polygon(cur_dir)
 		
-		
 	elif character_part.is_in_group("ConditionallyDynamic"):
 		
 		character_part.change_thickness(val)
 		if character_part.is_symmetrical:
 			character_part.linked_symmetrical_element.change_thickness(val)
-
+	elif character_part.is_in_group("Hair"):
+		character_part.cur_state = str(val)
+		character_part.change_direction()
 
 func update_sliders(character_part_name):
-	var character_part = character.get_node(character_part_name)
+	var character_part = character.find_child(character_part_name, true, false)
 
 	# Удаление старых контейнеров
 	for child in get_children():
@@ -78,7 +80,7 @@ func update_sliders(character_part_name):
 
 	await get_tree().process_frame  # Ждём 1 кадр, чтобы узлы полностью удалились
 
-	# Создание новых слайдеров
+	print("create container ", character_part_name)
 	_create_sliders_for_part(character_part)
 
 	update_containers_visibility("down")
@@ -133,3 +135,19 @@ func _create_sliders_for_part(part):
 		slider.value = 1
 		part_container.add_child(slider)
 		slider.slider_value_changed.connect(_on_value_slider_changed)
+		
+	if part.is_in_group("Hair"):
+		var part_container = VBoxContainer.new()
+		part_container.name = part.name
+		part_container.position.y = character.head.position.y * 5
+		
+
+		add_child(part_container)
+		if part.hair_resource.quantity > 1:
+			var slider = slider_scene.instantiate()
+			slider.character_part = part.name
+			slider.min_value = 1
+			slider.max_value = part.hair_resource.quantity
+			slider.value = 1
+			part_container.add_child(slider)
+			slider.slider_value_changed.connect(_on_value_slider_changed)

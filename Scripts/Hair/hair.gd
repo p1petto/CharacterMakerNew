@@ -7,25 +7,24 @@ class_name Hair
 var color_picker_button
 var cur_color
 var initial_color
+var cur_state = "1"
 
 func _ready() -> void:
 	call_deferred("_connect_color_changed_signal")
-	call_deferred("_connect_color")
 	initialize()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func initialize():
 	sprite_frames = hair_resource.sprite_frames
+	cur_state = "1"
+	
+	call_deferred("_connect_color")
 	change_direction()
 	
-
-
 func change_direction():
-	animation = Global.current_dir
+	if hair_resource.quantity > 1:
+		animation = Global.current_dir + "_" + cur_state
+	else:
+		animation = Global.current_dir
 	match Global.current_dir:
 		"down":
 			position = hair_resource.pos_down
@@ -35,6 +34,8 @@ func change_direction():
 			position = hair_resource.pos_top
 		"left":
 			position = hair_resource.pos_left
+			
+
 			
 func _connect_color_changed_signal():
 	color_picker_button.color_changed.connect(_on_color_changed)

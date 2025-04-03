@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://bm1ycyeyegmyw"]
+[gd_scene load_steps=76 format=3 uid="uid://bm1ycyeyegmyw"]
 
 [ext_resource type="PackedScene" uid="uid://bmajra62ohwsu" path="res://Scenes/character.tscn" id="1_12d3f"]
 [ext_resource type="Script" path="res://Scripts/maker.gd" id="1_wror2"]
@@ -50,7 +50,7 @@
 [ext_resource type="Resource" uid="uid://sigi1wivmfxd" path="res://Resources/CatalogItems/Clothes/StaticClothes/Skirt1.tres" id="42_2ndwj"]
 [ext_resource type="Script" path="res://Scripts/UI/color_scheme_check_boxes.gd" id="42_7jrcx"]
 [ext_resource type="PackedScene" uid="uid://ce7rp68ov1aw6" path="res://Scenes/UI/color_scheme_check_button.tscn" id="42_axf45"]
-[ext_resource type="Script" path="res://Scripts/Hair/resource_hair.gd" id="43_67rl8"]
+[ext_resource type="Resource" uid="uid://cek0mmtv3fbx2" path="res://Resources/CatalogItems/Hair/Crown/Crown0.tres" id="43_fog1h"]
 [ext_resource type="Resource" uid="uid://ci3dl6yfnqf4x" path="res://Resources/CatalogItems/Hair/Crown/Crown1.tres" id="44_4vvcd"]
 [ext_resource type="Script" path="res://Scripts/UI/color_picker_button_container_border.gd" id="45_5q11q"]
 
@@ -250,21 +250,6 @@ script = ExtResource("5_sbt4v")
 item_type = "Dynamic_clothes"
 item_class = "RightLeg"
 dynamic_clothes = SubResource("Resource_kpkwv")
-
-[sub_resource type="Resource" id="Resource_iti00"]
-script = ExtResource("43_67rl8")
-pos_down = Vector2(0, 0)
-pos_right = Vector2(0, 0)
-pos_top = Vector2(0, 0)
-pos_left = Vector2(0, 0)
-initial_color = Color(1, 1, 1, 1)
-hair_type = "Crown"
-
-[sub_resource type="Resource" id="Resource_agawi"]
-script = ExtResource("5_sbt4v")
-item_type = "Hair"
-item_class = "Head"
-hair = SubResource("Resource_iti00")
 
 [node name="Maker" type="Node2D"]
 texture_filter = 1
@@ -509,7 +494,7 @@ catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("42_2ndwj")])
 [node name="Crown" parent="UI/Catalog/CatalogContainer" groups=["HairTab"] instance=ExtResource("4_kavcm")]
 visible = false
 layout_mode = 2
-catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_agawi"), ExtResource("44_4vvcd")])
+catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("43_fog1h"), ExtResource("44_4vvcd")])
 
 [node name="ColorSettings" parent="UI/Catalog/CatalogContainer" groups=["SettingsTab"] instance=ExtResource("4_kavcm")]
 visible = false

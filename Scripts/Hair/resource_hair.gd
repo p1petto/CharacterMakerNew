@@ -12,3 +12,5 @@ class_name HairResource
 
 @export_enum("Crown") 
 var hair_type: String = "Crown"
+
+@export var quantity: int = 1

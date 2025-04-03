@@ -12,3 +12,4 @@ pos_top = Vector2(7, 3)
 pos_left = Vector2(0, 3)
 initial_color = Color(0.588235, 0.419608, 0.235294, 1)
 hair_type = "Crown"
+quantity = 2
