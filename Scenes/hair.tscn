@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://4cmfiyg1fw2v"]
+
+[ext_resource type="Script" path="res://Scripts/Hair/hair.gd" id="1_tvx1q"]
+[ext_resource type="Resource" uid="uid://b514ekxke62dr" path="res://Resources/Hair/Crown/1/Crown.tres" id="2_b7bp6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0wcf5"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}]
+
+[node name="Hair" type="AnimatedSprite2D" groups=["Hair"]]
+sprite_frames = SubResource("SpriteFrames_0wcf5")
+animation = &"down"
+script = ExtResource("1_tvx1q")
+hair_resource = ExtResource("2_b7bp6")

@@ -50,7 +50,11 @@ func _create_and_assign_color_picker(child) -> void:
 		line_color_picker_container._create_and_assign_color_picker_static_clothes(character_element)
 		character_element.color_picker_button = color_picker_button
 		color_scheme_controller.clothes_buttons.append(color_picker_button)
-		
+	elif  child.is_in_group("HairTab"):
+		match child.name:
+			"Crown":
+				character_element = character.head.polygon2d.get_node("Crown")
+				character_element.color_picker_button = color_picker_button
 	else:
 		character_element = character.find_child(child.name, true, false)
 		character_element.color_picker_button = color_picker_button

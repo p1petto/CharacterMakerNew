@@ -46,6 +46,12 @@ func _ready() -> void:
 	clothes_plants_instance.name = "Pants"
 	body.polygon2d.add_child(clothes_plants_instance)
 	
+	
+	var hair_scene = preload("res://Scenes/hair.tscn")
+	var hair_instance = hair_scene.instantiate()
+	hair_instance.name = "Crown"
+	head.polygon2d.add_child(hair_instance)
+	
 
 func _process(delta: float) -> void:
 	pass
@@ -61,7 +67,7 @@ func change_dir_for_parts():
 			child.setup_polygon(Global.current_dir)
 		elif child.is_in_group("ConditionallyDynamic"):
 			child.change_direction(Global.current_dir)
-		elif child.is_in_group("StaticClothes"):
+		elif child.is_in_group("StaticClothes") and child.resource_clothing:
 			child.change_direction()
 	for child in head_static_elements.get_children():
 		if child.is_in_group("Static"): 
@@ -71,4 +77,9 @@ func change_dir_for_parts():
 			child.change_direction(Global.current_dir)
 	for child in head.get_node("Accessories").get_children():
 		child.change_direction(Global.current_dir)
+	
+	var crown = head.polygon2d.get_node("Crown")
+	if crown.hair_resource:
+		crown.change_direction()
+	
 		

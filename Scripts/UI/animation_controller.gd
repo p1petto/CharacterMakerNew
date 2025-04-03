@@ -85,7 +85,7 @@ func animate_children() -> void:
 				
 				character.cur_frame = frame_index
 		
-		elif child.is_in_group("StaticClothes"):
+		elif child.is_in_group("StaticClothes") and child.resource_clothing:
 			var anchor_node = character
 			if child.resource_clothing.anchor_node:
 				anchor_node = anchor_node.get_node(child.resource_clothing.anchor_node)

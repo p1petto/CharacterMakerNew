@@ -1,0 +1,56 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://dg6f4p2mlp0b4"]
+
+[ext_resource type="Texture2D" uid="uid://cqv0pgdn780s7" path="res://Assets/Character/Hair/Crown/1/crown-down.png" id="1_ycxlw"]
+[ext_resource type="Texture2D" uid="uid://d3sfbfmvv6ada" path="res://Assets/Character/Hair/Crown/1/crown-horizontal.png" id="2_k2qi2"]
+[ext_resource type="Texture2D" uid="uid://bknjbv2vdxc3m" path="res://Assets/Character/Hair/Crown/1/crown-top.png" id="3_itgbb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vs4et"]
+atlas = ExtResource("1_ycxlw")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fo82e"]
+atlas = ExtResource("2_k2qi2")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6d88p"]
+atlas = ExtResource("2_k2qi2")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhc5v"]
+atlas = ExtResource("3_itgbb")
+region = Rect2(0, 0, 32, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vs4et")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fo82e")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6d88p")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhc5v")
+}],
+"loop": true,
+"name": &"top",
+"speed": 5.0
+}]

@@ -42,6 +42,8 @@ SettingsTab=""
 DynamicClothes=""
 StaticClothes=""
 StaticClothesTab=""
+HairTab=""
+Hair=""
 
 [rendering]
 

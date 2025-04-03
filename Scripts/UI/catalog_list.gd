@@ -53,6 +53,8 @@ func _on_catalog_slot_pressed(slot):
 		"Static_Clothing":
 			_handle_static_clothes_item(slot_index, item_class)
 			
+		"Hair":
+			_handle_hair_item(slot_index, item_class)
 	
 
 func _handle_dynamic_item(slot_index, item_class):
@@ -167,3 +169,12 @@ func _handle_static_clothes_item(slot_index, item_class):
 	var current_node = parent_node.get_node(catalog_items[slot_index].static_clothing.name_clothing)
 	current_node.resource_clothing = resource_part
 	current_node.initialize()
+	
+func _handle_hair_item(slot_index, item_class):
+	var resource_part = catalog_items[slot_index].hair
+	var target_node
+	match resource_part.hair_type:
+		"Crown":
+			target_node = character.head.polygon2d.get_node("Crown")
+			target_node.hair_resource = resource_part
+			target_node.initialize()

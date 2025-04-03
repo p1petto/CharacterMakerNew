@@ -8,7 +8,7 @@ void fragment() {
 	float r = 0.0;
 	float g = 0.0;
 	float b = 0.0;
-		
+
     if(distance(COLOR, oldcolor) < 0.01){
         COLOR = newcolor;
 		}
