@@ -48,10 +48,15 @@ func _ready() -> void:
 	
 	
 	var hair_scene = preload("res://Scenes/hair.tscn")
-	var hair_instance = hair_scene.instantiate()
-	hair_instance.name = "Crown"
-	head.polygon2d.add_child(hair_instance)
+	var crown_instance = hair_scene.instantiate()
+	crown_instance.name = "Crown"
+	crown_instance.hair_resource = preload("res://Resources/Hair/Crown/0/Crown.tres")
+	head.polygon2d.add_child(crown_instance)
 	
+	var hair_instance = hair_scene.instantiate()
+	hair_instance.name = "Fringe"
+	hair_instance.hair_resource = preload("res://Resources/Hair/Fringe/0/Fringe.tres")
+	head.add_child(hair_instance)
 
 func _process(delta: float) -> void:
 	pass
@@ -81,5 +86,7 @@ func change_dir_for_parts():
 	var crown = head.polygon2d.get_node("Crown")
 	if crown.hair_resource:
 		crown.change_direction()
-	
+	var fringe = head.get_node("Fringe")
+	if fringe.hair_resource:
+		fringe.change_direction()
 		

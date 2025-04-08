@@ -1,18 +1,90 @@
-[gd_scene load_steps=4 format=3 uid="uid://4cmfiyg1fw2v"]
+[gd_scene load_steps=12 format=3 uid="uid://4cmfiyg1fw2v"]
 
+[ext_resource type="Texture2D" uid="uid://8d1ogivw15tx" path="res://Assets/Character/Hair/Fringe/1/fringe-down.png" id="1_d4n15"]
 [ext_resource type="Script" path="res://Scripts/Hair/hair.gd" id="1_tvx1q"]
-[ext_resource type="Resource" uid="uid://cbm6vietilv1x" path="res://Resources/Hair/Crown/0/Crown.tres" id="2_u6vyu"]
+[ext_resource type="Texture2D" uid="uid://rrxxdfv8o04w" path="res://Assets/Character/Hair/Fringe/1/fringe-left.png" id="2_tsywo"]
+[ext_resource type="Texture2D" uid="uid://c8dmdywdnuwh2" path="res://Assets/Character/Hair/Fringe/1/fringe-right.png" id="3_jpclr"]
+[ext_resource type="Texture2D" uid="uid://dd4p1edbl1kqw" path="res://Assets/Character/Hair/Fringe/1/fringe-top.png" id="4_kykvp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43mca"]
+atlas = ExtResource("1_d4n15")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wpqf"]
+atlas = ExtResource("2_tsywo")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sdjc"]
+atlas = ExtResource("3_jpclr")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wd1qk"]
+atlas = ExtResource("4_kykvp")
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0wcf5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43mca")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wpqf")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2sdjc")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wd1qk")
+}],
+"loop": true,
+"name": &"top",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2xrgg"]
 animations = [{
 "frames": [],
 "loop": true,
 "name": &"down",
 "speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"top",
+"speed": 5.0
 }]
 
 [node name="Hair" type="AnimatedSprite2D" groups=["Hair"]]
 sprite_frames = SubResource("SpriteFrames_0wcf5")
-animation = &"down"
+animation = &"top"
 script = ExtResource("1_tvx1q")
-hair_resource = ExtResource("2_u6vyu")
+
+[node name="Line" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2xrgg")
+animation = &"right"

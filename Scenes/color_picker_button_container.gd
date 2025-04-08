@@ -47,7 +47,7 @@ func _create_and_assign_color_picker(child) -> void:
 		if child.catalog_items[0].static_clothing.parent_node:
 			parent_node = parent_node.get_node(child.catalog_items[0].static_clothing.parent_node)
 		character_element = parent_node.get_node(child.catalog_items[0].static_clothing.name_clothing)
-		line_color_picker_container._create_and_assign_color_picker_static_clothes(character_element)
+		line_color_picker_container._create_and_assign_color_picker_deferred(character_element)
 		character_element.color_picker_button = color_picker_button
 		color_scheme_controller.clothes_buttons.append(color_picker_button)
 	elif  child.is_in_group("HairTab"):
@@ -55,6 +55,11 @@ func _create_and_assign_color_picker(child) -> void:
 			"Crown":
 				character_element = character.head.polygon2d.get_node("Crown")
 				character_element.color_picker_button = color_picker_button
+			"Fringe":
+				character_element = character.head.get_node("Fringe")
+				character_element.color_picker_button = color_picker_button
+				line_color_picker_container._create_and_assign_color_picker_deferred(character_element)
+				
 	else:
 		character_element = character.find_child(child.name, true, false)
 		character_element.color_picker_button = color_picker_button

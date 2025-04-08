@@ -80,7 +80,6 @@ func update_sliders(character_part_name):
 
 	await get_tree().process_frame  # Ждём 1 кадр, чтобы узлы полностью удалились
 
-	print("create container ", character_part_name)
 	_create_sliders_for_part(character_part)
 
 	update_containers_visibility("down")

@@ -179,4 +179,9 @@ func _handle_hair_item(slot_index, item_class):
 			target_node = character.head.polygon2d.get_node("Crown")
 			target_node.hair_resource = resource_part
 			target_node.initialize()
+		"Fringe":
+			target_node = character.head.get_node("Fringe")
+			print("target_node ", target_node.name)
+			target_node.hair_resource = resource_part
+			target_node.initialize()
 	change_sliders.emit(resource_part.hair_type)

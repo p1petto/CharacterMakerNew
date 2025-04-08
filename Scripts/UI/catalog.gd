@@ -41,6 +41,10 @@ func _initialize_color_picker_button() -> void:
 	if current_tab.is_in_group("ConditionallyDynamicTab") or current_tab.is_in_group("DynamicTab"):
 		color_picker_button_border= color_picker_button_container_border.get_node(NodePath(current_tab.name))  # Преобразуем строку в NodePath
 		color_picker_button_border.visible = true
+	elif current_tab.is_in_group("HairTab"):
+		if current_tab.catalog_items[0].hair.has_line:
+			color_picker_button_border= color_picker_button_container_border.get_node(NodePath(current_tab.name))  # Преобразуем строку в NodePath
+			color_picker_button_border.visible = true
 	elif current_tab.is_in_group("StaticClothesTab"):
 		color_picker_button_border= color_picker_button_container_border.get_node(current_tab.catalog_items[0].static_clothing.name_clothing)  
 		color_picker_button_border.visible = true
