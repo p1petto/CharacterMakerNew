@@ -181,3 +181,4 @@ func hide_color_picker():
 	for button in accessorie_buttons:
 		button.color_picker_button._on_toggled(false)
 		button.color_picker_button.button_pressed = false
+		
