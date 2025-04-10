@@ -1,0 +1,55 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://bj1hqh8hv3e6v"]
+
+[ext_resource type="Texture2D" uid="uid://bv3j7y6lrgoxx" path="res://Assets/Character/Hair/Strands/1/Strand.png" id="1_xod57"]
+[ext_resource type="Texture2D" uid="uid://b2ihn655a85cr" path="res://Assets/Character/Hair/Strands/1/Strand-top.png" id="2_okocb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2c73t"]
+atlas = ExtResource("1_xod57")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5ij1"]
+atlas = ExtResource("1_xod57")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71t73"]
+atlas = ExtResource("1_xod57")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ddrd"]
+atlas = ExtResource("2_okocb")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2c73t")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5ij1")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71t73")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ddrd")
+}],
+"loop": true,
+"name": &"top",
+"speed": 5.0
+}]

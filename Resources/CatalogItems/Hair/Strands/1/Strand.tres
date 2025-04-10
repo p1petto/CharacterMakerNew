@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CatalogItem" load_steps=3 format=3 uid="uid://dbvcjksuur0kn"]
+
+[ext_resource type="Resource" uid="uid://d3iwocfjmag4c" path="res://Resources/Hair/Strands/1/Strand.tres" id="1_pfk55"]
+[ext_resource type="Script" path="res://Scripts/CatalogItemResource.gd" id="2_owuwt"]
+
+[resource]
+script = ExtResource("2_owuwt")
+item_type = "HairStrand"
+item_class = "Accessories"
+accessorie = ExtResource("1_pfk55")

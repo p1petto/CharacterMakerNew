@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://bm1ycyeyegmyw"]
+[gd_scene load_steps=81 format=3 uid="uid://bm1ycyeyegmyw"]
 
 [ext_resource type="PackedScene" uid="uid://bmajra62ohwsu" path="res://Scenes/character.tscn" id="1_12d3f"]
 [ext_resource type="Script" path="res://Scripts/maker.gd" id="1_wror2"]
@@ -55,6 +55,7 @@
 [ext_resource type="Script" path="res://Scripts/UI/color_picker_button_container_border.gd" id="45_5q11q"]
 [ext_resource type="Resource" uid="uid://7loxn01ku5yr" path="res://Resources/Hair/Fringe/0/Fringe.tres" id="45_fmm32"]
 [ext_resource type="Resource" uid="uid://ccqg0e80q5xy0" path="res://Resources/Hair/Fringe/1/Fringe.tres" id="46_0lux7"]
+[ext_resource type="Resource" uid="uid://dbvcjksuur0kn" path="res://Resources/CatalogItems/Hair/Strands/1/Strand.tres" id="47_v0tno"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_1urqw"]
 viewport_path = NodePath("SubViewportContainer/SubViewport")
@@ -74,7 +75,7 @@ color = Color(0, 0, 0, 1)
 
 [sub_resource type="Resource" id="Resource_8gcpa"]
 script = ExtResource("5_sbt4v")
-item_type = null
+item_type = "Static"
 item_class = "LeftEye"
 static_element = SubResource("Resource_c2ivy")
 
@@ -93,7 +94,7 @@ color = Color(0, 0, 0, 1)
 
 [sub_resource type="Resource" id="Resource_67v72"]
 script = ExtResource("5_sbt4v")
-item_type = null
+item_type = "Static"
 item_class = "RightEye"
 static_element = SubResource("Resource_87sjp")
 
@@ -112,7 +113,7 @@ clothes_type = "T-shirt"
 [sub_resource type="Resource" id="Resource_d100m"]
 script = ExtResource("5_sbt4v")
 item_type = "Clothes"
-item_class = null
+item_class = "Body"
 clothes = SubResource("Resource_7i7yf")
 
 [sub_resource type="Resource" id="Resource_7a0hw"]
@@ -162,7 +163,7 @@ dynamic_clothes = SubResource("Resource_kq323")
 [sub_resource type="Resource" id="Resource_rr2v3"]
 script = ExtResource("5_sbt4v")
 item_type = "Clothes"
-item_class = null
+item_class = "Body"
 clothes = ExtResource("28_h8v44")
 
 [sub_resource type="Resource" id="Resource_em6g8"]
@@ -293,6 +294,15 @@ started_static_elements = Array[ExtResource("5_sbt4v")]([ExtResource("14_7nups")
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="AccessoriePanel" parent="UI" instance=ExtResource("23_dbin5")]
+anchors_preset = 10
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_bottom = 472.0
+grow_vertical = 1
+size_flags_horizontal = 1
+size_flags_vertical = 0
+
+[node name="StrandPanel" parent="UI" instance=ExtResource("23_dbin5")]
 anchors_preset = 10
 anchor_bottom = 0.0
 offset_left = 0.0
@@ -514,6 +524,11 @@ catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("43_fog1h"), ExtResou
 visible = false
 layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_lccou"), SubResource("Resource_dbwym")])
+
+[node name="Strands" parent="UI/Catalog/CatalogContainer" groups=["HairStrandTab"] instance=ExtResource("4_kavcm")]
+visible = false
+layout_mode = 2
+catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("47_v0tno")])
 
 [node name="ColorSettings" parent="UI/Catalog/CatalogContainer" groups=["SettingsTab"] instance=ExtResource("4_kavcm")]
 visible = false

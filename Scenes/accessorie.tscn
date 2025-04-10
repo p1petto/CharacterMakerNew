@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkx36rbim5llp"]
+[gd_scene load_steps=7 format=3 uid="uid://dkx36rbim5llp"]
 
 [ext_resource type="Shader" path="res://Scripts/Shaders/color_changing_shader.gdshader" id="1_6ty7n"]
 [ext_resource type="Script" path="res://Scripts/Accessories/Accessorie.gd" id="2_kk21r"]
@@ -8,13 +8,65 @@ shader = ExtResource("1_6ty7n")
 shader_parameter/cur_color = Color(1, 1, 1, 1)
 shader_parameter/blend_factor = 0.6
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_s2ltb"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"top",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h6kh0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ov41f"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"top",
+"speed": 5.0
+}]
 
 [node name="Accessorie" type="Area2D" groups=["Accessorie"]]
 material = SubResource("ShaderMaterial_8j83l")
 script = ExtResource("2_kk21r")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="base" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_s2ltb")
+animation = &"right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_h6kh0")
+
+[node name="line" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ov41f")
+animation = &"right"

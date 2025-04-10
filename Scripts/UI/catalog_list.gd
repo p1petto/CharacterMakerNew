@@ -5,6 +5,7 @@ class_name CustomTab
 @onready var grid = $VBoxContainer/ScrollContainer/GridContainer
 @onready var character = $"../../../../SubViewportContainer/SubViewport/Character"
 @onready var accecorie_panel = $"../../../AccessoriePanel"
+@onready var strand_panel = $"../../../StrandPanel"
 @export var catalog_items: Array[CatalogItem] = []
 @export var linked_symmetrical_element: CustomTab
 
@@ -55,7 +56,8 @@ func _on_catalog_slot_pressed(slot):
 			
 		"Hair":
 			_handle_hair_item(slot_index, item_class)
-	
+		"HairStrand":
+			_handle_strand_item(slot_index, item_class)
 
 func _handle_dynamic_item(slot_index, item_class):
 	var part = catalog_items[slot_index].dynamic_part	
@@ -185,3 +187,23 @@ func _handle_hair_item(slot_index, item_class):
 			target_node.hair_resource = resource_part
 			target_node.initialize()
 	change_sliders.emit(resource_part.hair_type)
+
+
+func _handle_strand_item(slot_index, item_class):
+	var part = catalog_items[slot_index].accessorie
+	
+	if Global.current_dir == "top" and catalog_items[slot_index].accessorie.not_can_top:
+		return
+		
+	var current_node = character.get_node("Head/Strands")
+
+	var accessory_scene = preload("res://Scenes/accessorie.tscn")
+	var strand_instance = accessory_scene.instantiate()
+
+	var strand_number = current_node.get_child_count()
+	strand_instance.name = "Strand_" + str(strand_number)
+	strand_instance.accessorie = part
+	strand_instance.add_to_group("Accessorie")
+	current_node.add_child(strand_instance)
+	
+	strand_panel.add_accessorie_button(part, strand_instance)

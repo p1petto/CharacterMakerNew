@@ -82,6 +82,8 @@ func change_dir_for_parts():
 			child.change_direction(Global.current_dir)
 	for child in head.get_node("Accessories").get_children():
 		child.change_direction(Global.current_dir)
+	for child in head.get_node("Strands").get_children():
+		child.change_direction(Global.current_dir)
 	
 	var crown = head.polygon2d.get_node("Crown")
 	if crown.hair_resource:

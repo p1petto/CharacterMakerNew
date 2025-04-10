@@ -1,0 +1,82 @@
+[gd_resource type="Resource" script_class="Accessorie" load_steps=10 format=3 uid="uid://d3iwocfjmag4c"]
+
+[ext_resource type="Script" path="res://Scripts/Accessories/resource_accessorie.gd" id="1_q6y6j"]
+[ext_resource type="SpriteFrames" uid="uid://bj1hqh8hv3e6v" path="res://Resources/Hair/Strands/1/strand_sprite_frames.tres" id="2_m3irx"]
+[ext_resource type="Texture2D" uid="uid://bopq7brmyknb8" path="res://Assets/Character/Hair/Strands/1/Strand-line.png" id="3_w8heu"]
+[ext_resource type="Texture2D" uid="uid://cuw77ce7qavst" path="res://Assets/Character/Hair/Strands/1/Strand-top-line.png" id="4_2u5uk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxil7"]
+atlas = ExtResource("3_w8heu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ig7o"]
+atlas = ExtResource("3_w8heu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7odb1"]
+atlas = ExtResource("3_w8heu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2hdo"]
+atlas = ExtResource("4_2u5uk")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hgro5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxil7")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ig7o")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7odb1")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2hdo")
+}],
+"loop": true,
+"name": &"top",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_q6y6j")
+sprite_frames = ExtResource("2_m3irx")
+sprite_frames_line = SubResource("SpriteFrames_hgro5")
+start_down_position = Vector2(7, 1)
+start_top_position = Vector2(7, 1)
+start_right_position = Vector2(9, 1)
+start_left_position = Vector2(5, 1)
+min_x_vertical = 3.0
+max_x_vertical = 11.0
+min_y_vertical = 0.0
+max_y_vertical = 16.0
+min_x_left = 3.0
+max_x_left = 7.0
+min_y_left = 0.0
+max_y_left = 16.0
+min_x_right = 7.0
+max_x_right = 11.0
+min_y_right = 0.0
+max_y_right = 16.0
+not_can_top = false
+color = Color(1, 1, 1, 1)
+line_color = Color(0.105882, 0.105882, 0.105882, 1)
+has_line = true

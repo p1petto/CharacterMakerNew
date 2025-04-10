@@ -61,6 +61,7 @@ z_right = 0
 z_top = 0
 z_left = 0
 initial_color = Color(1, 1, 1, 1)
+initial_color_line = Color(1, 1, 1, 1)
 hair_type = "Fringe"
 quantity = 1
 has_line = true

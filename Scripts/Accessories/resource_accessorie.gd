@@ -2,10 +2,8 @@ extends Resource
 
 class_name Accessorie
 
-@export var down_texture: CompressedTexture2D
-@export var top_texture: CompressedTexture2D
-@export var right_texture: CompressedTexture2D
-@export var left_texture: CompressedTexture2D
+@export var sprite_frames: SpriteFrames
+@export var sprite_frames_line: SpriteFrames
 
 @export var texture_icon: CompressedTexture2D
 
@@ -32,3 +30,7 @@ class_name Accessorie
 @export var not_can_top: bool
 
 @export var color: Color
+@export var line_color: Color = Color("1b1b1b")
+
+@export var has_line: bool = false
+@export var can_flip_on_horizontal: bool = true

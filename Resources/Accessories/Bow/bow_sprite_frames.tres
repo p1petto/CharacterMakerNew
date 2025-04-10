@@ -1,0 +1,54 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://5eu6xtce2cs1"]
+
+[ext_resource type="Texture2D" uid="uid://cec1v8bl86gum" path="res://Assets/Character/accessories/bow/bow-0.png" id="1_1r6r3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xq4jn"]
+atlas = ExtResource("1_1r6r3")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aokll"]
+atlas = ExtResource("1_1r6r3")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjmcj"]
+atlas = ExtResource("1_1r6r3")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_043sr"]
+atlas = ExtResource("1_1r6r3")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xq4jn")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aokll")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjmcj")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_043sr")
+}],
+"loop": true,
+"name": &"top",
+"speed": 5.0
+}]

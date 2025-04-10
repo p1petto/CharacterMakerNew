@@ -11,8 +11,8 @@ extends MarginContainer
 signal accessory_element_selected
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	catallog.tab_changed.connect(change_visible)
+#func _ready() -> void:
+	#catallog.tab_changed.connect(change_visible)
 
 func add_accessorie_button(accessorie, element):
 	var button_scene = preload("res://Scenes/UI/AccessoreButton.tscn")
@@ -26,14 +26,14 @@ func add_accessorie_button(accessorie, element):
 	button_instance.accessory_selected.connect(_on_accessory_selected)
 	button_instance.element_deleted.connect(_on_accessory_deleted)
 	
-	# Store the initial position after the button is added to the container
 	call_deferred("_store_button_position", button_instance)
 	
 	element.color_picker_button = button_instance.color_picker_button
-	
-	# Only update the z-index for the newly added element
+	if accessorie.has_line:
+		element.color_picker_button_line = button_instance.color_picker_button_line
+		button_instance.color_picker_button_line.visible = true
 	_setup_z_index_for_new_element(button_instance)
-	
+
 	color_scheme_controller.accessory_buttons.append(button_instance.color_picker_button)
 
 func _store_button_position(button):
@@ -174,8 +174,8 @@ func get_closest_button(button):
 
 	return closest_button
 	
-func change_visible():
-	visible = catallog.current_tab.is_in_group("Accessorie")
+#func change_visible():
+	#visible = catallog.current_tab.is_in_group("Accessorie")
 	
 func hide_color_picker():
 	for button in accessorie_buttons:

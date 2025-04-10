@@ -2,14 +2,11 @@
 
 [ext_resource type="Script" path="res://Scripts/Accessories/resource_accessorie.gd" id="1_2a1x7"]
 [ext_resource type="Texture2D" uid="uid://bo2x0ciffvb2f" path="res://Assets/Character/accessories/bow/bow.png" id="1_l2h40"]
-[ext_resource type="Texture2D" uid="uid://cec1v8bl86gum" path="res://Assets/Character/accessories/bow/bow-0.png" id="1_rhf8p"]
+[ext_resource type="SpriteFrames" uid="uid://5eu6xtce2cs1" path="res://Resources/Accessories/Bow/bow_sprite_frames.tres" id="2_5sbn1"]
 
 [resource]
 script = ExtResource("1_2a1x7")
-down_texture = ExtResource("1_rhf8p")
-top_texture = ExtResource("1_rhf8p")
-right_texture = ExtResource("1_rhf8p")
-left_texture = ExtResource("1_rhf8p")
+sprite_frames = ExtResource("2_5sbn1")
 texture_icon = ExtResource("1_l2h40")
 start_down_position = Vector2(7, 1)
 start_top_position = Vector2(7, 1)

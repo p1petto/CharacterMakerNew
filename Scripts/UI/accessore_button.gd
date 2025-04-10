@@ -3,6 +3,7 @@ class_name AccessorieButton
 
 @onready var icon = $CenterContainer/icon
 @onready var color_picker_button = $Container/CustomColorPickerButton
+@onready var color_picker_button_line = $Container/CustomColorPickerButtonLine
 
 @export var accessorie: Accessorie
 @export var accessorie_element: AccessorieElement
@@ -19,12 +20,7 @@ signal element_deleted
 
 func _ready() -> void:
 	icon.texture = accessorie.texture_icon
-	
-	#var timer = get_tree().create_timer(0.05)
-	#timer.timeout.connect(_update_position)
-
-#func _update_position() -> void:
-	#cur_position = position
+	color_picker_button_line.visible = false
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -55,3 +51,7 @@ func _on_delete_button_button_up() -> void:
 	# Удаляем саму кнопку (текущий объект)
 	queue_free()
 	
+
+
+func _on_flip_button_toggled(toggled_on: bool) -> void:
+	accessorie_element.flip_x(toggled_on)

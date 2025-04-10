@@ -4,6 +4,8 @@ extends MarginContainer
 @onready var button_container = $MarginContainer/HBoxContainer/ButtonsScrollContainer/HBoxContainer
 @onready var button_scroll_container = $MarginContainer/HBoxContainer/ButtonsScrollContainer
 @onready var character = $"../../SubViewportContainer/SubViewport/Character"
+@onready var accessory_panel = $"../AccessoriePanel"
+@onready var strand_panel = $"../StrandPanel"
 var color_picker_button
 var color_picker_button_border
 @onready var color_picker_button_container =  $MarginContainer/HBoxContainer/ColorPickerButtonContainer
@@ -64,11 +66,22 @@ func _on_catalog_tab_changed(tab_name):
 		color_picker_button_border.button_pressed = false
 		color_picker_button_border.visible = false
 	color_scheme_color_picker.visible = false
-	if !current_tab.is_in_group("Accessorie") and !current_tab.is_in_group("SettingsTab"):
+	if !current_tab.is_in_group("Accessorie") and !current_tab.is_in_group("SettingsTab") and !current_tab.is_in_group("HairStrandTab"):
 		_initialize_color_picker_button()
 		color_picker_button.visible = true
 	elif current_tab.is_in_group("SettingsTab"):
 		color_scheme_color_picker.visible = true
+	
+	if current_tab.is_in_group("Accessorie"):
+		accessory_panel.visible = true
+		strand_panel.visible = false
+	elif current_tab.is_in_group("HairStrandTab"):
+		strand_panel.visible = true
+		accessory_panel.visible = false
+	else:
+		accessory_panel.visible = false
+		strand_panel.visible = false
+		
 
 func find_tab(tab_name):
 	return catallog_container.get_node(tab_name)
