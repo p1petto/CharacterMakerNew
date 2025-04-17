@@ -8,8 +8,8 @@ extends MarginContainer
 @onready var strand_panel = $"../StrandPanel"
 var color_picker_button
 var color_picker_button_border
-@onready var color_picker_button_container =  $MarginContainer/HBoxContainer/ColorPickerButtonContainer
-@onready var color_picker_button_container_border =  $MarginContainer/HBoxContainer/ColorPickerButtonContainerBorder
+@onready var color_picker_button_container =  $MarginContainer/HBoxContainer/ColorPickerButtons/ColorPickerButtonContainer
+@onready var color_picker_button_container_border =  $MarginContainer/HBoxContainer/ColorPickerButtons/ColorPickerButtonContainerBorder
 @onready var color_scheme_color_picker = $"../ColorSchemeColorPicker"
 @export var current_tab: CustomTab
 
@@ -24,13 +24,20 @@ func _ready() -> void:
 		new_slot.tab_name = catalog_item.name
 		
 		button_container.add_child(new_slot)
-		new_slot.set_label(String(catalog_item.name))
+		if catalog_item.icon:
+			new_slot.set_texture(catalog_item.icon)
+		else:
+			new_slot.set_label(String(catalog_item.name))
+			new_slot.label.visible = true
+		
 		
 		if catalog_item.linked_symmetrical_element:
 			var new_check_button = load("res://Scenes/UI/custom_check_button.tscn").instantiate()
 			catalog_item.add_child(new_check_button)
 			catalog_item.move_child(new_check_button, 0)
 			new_check_button.button_toggled.connect(_on_check_button_toggled)
+			var box_container = catalog_item.get_node("VBoxContainer")
+			new_check_button.position.x = box_container.position.x
 			
 		#catalog_item.update_color.connect(_on_color_updated)
 		

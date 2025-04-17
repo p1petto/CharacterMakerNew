@@ -1,16 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://dlh4213axca2d"]
+[gd_scene load_steps=5 format=3 uid="uid://dlh4213axca2d"]
 
-[ext_resource type="Texture2D" uid="uid://cv2eiy7uun2nb" path="res://Assets/UI/Button standart.png" id="1_m5nqd"]
+[ext_resource type="Texture2D" uid="uid://begj0eqex0f5i" path="res://Assets/UI/Slots/slot normal.png" id="1_8803u"]
+[ext_resource type="Texture2D" uid="uid://dwvylxf15uw62" path="res://Assets/UI/Slots/slot active.png" id="2_gsqhb"]
 [ext_resource type="Script" path="res://Scripts/UI/catalog_type_slot.gd" id="2_ww2qa"]
+[ext_resource type="Texture2D" uid="uid://brcanwq0oe8jw" path="res://Assets/UI/Slots/slot hover.png" id="3_xpvrs"]
 
 [node name="CatalogTypeSlot" type="TextureButton"]
-custom_minimum_size = Vector2(64, 64)
-texture_normal = ExtResource("1_m5nqd")
+custom_minimum_size = Vector2(68, 68)
+texture_normal = ExtResource("1_8803u")
+texture_pressed = ExtResource("2_gsqhb")
+texture_hover = ExtResource("3_xpvrs")
+texture_focused = ExtResource("2_gsqhb")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("2_ww2qa")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -27,5 +33,22 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 12
 text = "ColorSettings"
 autowrap_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 7
+theme_override_constants/margin_bottom = 7
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+texture_filter = 2
+layout_mode = 2
+expand_mode = 1
 
 [connection signal="button_up" from="." to="." method="_on_button_up"]

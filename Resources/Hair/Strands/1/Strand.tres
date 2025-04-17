@@ -80,3 +80,4 @@ not_can_top = false
 color = Color(1, 1, 1, 1)
 line_color = Color(0.105882, 0.105882, 0.105882, 1)
 has_line = true
+can_flip_on_horizontal = true

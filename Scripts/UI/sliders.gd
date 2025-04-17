@@ -3,6 +3,7 @@ extends Container
 @onready var catallog = $"../Catalog"
 @onready var catallog_lists = $"../Catalog/CatalogContainer"
 @onready var character = $"../../SubViewportContainer/SubViewport/Character"
+@onready var character_texture = $"../CharacterShow"
 var slider_scene = preload("res://Scenes/custom_h_slider.tscn")
 
 func _ready() -> void:
@@ -19,6 +20,8 @@ func _ready() -> void:
 			_create_sliders_for_part(part)
 
 	update_containers_visibility("down")
+	size.y = 64 * Global.scaling
+	position.y = character_texture.position.y 
 
 func _process(delta: float) -> void:
 	pass
@@ -95,7 +98,7 @@ func _create_sliders_for_part(part):
 		if part.dynamic_part.vertical_markers:
 			var polygon_2d = part.get_node("Polygon2D")
 			var first_marker = part.dynamic_part.vertical_markers[0]
-			part_container_vertical.position.y = polygon_2d.polygon[first_marker].y * 5 + part.position.y * 5
+			part_container_vertical.position.y = polygon_2d.polygon[first_marker].y * Global.scaling + part.position.y * Global.scaling
 
 			add_child(part_container_vertical)
 
@@ -110,7 +113,7 @@ func _create_sliders_for_part(part):
 		if part.dynamic_part.horizontal_markers:
 			var polygon_2d = part.get_node("Polygon2D")
 			var first_marker = part.dynamic_part.horizontal_markers[0]
-			part_container_horizontal.position.y = polygon_2d.polygon[first_marker].y * 5 + part.position.y * 5
+			part_container_horizontal.position.y = polygon_2d.polygon[first_marker].y * Global.scaling + part.position.y * Global.scaling
 			part_container_horizontal.visible = false
 			add_child(part_container_horizontal)
 
@@ -125,7 +128,7 @@ func _create_sliders_for_part(part):
 	if part.is_in_group("ConditionallyDynamic"):
 		var part_container = VBoxContainer.new()
 		part_container.name = part.name
-		part_container.position.y = part.marker_y_pos * 5
+		part_container.position.y = part.marker_y_pos * Global.scaling
 
 		add_child(part_container)
 		var slider = slider_scene.instantiate()
@@ -138,7 +141,7 @@ func _create_sliders_for_part(part):
 	if part.is_in_group("Hair"):
 		var part_container = VBoxContainer.new()
 		part_container.name = part.name
-		part_container.position.y = character.head.position.y * 5
+		part_container.position.y = character.head.position.y * Global.scaling
 		
 
 		add_child(part_container)

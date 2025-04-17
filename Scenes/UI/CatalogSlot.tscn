@@ -1,13 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3gxla3jmp05m"]
+[gd_scene load_steps=5 format=3 uid="uid://c3gxla3jmp05m"]
 
-[ext_resource type="Texture2D" uid="uid://cv2eiy7uun2nb" path="res://Assets/UI/Button standart.png" id="1_8n6r8"]
+[ext_resource type="Texture2D" uid="uid://begj0eqex0f5i" path="res://Assets/UI/Slots/slot normal.png" id="1_adhbf"]
+[ext_resource type="Texture2D" uid="uid://dwvylxf15uw62" path="res://Assets/UI/Slots/slot active.png" id="2_hufpd"]
 [ext_resource type="Script" path="res://Scripts/UI/catalog_slot.gd" id="2_rl6lr"]
+[ext_resource type="Texture2D" uid="uid://brcanwq0oe8jw" path="res://Assets/UI/Slots/slot hover.png" id="3_yw637"]
 
 [node name="CatalogSlot" type="TextureButton"]
-custom_minimum_size = Vector2(80, 80)
+custom_minimum_size = Vector2(84, 84)
 offset_right = 80.0
 offset_bottom = 80.0
-texture_normal = ExtResource("1_8n6r8")
+texture_normal = ExtResource("1_adhbf")
+texture_pressed = ExtResource("2_hufpd")
+texture_hover = ExtResource("3_yw637")
+texture_focused = ExtResource("2_hufpd")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("2_rl6lr")

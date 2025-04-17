@@ -6,8 +6,12 @@ class_name CustomTab
 @onready var character = $"../../../../SubViewportContainer/SubViewport/Character"
 @onready var accecorie_panel = $"../../../AccessoriePanel"
 @onready var strand_panel = $"../../../StrandPanel"
+@onready var box_container = $VBoxContainer
 @export var catalog_items: Array[CatalogItem] = []
 @export var linked_symmetrical_element: CustomTab
+@export var icon: CompressedTexture2D
+
+
 
 signal change_sliders
 
@@ -15,6 +19,14 @@ func _ready() -> void:
 		
 	for item in catalog_items:
 		add_catalog_item(item)
+		
+	#await get_tree().process_frame  # ждём, чтобы все размеры точно обновились
+	#
+	#var parent_size = size  # т.к. скрипт на Container (который сам Control)
+	#var box_size = box_container.size
+	#
+	#box_container.position.x = (parent_size.x - box_size.x) / 2
+	#box_container.position.y = parent_size.y - box_size.y + 24
 
 func _process(delta: float) -> void:
 	pass

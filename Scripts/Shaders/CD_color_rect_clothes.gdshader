@@ -11,7 +11,7 @@ void fragment() {
     uv.x *= aspect_ratio;
     float dist = length(uv);
     vec4 base_color = texture(TEXTURE, UV) * COLOR;
-    
+
     if (is_flooded_inside) {
         // Исходная логика: внутренняя часть круга закрашена
         if (dist < radius - border_width) {

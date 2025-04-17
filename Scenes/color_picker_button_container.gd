@@ -1,9 +1,9 @@
 extends Container
 
-@onready var catalog = $"../../.."
-@onready var character = $"../../../../../SubViewportContainer/SubViewport/Character"
-@onready var button_scroll_container = $"../ButtonsScrollContainer"
-@onready var color_scheme_controller = $"../../../CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController"
+@onready var catalog = $"../../../.."
+@onready var character = $"../../../../../../SubViewportContainer/SubViewport/Character"
+@onready var button_scroll_container = $"../../ButtonsScrollContainer"
+@onready var color_scheme_controller = $"../../../../CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController"
 var color_picker_button_scene = preload("res://Scenes/UI/custom_color_picker_button.tscn")
 @onready var line_color_picker_container = $"../ColorPickerButtonContainerBorder"
 # Called when the node enters the scene tree for the first time.
@@ -16,7 +16,7 @@ func _ready() -> void:
 func _create_and_assign_color_picker(child) -> void:
 	var color_picker_button = color_picker_button_scene.instantiate()
 	color_picker_button.name = child.name  
-	color_picker_button.size = Vector2(40, 30)
+	color_picker_button.size = Vector2(30, 30)
 	
 	add_child(color_picker_button)
 	color_picker_button.visible = false
