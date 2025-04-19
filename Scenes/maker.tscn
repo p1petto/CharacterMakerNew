@@ -1,4 +1,4 @@
-[gd_scene load_steps=132 format=3 uid="uid://bm1ycyeyegmyw"]
+[gd_scene load_steps=144 format=3 uid="uid://bm1ycyeyegmyw"]
 
 [ext_resource type="PackedScene" uid="uid://bmajra62ohwsu" path="res://Scenes/character.tscn" id="1_12d3f"]
 [ext_resource type="Script" path="res://Scripts/maker.gd" id="1_wror2"]
@@ -14,18 +14,30 @@
 [ext_resource type="PackedScene" uid="uid://ckn2cbvi5d5m" path="res://Scenes/UI/direction_button.tscn" id="8_sklk8"]
 [ext_resource type="Resource" uid="uid://bcuftfs14fyvy" path="res://Resources/CatalogItems/ConditionallyDynamicPart/Arms/Right Arm/RightArm.tres" id="9_pxshc"]
 [ext_resource type="Resource" uid="uid://0xs0hm7qike0" path="res://Resources/CatalogItems/ConditionallyDynamicPart/Legs/Left Leg/LeftLeg.tres" id="10_1t4ok"]
+[ext_resource type="Texture2D" uid="uid://kajd5w84o2ar" path="res://Assets/UI/OffsetController/OffsetButton-right-normal.png" id="10_strha"]
+[ext_resource type="Texture2D" uid="uid://g0mcvs423e7f" path="res://Assets/UI/OffsetController/OffsetButton-right-pressed.png" id="11_61u5b"]
 [ext_resource type="Resource" uid="uid://b121ijuxw03s3" path="res://Resources/CatalogItems/ConditionallyDynamicPart/Legs/Right Leg/RightLeg.tres" id="11_lknkn"]
 [ext_resource type="Resource" uid="uid://cl0ajdt5ypwmh" path="res://Resources/CatalogItems/DynamicPart/Body/Body.tres" id="11_wp1wm"]
 [ext_resource type="Theme" uid="uid://4squd3f1aq8p" path="res://Assets/Theme/ColorTheme.tres" id="11_ydvaf"]
+[ext_resource type="Texture2D" uid="uid://dcujjk3oga0c8" path="res://Assets/UI/OffsetController/OffsetButton-down-normal.png" id="12_5v1w6"]
+[ext_resource type="Texture2D" uid="uid://cwkrfgssrdc8q" path="res://Assets/UI/OffsetController/OffsetButton-right-hover.png" id="12_w6l2x"]
+[ext_resource type="Texture2D" uid="uid://q02ikcfhff3l" path="res://Assets/UI/OffsetController/OffsetButton-down-pressed.png" id="13_uyr6x"]
 [ext_resource type="Resource" uid="uid://danlbkb3wqnt4" path="res://Resources/CatalogItems/StaticElement/Eyes/Eye1/LeftEye/LeftEye.tres" id="14_7nups"]
+[ext_resource type="Texture2D" uid="uid://cat1iwgblgrt5" path="res://Assets/UI/OffsetController/OffsetButton-left-normal.png" id="14_rwar7"]
 [ext_resource type="Script" path="res://Scripts/StaticElements/resource_static_element.gd" id="15_1qk7a"]
 [ext_resource type="Texture2D" uid="uid://dhc0glsh0mbwm" path="res://Assets/UI/icons/TypeItem/Property 1=body.svg" id="15_4058r"]
+[ext_resource type="Texture2D" uid="uid://dpstdt178goif" path="res://Assets/UI/OffsetController/OffsetButton-left-pressed.png" id="15_vx6u6"]
+[ext_resource type="Texture2D" uid="uid://hnjwk0ii1f4d" path="res://Assets/UI/OffsetController/OffsetButton-down-hover.png" id="15_wy0lg"]
+[ext_resource type="Texture2D" uid="uid://b05twt2vkrih1" path="res://Assets/UI/OffsetController/OffsetButton-top-normal.png" id="16_u4eai"]
 [ext_resource type="Texture2D" uid="uid://cpqd6c4pet1oh" path="res://Assets/UI/icons/TypeItem/Property 1=head.svg" id="17_36cuv"]
+[ext_resource type="Texture2D" uid="uid://nn3so061afj6" path="res://Assets/UI/OffsetController/OffsetButton-top-pressed.png" id="17_a1mce"]
 [ext_resource type="Resource" uid="uid://xb00p14w71s4" path="res://Resources/CatalogItems/StaticElement/Eyes/Eye1/RightEye/RightEye.tres" id="17_nc5m7"]
+[ext_resource type="Texture2D" uid="uid://bgye3rv4lqtu6" path="res://Assets/UI/OffsetController/OffsetButton-left-hover.png" id="18_dg8mp"]
 [ext_resource type="Texture2D" uid="uid://bslfuwohhnaoa" path="res://Assets/UI/icons/TypeItem/Property 1=armL.svg" id="19_vjttc"]
 [ext_resource type="Resource" uid="uid://iu27d1bg1axf" path="res://Resources/CatalogItems/Accessories/Bow.tres" id="20_emeal"]
 [ext_resource type="Texture2D" uid="uid://5ii30g3aenog" path="res://Assets/UI/icons/TypeItem/Property 1=armR.svg" id="21_0uktw"]
 [ext_resource type="Resource" uid="uid://cww0wllumgai8" path="res://Resources/CatalogItems/Accessories/Glass.tres" id="21_adrnn"]
+[ext_resource type="Texture2D" uid="uid://cbkg481yn14fe" path="res://Assets/UI/OffsetController/OffsetButton-top-hover.png" id="21_r27af"]
 [ext_resource type="Resource" uid="uid://c2547tkdm21sm" path="res://Resources/CatalogItems/Clothes/DynamicClothes/Sleeve/standart/Sleeve3.tres" id="23_0wu6d"]
 [ext_resource type="Script" path="res://Scripts/Clothes/resource_clothes.gd" id="23_3i8yu"]
 [ext_resource type="Texture2D" uid="uid://bv03i51ggjo3i" path="res://Assets/UI/icons/TypeItem/Property 1=legL.svg" id="23_3noyc"]
@@ -394,26 +406,31 @@ size_flags_vertical = 4
 script = ExtResource("3_p20pd")
 
 [node name="PositionController" type="ColorRect" parent="UI"]
-visible = false
-offset_left = 795.0
-offset_top = 223.0
-offset_right = 945.0
-offset_bottom = 370.0
+offset_left = 780.0
+offset_top = 193.0
+offset_right = 980.0
+offset_bottom = 324.0
+color = Color(1, 1, 1, 0)
 script = ExtResource("7_b13vq")
 
 [node name="Right" parent="UI/PositionController" instance=ExtResource("8_n6mgr")]
+texture_filter = 2
 layout_mode = 1
-anchors_preset = 6
+anchors_preset = 3
 anchor_left = 1.0
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.5
+anchor_bottom = 1.0
 offset_left = -50.0
-offset_top = -25.0
+offset_top = -50.0
 offset_right = 0.0
-offset_bottom = 25.0
+offset_bottom = 0.0
 grow_horizontal = 0
-grow_vertical = 2
+grow_vertical = 0
+texture_normal = ExtResource("10_strha")
+texture_pressed = ExtResource("11_61u5b")
+texture_hover = ExtResource("12_w6l2x")
+texture_focused = ExtResource("11_61u5b")
 value = Vector2(1, 0)
 
 [node name="Down" parent="UI/PositionController" instance=ExtResource("8_n6mgr")]
@@ -421,28 +438,42 @@ layout_mode = 1
 anchors_preset = 7
 anchor_top = 1.0
 anchor_bottom = 1.0
+offset_left = -32.0
 offset_top = -50.0
+offset_right = 32.0
 offset_bottom = 0.0
 grow_vertical = 0
+texture_normal = ExtResource("12_5v1w6")
+texture_pressed = ExtResource("13_uyr6x")
+texture_hover = ExtResource("15_wy0lg")
+texture_focused = ExtResource("13_uyr6x")
 value = Vector2(0, 1)
 
 [node name="Left" parent="UI/PositionController" instance=ExtResource("8_n6mgr")]
 layout_mode = 1
-anchors_preset = 4
+anchors_preset = 2
 anchor_left = 0.0
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.0
-anchor_bottom = 0.5
+anchor_bottom = 1.0
 offset_left = 0.0
-offset_top = -25.0
+offset_top = -50.0
 offset_right = 50.0
-offset_bottom = 25.0
+offset_bottom = 0.0
 grow_horizontal = 1
-grow_vertical = 2
+grow_vertical = 0
+texture_normal = ExtResource("14_rwar7")
+texture_pressed = ExtResource("15_vx6u6")
+texture_hover = ExtResource("18_dg8mp")
+texture_focused = ExtResource("15_vx6u6")
 value = Vector2(-1, 0)
 
 [node name="Top" parent="UI/PositionController" instance=ExtResource("8_n6mgr")]
 layout_mode = 1
+texture_normal = ExtResource("16_u4eai")
+texture_pressed = ExtResource("17_a1mce")
+texture_hover = ExtResource("21_r27af")
+texture_focused = ExtResource("17_a1mce")
 
 [node name="Catalog" type="MarginContainer" parent="UI" node_paths=PackedStringArray("current_tab")]
 anchors_preset = 12

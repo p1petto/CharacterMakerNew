@@ -1,9 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://lmog12ymre2p"]
+[gd_scene load_steps=5 format=3 uid="uid://lmog12ymre2p"]
 
+[ext_resource type="Texture2D" uid="uid://dge51prsh4oeg" path="res://Assets/UI/Buttons/Property 1=Normal.png" id="1_hora6"]
 [ext_resource type="Script" path="res://Scripts/UI/position_controller_button.gd" id="1_kr55k"]
+[ext_resource type="Texture2D" uid="uid://b8phqo6i6qyrb" path="res://Assets/UI/Buttons/Property 1=pressed.png" id="2_dlyhp"]
+[ext_resource type="Texture2D" uid="uid://ctt0jieu6g1hg" path="res://Assets/UI/Buttons/Property 1=hover.png" id="3_opquy"]
 
-[node name="PositionControllerButton" type="Button"]
-custom_minimum_size = Vector2(50, 50)
+[node name="PositionControllerButton" type="TextureButton"]
+custom_minimum_size = Vector2(64, 64)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -13,6 +16,12 @@ offset_bottom = 50.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+texture_normal = ExtResource("1_hora6")
+texture_pressed = ExtResource("2_dlyhp")
+texture_hover = ExtResource("3_opquy")
+texture_focused = ExtResource("2_dlyhp")
+ignore_texture_size = true
+stretch_mode = 0
 script = ExtResource("1_kr55k")
 value = Vector2(0, -1)
 
