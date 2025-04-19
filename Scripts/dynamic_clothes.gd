@@ -47,7 +47,6 @@ func _on_color_changed(new_color: Color) -> void:
 	
 	
 	if is_symmetrical:
-		print("is_symmetrical")
 		var linked_parrent_tab 
 		var parrent = get_node("../../")
 		for tab in catallog_container.get_children():
@@ -57,10 +56,8 @@ func _on_color_changed(new_color: Color) -> void:
 		var target_node = character.find_child(linked_parrent_tab.name, true, false)
 		var cur_linked_element
 		if resource_dynamic_clothes.is_flooded_inside:
-			print("!!!!!!")
 			cur_linked_element = target_node.find_child("DynamicClothes", true, false)
 		else:
-			print("ELSE")
 			cur_linked_element = target_node.find_child("TipWear", true, false)
 		cur_linked_element.self_modulate = cur_color
 		cur_linked_element.color_picker_button.set_new_bg_color(new_color)

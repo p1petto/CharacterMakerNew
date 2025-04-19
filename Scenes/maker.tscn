@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=3 uid="uid://bm1ycyeyegmyw"]
+[gd_scene load_steps=132 format=3 uid="uid://bm1ycyeyegmyw"]
 
 [ext_resource type="PackedScene" uid="uid://bmajra62ohwsu" path="res://Scenes/character.tscn" id="1_12d3f"]
 [ext_resource type="Script" path="res://Scripts/maker.gd" id="1_wror2"]
@@ -80,6 +80,33 @@
 [ext_resource type="Texture2D" uid="uid://feqoxnwjqn7x" path="res://Assets/UI/icons/TypeItem/Property 1=curl.svg" id="69_mqqma"]
 [ext_resource type="Texture2D" uid="uid://dtl7tagpmgun8" path="res://Assets/UI/icons/TypeItem/Property 1=colorsettings.svg" id="70_k5ptb"]
 [ext_resource type="Script" path="res://Scripts/UI/catallog_type_container.gd" id="74_1fayn"]
+[ext_resource type="Texture2D" uid="uid://bfre6lh2tsdrs" path="res://Assets/UI/icons/Player/Property 1=Run.png" id="75_5btbj"]
+[ext_resource type="Texture2D" uid="uid://ct2af2ndf5x8u" path="res://Assets/UI/icons/Player/Property 1=Stop.png" id="76_1wrpb"]
+[ext_resource type="Texture2D" uid="uid://befvapkxnot0a" path="res://Assets/UI/icons/Player/Property 1=stop-focus.png" id="76_q83pj"]
+[ext_resource type="Texture2D" uid="uid://ckll4tks6n6lr" path="res://Assets/UI/DirectionController/DirectionController.png" id="77_675mi"]
+[ext_resource type="Texture2D" uid="uid://baxb63kv3jl05" path="res://Assets/UI/icons/Player/Property 1=run-hover.png" id="77_s4e4m"]
+[ext_resource type="Texture2D" uid="uid://buj4ra6xew71s" path="res://Assets/UI/DirectionController/ButtonArrow/Property 1=down.png" id="79_7gtsf"]
+[ext_resource type="Texture2D" uid="uid://dn4h1iiol3xoy" path="res://Assets/UI/DirectionController/ButtonArrow/Property 1=down-pressed.png" id="79_gp8p2"]
+[ext_resource type="Script" path="res://Scripts/UI/animation_player.gd" id="79_vn77l"]
+[ext_resource type="Texture2D" uid="uid://8q1syi3y64ga" path="res://Assets/UI/DirectionController/ButtonArrow/Property 1=right.png" id="80_cb0tp"]
+[ext_resource type="Texture2D" uid="uid://dqikfdcxdxdb8" path="res://Assets/UI/icons/Player/Property 1=run-focus.png" id="80_eygun"]
+[ext_resource type="Texture2D" uid="uid://bv0rdxt6sq26k" path="res://Assets/UI/icons/Player/Property 1=stop-hover.png" id="81_0343d"]
+[ext_resource type="Texture2D" uid="uid://d0cvrfc4ouygp" path="res://Assets/UI/DirectionController/ButtonArrow/Property 1=Top.png" id="81_531xc"]
+[ext_resource type="Texture2D" uid="uid://ce046hk4h4ip0" path="res://Assets/UI/DirectionController/ButtonArrow/Property 1=down-hover.png" id="81_y2dag"]
+[ext_resource type="Texture2D" uid="uid://bq4ext6khlg8" path="res://Assets/UI/DirectionController/ButtonArrow/Property 1=top-pressed.png" id="81_yqx12"]
+[ext_resource type="Texture2D" uid="uid://dlvxj04amol74" path="res://Assets/UI/DirectionController/ButtonArrow/Property 1=left.png" id="82_1xntw"]
+[ext_resource type="Texture2D" uid="uid://r8jgb6sntr8l" path="res://Assets/UI/DirectionController/ButtonArrow/Property 1=right-pressed.png" id="83_yn0n2"]
+[ext_resource type="Texture2D" uid="uid://ddbt7ip3obygi" path="res://Assets/UI/DirectionController/ButtonArrow/Property 1=right-hover.png" id="84_tvgma"]
+[ext_resource type="Texture2D" uid="uid://dgovp3of1h66b" path="res://Assets/UI/DirectionController/ButtonArrow/Property 1=top-hover.png" id="87_rs7uj"]
+[ext_resource type="Texture2D" uid="uid://c2ftqc7onbmcr" path="res://Assets/UI/DirectionController/ButtonArrow/Property 1=left-pressed.png" id="89_hupx8"]
+[ext_resource type="Texture2D" uid="uid://co650d7udwcqk" path="res://Assets/UI/DirectionController/ButtonArrow/Property 1=left-hover.png" id="90_4a3w4"]
+[ext_resource type="Texture2D" uid="uid://c7guo8ne644re" path="res://Assets/UI/DirectionController/Circle/Normal=Normal2.png" id="91_u6ym5"]
+[ext_resource type="Texture2D" uid="uid://dchqm8ybcecaj" path="res://Assets/UI/DirectionController/Circle/Normal=Pressed.png" id="92_tobrt"]
+[ext_resource type="Texture2D" uid="uid://bog4skitu8m4w" path="res://Assets/UI/DirectionController/Circle/Normal=Hover.png" id="93_gt0w5"]
+[ext_resource type="Texture2D" uid="uid://dge51prsh4oeg" path="res://Assets/UI/Buttons/Property 1=Normal.png" id="102_8miag"]
+[ext_resource type="Texture2D" uid="uid://b8phqo6i6qyrb" path="res://Assets/UI/Buttons/Property 1=pressed.png" id="103_k564d"]
+[ext_resource type="Texture2D" uid="uid://ctt0jieu6g1hg" path="res://Assets/UI/Buttons/Property 1=hover.png" id="104_2qwpn"]
+[ext_resource type="Texture2D" uid="uid://b2dhs5ey7tjgu" path="res://Assets/UI/icons/screenshot.svg" id="106_8grb0"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_1urqw"]
 viewport_path = NodePath("SubViewportContainer/SubViewport")
@@ -337,9 +364,9 @@ size_flags_vertical = 0
 
 [node name="CharacterShow" type="TextureRect" parent="UI"]
 anchors_preset = -1
-anchor_left = 0.38
+anchor_left = 0.375
 anchor_top = 0.2
-anchor_right = 0.38
+anchor_right = 0.375
 anchor_bottom = 0.2
 offset_left = -32.0
 offset_top = -32.0
@@ -654,8 +681,23 @@ layout_mode = 2
 size_flags_vertical = 8
 script = ExtResource("74_1fayn")
 
+[node name="AnimationPlayer" type="TextureButton" parent="UI/Catalog/MarginContainer/HBoxContainer"]
+texture_filter = 2
+custom_minimum_size = Vector2(52, 52)
+layout_mode = 2
+texture_normal = ExtResource("75_5btbj")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("79_vn77l")
+texture_run_normal = ExtResource("75_5btbj")
+texture_run_hover = ExtResource("77_s4e4m")
+texture_run_pressed = ExtResource("80_eygun")
+texture_stop_normal = ExtResource("76_1wrpb")
+texture_stop_hover = ExtResource("81_0343d")
+texture_stop_pressed = ExtResource("76_q83pj")
+
 [node name="ButtonsScrollContainer" type="ScrollContainer" parent="UI/Catalog/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(880, 64.295)
+custom_minimum_size = Vector2(882, 64.295)
 layout_mode = 2
 size_flags_horizontal = 3
 vertical_scroll_mode = 0
@@ -697,25 +739,34 @@ sliders_visible = false
 hex_visible = false
 presets_visible = false
 
-[node name="DirectionButtons" type="ColorRect" parent="UI"]
-offset_left = 132.0
-offset_top = 223.0
-offset_right = 282.0
-offset_bottom = 373.0
+[node name="DirectionButtons" type="TextureRect" parent="UI"]
+texture_filter = 2
+offset_left = 110.0
+offset_top = 154.0
+offset_right = 319.0
+offset_bottom = 366.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("77_675mi")
 
 [node name="Down" parent="UI/DirectionButtons" groups=["DirectionButton"] instance=ExtResource("8_sklk8")]
+custom_minimum_size = Vector2(0, 0)
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.98
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -25.0
-offset_top = -50.0
-offset_right = 25.0
+anchor_bottom = 0.98
+offset_left = -75.0
+offset_top = -135.0
+offset_right = 75.0
 offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 0
+texture_normal = ExtResource("79_7gtsf")
+texture_pressed = ExtResource("79_gp8p2")
+texture_hover = ExtResource("81_y2dag")
+texture_focused = ExtResource("79_gp8p2")
+stretch_mode = 0
 
 [node name="Right" parent="UI/DirectionButtons" groups=["DirectionButton"] instance=ExtResource("8_sklk8")]
 layout_mode = 1
@@ -724,12 +775,17 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -25.0
+offset_left = -135.0
+offset_top = -75.0
 offset_right = 0.0
-offset_bottom = 25.0
+offset_bottom = 75.0
 grow_horizontal = 0
 grow_vertical = 2
+texture_normal = ExtResource("80_cb0tp")
+texture_pressed = ExtResource("83_yn0n2")
+texture_hover = ExtResource("84_tvgma")
+texture_focused = ExtResource("83_yn0n2")
+stretch_mode = 0
 direction = "right"
 
 [node name="Top" parent="UI/DirectionButtons" groups=["DirectionButton"] instance=ExtResource("8_sklk8")]
@@ -737,11 +793,16 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -25.0
+offset_left = -75.0
 offset_top = 0.0
-offset_right = 25.0
-offset_bottom = 50.0
+offset_right = 75.0
+offset_bottom = 135.0
 grow_horizontal = 2
+texture_normal = ExtResource("81_531xc")
+texture_pressed = ExtResource("81_yqx12")
+texture_hover = ExtResource("87_rs7uj")
+texture_focused = ExtResource("81_yqx12")
+stretch_mode = 0
 direction = "top"
 
 [node name="Left" parent="UI/DirectionButtons" groups=["DirectionButton"] instance=ExtResource("8_sklk8")]
@@ -750,47 +811,107 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 0.0
-offset_top = -25.0
-offset_right = 50.0
-offset_bottom = 25.0
+offset_top = -75.0
+offset_right = 135.0
+offset_bottom = 75.0
 grow_vertical = 2
+texture_normal = ExtResource("82_1xntw")
+texture_pressed = ExtResource("89_hupx8")
+texture_hover = ExtResource("90_4a3w4")
+texture_focused = ExtResource("89_hupx8")
+stretch_mode = 0
 direction = "left"
 
-[node name="AnimationButton" type="Button" parent="UI/DirectionButtons"]
-layout_mode = 0
-offset_left = 54.0
-offset_top = 55.0
-offset_right = 96.0
-offset_bottom = 96.0
-text = "idle"
+[node name="AnimationButton" type="TextureButton" parent="UI/DirectionButtons"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.488
+anchor_right = 0.5
+anchor_bottom = 0.488
+offset_left = -21.0
+offset_top = -20.5
+offset_right = 21.0
+offset_bottom = 20.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("91_u6ym5")
+texture_pressed = ExtResource("92_tobrt")
+texture_hover = ExtResource("93_gt0w5")
+texture_focused = ExtResource("92_tobrt")
 script = ExtResource("23_b4y1g")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI"]
-anchors_preset = 10
-anchor_right = 1.0
+[node name="Label" type="Label" parent="UI/DirectionButtons/AnimationButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -31.0
+offset_right = 46.0
 offset_bottom = 31.0
 grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("11_ydvaf")
+theme_override_colors/font_color = Color(0.109804, 0.129412, 0.133333, 1)
+theme_override_font_sizes/font_size = 50
+text = "IDLE"
+horizontal_alignment = 1
 
-[node name="AnimationPlayer" type="Button" parent="UI/HBoxContainer"]
-layout_mode = 2
-toggle_mode = true
-text = "Run
-"
+[node name="HBoxContainer" type="MarginContainer" parent="UI"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 56.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 12
 
-[node name="Export" type="Button" parent="UI/HBoxContainer"]
+[node name="Export" type="TextureButton" parent="UI/HBoxContainer"]
+custom_minimum_size = Vector2(52, 52)
 layout_mode = 2
-text = "снимок"
+size_flags_horizontal = 0
+texture_normal = ExtResource("102_8miag")
+texture_pressed = ExtResource("103_k564d")
+texture_hover = ExtResource("104_2qwpn")
+texture_focused = ExtResource("103_k564d")
+ignore_texture_size = true
+stretch_mode = 0
 script = ExtResource("26_qf8ja")
 
+[node name="MarginContainer" type="MarginContainer" parent="UI/HBoxContainer/Export"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 12
+
+[node name="TextureRect" type="TextureRect" parent="UI/HBoxContainer/Export/MarginContainer"]
+texture_filter = 2
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("106_8grb0")
+expand_mode = 1
+stretch_mode = 4
+
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(573, 324)
+position = Vector2(576, 324)
 
 [node name="AnimationController" type="Node2D" parent="."]
 script = ExtResource("25_aee7t")
 animation_speed = 5.0
 
 [connection signal="button_up" from="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController/MarginContainer/Accept" to="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController" method="_on_accept_button_up"]
+[connection signal="button_up" from="UI/Catalog/MarginContainer/HBoxContainer/AnimationPlayer" to="UI/Catalog/MarginContainer/HBoxContainer/AnimationPlayer" method="_on_button_up"]
+[connection signal="button_up" from="UI/Catalog/MarginContainer/HBoxContainer/AnimationPlayer" to="AnimationController" method="_on_animation_player_button_up"]
 [connection signal="color_changed" from="UI/ColorSchemeColorPicker" to="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController" method="_on_color_scheme_color_picker_color_changed"]
 [connection signal="button_up" from="UI/DirectionButtons/AnimationButton" to="UI/DirectionButtons/AnimationButton" method="_on_button_up"]
-[connection signal="toggled" from="UI/HBoxContainer/AnimationPlayer" to="AnimationController" method="_on_animation_player_toggled"]
 [connection signal="button_up" from="UI/HBoxContainer/Export" to="UI/HBoxContainer/Export" method="_on_button_up"]

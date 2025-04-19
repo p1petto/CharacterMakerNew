@@ -151,7 +151,6 @@ func _on_color_scheme_color_picker_color_changed(color: Color) -> void:
 func _on_accept_button_up() -> void:
 	for index in checkbox_controller.check_button_pressed:
 		set_color_scheme(index)
-		print(index)
 		
 		
 func set_color_scheme(checkbox_index):
@@ -159,13 +158,10 @@ func set_color_scheme(checkbox_index):
 	
 	match checkbox_index:
 		0: 
-			print("ACCEPT 0")
 			buttons_array = body_buttons
 		1:
-			print("ACCEPT 1")
 			buttons_array = clothes_buttons
 		2:
-			print("ACCEPT 2")
 			buttons_array = accessory_buttons 
 
 	var colors = get_colors_for_scheme(base_color)

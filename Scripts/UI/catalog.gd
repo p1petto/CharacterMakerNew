@@ -97,8 +97,9 @@ func _on_check_button_toggled(toggled_on):
 	var linked_tab = current_tab.linked_symmetrical_element
 	if linked_tab:
 		var linked_check_button = linked_tab.get_node("CustomCheckButton")
-		if linked_check_button and linked_check_button.get_node("CheckButton").button_pressed != toggled_on:
-			linked_check_button.get_node("CheckButton").set_pressed_no_signal(toggled_on)
+		if linked_check_button and linked_check_button.get_node("VBoxContainer/CheckButton").button_pressed != toggled_on:
+			linked_check_button.get_node("VBoxContainer/CheckButton").set_pressed_no_signal(toggled_on)
+			linked_check_button.change_icon(toggled_on)
 		
 		var linked_node
 		var current_node

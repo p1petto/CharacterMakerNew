@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/UI/direction_button.gd" id="1_p4mrm"]
 
-[node name="DirectionButton" type="Button"]
+[node name="DirectionButton" type="TextureButton"]
 custom_minimum_size = Vector2(50, 50)
 offset_left = 50.0
 offset_top = 100.0

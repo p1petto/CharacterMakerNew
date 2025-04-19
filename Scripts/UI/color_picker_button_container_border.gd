@@ -35,5 +35,4 @@ func _create_and_assign_color_picker_deferred(element):
 	add_child(color_picker_button)
 	color_picker_button.visible = false
 	element.color_picker_button_line = color_picker_button
-	print("element.color_picker_button_line: ", element.color_picker_button_line)
 	#element.color_picker_button_line.color_changed.connect(_on_line_color_changed)

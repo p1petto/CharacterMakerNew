@@ -2,7 +2,7 @@ extends Node2D
 @onready var character = $"../SubViewportContainer/SubViewport/Character"
 @onready var button_container = $"../UI/DirectionButtons"
 @onready var animation_button = $"../UI/DirectionButtons/AnimationButton"
-@onready var animation_player_button = $"../UI/HBoxContainer/AnimationPlayer"
+@onready var animation_player_button = $"../UI/Catalog/MarginContainer/HBoxContainer/AnimationPlayer"
 
 var animation_frame = 0  # To keep track of the current animation frame
 @export var animation_speed: float = 1.0  # Controls how fast the animation plays
@@ -23,9 +23,6 @@ func _process(delta: float) -> void:
 			animate_children()
 			animation_timer = 0.0  
 
-func _on_animation_player_toggled(toggled_on: bool) -> void:
-	Global.animation_is_run = toggled_on
-	set_start_position()
 	
 func set_start_position():
 	animation_frame = 0
@@ -124,6 +121,14 @@ func clear_all_states():
 	animation_player_button.button_pressed = false
 	Global.current_dir = "down"
 	Global.current_animation = "idle"
-	animation_button.text = Global.current_animation
+	animation_button.label.text = Global.current_animation.to_upper()
 	change_animation()
 	character.on_direction_changed()
+
+
+func _on_animation_player_button_up() -> void:
+	if Global.animation_is_run:
+		Global.animation_is_run = false
+	else: 
+		Global.animation_is_run = true
+	set_start_position()

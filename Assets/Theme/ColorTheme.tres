@@ -1,7 +1,10 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://4squd3f1aq8p"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://4squd3f1aq8p"]
+
+[ext_resource type="FontFile" uid="uid://bfvbdnf2f7ejy" path="res://Assets/Fonts/Fira_Sans_Condensed/FiraSansCondensed-Medium.ttf" id="1_nclv2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ju3h0"]
 bg_color = Color(0.282353, 0.796078, 0.862745, 1)
 
 [resource]
+Label/fonts/font = ExtResource("1_nclv2")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_ju3h0")

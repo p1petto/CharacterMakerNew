@@ -146,7 +146,6 @@ func move_accesorie_element(val: Vector2) -> void:
 			
 func update_z_index():
 	var central_point = base.global_position 
-	print(central_point)
 	if (central_point.x >= 31) and (central_point.x <= 33):
 		if (z_left < 0):
 			z_left = -1 * z_left

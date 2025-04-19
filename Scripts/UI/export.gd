@@ -1,5 +1,5 @@
-extends Button
-@onready var animation_player_button = $"../AnimationPlayer"
+extends TextureButton
+
 @onready var dir_down_button = $"../../DirectionButtons/Down"
 @onready var character = $"../../../SubViewportContainer/SubViewport/Character"
 @onready var animation_controller = $"../../../AnimationController"
