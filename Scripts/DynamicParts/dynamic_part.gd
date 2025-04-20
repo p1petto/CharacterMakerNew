@@ -105,7 +105,8 @@ func get_target_container_slider():
 func setup_polygon(dir) -> void:
 	var sliders
 	if !flag:
-		sliders = get_target_container_slider().get_children()
+		var slider_window = get_target_container_slider()
+		sliders = slider_window.get_node("CenterContainer/VBoxContainer").get_children()
 	
 	for child in polygon2d.get_children():
 		if child.is_in_group("Clothes"):
@@ -162,7 +163,8 @@ func setup_polygon(dir) -> void:
 		polygon2d.polygon = dynamic_part.horizontal_array_points.duplicate()
 		glare.polygon = dynamic_part.horizontal_glare_array_points.duplicate()
 		if !flag:
-			sliders = get_target_container_slider().get_children()
+			var slider_window = get_target_container_slider()
+			sliders = slider_window.get_node("CenterContainer/VBoxContainer").get_children()
 			for slider in sliders:
 				polygon2d.polygon[slider.linked_marker].x += slider.value
 
