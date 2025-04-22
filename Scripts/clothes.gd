@@ -42,12 +42,12 @@ func _connect_color_changed_signal():
 	
 func _connect_color():
 	color_picker_button._on_color_picker_color_changed(cur_color)
-	color_picker_button.color_picker.color = cur_color
+	color_picker_button.color_picker.set_color_from_code(cur_color)
 	set_start_color()
 	
 func set_start_color() -> void:
 	_on_color_changed(start_color)
-	color_picker_button.color_picker.color = start_color
+	color_picker_button.color_picker.set_color_from_code(start_color)
 
 	
 func _on_color_changed(new_color: Color) -> void:

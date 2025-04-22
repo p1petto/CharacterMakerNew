@@ -60,7 +60,7 @@ func _connect_color_changed_signal():
 func _connect_color():
 	cur_color = hair_resource.initial_color
 	color_picker_button._on_color_picker_color_changed(cur_color)
-	color_picker_button.color_picker.color = cur_color
+	color_picker_button.color_picker.set_color_from_code(cur_color)
 	initial_color = cur_color
 	initial_color_line = hair_resource.initial_color_line
 	set_start_color()

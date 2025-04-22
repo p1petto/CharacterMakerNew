@@ -69,8 +69,8 @@ func set_start_color():
 	_on_color_changed(cur_color)
 	_on_border_color_changed(initial_line_color)
 	
-	color_picker_button.color_picker.color = cur_color
-	color_picker_button_border.color_picker.color = initial_line_color
+	color_picker_button.color_picker.set_color_from_code(cur_color)
+	color_picker_button_border.color_picker.set_color_from_code(initial_line_color)
 	color_picker_button_border.set_new_bg_color(initial_line_color) 
 
 func _on_color_changed(new_color: Color) -> void:

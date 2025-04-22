@@ -29,7 +29,7 @@ func _create_and_assign_color_picker(child) -> void:
 func _create_and_assign_color_picker_deferred(element):
 	var color_picker_button = color_picker_button_scene.instantiate()
 	color_picker_button.name = element.name  
-	color_picker_button.size = Vector2(40, 30)
+	color_picker_button.size = Vector2(30, 30)
 	
 	
 	add_child(color_picker_button)

@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://Scripts/UI/custom_color_picker_button.gd" id="1_1laor"]
 [ext_resource type="Texture2D" uid="uid://dvvvxx54qtnph" path="res://Assets/UI/ColorPickerButtonSlot/Property 1=normal.png" id="1_j3sci"]
 [ext_resource type="Texture2D" uid="uid://kmh7wotm082h" path="res://Assets/UI/ColorPickerButtonSlot/Property 1=active.png" id="2_5h0y7"]
-[ext_resource type="Script" path="res://Scripts/UI/color_picker.gd" id="2_pos8s"]
 [ext_resource type="Texture2D" uid="uid://i88ahoo6ie0t" path="res://Assets/UI/ColorPickerButtonSlot/Property 1=hover.png" id="3_ddgvk"]
+[ext_resource type="PackedScene" uid="uid://dr8lvardujth0" path="res://Scenes/UI/custom_color_picker.tscn" id="6_reg2r"]
 
 [node name="Button" type="TextureButton"]
 custom_minimum_size = Vector2(8, 8)
@@ -21,16 +21,12 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("1_1laor")
 
-[node name="ColorPicker" type="ColorPicker" parent="."]
+[node name="ColorPicker" parent="." instance=ExtResource("6_reg2r")]
 visible = false
-layout_mode = 0
-offset_right = 298.0
-offset_bottom = 331.0
-edit_alpha = false
-color_modes_visible = false
-sliders_visible = false
-presets_visible = false
-script = ExtResource("2_pos8s")
+layout_mode = 1
+offset_left = -13.0
+offset_right = 295.0
+offset_bottom = 326.0
 
 [connection signal="toggled" from="." to="." method="_on_toggled"]
 [connection signal="color_changed" from="ColorPicker" to="." method="_on_color_picker_color_changed"]

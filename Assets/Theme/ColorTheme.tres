@@ -6,5 +6,6 @@
 bg_color = Color(0.282353, 0.796078, 0.862745, 1)
 
 [resource]
+ColorPicker/icons/sample_bg = null
 Label/fonts/font = ExtResource("1_nclv2")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_ju3h0")

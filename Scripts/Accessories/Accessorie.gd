@@ -50,7 +50,7 @@ func _connect_color_changed_signal():
 func _connect_color():
 	cur_color = accessorie.color
 	color_picker_button._on_color_picker_color_changed(cur_color)
-	color_picker_button.color_picker.color = cur_color
+	color_picker_button.color_picker.set_color_from_code(cur_color)
 	start_color = cur_color
 	material.set_shader_parameter("oldcolor", cur_color)
 	set_start_color()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=144 format=3 uid="uid://bm1ycyeyegmyw"]
+[gd_scene load_steps=145 format=3 uid="uid://bm1ycyeyegmyw"]
 
 [ext_resource type="PackedScene" uid="uid://bmajra62ohwsu" path="res://Scenes/character.tscn" id="1_12d3f"]
 [ext_resource type="Script" path="res://Scripts/maker.gd" id="1_wror2"]
@@ -119,6 +119,7 @@
 [ext_resource type="Texture2D" uid="uid://b8phqo6i6qyrb" path="res://Assets/UI/Buttons/Property 1=pressed.png" id="103_k564d"]
 [ext_resource type="Texture2D" uid="uid://ctt0jieu6g1hg" path="res://Assets/UI/Buttons/Property 1=hover.png" id="104_2qwpn"]
 [ext_resource type="Texture2D" uid="uid://b2dhs5ey7tjgu" path="res://Assets/UI/icons/screenshot.svg" id="106_8grb0"]
+[ext_resource type="PackedScene" uid="uid://dr8lvardujth0" path="res://Scenes/UI/custom_color_picker.tscn" id="114_wcakn"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_1urqw"]
 viewport_path = NodePath("SubViewportContainer/SubViewport")
@@ -404,6 +405,7 @@ size_flags_vertical = 4
 script = ExtResource("3_p20pd")
 
 [node name="PositionController" type="ColorRect" parent="UI"]
+visible = false
 anchors_preset = -1
 anchor_left = 0.875
 anchor_top = 0.418
@@ -606,6 +608,13 @@ theme_override_colors/font_color = Color(0.109804, 0.129412, 0.133333, 1)
 theme_override_font_sizes/font_size = 50
 text = "IDLE"
 horizontal_alignment = 1
+
+[node name="ColorSchemeColorPicker" parent="UI" instance=ExtResource("114_wcakn")]
+visible = false
+offset_left = 793.0
+offset_top = 53.0
+offset_right = 1091.0
+offset_bottom = 387.0
 
 [node name="Catalog" type="MarginContainer" parent="UI" node_paths=PackedStringArray("current_tab")]
 anchors_preset = 12
@@ -889,19 +898,6 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 script = ExtResource("45_5q11q")
 
-[node name="ColorSchemeColorPicker" type="ColorPicker" parent="UI"]
-visible = false
-offset_left = 823.0
-offset_top = 131.0
-offset_right = 1121.0
-offset_bottom = 431.0
-size_flags_horizontal = 4
-picker_shape = 2
-color_modes_visible = false
-sliders_visible = false
-hex_visible = false
-presets_visible = false
-
 [node name="HBoxContainer" type="MarginContainer" parent="UI"]
 anchors_preset = 10
 anchor_right = 1.0
@@ -952,8 +948,8 @@ script = ExtResource("25_aee7t")
 animation_speed = 5.0
 
 [connection signal="button_up" from="UI/DirectionButtons/AnimationButton" to="UI/DirectionButtons/AnimationButton" method="_on_button_up"]
+[connection signal="color_changed" from="UI/ColorSchemeColorPicker" to="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController" method="_on_color_scheme_color_picker_color_changed"]
 [connection signal="button_up" from="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController/MarginContainer/Accept" to="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController" method="_on_accept_button_up"]
 [connection signal="button_up" from="UI/Catalog/MarginContainer/HBoxContainer/AnimationPlayer" to="UI/Catalog/MarginContainer/HBoxContainer/AnimationPlayer" method="_on_button_up"]
 [connection signal="button_up" from="UI/Catalog/MarginContainer/HBoxContainer/AnimationPlayer" to="AnimationController" method="_on_animation_player_button_up"]
-[connection signal="color_changed" from="UI/ColorSchemeColorPicker" to="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController" method="_on_color_scheme_color_picker_color_changed"]
 [connection signal="button_up" from="UI/HBoxContainer/Export" to="UI/HBoxContainer/Export" method="_on_button_up"]

@@ -145,9 +145,6 @@ func calculate_monochromatic(base_color: Color) -> Array:
 		Color.from_hsv(base_color.h, s3, v3)
 	]
 
-func _on_color_scheme_color_picker_color_changed(color: Color) -> void:
-	update_colors(color)
-
 func _on_accept_button_up() -> void:
 	for index in checkbox_controller.check_button_pressed:
 		set_color_scheme(index)
@@ -172,3 +169,7 @@ func set_color_scheme(checkbox_index):
 		if button.has_method("_on_color_picker_color_changed"):
 			var color_index = i % colors_count  # Цикличный выбор цветов
 			button._on_color_picker_color_changed(colors[color_index])
+
+
+func _on_color_scheme_color_picker_color_changed(color: Color) -> void:
+	update_colors(color)
