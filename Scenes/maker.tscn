@@ -370,6 +370,7 @@ offset_bottom = 472.0
 grow_vertical = 1
 size_flags_horizontal = 1
 size_flags_vertical = 0
+start_z_index = 2000
 
 [node name="StrandPanel" parent="UI" instance=ExtResource("23_dbin5")]
 anchors_preset = 10
@@ -507,9 +508,9 @@ custom_minimum_size = Vector2(0, 0)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.98
+anchor_top = 0.99
 anchor_right = 0.5
-anchor_bottom = 0.98
+anchor_bottom = 0.99
 offset_left = -75.0
 offset_top = -135.0
 offset_right = 75.0
@@ -618,9 +619,9 @@ horizontal_alignment = 1
 visible = false
 anchors_preset = -1
 anchor_left = 0.908
-anchor_top = 0.303
+anchor_top = 0.317
 anchor_right = 0.908
-anchor_bottom = 0.303
+anchor_bottom = 0.317
 offset_left = -298.0
 offset_top = -180.0
 offset_right = 0.0
@@ -788,8 +789,9 @@ catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("47_v0tno")])
 icon = ExtResource("69_mqqma")
 
 [node name="ColorSettings" parent="UI/Catalog/CatalogContainer" groups=["SettingsTab"] instance=ExtResource("4_kavcm")]
+visible = false
 layout_mode = 2
-theme_override_constants/margin_top = 13
+theme_override_constants/margin_top = 20
 icon = ExtResource("70_k5ptb")
 
 [node name="CenterContainer" type="CenterContainer" parent="UI/Catalog/CatalogContainer/ColorSettings"]
@@ -797,10 +799,12 @@ layout_mode = 2
 
 [node name="ColorSchemeController" type="HBoxContainer" parent="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer"]
 layout_mode = 2
+theme_override_constants/separation = 74
 script = ExtResource("41_nvgda")
 
 [node name="SettingsContainer" type="HBoxContainer" parent="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController"]
 layout_mode = 2
+theme_override_constants/separation = 112
 
 [node name="СolorScheme" type="VBoxContainer" parent="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController/SettingsContainer"]
 layout_mode = 2
@@ -808,10 +812,10 @@ theme_override_constants/separation = 12
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController/SettingsContainer/СolorScheme"]
 layout_mode = 2
-theme_override_constants/margin_top = 15
+theme_override_constants/margin_top = 10
 
 [node name="SchemeMenuButton" type="OptionButton" parent="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController/SettingsContainer/СolorScheme/MarginContainer"]
-custom_minimum_size = Vector2(257.135, 30)
+custom_minimum_size = Vector2(236, 30)
 layout_mode = 2
 theme = ExtResource("11_ydvaf")
 clip_text = true
@@ -855,8 +859,6 @@ clothes_type = "Accessory"
 [node name="MarginContainer" type="MarginContainer" parent="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController"]
 layout_mode = 2
 theme_override_constants/margin_left = 145
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 15
 
 [node name="Accept" type="TextureButton" parent="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController/MarginContainer"]
 custom_minimum_size = Vector2(85, 65)
@@ -878,7 +880,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_bottom = 13
+theme_override_constants/margin_bottom = 10
 
 [node name="CenterContainer" type="CenterContainer" parent="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController/MarginContainer/Accept/MarginContainer"]
 layout_mode = 2
@@ -901,7 +903,7 @@ script = ExtResource("74_1fayn")
 
 [node name="AnimationPlayer" type="TextureButton" parent="UI/Catalog/MarginContainer/HBoxContainer"]
 texture_filter = 2
-custom_minimum_size = Vector2(52, 52)
+custom_minimum_size = Vector2(58, 58)
 layout_mode = 2
 texture_normal = ExtResource("75_5btbj")
 ignore_texture_size = true

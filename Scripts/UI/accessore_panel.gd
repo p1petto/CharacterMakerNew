@@ -7,6 +7,7 @@ extends MarginContainer
 
 #@export var accessories: Array[Accessorie]
 @export var accessorie_buttons: Array[AccessorieButton]
+@export var start_z_index = 1000
 
 signal accessory_element_selected
 
@@ -41,7 +42,7 @@ func _store_button_position(button):
 	button.cur_position = button.position
 
 func _setup_z_index_for_new_element(button):
-	var z_index = 1000  
+	var z_index = start_z_index  
 	var i = accessorie_buttons.size() - 1  
 	button.accessorie_element.z_right = z_index + i + 1
 	button.accessorie_element.z_left = z_index + i + 1
