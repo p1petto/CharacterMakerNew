@@ -1,12 +1,29 @@
 extends NinePatchRect
 @onready var color_picker = $ColorPicker
 @onready var color_preview = $ColorPicker/HBoxContainer/MarginContainer/ColorRect
+
+@export_enum("HSV Rectangle", "HSV Rectangle Wheel", "VHS Circle", "OKHSL Circle") 
+var shape: String = "HSV Rectangle"
+
 signal color_changed(color: Color)
 var picking_color := false
+
+# Сопоставление значений enum со значениями из ColorPicker.picker_shape
+var shape_map := {
+	"HSV Rectangle": ColorPicker.SHAPE_HSV_RECTANGLE,
+	"HSV Rectangle Wheel": ColorPicker.SHAPE_HSV_WHEEL,
+	"VHS Circle": ColorPicker.SHAPE_VHS_CIRCLE,
+	"OKHSL Circle": ColorPicker.SHAPE_OKHSL_CIRCLE,
+}
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	set_process_input(true)
+
+	if shape in shape_map:
+		color_picker.picker_shape = shape_map[shape]
+	else:
+		push_warning("Unknown shape: %s" % shape)
 
 func _on_button_button_up() -> void:
 	picking_color = true

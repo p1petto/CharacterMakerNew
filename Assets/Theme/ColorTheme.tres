@@ -1,11 +1,27 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://4squd3f1aq8p"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://4squd3f1aq8p"]
 
 [ext_resource type="FontFile" uid="uid://bfvbdnf2f7ejy" path="res://Assets/Fonts/Fira_Sans_Condensed/FiraSansCondensed-Medium.ttf" id="1_nclv2"]
+[ext_resource type="FontFile" uid="uid://ds8he2lssby1w" path="res://Assets/Fonts/Fira_Sans_Condensed/FiraSansCondensed-Regular.ttf" id="2_cy88b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ou5f4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ju3h0"]
 bg_color = Color(0.282353, 0.796078, 0.862745, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xk36t"]
+bg_color = Color(9.2411e-06, 0.656177, 0.863995, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ophg2"]
+bg_color = Color(1, 0.320247, 0.425305, 1)
+
 [resource]
+CheckButton/styles/focus = SubResource("StyleBoxFlat_ou5f4")
 ColorPicker/icons/sample_bg = null
 Label/fonts/font = ExtResource("1_nclv2")
+MenuButton/font_sizes/font_size = 18
+MenuButton/fonts/font = ExtResource("2_cy88b")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_ju3h0")
+PopupMenu/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_xk36t")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_ophg2")

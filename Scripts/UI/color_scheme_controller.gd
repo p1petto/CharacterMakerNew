@@ -1,6 +1,6 @@
 extends HBoxContainer
 @onready var settings_container = $SettingsContainer
-@onready var scheme_menu_button = $"SettingsContainer/СolorScheme/SchemeMenuButton"
+@onready var scheme_menu_button = $"SettingsContainer/СolorScheme/MarginContainer/SchemeMenuButton"
 @onready var color_scheme_rects = $"SettingsContainer/СolorScheme/СolorSchemeRects"
 @onready var character = $"../../../../../../SubViewportContainer/SubViewport/Character"
 @onready var checkbox_controller = $SettingsContainer/CheckBoxes
@@ -53,7 +53,7 @@ func add_color_scheme_buttons(count: int):
 		color_scheme_rects.add_child(button_instance)
 			
 func set_new_bg_color(rect, color: Color) -> void:
-	rect.color = color
+	rect.change_color(color)
 
 func update_colors(color: Color) -> void:
 	if current_scheme_id >= scheme_array.size():

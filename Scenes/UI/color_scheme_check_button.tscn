@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://ce7rp68ov1aw6"]
+[gd_scene load_steps=3 format=3 uid="uid://ce7rp68ov1aw6"]
 
 [ext_resource type="Script" path="res://Scripts/UI/color_scheme_check_button.gd" id="1_3uygm"]
+[ext_resource type="Theme" uid="uid://4squd3f1aq8p" path="res://Assets/Theme/ColorTheme.tres" id="1_ifsfh"]
 
 [node name="CheckButton" type="CheckButton"]
+offset_right = 104.0
+offset_bottom = 64.0
+theme = ExtResource("1_ifsfh")
+theme_override_constants/icon_max_width = 56
 script = ExtResource("1_3uygm")
 
 [connection signal="toggled" from="." to="." method="_on_toggled"]
