@@ -206,3 +206,7 @@ func _on_active_changed(accessory_button):
 			if button.is_active:
 				button.is_active = false
 				button.update_slot_texture()
+				if button.color_picker_button.color_picker.visible:
+					button.color_picker_button.color_picker.visible = false
+				elif button.color_picker_button_line.color_picker.visible:
+					button.color_picker_button_line.color_picker.visible = false
