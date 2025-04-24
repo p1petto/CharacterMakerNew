@@ -2,12 +2,13 @@ extends TextureButton
 
 @onready var color_picker = $ColorPicker
 
-#@export var bg_color: Color
 
 var catallog
 var slider_container
 var position_container
 var character
+var accessory_panel
+var strand_panel
 
 signal color_changed
 
@@ -16,22 +17,27 @@ func _ready() -> void:
 	catallog = root.find_child("Catalog", true, false)
 	slider_container = root.find_child("SliderContainer", true, false)
 	position_container = root.find_child("PositionController", true, false)
+	accessory_panel = root.find_child("AccessoriePanel", true, false)
+	strand_panel = root.find_child("StrandPanel", true, false)
 	material = ShaderMaterial.new()
-	var shader = load("res://Scripts/Shaders/static_color_changing_shader.gdshader")  # Укажите правильный путь
+	var shader = load("res://Scripts/Shaders/static_color_changing_shader.gdshader")  
 	material.shader = shader
-	self.material = material  # Присваиваем материал текущему экземпляру
+	self.material = material  
 	material.set_shader_parameter("oldcolor", Color(1,1,1))
-	#character = root.find_child("Character", true, false)
-	#
-	#var target_child = character.find_child(self.name, false, false)
-	#if target_child:
-		#target_child.color_picker_button = self
 
 	
 
 func _on_toggled(toggled_on: bool) -> void:
 	if toggled_on:
-		color_picker.global_position = Vector2(800,40)
+		var root = get_tree().root
+		var target_node = root.get_node("Maker/UI/ColorSchemeColorPicker")
+		if target_node:
+			var target_global_pos = target_node.get_global_position()
+			color_picker.global_position = target_global_pos
+			print(target_global_pos)
+			print(color_picker.global_position)
+			
+		#color_picker.global_position = Vector2(800,40)
 		color_picker.visible = true
 		slider_container.visible = false
 		position_container.visible = false
@@ -39,6 +45,13 @@ func _on_toggled(toggled_on: bool) -> void:
 		color_picker.visible = false
 		if catallog and catallog.current_tab:
 			catallog._on_catalog_tab_changed(str(catallog.current_tab.name))
+		
+		if catallog.current_tab.is_in_group("Accessorie"):
+			if accessory_panel.active_button != null:
+				position_container.visible = true
+		elif catallog.current_tab.is_in_group("HairStrandTab"):
+			if strand_panel.active_button != null:
+				position_container.visible = true
 
 
 func _on_color_picker_color_changed(color: Color) -> void:
@@ -47,7 +60,4 @@ func _on_color_picker_color_changed(color: Color) -> void:
 	
 	
 func set_new_bg_color(color:Color)-> void:
-	#var normal_bg_color = StyleBoxFlat.new()
-	#normal_bg_color.bg_color = color
-	#add_theme_stylebox_override("normal", normal_bg_color)
 	material.set_shader_parameter("newcolor", color)

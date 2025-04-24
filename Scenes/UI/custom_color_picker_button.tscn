@@ -23,10 +23,8 @@ script = ExtResource("1_1laor")
 
 [node name="ColorPicker" parent="." instance=ExtResource("6_reg2r")]
 visible = false
-layout_mode = 1
-offset_left = -13.0
-offset_right = 295.0
-offset_bottom = 326.0
+layout_mode = 0
+offset_right = 308.0
 
 [connection signal="toggled" from="." to="." method="_on_toggled"]
 [connection signal="color_changed" from="ColorPicker" to="." method="_on_color_picker_color_changed"]

@@ -11,6 +11,8 @@ extends MarginContainer
 
 signal accessory_element_selected
 
+var active_button: AccessorieButton
+
 # Called when the node enters the scene tree for the first time.
 #func _ready() -> void:
 	#catallog.tab_changed.connect(change_visible)
@@ -26,6 +28,7 @@ func add_accessorie_button(accessorie, element):
 	element.accessorie_button = button_instance
 	button_instance.accessory_selected.connect(_on_accessory_selected)
 	button_instance.element_deleted.connect(_on_accessory_deleted)
+	button_instance.changed_active_status.connect(_on_active_changed)
 	
 	call_deferred("_store_button_position", button_instance)
 	
@@ -65,12 +68,18 @@ func _setup_z_index_for_new_element(button):
 			button.accessorie_element.z_top = -(z_index + i + 1)
 			button.accessorie_element.z_index = button.accessorie_element.z_left
 
-func _on_accessory_selected(element):
+func _on_accessory_selected(accessory_button, element):
+	if active_button != null:
+		active_button.is_active = false
+		active_button.update_slot_texture()
+	active_button = accessory_button
+	active_button.is_active = true
+	active_button.update_slot_texture()
+	
 	hide_color_picker()
 	position_controller.visible = true
 	accessory_element_selected.emit(element)
 	
-	# Make sure positions are preserved after selection
 	call_deferred("_preserve_button_positions")
 	
 func _preserve_button_positions():
@@ -84,8 +93,8 @@ func _on_accessory_deleted(button: AccessorieButton):
 	if button in accessorie_buttons:
 		if button.color_picker_button in color_scheme_controller.accessory_buttons:
 			color_scheme_controller.accessory_buttons.erase(button.color_picker_button)
-		if button.is_selected:
-			position_controller.visible = false
+		
+		position_controller.visible = false
 		accessorie_buttons.erase(button)
 		var timer = Timer.new()
 		add_child(timer)
@@ -182,4 +191,12 @@ func hide_color_picker():
 	for button in accessorie_buttons:
 		button.color_picker_button._on_toggled(false)
 		button.color_picker_button.button_pressed = false
-		
+
+func _on_active_changed(accessory_button):
+	active_button = accessory_button
+	position_controller._on_aacessory_element_selected(active_button.accessorie_element)
+	for button in accessorie_buttons:
+		if button != accessory_button:
+			if button.is_active:
+				button.is_active = false
+				button.update_slot_texture()

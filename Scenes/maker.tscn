@@ -1,4 +1,4 @@
-[gd_scene load_steps=150 format=3 uid="uid://bm1ycyeyegmyw"]
+[gd_scene load_steps=151 format=3 uid="uid://bm1ycyeyegmyw"]
 
 [ext_resource type="PackedScene" uid="uid://bmajra62ohwsu" path="res://Scenes/character.tscn" id="1_12d3f"]
 [ext_resource type="Script" path="res://Scripts/maker.gd" id="1_wror2"]
@@ -69,6 +69,7 @@
 [ext_resource type="Texture2D" uid="uid://ewkx5ecubj6y" path="res://Assets/UI/icons/TypeItem/Property 1=t-shirt.svg" id="34_51pql"]
 [ext_resource type="Texture2D" uid="uid://ch8kpdc06j27s" path="res://Assets/UI/icons/TypeItem/Property 1=sleeveL.svg" id="38_hwntd"]
 [ext_resource type="Resource" uid="uid://vqi2uhou85nc" path="res://Resources/CatalogItems/Clothes/DynamicClothes/Footwear/FootwearLeft1.tres" id="40_cy13n"]
+[ext_resource type="FontFile" uid="uid://dqvews575wm86" path="res://Assets/Fonts/Fira_Sans_Condensed/FiraSansCondensed-Bold.ttf" id="41_6ric2"]
 [ext_resource type="Texture2D" uid="uid://gjrwn4pxe74v" path="res://Assets/UI/icons/TypeItem/Property 1=sleeveR.svg" id="41_asndw"]
 [ext_resource type="Script" path="res://Scripts/UI/color_scheme_controller.gd" id="41_nvgda"]
 [ext_resource type="Resource" uid="uid://ck7tydxcgip1h" path="res://Resources/CatalogItems/Clothes/DynamicClothes/Footwear/FootwearRight1.tres" id="41_sr111"]
@@ -363,8 +364,9 @@ started_static_elements = Array[ExtResource("5_sbt4v")]([ExtResource("14_7nups")
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="AccessoriePanel" parent="UI" instance=ExtResource("23_dbin5")]
-anchors_preset = 10
-anchor_bottom = 0.0
+anchors_preset = -1
+anchor_top = 0.02
+anchor_bottom = 0.02
 offset_left = 0.0
 offset_bottom = 472.0
 grow_vertical = 1
@@ -373,8 +375,9 @@ size_flags_vertical = 0
 start_z_index = 2000
 
 [node name="StrandPanel" parent="UI" instance=ExtResource("23_dbin5")]
-anchors_preset = 10
-anchor_bottom = 0.0
+anchors_preset = -1
+anchor_top = 0.02
+anchor_bottom = 0.02
 offset_left = 0.0
 offset_bottom = 472.0
 grow_vertical = 1
@@ -611,6 +614,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("11_ydvaf")
 theme_override_colors/font_color = Color(0.109804, 0.129412, 0.133333, 1)
+theme_override_fonts/font = ExtResource("41_6ric2")
 theme_override_font_sizes/font_size = 50
 text = "IDLE"
 horizontal_alignment = 1
@@ -618,9 +622,9 @@ horizontal_alignment = 1
 [node name="ColorSchemeColorPicker" parent="UI" instance=ExtResource("114_wcakn")]
 visible = false
 anchors_preset = -1
-anchor_left = 0.908
+anchor_left = 0.898
 anchor_top = 0.317
-anchor_right = 0.908
+anchor_right = 0.898
 anchor_bottom = 0.317
 offset_left = -298.0
 offset_top = -180.0
@@ -643,7 +647,7 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
 script = ExtResource("4_mledv")
-current_tab = NodePath("CatalogContainer/Body")
+current_tab = NodePath("CatalogContainer/Head")
 
 [node name="CatalogContainer" type="PanelContainer" parent="UI/Catalog"]
 custom_minimum_size = Vector2(0, 204)
@@ -651,16 +655,16 @@ layout_mode = 2
 size_flags_vertical = 8
 theme = ExtResource("11_ydvaf")
 
-[node name="Body" parent="UI/Catalog/CatalogContainer" groups=["DynamicTab"] instance=ExtResource("4_kavcm")]
-layout_mode = 2
-catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("11_wp1wm"), ExtResource("7_kywax"), ExtResource("11_wp1wm"), ExtResource("7_kywax"), ExtResource("11_wp1wm"), ExtResource("7_kywax"), ExtResource("11_wp1wm"), ExtResource("7_kywax"), ExtResource("11_wp1wm"), ExtResource("7_kywax"), ExtResource("11_wp1wm"), ExtResource("7_kywax"), ExtResource("11_wp1wm"), ExtResource("7_kywax")])
-icon = ExtResource("15_4058r")
-
 [node name="Head" parent="UI/Catalog/CatalogContainer" groups=["DynamicTab"] instance=ExtResource("4_kavcm")]
-visible = false
 layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("7_p4rey")])
 icon = ExtResource("17_36cuv")
+
+[node name="Body" parent="UI/Catalog/CatalogContainer" groups=["DynamicTab"] instance=ExtResource("4_kavcm")]
+visible = false
+layout_mode = 2
+catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("11_wp1wm"), ExtResource("7_kywax"), ExtResource("11_wp1wm"), ExtResource("7_kywax"), ExtResource("11_wp1wm"), ExtResource("7_kywax"), ExtResource("11_wp1wm"), ExtResource("7_kywax"), ExtResource("11_wp1wm"), ExtResource("7_kywax"), ExtResource("11_wp1wm"), ExtResource("7_kywax"), ExtResource("11_wp1wm"), ExtResource("7_kywax")])
+icon = ExtResource("15_4058r")
 
 [node name="LeftArm" parent="UI/Catalog/CatalogContainer" node_paths=PackedStringArray("linked_symmetrical_element") groups=["ConditionallyDynamicTab"] instance=ExtResource("4_kavcm")]
 visible = false
@@ -947,10 +951,8 @@ size_flags_vertical = 8
 script = ExtResource("45_5q11q")
 
 [node name="HBoxContainer" type="MarginContainer" parent="UI"]
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 56.0
-grow_horizontal = 2
+offset_right = 70.0
+offset_bottom = 64.0
 theme_override_constants/margin_left = 18
 theme_override_constants/margin_top = 12
 

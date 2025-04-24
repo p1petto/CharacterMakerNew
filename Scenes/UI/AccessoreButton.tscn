@@ -1,19 +1,57 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1l05wymmktbl"]
+[gd_scene load_steps=11 format=3 uid="uid://c1l05wymmktbl"]
 
-[ext_resource type="Texture2D" uid="uid://cv2eiy7uun2nb" path="res://Assets/UI/Button standart.png" id="1_5oeg8"]
 [ext_resource type="Script" path="res://Scripts/UI/accessore_button.gd" id="1_rqimy"]
+[ext_resource type="Texture2D" uid="uid://begj0eqex0f5i" path="res://Assets/UI/Slots/slot normal.png" id="2_2mbi2"]
 [ext_resource type="Texture2D" uid="uid://bo2x0ciffvb2f" path="res://Assets/Character/accessories/bow/bow.png" id="3_pm33h"]
-[ext_resource type="Texture2D" uid="uid://duuyc5riqc2c6" path="res://Assets/UI/icons/cross.png" id="4_rmm4u"]
+[ext_resource type="Texture2D" uid="uid://dwvylxf15uw62" path="res://Assets/UI/Slots/slot active.png" id="4_2c41h"]
+[ext_resource type="Texture2D" uid="uid://cmwcmp8fsbgcc" path="res://Assets/UI/icons/CrossButton/Normal=Default.png" id="5_55ekx"]
+[ext_resource type="Texture2D" uid="uid://brcanwq0oe8jw" path="res://Assets/UI/Slots/slot hover.png" id="5_nwf7e"]
 [ext_resource type="PackedScene" uid="uid://cs7vnyyf6clmp" path="res://Scenes/UI/custom_color_picker_button.tscn" id="5_q2ugw"]
-[ext_resource type="Texture2D" uid="uid://d1e5me2s0xil3" path="res://Assets/UI/icons/mirror.png" id="6_g2o5h"]
+[ext_resource type="Texture2D" uid="uid://bmeq01lnjpduy" path="res://Assets/UI/icons/FlipButton/Property 1=normal.png" id="6_fhg4r"]
+[ext_resource type="Texture2D" uid="uid://bgyc2iq8cspe4" path="res://Assets/UI/icons/CrossButton/Normal=hover.png" id="6_l62sd"]
+[ext_resource type="Texture2D" uid="uid://hda3oulmgbon" path="res://Assets/UI/icons/FlipButton/Property 1=hover.png" id="7_or7x3"]
 
 [node name="AccessoryButton" type="MarginContainer"]
-custom_minimum_size = Vector2(80, 80)
-offset_right = 80.0
+custom_minimum_size = Vector2(110, 80)
+offset_right = 105.0
 offset_bottom = 80.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_rqimy")
+non_active_texture = ExtResource("2_2mbi2")
+active_texture = ExtResource("4_2c41h")
+
+[node name="MarginContainerColorPickerButtons" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_bottom = 10
+
+[node name="Container" type="VBoxContainer" parent="MarginContainerColorPickerButtons"]
+custom_minimum_size = Vector2(32.22, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/separation = 1
+
+[node name="MarginContainer1" type="MarginContainer" parent="MarginContainerColorPickerButtons/Container"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 4
+
+[node name="CustomColorPickerButton" parent="MarginContainerColorPickerButtons/Container/MarginContainer1" instance=ExtResource("5_q2ugw")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainerColorPickerButtons/Container"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 4
+
+[node name="CustomColorPickerButtonLine" parent="MarginContainerColorPickerButtons/Container/MarginContainer2" instance=ExtResource("5_q2ugw")]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 custom_minimum_size = Vector2(64, 64)
@@ -22,57 +60,64 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="TextureButton" type="TextureButton" parent="CenterContainer"]
-custom_minimum_size = Vector2(64, 64)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-texture_normal = ExtResource("1_5oeg8")
+texture_normal = ExtResource("2_2mbi2")
+texture_pressed = ExtResource("4_2c41h")
+texture_hover = ExtResource("5_nwf7e")
+texture_focused = ExtResource("4_2c41h")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="icon" type="Sprite2D" parent="CenterContainer"]
-scale = Vector2(4, 4)
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="icon" type="TextureRect" parent="CenterContainer/TextureButton/CenterContainer"]
+custom_minimum_size = Vector2(54, 54)
+layout_mode = 2
 texture = ExtResource("3_pm33h")
-centered = false
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-custom_minimum_size = Vector2(24, 24)
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
+theme_override_constants/margin_right = 5
 
 [node name="DeleteButton" type="TextureButton" parent="MarginContainer"]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
-texture_normal = ExtResource("4_rmm4u")
+texture_normal = ExtResource("5_55ekx")
+texture_pressed = ExtResource("6_l62sd")
+texture_hover = ExtResource("6_l62sd")
 ignore_texture_size = true
 stretch_mode = 0
-
-[node name="Container" type="HBoxContainer" parent="."]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
-
-[node name="CustomColorPickerButton" parent="Container" instance=ExtResource("5_q2ugw")]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
-
-[node name="CustomColorPickerButtonLine" parent="Container" instance=ExtResource("5_q2ugw")]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
 
 [node name="Container2" type="MarginContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
+theme_override_constants/margin_right = 4
 
 [node name="FlipButton" type="TextureButton" parent="Container2"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
-toggle_mode = true
-texture_normal = ExtResource("6_g2o5h")
+texture_normal = ExtResource("6_fhg4r")
+texture_hover = ExtResource("7_or7x3")
 ignore_texture_size = true
 stretch_mode = 0
 
+[connection signal="button_up" from="MarginContainerColorPickerButtons/Container/MarginContainer1/CustomColorPickerButton" to="." method="_on_custom_color_picker_button_button_up"]
+[connection signal="mouse_entered" from="MarginContainerColorPickerButtons/Container/MarginContainer1/CustomColorPickerButton" to="." method="_on_custom_color_picker_button_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerColorPickerButtons/Container/MarginContainer1/CustomColorPickerButton" to="." method="_on_custom_color_picker_button_mouse_exited"]
+[connection signal="button_up" from="MarginContainerColorPickerButtons/Container/MarginContainer2/CustomColorPickerButtonLine" to="." method="_on_custom_color_picker_button_line_button_up"]
+[connection signal="mouse_entered" from="MarginContainerColorPickerButtons/Container/MarginContainer2/CustomColorPickerButtonLine" to="." method="_on_custom_color_picker_button_line_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainerColorPickerButtons/Container/MarginContainer2/CustomColorPickerButtonLine" to="." method="_on_custom_color_picker_button_line_mouse_exited"]
 [connection signal="button_up" from="CenterContainer/TextureButton" to="." method="_on_texture_button_button_up"]
 [connection signal="button_up" from="MarginContainer/DeleteButton" to="." method="_on_delete_button_button_up"]
-[connection signal="toggled" from="Container2/FlipButton" to="." method="_on_flip_button_toggled"]
+[connection signal="pressed" from="Container2/FlipButton" to="." method="_on_flip_button_pressed"]

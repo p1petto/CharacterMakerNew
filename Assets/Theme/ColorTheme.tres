@@ -10,10 +10,10 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 bg_color = Color(0.282353, 0.796078, 0.862745, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xk36t"]
-bg_color = Color(9.2411e-06, 0.656177, 0.863995, 1)
+bg_color = Color(0.254902, 0.431373, 0.454902, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ophg2"]
-bg_color = Color(1, 0.320247, 0.425305, 1)
+bg_color = Color(0.352941, 0.580392, 0.611765, 1)
 
 [resource]
 CheckButton/styles/focus = SubResource("StyleBoxFlat_ou5f4")
