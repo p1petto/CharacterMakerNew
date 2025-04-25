@@ -17,17 +17,23 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("2_rl6lr")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
 
-[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
-custom_minimum_size = Vector2(70, 70)
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
 layout_mode = 2
-expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/CenterContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]

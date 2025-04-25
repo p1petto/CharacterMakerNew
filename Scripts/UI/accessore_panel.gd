@@ -196,7 +196,9 @@ func get_closest_button(button):
 func hide_color_picker():
 	for button in accessorie_buttons:
 		button.color_picker_button._on_toggled(false)
+		button.color_picker_button_line._on_toggled(false)
 		button.color_picker_button.button_pressed = false
+		
 
 func _on_active_changed(accessory_button):
 	active_button = accessory_button
@@ -208,5 +210,5 @@ func _on_active_changed(accessory_button):
 				button.update_slot_texture()
 				if button.color_picker_button.color_picker.visible:
 					button.color_picker_button.color_picker.visible = false
-				elif button.color_picker_button_line.color_picker.visible:
+				if button.color_picker_button_line.color_picker.visible:
 					button.color_picker_button_line.color_picker.visible = false

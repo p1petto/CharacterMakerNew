@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="Accessorie" load_steps=5 format=3 uid="uid://bg2uced61fi4m"]
+
+[ext_resource type="Script" path="res://Scripts/Accessories/resource_accessorie.gd" id="1_34syl"]
+[ext_resource type="SpriteFrames" uid="uid://dgdyvepujw21q" path="res://Resources/Hair/Strands/2/Strand_2_sprite_frames.tres" id="2_n38s0"]
+[ext_resource type="SpriteFrames" uid="uid://dv2ghxfjx0n6b" path="res://Resources/Hair/Strands/2/Strand_line_2_sprite_frames.tres" id="3_3o62j"]
+[ext_resource type="Texture2D" uid="uid://bca75kujke470" path="res://Assets/UI/icons/Catallog item/strand2.png" id="4_h10e8"]
+
+[resource]
+script = ExtResource("1_34syl")
+sprite_frames = ExtResource("2_n38s0")
+sprite_frames_line = ExtResource("3_3o62j")
+texture_icon = ExtResource("4_h10e8")
+start_down_position = Vector2(7, 1)
+start_top_position = Vector2(7, 1)
+start_right_position = Vector2(9, 1)
+start_left_position = Vector2(5, 1)
+min_x_vertical = -7.0
+max_x_vertical = 21.0
+min_y_vertical = 0.0
+max_y_vertical = 18.0
+min_x_left = -2.0
+max_x_left = 17.0
+min_y_left = 0.0
+max_y_left = 17.0
+min_x_right = 0.0
+max_x_right = 17.0
+min_y_right = 0.0
+max_y_right = 17.0
+not_can_top = false
+color = Color(0.858824, 0.533333, 0.282353, 1)
+line_color = Color(0.105882, 0.105882, 0.105882, 1)
+has_line = true
+can_flip_on_horizontal = true

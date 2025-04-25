@@ -103,8 +103,13 @@ func change_direction(dir: String) -> void:
 				base.flip_h = false
 				line.flip_h = false
 			elif flip:
-				base.flip_h = true
-				line.flip_h = true
+				if z_right < 0:
+					base.flip_h = false
+					line.flip_h = false
+					position -= Vector2(8,0)
+				else:
+					base.flip_h = true
+					line.flip_h = true
 			else:
 				base.flip_h = false
 				line.flip_h = false
@@ -118,8 +123,13 @@ func change_direction(dir: String) -> void:
 				base.flip_h = true
 				line.flip_h = true
 			else:
-				base.flip_h = false
-				line.flip_h = false
+				if z_left < 0:
+					base.flip_h = true
+					line.flip_h = true
+					position += Vector2(7,0)
+				else:
+					base.flip_h = false
+					line.flip_h = false
 	
 	
 			
@@ -142,7 +152,7 @@ func move_accesorie_element(val: Vector2) -> void:
 	
 	change_direction(Global.current_dir)
 	
-	change_direction(Global.current_dir)
+	#change_direction(Global.current_dir)
 			
 func update_z_index():
 	var central_point = base.global_position 

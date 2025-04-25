@@ -36,6 +36,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.85, 0.85)
 pivot_offset = Vector2(149, 167)
+picker_shape = 2
 sampler_visible = false
 color_modes_visible = false
 sliders_visible = false

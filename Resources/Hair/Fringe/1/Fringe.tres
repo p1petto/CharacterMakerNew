@@ -1,121 +1,13 @@
-[gd_resource type="Resource" script_class="HairResource" load_steps=20 format=3 uid="uid://ccqg0e80q5xy0"]
+[gd_resource type="Resource" script_class="HairResource" load_steps=4 format=3 uid="uid://ccqg0e80q5xy0"]
 
 [ext_resource type="Script" path="res://Scripts/Hair/resource_hair.gd" id="1_615cu"]
-[ext_resource type="Texture2D" uid="uid://8d1ogivw15tx" path="res://Assets/Character/Hair/Fringe/1/fringe-down.png" id="2_x8l25"]
-[ext_resource type="Texture2D" uid="uid://rrxxdfv8o04w" path="res://Assets/Character/Hair/Fringe/1/fringe-left.png" id="3_4imrx"]
-[ext_resource type="Texture2D" uid="uid://c8dmdywdnuwh2" path="res://Assets/Character/Hair/Fringe/1/fringe-right.png" id="4_rpr0x"]
-[ext_resource type="Texture2D" uid="uid://dd4p1edbl1kqw" path="res://Assets/Character/Hair/Fringe/1/fringe-top.png" id="5_bvu8n"]
-[ext_resource type="Texture2D" uid="uid://bunyse1hkgcyi" path="res://Assets/Character/Hair/Fringe/1/fringe-line-down.png" id="6_bwll7"]
-[ext_resource type="Texture2D" uid="uid://bknpb2uyoiunw" path="res://Assets/Character/Hair/Fringe/1/fringe-line-left.png" id="7_qwy6w"]
-[ext_resource type="Texture2D" uid="uid://b76ju3oxrp0j" path="res://Assets/Character/Hair/Fringe/1/fringe-line-right.png" id="8_s0lw1"]
-[ext_resource type="Texture2D" uid="uid://du66oydwdb47q" path="res://Assets/Character/Hair/Fringe/1/fringe-line-top.png" id="9_vkvro"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2xd4e"]
-atlas = ExtResource("2_x8l25")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0e172"]
-atlas = ExtResource("3_4imrx")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y5nhi"]
-atlas = ExtResource("4_rpr0x")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1ll5e"]
-atlas = ExtResource("5_bvu8n")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_y2td5"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2xd4e")
-}],
-"loop": true,
-"name": &"down",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0e172")
-}],
-"loop": true,
-"name": &"left",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y5nhi")
-}],
-"loop": true,
-"name": &"right",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1ll5e")
-}],
-"loop": true,
-"name": &"top",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j86hk"]
-atlas = ExtResource("6_bwll7")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fdtka"]
-atlas = ExtResource("7_qwy6w")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4fr3k"]
-atlas = ExtResource("8_s0lw1")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yvh6r"]
-atlas = ExtResource("9_vkvro")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_glq14"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j86hk")
-}],
-"loop": true,
-"name": &"down",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fdtka")
-}],
-"loop": true,
-"name": &"left",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4fr3k")
-}],
-"loop": true,
-"name": &"right",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yvh6r")
-}],
-"loop": true,
-"name": &"top",
-"speed": 5.0
-}]
+[ext_resource type="SpriteFrames" uid="uid://db3ngfyljl46e" path="res://Resources/Hair/Fringe/1/sprite_frames.tres" id="2_wxl11"]
+[ext_resource type="SpriteFrames" uid="uid://be75bc0ff62q8" path="res://Resources/Hair/Fringe/1/sprite_frames_line.tres" id="3_jia1y"]
 
 [resource]
 script = ExtResource("1_615cu")
-sprite_frames = SubResource("SpriteFrames_y2td5")
-sprite_frames_line = SubResource("SpriteFrames_glq14")
+sprite_frames = ExtResource("2_wxl11")
+sprite_frames_line = ExtResource("3_jia1y")
 pos_down = Vector2(6, 15)
 pos_right = Vector2(7, 15)
 pos_top = Vector2(7, 15)
@@ -124,7 +16,7 @@ z_down = 0
 z_right = 0
 z_top = -1
 z_left = 0
-initial_color = Color(1, 1, 1, 1)
+initial_color = Color(0.858824, 0.533333, 0.282353, 1)
 initial_color_line = Color(0.105882, 0.105882, 0.105882, 1)
 hair_type = "Fringe"
 quantity = 1

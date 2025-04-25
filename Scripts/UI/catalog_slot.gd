@@ -1,6 +1,6 @@
 extends TextureButton
 
-@onready var texture_rect = $CenterContainer/TextureRect
+@onready var texture_rect = $MarginContainer/CenterContainer/TextureRect
 
 @export var item: CatalogItem
 

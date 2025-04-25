@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="CatalogItem" load_steps=3 format=3 uid="uid://dbvcjksuur0kn"]
+[gd_resource type="Resource" script_class="CatalogItem" load_steps=4 format=3 uid="uid://dbvcjksuur0kn"]
 
 [ext_resource type="Resource" uid="uid://d3iwocfjmag4c" path="res://Resources/Hair/Strands/1/Strand.tres" id="1_pfk55"]
+[ext_resource type="Texture2D" uid="uid://b0k4j2y0v6658" path="res://Assets/Character/Hair/Strands/1/icon.png" id="2_mdofu"]
 [ext_resource type="Script" path="res://Scripts/CatalogItemResource.gd" id="2_owuwt"]
 
 [resource]
 script = ExtResource("2_owuwt")
 item_type = "HairStrand"
 item_class = "Accessories"
+icon = ExtResource("2_mdofu")
 accessorie = ExtResource("1_pfk55")

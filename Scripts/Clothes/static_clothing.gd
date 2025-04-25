@@ -14,6 +14,10 @@ var initial_color_line: Color
 
 var anchor_node
 
+func ready():
+	pass
+	
+
 
 func initialize():
 	if resource_clothing.sprite_frames and resource_clothing.sprite_frames_line:
@@ -21,8 +25,8 @@ func initialize():
 		line.sprite_frames = resource_clothing.sprite_frames_line
 	position = resource_clothing.pos
 	change_direction()
-	call_deferred("_connect_color_changed_signal")
 	call_deferred("_connect_color")
+	call_deferred("_connect_color_changed_signal")
 		
 func change_direction():
 	base.animation = Global.current_dir
@@ -39,8 +43,12 @@ func change_direction():
 			
 			
 func _connect_color_changed_signal():
-	color_picker_button.color_changed.connect(_on_color_changed)
-	color_picker_button_line.color_changed.connect(_on_line_color_changed)
+	if not color_picker_button.color_changed.is_connected(_on_color_changed):
+		color_picker_button.color_changed.connect(_on_color_changed)
+		
+	if not color_picker_button_line.color_changed.is_connected(_on_line_color_changed):
+		color_picker_button_line.color_changed.connect(_on_line_color_changed)
+
 	
 func _connect_color():
 	cur_color = resource_clothing.initial_color

@@ -152,7 +152,7 @@ func _handle_dynamic_clothes_item(slot_index, item_class):
 	current_node.initialize_dynamic_clothes(part)
 	
 	if linked_symmetrical_element:
-		var check_button = get_node("CustomCheckButton/CheckButton")
+		var check_button = get_node("CustomCheckButton/VBoxContainer/CheckButton")
 		if check_button.button_pressed:
 			var linked_part = linked_symmetrical_element.catalog_items[slot_index].dynamic_clothes
 			var linked_item_class = linked_symmetrical_element.catalog_items[slot_index].item_class
@@ -190,6 +190,7 @@ func _handle_hair_item(slot_index, item_class):
 			target_node = character.head.get_node("Fringe")
 			target_node.hair_resource = resource_part
 			target_node.initialize()
+			target_node.z_index = 1500
 	change_sliders.emit(resource_part.hair_type)
 
 

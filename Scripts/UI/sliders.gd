@@ -215,12 +215,14 @@ func _create_sliders_for_part(part):
 		slider.slider_value_changed.connect(_on_value_slider_changed)
 	
 	if part.is_in_group("Hair"):
-		var part_container = load("res://Scenes/slider_window.tscn").instantiate()
-		part_container.name = part.name
-		part_container.position.y = character.head.position.y * Global.scaling
-		add_child(part_container)
+		
 		
 		if part.hair_resource.quantity > 1:
+			var part_container = load("res://Scenes/slider_window.tscn").instantiate()
+			part_container.name = part.name
+			part_container.position.y = character.head.position.y * Global.scaling
+			add_child(part_container)
+			
 			var container = part_container.get_node("CenterContainer/VBoxContainer")
 			var slider = slider_scene.instantiate()
 			slider.character_part = part.name
