@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="StaticClothing" load_steps=4 format=3 uid="uid://bv1ibjc8bm5qq"]
+
+[ext_resource type="Script" path="res://Scripts/Clothes/resource_static_clothing.gd" id="1_xmxsj"]
+[ext_resource type="SpriteFrames" uid="uid://bluta3pot22y1" path="res://Resources/Clothes/Skirt/2/Skirt2_Sprite_frames.tres" id="2_k6c3e"]
+[ext_resource type="SpriteFrames" uid="uid://b1xj3fqbwqflm" path="res://Resources/Clothes/Skirt/2/Skirt2_Sprite_frames_line.tres" id="3_al4q7"]
+
+[resource]
+script = ExtResource("1_xmxsj")
+parent_node = ""
+anchor_node = "Body"
+sprite_frames = ExtResource("2_k6c3e")
+sprite_frames_line = ExtResource("3_al4q7")
+z_down = 5
+z_right = 4
+z_top = 6
+z_left = 4
+pos = Vector2(32, 32)
+name_clothing = "Skirt"
+initial_color = Color(1, 1, 1, 1)
+initial_color_line = Color(0.105882, 0.105882, 0.105882, 1)

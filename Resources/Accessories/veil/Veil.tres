@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="Accessorie" load_steps=5 format=3 uid="uid://c8c5bfk52188l"]
+
+[ext_resource type="Script" path="res://Scripts/Accessories/resource_accessorie.gd" id="1_wtoat"]
+[ext_resource type="SpriteFrames" uid="uid://dni4gqp7epvms" path="res://Resources/Accessories/veil/Veil_sprite_frames.tres" id="2_ewgvo"]
+[ext_resource type="Texture2D" uid="uid://ebff6ymp8nf5" path="res://Assets/Character/accessories/veil/down.png" id="3_djenr"]
+[ext_resource type="SpriteFrames" uid="uid://cwwn0bwiyypri" path="res://Resources/zero_animation.tres" id="3_lsnqi"]
+
+[resource]
+script = ExtResource("1_wtoat")
+sprite_frames = ExtResource("2_ewgvo")
+sprite_frames_line = ExtResource("3_lsnqi")
+texture_icon = ExtResource("3_djenr")
+start_down_position = Vector2(7, 9)
+start_top_position = Vector2(7, 9)
+start_right_position = Vector2(8, 8)
+start_left_position = Vector2(6, 8)
+min_x_vertical = 7.0
+max_x_vertical = 7.0
+min_y_vertical = 9.0
+max_y_vertical = 9.0
+min_x_left = 6.0
+max_x_left = 6.0
+min_y_left = 8.0
+max_y_left = 8.0
+min_x_right = 8.0
+max_x_right = 8.0
+min_y_right = 8.0
+max_y_right = 8.0
+not_can_top = false
+color = Color(1, 1, 1, 1)
+line_color = Color(0.105882, 0.105882, 0.105882, 1)
+has_line = true
+can_flip_on_horizontal = true

@@ -1,0 +1,54 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://cowoejfgtwjc8"]
+
+[ext_resource type="Texture2D" uid="uid://c1wj6r6p1ovdi" path="res://Assets/Character/accessories/bow-tie/bow-tie-0.png" id="1_m3df8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jea6s"]
+atlas = ExtResource("1_m3df8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmdju"]
+atlas = ExtResource("1_m3df8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i334r"]
+atlas = ExtResource("1_m3df8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3u85"]
+atlas = ExtResource("1_m3df8")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jea6s")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hmdju")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i334r")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3u85")
+}],
+"loop": true,
+"name": &"top",
+"speed": 5.0
+}]

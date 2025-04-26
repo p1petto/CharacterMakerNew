@@ -9,6 +9,9 @@ extends MarginContainer
 @export var accessorie_buttons: Array[AccessorieButton]
 @export var start_z_index = 1000
 
+@export_enum("Accessory", "Hair")
+var panel_type: String 
+
 signal accessory_element_selected
 
 var active_button: AccessorieButton
@@ -38,7 +41,11 @@ func add_accessorie_button(accessorie, element):
 		button_instance.color_picker_button_line.visible = true
 	_setup_z_index_for_new_element(button_instance)
 
-	color_scheme_controller.accessory_buttons.append(button_instance.color_picker_button)
+	if panel_type == "Accessory":
+		color_scheme_controller.accessory_buttons.append(button_instance.color_picker_button)
+	elif panel_type == "Hair":
+		color_scheme_controller.hair_buttons.append(button_instance.color_picker_button)
+	
 	
 	
 	button_instance.is_active = true
@@ -97,8 +104,13 @@ func _preserve_button_positions():
 func _on_accessory_deleted(button: AccessorieButton):
 	hide_color_picker()
 	if button in accessorie_buttons:
-		if button.color_picker_button in color_scheme_controller.accessory_buttons:
-			color_scheme_controller.accessory_buttons.erase(button.color_picker_button)
+		if panel_type == "Accessory":
+			if button.color_picker_button in color_scheme_controller.accessory_buttons:
+				color_scheme_controller.accessory_buttons.erase(button.color_picker_button)
+		elif panel_type == "Hair":
+			if button.color_picker_button in color_scheme_controller.accessory_buttons:
+				color_scheme_controller.hair_buttons.erase(button.color_picker_button)
+		
 		
 		position_controller.visible = false
 		accessorie_buttons.erase(button)

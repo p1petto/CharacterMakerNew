@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Clothes" load_steps=3 format=3 uid="uid://d2qwnsf7alqrl"]
+
+[ext_resource type="Texture2D" uid="uid://dhhfif2o1c5st" path="res://Assets/Character/Clothes/T-shirt/T-shirt.png" id="1_sit8n"]
+[ext_resource type="Script" path="res://Scripts/Clothes/resource_clothes.gd" id="2_2rqr2"]
+
+[resource]
+script = ExtResource("2_2rqr2")
+clothes_texture = ExtResource("1_sit8n")
+down_idle_position = Vector2(-12, 12)
+right_idle_position = Vector2(-8, 12)
+top_idle_position = Vector2(-12, 9)
+left_idle_position = Vector2(-16, 12)
+down_walk_position = Vector2(-12, 12)
+right_walk_position = Vector2(-8, 12)
+top_walk_position = Vector2(-12, 9)
+left_walk_position = Vector2(-16, 12)
+clothes_type = "T-shirt"

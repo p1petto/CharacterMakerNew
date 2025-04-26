@@ -1,0 +1,57 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://dq3ton8ya6gkm"]
+
+[ext_resource type="Texture2D" uid="uid://d0co7q51hy744" path="res://Assets/Character/Hair/Fringe/3/down.png" id="1_q0xcp"]
+[ext_resource type="Texture2D" uid="uid://cpl6hbfeaxfug" path="res://Assets/Character/Hair/Fringe/3/left.png" id="2_2dklf"]
+[ext_resource type="Texture2D" uid="uid://cca63qoimoe3p" path="res://Assets/Character/Hair/Fringe/3/right.png" id="3_nnw8s"]
+[ext_resource type="Texture2D" uid="uid://b8f0p65nlevdc" path="res://Assets/Character/Hair/Fringe/3/top.png" id="4_0y7ei"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqihr"]
+atlas = ExtResource("1_q0xcp")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yv4s4"]
+atlas = ExtResource("2_2dklf")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hn52"]
+atlas = ExtResource("3_nnw8s")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gylc3"]
+atlas = ExtResource("4_0y7ei")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqihr")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yv4s4")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hn52")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gylc3")
+}],
+"loop": true,
+"name": &"top",
+"speed": 5.0
+}]

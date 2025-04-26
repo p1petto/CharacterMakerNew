@@ -8,6 +8,7 @@ extends HBoxContainer
 var body_buttons = []
 var clothes_buttons = []
 var accessory_buttons = []
+var hair_buttons = []
 
 var color_scheme_rect_scene = "res://Scenes/color_scheme_rect.tscn"
 var popup
@@ -160,6 +161,8 @@ func set_color_scheme(checkbox_index):
 			buttons_array = clothes_buttons
 		2:
 			buttons_array = accessory_buttons 
+		3:
+			buttons_array = hair_buttons
 
 	var colors = get_colors_for_scheme(base_color)
 	var colors_count = colors.size()

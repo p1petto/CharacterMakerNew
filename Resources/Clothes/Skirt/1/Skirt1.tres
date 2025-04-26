@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="StaticClothing" load_steps=4 format=3 uid="uid://cg0sha23o3bcm"]
 
 [ext_resource type="Script" path="res://Scripts/Clothes/resource_static_clothing.gd" id="1_egixq"]
-[ext_resource type="SpriteFrames" uid="uid://bi4mhdbl7v28e" path="res://Resources/Clothes/Skirt/Skirt1_Sprite_frames.tres" id="2_pgv8r"]
-[ext_resource type="SpriteFrames" uid="uid://c3es54qli43gf" path="res://Resources/Clothes/Skirt/Skirt1_Sprite_frames_line.tres" id="3_hsnvq"]
+[ext_resource type="SpriteFrames" uid="uid://bi4mhdbl7v28e" path="res://Resources/Clothes/Skirt/1/Skirt1_Sprite_frames.tres" id="2_pgv8r"]
+[ext_resource type="SpriteFrames" uid="uid://c3es54qli43gf" path="res://Resources/Clothes/Skirt/1/Skirt1_Sprite_frames_line.tres" id="3_hsnvq"]
 
 [resource]
 script = ExtResource("1_egixq")

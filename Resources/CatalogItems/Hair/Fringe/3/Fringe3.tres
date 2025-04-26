@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CatalogItem" load_steps=4 format=3 uid="uid://bhqug4rnkvcas"]
+
+[ext_resource type="Resource" uid="uid://c3otoo0hlr8jg" path="res://Resources/Hair/Fringe/3/Fringe3.tres" id="1_xenld"]
+[ext_resource type="Texture2D" uid="uid://cs2kjr7m4n3sx" path="res://Assets/UI/icons/Catallog item/fringe3.png" id="2_5t56u"]
+[ext_resource type="Script" path="res://Scripts/CatalogItemResource.gd" id="3_ik2kv"]
+
+[resource]
+script = ExtResource("3_ik2kv")
+item_type = "Hair"
+item_class = "Head"
+icon = ExtResource("2_5t56u")
+hair = ExtResource("1_xenld")

@@ -59,7 +59,7 @@ func _create_and_assign_color_picker(child) -> void:
 				character_element = character.head.get_node("Fringe")
 				character_element.color_picker_button = color_picker_button
 				line_color_picker_container._create_and_assign_color_picker_deferred(character_element)
-				
+		color_scheme_controller.hair_buttons.append(color_picker_button)
 	else:
 		character_element = character.find_child(child.name, true, false)
 		character_element.color_picker_button = color_picker_button

@@ -1,6 +1,6 @@
 extends CheckButton
 
-@export_enum("Body", "Clothes", "Accessory")
+@export_enum("Body", "Clothes", "Accessory", "Hair")
 var clothes_type: String 
 
 signal button_toggled(button: CheckButton, toggled_on: bool)
