@@ -91,5 +91,6 @@ idle_ainmation_offset_vertical = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), V
 walk_animation_offset_vertical = Array[Vector2]([Vector2(-1, -1), Vector2(1, -1), Vector2(1, -1), Vector2(1, 1), Vector2(-1, 1), Vector2(-1, 1)])
 idle_ainmation_offset_horizontal = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, -1), Vector2(0, 0), Vector2(0, 1)])
 walk_animation_offset_horizontal = Array[Vector2]([Vector2(0, -1), Vector2(0, -1), Vector2(0, -1), Vector2(0, 1), Vector2(0, 1), Vector2(0, 1)])
+central_point = 7.1
 
 [node name="Skirt" parent="." instance=ExtResource("10_3qe68")]

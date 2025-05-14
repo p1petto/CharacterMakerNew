@@ -13,7 +13,7 @@ void fragment() {
     vec4 base_color = texture(TEXTURE, UV) * COLOR;
 
     if (is_flooded_inside) {
-        // Исходная логика: внутренняя часть круга закрашена
+		// Внутренняя часть круга закрашена
         if (dist < radius - border_width) {
             COLOR = base_color;
         }
@@ -21,12 +21,12 @@ void fragment() {
         else if (dist < radius) {
             COLOR = border_color;
         }
-        // В противном случае - это фон (прозрачный)
+        // Иначе - это фон (прозрачный)
         else {
             COLOR = vec4(0.0, 0.0, 0.0, 0.0);
         }
     } else {
-        // Инверсная логика: внешняя часть круга закрашена
+        // Внешняя часть круга закрашена
         if (dist > radius) {
             COLOR = base_color;
         }
@@ -34,7 +34,7 @@ void fragment() {
         else if (dist > radius - border_width) {
             COLOR = border_color;
         }
-        // В противном случае - это фон (прозрачный)
+        // Иначе - это круг (прозрачный)
         else {
             COLOR = vec4(0.0, 0.0, 0.0, 0.0);
         }

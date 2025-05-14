@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Hint" load_steps=2 format=3 uid="uid://dlxklig78rumc"]
+
+[ext_resource type="Script" path="res://Scripts/resource_hint.gd" id="1_i14r5"]
+
+[resource]
+script = ExtResource("1_i14r5")
+text = "This type of element can be placed on a character multiple times."

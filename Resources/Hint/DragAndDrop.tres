@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Hint" load_steps=2 format=3 uid="uid://buacfa802h7av"]
+
+[ext_resource type="Script" path="res://Scripts/resource_hint.gd" id="1_eyl0f"]
+
+[resource]
+script = ExtResource("1_eyl0f")
+text = "Drag and drop elements in the right panel to reorder their visibility."

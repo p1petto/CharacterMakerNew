@@ -10,7 +10,7 @@ class_name CustomTab
 @export var catalog_items: Array[CatalogItem] = []
 @export var linked_symmetrical_element: CustomTab
 @export var icon: CompressedTexture2D
-
+@export var hint_resource: Array[Hint]
 
 
 signal change_sliders
@@ -102,9 +102,8 @@ func _handle_static_item(slot_index, item_class):
 	current_node = current_node.get_node("Polygon2D").get_node(item_class)
 
 	current_node.static_resource = catalog_items[slot_index].static_element
-	current_node.position = current_node.static_resource.start_position
-	current_node.static_resource.cur_position = current_node.static_resource.start_position
-	current_node.change_direction(Global.current_dir)
+	current_node.initialize()
+	
 
 	if linked_symmetrical_element:
 		var check_button = get_node("CustomCheckButton/VBoxContainer/CheckButton")
@@ -114,9 +113,8 @@ func _handle_static_item(slot_index, item_class):
 			var linked_node = character.get_node(part.target_part)
 			linked_node = linked_node.get_node("Polygon2D").get_node(linked_item_class)
 			linked_node.static_resource = linked_part
-			linked_node.position = linked_node.static_resource.start_position
-			linked_node.static_resource.cur_position = linked_node.static_resource.start_position
-			linked_node.change_direction(Global.current_dir)
+			linked_node.initialize()
+			
 			
 	current_node.color_picker_button.set_new_bg_color(new_bg_color_button)
 	current_node.set_start_color()

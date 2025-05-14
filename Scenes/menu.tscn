@@ -1,0 +1,194 @@
+[gd_scene load_steps=13 format=3 uid="uid://c8vs10khrki8g"]
+
+[ext_resource type="FontFile" uid="uid://cfw4evoc8mgqg" path="res://Assets/Fonts/Fira_Sans_Condensed/FiraSansCondensed-SemiBold.ttf" id="1_785h8"]
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_bjqbw"]
+[ext_resource type="Texture2D" uid="uid://c6w5v2biog483" path="res://Assets/UI/Buttons/Dark Buttons/Button=Normal.png" id="2_21aet"]
+[ext_resource type="Texture2D" uid="uid://bbqy6l0urxqqj" path="res://Assets/UI/Buttons/Dark Buttons/Button=Pressed.png" id="3_o6mur"]
+[ext_resource type="Texture2D" uid="uid://bonet1o8et3sw" path="res://Assets/UI/Buttons/Dark Buttons/Button=Hover.png" id="4_xo31i"]
+[ext_resource type="Theme" uid="uid://4squd3f1aq8p" path="res://Assets/Theme/ColorTheme.tres" id="5_gbfka"]
+[ext_resource type="FontFile" uid="uid://bfvbdnf2f7ejy" path="res://Assets/Fonts/Fira_Sans_Condensed/FiraSansCondensed-Medium.ttf" id="6_mbu3y"]
+[ext_resource type="Texture2D" uid="uid://byjjd55v1vray" path="res://Assets/UI/Buttons/CircleButton/CircleButton=Normal.png" id="7_2b14y"]
+[ext_resource type="Texture2D" uid="uid://c4oc2j5suqenr" path="res://Assets/UI/Buttons/CircleButton/CircleButton=Pressed.png" id="8_ihkbt"]
+[ext_resource type="Texture2D" uid="uid://8ucvnky3eh54" path="res://Assets/UI/Buttons/CircleButton/CircleButton=Hover.png" id="9_evlt5"]
+[ext_resource type="FontFile" uid="uid://ds8he2lssby1w" path="res://Assets/Fonts/Fira_Sans_Condensed/FiraSansCondensed-Regular.ttf" id="11_m6wee"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_baf7y"]
+bg_color = Color(0.352941, 0.580392, 0.611765, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_bjqbw")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = -3045.0
+offset_top = -1865.0
+offset_right = 3178.0
+offset_bottom = 2338.0
+color = Color(0.282353, 0.796078, 0.862745, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
+layout_mode = 2
+
+[node name="Labels" type="VBoxContainer" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer/Labels"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_785h8")
+theme_override_font_sizes/font_size = 100
+text = "PLASTI PIXEL
+"
+
+[node name="Label2" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer/Labels"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_785h8")
+theme_override_font_sizes/font_size = 64
+text = "CHARACTER MAKER"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 28
+
+[node name="StartButton" type="TextureButton" parent="CanvasLayer/CenterContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(300, 125)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture_normal = ExtResource("2_21aet")
+texture_pressed = ExtResource("3_o6mur")
+texture_hover = ExtResource("4_xo31i")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer/MarginContainer/StartButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = -29.0
+offset_right = 59.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_gbfka")
+theme_override_fonts/font = ExtResource("6_mbu3y")
+theme_override_font_sizes/font_size = 48
+text = "START"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -85.0
+offset_top = -85.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/MarginContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture_normal = ExtResource("7_2b14y")
+texture_pressed = ExtResource("8_ihkbt")
+texture_hover = ExtResource("9_evlt5")
+texture_focused = ExtResource("8_ihkbt")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_785h8")
+theme_override_font_sizes/font_size = 36
+text = "?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = -164.0
+offset_right = 270.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_baf7y")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_gbfka")
+theme_override_fonts/font = ExtResource("6_mbu3y")
+theme_override_font_sizes/font_size = 24
+text = "Credits:"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(0, 149.425)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("11_m6wee")
+theme_override_font_sizes/normal_font_size = 24
+text = "Link Slash SVG Vector, AUTHOR: Dazzle UI, LICENSE: CC Attribution License
+Link SVG Vector, AUTHOR: Dazzle UI, LICENSE: CC Attribution License"
+
+[node name="Label2" type="Label" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_mbu3y")
+theme_override_font_sizes/font_size = 24
+text = "Info:"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/Panel/MarginContainer/VBoxContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(0, 83.55)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("11_m6wee")
+theme_override_font_sizes/normal_font_size = 24
+text = "The project was developed as part of the final qualifying work"
+
+[connection signal="button_up" from="CanvasLayer/CenterContainer/VBoxContainer/MarginContainer/StartButton" to="." method="_on_start_button_button_up"]
+[connection signal="button_up" from="CanvasLayer/MarginContainer/TextureButton" to="." method="_on_texture_button_button_up"]

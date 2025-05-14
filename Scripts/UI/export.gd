@@ -1,11 +1,15 @@
 extends TextureButton
 
-@onready var dir_down_button = $"../../DirectionButtons/Down"
-@onready var character = $"../../../SubViewportContainer/SubViewport/Character"
-@onready var animation_controller = $"../../../AnimationController"
-@onready var subviewport = $"../../../SubViewportContainer/SubViewport"
-
+@onready var character = $"../../../../SubViewportContainer/SubViewport/Character"
+@onready var animation_controller = $"../../../../AnimationController"
+@onready var subviewport = $"../../../../SubViewportContainer/SubViewport"
 var final_sprite_sheet: Image
+var is_web_export: bool = false
+
+func _ready() -> void:
+	is_web_export = OS.has_feature("web")
+	if is_web_export and not Engine.has_singleton("JavaScriptBridge"):
+		push_error("JavaScriptBridge не доступен. Автоматическое сохранение в веб-версии может не работать.")
 
 func _on_button_up() -> void:
 	generate_sprite_sheet()
@@ -67,7 +71,10 @@ func generate_sprite_sheet() -> void:
 			Vector2(0, current_y_offset))
 		current_y_offset += animation_heights[i]
 	
-	show_save_dialog()
+	if is_web_export:
+		save_in_web_browser()
+	else:
+		show_save_dialog()
 	
 	animation_controller.clear_all_states()
 
@@ -76,7 +83,7 @@ func show_save_dialog() -> void:
 	file_dialog.access = FileDialog.ACCESS_FILESYSTEM
 	file_dialog.file_mode = FileDialog.FILE_MODE_SAVE_FILE
 	file_dialog.add_filter("*.png ; PNG Images")
-	file_dialog.title = "Сохранить спрайт-лист"
+	file_dialog.title = "Сохранить спрайтшит"
 	file_dialog.current_path = "sprite_sheet.png"
 	
 	file_dialog.connect("file_selected", Callable(self, "_on_file_selected"))
@@ -86,4 +93,32 @@ func show_save_dialog() -> void:
 
 func _on_file_selected(path: String) -> void:
 	final_sprite_sheet.save_png(path)
-	print("Спрайт-лист сохранен: " + path)
+	print("Спрайтшит сохранен: " + path)
+
+func save_in_web_browser() -> void:
+	var buffer = final_sprite_sheet.save_png_to_buffer()
+	var base64_str = Marshalls.raw_to_base64(buffer)
+	
+	var datetime = Time.get_datetime_dict_from_system()
+	var file_name = "sprite_sheet_%04d%02d%02d_%02d%02d%02d.png" % [
+		datetime["year"], datetime["month"], datetime["day"],
+		datetime["hour"], datetime["minute"], datetime["second"]
+	]
+	
+	if OS.has_feature("web"):
+		var js_code = """
+			var a = document.createElement('a');
+			a.href = 'data:image/png;base64,%s';
+			a.download = '%s';
+			document.body.appendChild(a);
+			a.click();
+			document.body.removeChild(a);
+		""" % [base64_str, file_name]
+		
+		JavaScriptBridge.eval(js_code)
+		
+		print("Спрайтшит сохранен в папку загрузок: " + file_name)
+	else:
+		var temp_path = OS.get_user_data_dir() + "/" + file_name
+		final_sprite_sheet.save_png(temp_path)
+		print("Спрайтшит сохранен во временную папку: " + temp_path)

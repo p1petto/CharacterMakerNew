@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Hint" load_steps=2 format=3 uid="uid://cuyom60nqe8gd"]
+
+[ext_resource type="Script" path="res://Scripts/resource_hint.gd" id="1_28nww"]
+
+[resource]
+script = ExtResource("1_28nww")
+text = "Some elements can be edited symmetrically. To enable this, select the checkbox on the left side of the catalog panel."

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cenpkboo0qax8"]
 
-[ext_resource type="Texture2D" uid="uid://c0heyo47vaepq" path="res://Assets/UI/link icons/link.png" id="1_n4b6u"]
-[ext_resource type="Texture2D" uid="uid://cjeu4ffbxs1ap" path="res://Assets/UI/link icons/unlink.png" id="2_0qt7d"]
+[ext_resource type="Texture2D" uid="uid://bkk1o664b1k0t" path="res://Assets/UI/icons/link.svg" id="1_n4b6u"]
+[ext_resource type="Texture2D" uid="uid://cjq1kwnyc7f76" path="res://Assets/UI/icons/unlink.svg" id="2_0qt7d"]
 
 [node name="LinkButton" type="TextureButton"]
 custom_minimum_size = Vector2(48, 48)

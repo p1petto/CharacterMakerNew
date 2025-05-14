@@ -11,12 +11,12 @@ var color_picker_button_border
 @onready var color_picker_button_container =  $MarginContainer/HBoxContainer/ColorPickerButtons/ColorPickerButtonContainer
 @onready var color_picker_button_container_border =  $MarginContainer/HBoxContainer/ColorPickerButtons/ColorPickerButtonContainerBorder
 @onready var color_scheme_color_picker = $"../ColorSchemeColorPicker"
+@onready var hint = $"../MarginContainer/HBoxContainer/Hint"
 @export var current_tab: CustomTab
 
 signal tab_changed
 
 func _ready() -> void:
-	# Отложим назначение color_picker_button
 	call_deferred("_initialize_color_picker_button")
 
 	for catalog_item in catallog_container.get_children():
@@ -43,6 +43,10 @@ func _ready() -> void:
 		
 	for catalog_class in button_container.get_children():
 		catalog_class.catalog_tab_changed.connect(_on_catalog_tab_changed)
+		
+	await get_tree().process_frame
+	hint.array_hints = current_tab.hint_resource
+	hint.initialize()
 
 func _initialize_color_picker_button() -> void:
 	color_picker_button = color_picker_button_container.get_node(NodePath(current_tab.name))  # Преобразуем строку в NodePath
@@ -88,6 +92,9 @@ func _on_catalog_tab_changed(tab_name):
 	else:
 		accessory_panel.visible = false
 		strand_panel.visible = false
+		
+	hint.array_hints = current_tab.hint_resource
+	hint.initialize()
 		
 
 func find_tab(tab_name):

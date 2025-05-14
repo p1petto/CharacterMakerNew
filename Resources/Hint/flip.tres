@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Hint" load_steps=2 format=3 uid="uid://cuudb6ik1snny"]
+
+[ext_resource type="Script" path="res://Scripts/resource_hint.gd" id="1_g7dq3"]
+
+[resource]
+script = ExtResource("1_g7dq3")
+text = "Some elements may behave unexpectedly when placed on the sides of the head. Try flipping them horizontally in this case."

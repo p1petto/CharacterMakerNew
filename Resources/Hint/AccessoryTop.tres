@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Hint" load_steps=2 format=3 uid="uid://casu6mudhq58a"]
+
+[ext_resource type="Script" path="res://Scripts/resource_hint.gd" id="1_grykp"]
+
+[resource]
+script = ExtResource("1_grykp")
+text = "Rotate the character upward to place elements on the back of the head."

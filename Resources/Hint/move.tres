@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Hint" load_steps=2 format=3 uid="uid://1p30sn6ohny8"]
+
+[ext_resource type="Script" path="res://Scripts/resource_hint.gd" id="1_6qrwd"]
+
+[resource]
+script = ExtResource("1_6qrwd")
+text = "To move an item, use the arrow buttons on the right side of the screen."

@@ -17,7 +17,7 @@ var z_top: int
 var z_left: int
 var z_right: int
 
-var accessorie_button: AccessorieButton
+var accessory_button: AccessorieButton
 var color_picker_button
 var color_picker_button_line
 var cur_color: Color

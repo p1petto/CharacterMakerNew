@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="CatalogItem" load_steps=3 format=3 uid="uid://cokwipmjjqsfy"]
+[gd_resource type="Resource" script_class="CatalogItem" load_steps=4 format=3 uid="uid://cokwipmjjqsfy"]
 
 [ext_resource type="Resource" uid="uid://cu8sv5b0n5x31" path="res://Resources/Clothes/T-shirt/3/t-shirt3.tres" id="1_ddkol"]
+[ext_resource type="Texture2D" uid="uid://dwqyh081kcq64" path="res://Assets/UI/icons/Catallog item/t-shirt3.png" id="2_nm2v4"]
 [ext_resource type="Script" path="res://Scripts/CatalogItemResource.gd" id="3_d2nnv"]
 
 [resource]
 script = ExtResource("3_d2nnv")
 item_type = "Clothes"
 item_class = "Body"
+icon = ExtResource("2_nm2v4")
 clothes = ExtResource("1_ddkol")

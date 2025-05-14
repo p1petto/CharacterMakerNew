@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CatalogItem" load_steps=4 format=3 uid="uid://coinyrutw8b3i"]
+
+[ext_resource type="Script" path="res://Scripts/CatalogItemResource.gd" id="1_3hsxw"]
+[ext_resource type="Texture2D" uid="uid://m6i7op6y5p1s" path="res://Assets/UI/icons/Catallog item/eye patch l.png" id="1_gn6w6"]
+[ext_resource type="Resource" uid="uid://chrbaixsql4ss" path="res://Resources/StaticElements/Eye/Eye patch/eye patch left.tres" id="2_yur10"]
+
+[resource]
+script = ExtResource("1_3hsxw")
+item_type = "Static"
+item_class = "LeftEye"
+icon = ExtResource("1_gn6w6")
+static_element = ExtResource("2_yur10")

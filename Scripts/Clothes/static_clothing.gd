@@ -14,11 +14,6 @@ var initial_color_line: Color
 
 var anchor_node
 
-func ready():
-	pass
-	
-
-
 func initialize():
 	if resource_clothing.sprite_frames and resource_clothing.sprite_frames_line:
 		base.sprite_frames = resource_clothing.sprite_frames

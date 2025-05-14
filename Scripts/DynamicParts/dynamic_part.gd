@@ -28,7 +28,7 @@ var cur_color: Color
 var initial_line_color: Color
 var initial_glare_color: Color
 
-var central_point = 7
+@export var central_point:float = 7
 
 
 func _ready() -> void:

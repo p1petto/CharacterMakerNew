@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="CatalogItem" load_steps=3 format=3 uid="uid://c0b5jy78qsmv4"]
+[gd_resource type="Resource" script_class="CatalogItem" load_steps=4 format=3 uid="uid://c0b5jy78qsmv4"]
 
+[ext_resource type="Texture2D" uid="uid://dfqmapbkr0l8f" path="res://Assets/UI/icons/Catallog item/skirt2.png" id="1_e2mk3"]
 [ext_resource type="Resource" uid="uid://bv1ibjc8bm5qq" path="res://Resources/Clothes/Skirt/2/Skirt2.tres" id="2_0jpof"]
 [ext_resource type="Script" path="res://Scripts/CatalogItemResource.gd" id="2_mauct"]
 
@@ -7,4 +8,5 @@
 script = ExtResource("2_mauct")
 item_type = "Static_Clothing"
 item_class = "Body"
+icon = ExtResource("1_e2mk3")
 static_clothing = ExtResource("2_0jpof")

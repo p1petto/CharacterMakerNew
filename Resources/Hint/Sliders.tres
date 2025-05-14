@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Hint" load_steps=2 format=3 uid="uid://b1q3sq37n232u"]
+
+[ext_resource type="Script" path="res://Scripts/resource_hint.gd" id="1_0v0r5"]
+
+[resource]
+script = ExtResource("1_0v0r5")
+text = "Use sliders to edit your character's head, body, arms or legs."

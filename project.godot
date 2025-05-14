@@ -10,10 +10,12 @@ config_version=5
 
 [application]
 
-config/name="CharacterMakerNew"
-run/main_scene="res://Scenes/maker.tscn"
+config/name="PlastiPixel"
+config/version="1.1"
+run/main_scene="res://Scenes/menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/image="res://Assets/UI/icons/icon.png"
+config/icon="res://icon.png"
 
 [autoload]
 

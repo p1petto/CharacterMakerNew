@@ -1,4 +1,4 @@
-[gd_scene load_steps=169 format=3 uid="uid://bm1ycyeyegmyw"]
+[gd_scene load_steps=193 format=3 uid="uid://bm1ycyeyegmyw"]
 
 [ext_resource type="PackedScene" uid="uid://bmajra62ohwsu" path="res://Scenes/character.tscn" id="1_12d3f"]
 [ext_resource type="Script" path="res://Scripts/maker.gd" id="1_wror2"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://Scripts/UI/catalog.gd" id="4_mledv"]
 [ext_resource type="Script" path="res://Scripts/CatalogItemResource.gd" id="5_sbt4v"]
 [ext_resource type="Script" path="res://Scripts/UI/position_controller.gd" id="7_b13vq"]
-[ext_resource type="Resource" uid="uid://rrelwntd3sqm" path="res://Resources/CatalogItems/DynamicPart/Body/ManBodyTest.tres" id="7_kywax"]
 [ext_resource type="Resource" uid="uid://bpqshk2eovrs8" path="res://Resources/CatalogItems/DynamicPart/Head/Head.tres" id="7_p4rey"]
 [ext_resource type="PackedScene" uid="uid://lmog12ymre2p" path="res://Scenes/UI/position_controller_button.tscn" id="8_n6mgr"]
 [ext_resource type="Resource" uid="uid://cc1ysn1bfry3o" path="res://Resources/CatalogItems/ConditionallyDynamicPart/Arms/Left Arm/LeftArm.tres" id="8_r55wq"]
@@ -80,14 +79,22 @@
 [ext_resource type="Resource" uid="uid://ci3dl6yfnqf4x" path="res://Resources/CatalogItems/Hair/Crown/Crown1.tres" id="44_4vvcd"]
 [ext_resource type="Script" path="res://Scripts/UI/color_picker_button_container_border.gd" id="45_5q11q"]
 [ext_resource type="Resource" uid="uid://7loxn01ku5yr" path="res://Resources/Hair/Fringe/0/Fringe.tres" id="45_fmm32"]
+[ext_resource type="Script" path="res://Scripts/resource_hint.gd" id="47_dpvrd"]
 [ext_resource type="Resource" uid="uid://dbvcjksuur0kn" path="res://Resources/CatalogItems/Hair/Strands/1/Strand.tres" id="47_v0tno"]
+[ext_resource type="Resource" uid="uid://b1q3sq37n232u" path="res://Resources/Hint/Sliders.tres" id="48_35wf8"]
 [ext_resource type="Texture2D" uid="uid://b7h24gyxgkuuq" path="res://Assets/UI/icons/TypeItem/Property 1=pants.svg" id="49_vmq5q"]
 [ext_resource type="Texture2D" uid="uid://cucl1x70onpgd" path="res://Assets/UI/icons/TypeItem/Property 1=pantlegL.svg" id="52_bt1ev"]
+[ext_resource type="Resource" uid="uid://cuyom60nqe8gd" path="res://Resources/Hint/symmetrical.tres" id="53_dvweh"]
 [ext_resource type="Texture2D" uid="uid://2ig5s8rkpwux" path="res://Assets/UI/icons/TypeItem/Property 1=pantlegR.svg" id="55_4wmom"]
 [ext_resource type="Texture2D" uid="uid://dfbv0gsee2a1x" path="res://Assets/UI/icons/TypeItem/Property 1=shoesL.svg" id="57_lp5vu"]
+[ext_resource type="Resource" uid="uid://coinyrutw8b3i" path="res://Resources/CatalogItems/StaticElement/Eyes/Eye patch/eye patch left.tres" id="58_4m3cw"]
+[ext_resource type="Resource" uid="uid://1awhowk86vey" path="res://Resources/CatalogItems/StaticElement/Eyes/Eye2/LeftEye/LeftEye2.tres" id="58_7q4ra"]
 [ext_resource type="Texture2D" uid="uid://bfnetyt8atgo5" path="res://Assets/UI/icons/TypeItem/Property 1=shoesR.svg" id="59_f6e0v"]
+[ext_resource type="Resource" uid="uid://3hoye84e3eti" path="res://Resources/CatalogItems/StaticElement/Eyes/Eye patch/eye patch right.tres" id="60_jrj17"]
 [ext_resource type="Texture2D" uid="uid://dyqrx2hx40ssi" path="res://Assets/UI/icons/TypeItem/Property 1=skirt.svg" id="61_1iorf"]
+[ext_resource type="Resource" uid="uid://cs76o7d682gfx" path="res://Resources/CatalogItems/StaticElement/Eyes/Eye2/RightEye/RightEye2.tres" id="61_ampql"]
 [ext_resource type="Resource" uid="uid://b577ncv7xd2fd" path="res://Resources/CatalogItems/Accessories/Veil.tres" id="63_skhtr"]
+[ext_resource type="Resource" uid="uid://1p30sn6ohny8" path="res://Resources/Hint/move.tres" id="64_a81rv"]
 [ext_resource type="Resource" uid="uid://cjq1vbgxh7dok" path="res://Resources/CatalogItems/Accessories/Bow tie.tres" id="64_c0pyi"]
 [ext_resource type="Texture2D" uid="uid://dhwlvg0w2h8gn" path="res://Assets/UI/icons/TypeItem/Property 1=crown.svg" id="64_vt5qn"]
 [ext_resource type="Resource" uid="uid://dbf5kdyllw2i7" path="res://Resources/CatalogItems/Accessories/tie.tres" id="65_g8n4e"]
@@ -97,11 +104,16 @@
 [ext_resource type="Texture2D" uid="uid://feqoxnwjqn7x" path="res://Assets/UI/icons/TypeItem/Property 1=curl.svg" id="69_mqqma"]
 [ext_resource type="Texture2D" uid="uid://dtl7tagpmgun8" path="res://Assets/UI/icons/TypeItem/Property 1=colorsettings.svg" id="70_k5ptb"]
 [ext_resource type="Script" path="res://Scripts/UI/catallog_type_container.gd" id="74_1fayn"]
+[ext_resource type="Resource" uid="uid://dlxklig78rumc" path="res://Resources/Hint/accessory.tres" id="74_b286t"]
 [ext_resource type="Texture2D" uid="uid://bfre6lh2tsdrs" path="res://Assets/UI/icons/Player/Property 1=Run.png" id="75_5btbj"]
+[ext_resource type="Resource" uid="uid://cbgcih5tfy8f2" path="res://Resources/Hint/select_accessory.tres" id="75_dmxay"]
 [ext_resource type="Texture2D" uid="uid://ct2af2ndf5x8u" path="res://Assets/UI/icons/Player/Property 1=Stop.png" id="76_1wrpb"]
 [ext_resource type="Texture2D" uid="uid://befvapkxnot0a" path="res://Assets/UI/icons/Player/Property 1=stop-focus.png" id="76_q83pj"]
+[ext_resource type="Resource" uid="uid://buacfa802h7av" path="res://Resources/Hint/DragAndDrop.tres" id="76_sm10q"]
 [ext_resource type="Texture2D" uid="uid://ckll4tks6n6lr" path="res://Assets/UI/DirectionController/DirectionController.png" id="77_675mi"]
+[ext_resource type="Resource" uid="uid://casu6mudhq58a" path="res://Resources/Hint/AccessoryTop.tres" id="77_e5pbw"]
 [ext_resource type="Texture2D" uid="uid://baxb63kv3jl05" path="res://Assets/UI/icons/Player/Property 1=run-hover.png" id="77_s4e4m"]
+[ext_resource type="Resource" uid="uid://cuudb6ik1snny" path="res://Resources/Hint/flip.tres" id="78_kg2ye"]
 [ext_resource type="Texture2D" uid="uid://buj4ra6xew71s" path="res://Assets/UI/DirectionController/ButtonArrow/Property 1=down.png" id="79_7gtsf"]
 [ext_resource type="Texture2D" uid="uid://dn4h1iiol3xoy" path="res://Assets/UI/DirectionController/ButtonArrow/Property 1=down-pressed.png" id="79_gp8p2"]
 [ext_resource type="Script" path="res://Scripts/UI/animation_player.gd" id="79_vn77l"]
@@ -143,6 +155,11 @@
 [ext_resource type="Texture2D" uid="uid://d077lu50wd15s" path="res://Assets/UI/ColorSchemeController/ButtonAccept/Property 1=disabled.png" id="108_tx4h7"]
 [ext_resource type="FontFile" uid="uid://bfvbdnf2f7ejy" path="res://Assets/Fonts/Fira_Sans_Condensed/FiraSansCondensed-Medium.ttf" id="109_6a2ri"]
 [ext_resource type="PackedScene" uid="uid://dr8lvardujth0" path="res://Scenes/UI/custom_color_picker.tscn" id="114_wcakn"]
+[ext_resource type="Script" path="res://Scripts/UI/hint.gd" id="146_laogb"]
+[ext_resource type="FontFile" uid="uid://ds8he2lssby1w" path="res://Assets/Fonts/Fira_Sans_Condensed/FiraSansCondensed-Regular.ttf" id="147_j474y"]
+[ext_resource type="Texture2D" uid="uid://blw2mn2jy03jq" path="res://Assets/UI/icons/FormNext.svg" id="151_pwp3e"]
+[ext_resource type="Texture2D" uid="uid://da3m1lfprj0k" path="res://Assets/UI/icons/FormNext-hover.svg" id="152_045m4"]
+[ext_resource type="Texture2D" uid="uid://cfenwhpinatcg" path="res://Assets/UI/icons/hint.svg" id="159_xcaq7"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_1urqw"]
 viewport_path = NodePath("SubViewportContainer/SubViewport")
@@ -297,6 +314,27 @@ item_type = "Dynamic_clothes"
 item_class = "RightLeg"
 dynamic_clothes = SubResource("Resource_hcv58")
 
+[sub_resource type="Resource" id="Resource_hj3yc"]
+script = ExtResource("92_8adqw")
+parent_node = ""
+anchor_node = "Body"
+sprite_frames = ExtResource("93_2omse")
+sprite_frames_line = ExtResource("93_2omse")
+z_down = 0
+z_right = 0
+z_top = 0
+z_left = 0
+pos = Vector2(0, 0)
+name_clothing = "Skirt"
+initial_color = Color(1, 1, 1, 1)
+initial_color_line = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_asujk"]
+script = ExtResource("5_sbt4v")
+item_type = "Static_Clothing"
+item_class = "Body"
+static_clothing = SubResource("Resource_hj3yc")
+
 [sub_resource type="Resource" id="Resource_8bld8"]
 script = ExtResource("23_jyf5e")
 down_position = Vector2(0, 0)
@@ -341,32 +379,41 @@ item_type = "Dynamic_clothes"
 item_class = "RightLeg"
 dynamic_clothes = SubResource("Resource_kpkwv")
 
-[sub_resource type="Resource" id="Resource_hj3yc"]
-script = ExtResource("92_8adqw")
-parent_node = ""
-anchor_node = "Body"
-sprite_frames = ExtResource("93_2omse")
-sprite_frames_line = ExtResource("93_2omse")
-z_down = 0
-z_right = 0
-z_top = 0
-z_left = 0
-pos = Vector2(0, 0)
-name_clothing = "Skirt"
-initial_color = Color(1, 1, 1, 1)
-initial_color_line = Color(1, 1, 1, 1)
-
-[sub_resource type="Resource" id="Resource_asujk"]
-script = ExtResource("5_sbt4v")
-item_type = "Static_Clothing"
-item_class = "Body"
-static_clothing = SubResource("Resource_hj3yc")
-
 [sub_resource type="Resource" id="Resource_lccou"]
 script = ExtResource("5_sbt4v")
 item_type = "Hair"
 item_class = "Head"
 hair = ExtResource("45_fmm32")
+
+[sub_resource type="Resource" id="Resource_irytp"]
+script = ExtResource("47_dpvrd")
+text = "It is a flexible color management system."
+
+[sub_resource type="Resource" id="Resource_sxc1n"]
+script = ExtResource("47_dpvrd")
+text = "Pick a preset from the dropdown menu."
+
+[sub_resource type="Resource" id="Resource_yjyyw"]
+script = ExtResource("47_dpvrd")
+text = "Choose a base color using the color wheel."
+
+[sub_resource type="Resource" id="Resource_ls2i7"]
+script = ExtResource("47_dpvrd")
+text = "Select element groups to recolor."
+
+[sub_resource type="Resource" id="Resource_rw3cs"]
+script = ExtResource("47_dpvrd")
+text = "Press \"Accept\" to confirm your changes"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dwh3m"]
+bg_color = Color(0.254902, 0.431373, 0.454902, 0.784314)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_ti7ec"]
+font = ExtResource("147_j474y")
 
 [node name="Maker" type="Node2D"]
 texture_filter = 1
@@ -693,12 +740,14 @@ theme = ExtResource("11_ydvaf")
 layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("7_p4rey")])
 icon = ExtResource("17_36cuv")
+hint_resource = Array[ExtResource("47_dpvrd")]([ExtResource("48_35wf8")])
 
 [node name="Body" parent="UI/Catalog/CatalogContainer" groups=["DynamicTab"] instance=ExtResource("4_kavcm")]
 visible = false
 layout_mode = 2
-catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("11_wp1wm"), ExtResource("7_kywax")])
+catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("11_wp1wm")])
 icon = ExtResource("15_4058r")
+hint_resource = Array[ExtResource("47_dpvrd")]([ExtResource("48_35wf8")])
 
 [node name="LeftArm" parent="UI/Catalog/CatalogContainer" node_paths=PackedStringArray("linked_symmetrical_element") groups=["ConditionallyDynamicTab"] instance=ExtResource("4_kavcm")]
 visible = false
@@ -706,6 +755,7 @@ layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("8_r55wq")])
 linked_symmetrical_element = NodePath("../RightArm")
 icon = ExtResource("19_vjttc")
+hint_resource = Array[ExtResource("47_dpvrd")]([ExtResource("48_35wf8"), ExtResource("53_dvweh")])
 
 [node name="RightArm" parent="UI/Catalog/CatalogContainer" node_paths=PackedStringArray("linked_symmetrical_element") groups=["ConditionallyDynamicTab"] instance=ExtResource("4_kavcm")]
 visible = false
@@ -713,6 +763,7 @@ layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("9_pxshc")])
 linked_symmetrical_element = NodePath("../LeftArm")
 icon = ExtResource("21_0uktw")
+hint_resource = Array[ExtResource("47_dpvrd")]([ExtResource("48_35wf8"), ExtResource("53_dvweh")])
 
 [node name="LeftLeg" parent="UI/Catalog/CatalogContainer" node_paths=PackedStringArray("linked_symmetrical_element") groups=["ConditionallyDynamicTab"] instance=ExtResource("4_kavcm")]
 visible = false
@@ -720,6 +771,7 @@ layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("10_1t4ok")])
 linked_symmetrical_element = NodePath("../RightLeg")
 icon = ExtResource("23_3noyc")
+hint_resource = Array[ExtResource("47_dpvrd")]([ExtResource("48_35wf8"), ExtResource("53_dvweh")])
 
 [node name="RightLeg" parent="UI/Catalog/CatalogContainer" node_paths=PackedStringArray("linked_symmetrical_element") groups=["ConditionallyDynamicTab"] instance=ExtResource("4_kavcm")]
 visible = false
@@ -727,26 +779,30 @@ layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("11_lknkn")])
 linked_symmetrical_element = NodePath("../LeftLeg")
 icon = ExtResource("25_fiu40")
+hint_resource = Array[ExtResource("47_dpvrd")]([ExtResource("48_35wf8"), ExtResource("53_dvweh")])
 
 [node name="LeftEye" parent="UI/Catalog/CatalogContainer" node_paths=PackedStringArray("linked_symmetrical_element") groups=["StaticTab"] instance=ExtResource("4_kavcm")]
 visible = false
 layout_mode = 2
-catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_8gcpa"), ExtResource("14_7nups")])
+catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_8gcpa"), ExtResource("14_7nups"), ExtResource("58_7q4ra"), ExtResource("58_4m3cw")])
 linked_symmetrical_element = NodePath("../RightEye")
 icon = ExtResource("27_dcuin")
+hint_resource = Array[ExtResource("47_dpvrd")]([ExtResource("53_dvweh"), ExtResource("64_a81rv")])
 
 [node name="RightEye" parent="UI/Catalog/CatalogContainer" node_paths=PackedStringArray("linked_symmetrical_element") groups=["StaticTab"] instance=ExtResource("4_kavcm")]
 visible = false
 layout_mode = 2
-catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_67v72"), ExtResource("17_nc5m7")])
+catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_67v72"), ExtResource("17_nc5m7"), ExtResource("61_ampql"), ExtResource("60_jrj17")])
 linked_symmetrical_element = NodePath("../LeftEye")
 icon = ExtResource("28_l66im")
+hint_resource = Array[ExtResource("47_dpvrd")]([ExtResource("53_dvweh"), ExtResource("64_a81rv")])
 
 [node name="Accessories" parent="UI/Catalog/CatalogContainer" groups=["Accessorie"] instance=ExtResource("4_kavcm")]
 visible = false
 layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("20_emeal"), ExtResource("21_adrnn"), ExtResource("63_skhtr"), ExtResource("64_c0pyi"), ExtResource("65_g8n4e")])
 icon = ExtResource("31_ba22c")
+hint_resource = Array[ExtResource("47_dpvrd")]([ExtResource("74_b286t"), ExtResource("75_dmxay"), ExtResource("76_sm10q"), ExtResource("77_e5pbw"), ExtResource("78_kg2ye")])
 
 [node name="T-shirt" parent="UI/Catalog/CatalogContainer" groups=["ClothesTab"] instance=ExtResource("4_kavcm")]
 visible = false
@@ -760,6 +816,7 @@ layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_y02ex"), ExtResource("25_eci8u"), ExtResource("26_yl5iv")])
 linked_symmetrical_element = NodePath("../RightSleeve")
 icon = ExtResource("38_hwntd")
+hint_resource = Array[ExtResource("47_dpvrd")]([ExtResource("53_dvweh")])
 
 [node name="RightSleeve" parent="UI/Catalog/CatalogContainer" node_paths=PackedStringArray("linked_symmetrical_element") groups=["DynamicClothesTab"] instance=ExtResource("4_kavcm")]
 visible = false
@@ -767,6 +824,7 @@ layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_xwrnx"), ExtResource("25_ot8fs"), ExtResource("23_0wu6d")])
 linked_symmetrical_element = NodePath("../LeftSleeve")
 icon = ExtResource("41_asndw")
+hint_resource = Array[ExtResource("47_dpvrd")]([ExtResource("53_dvweh")])
 
 [node name="Pants" parent="UI/Catalog/CatalogContainer" groups=["ClothesTab"] instance=ExtResource("4_kavcm")]
 visible = false
@@ -780,6 +838,7 @@ layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_fr3tu"), ExtResource("28_unnd6"), ExtResource("88_gcjhq"), ExtResource("29_n1m6g"), ExtResource("90_avqei")])
 linked_symmetrical_element = NodePath("../RightPantLeg")
 icon = ExtResource("52_bt1ev")
+hint_resource = Array[ExtResource("47_dpvrd")]([ExtResource("53_dvweh")])
 
 [node name="RightPantLeg" parent="UI/Catalog/CatalogContainer" node_paths=PackedStringArray("linked_symmetrical_element") groups=["DynamicClothesTab"] instance=ExtResource("4_kavcm")]
 visible = false
@@ -787,20 +846,7 @@ layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_l51j6"), ExtResource("30_fow5y"), ExtResource("92_x8bji"), ExtResource("31_ylgi3"), ExtResource("95_qgib5")])
 linked_symmetrical_element = NodePath("../LeftPantLeg")
 icon = ExtResource("55_4wmom")
-
-[node name="LeftFootwear" parent="UI/Catalog/CatalogContainer" node_paths=PackedStringArray("linked_symmetrical_element") groups=["DynamicClothesTab"] instance=ExtResource("4_kavcm")]
-visible = false
-layout_mode = 2
-catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_52f4k"), ExtResource("40_cy13n")])
-linked_symmetrical_element = NodePath("../RightFootwear")
-icon = ExtResource("57_lp5vu")
-
-[node name="RightFootwear" parent="UI/Catalog/CatalogContainer" node_paths=PackedStringArray("linked_symmetrical_element") groups=["DynamicClothesTab"] instance=ExtResource("4_kavcm")]
-visible = false
-layout_mode = 2
-catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_c3a1m"), ExtResource("41_sr111")])
-linked_symmetrical_element = NodePath("../LeftFootwear")
-icon = ExtResource("59_f6e0v")
+hint_resource = Array[ExtResource("47_dpvrd")]([ExtResource("53_dvweh")])
 
 [node name="Skirt" parent="UI/Catalog/CatalogContainer" groups=["StaticClothesTab"] instance=ExtResource("4_kavcm")]
 visible = false
@@ -808,29 +854,49 @@ layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_asujk"), ExtResource("42_2ndwj"), ExtResource("97_838cx")])
 icon = ExtResource("61_1iorf")
 
+[node name="LeftFootwear" parent="UI/Catalog/CatalogContainer" node_paths=PackedStringArray("linked_symmetrical_element") groups=["DynamicClothesTab"] instance=ExtResource("4_kavcm")]
+visible = false
+layout_mode = 2
+catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_52f4k"), ExtResource("40_cy13n")])
+linked_symmetrical_element = NodePath("../RightFootwear")
+icon = ExtResource("57_lp5vu")
+hint_resource = Array[ExtResource("47_dpvrd")]([ExtResource("53_dvweh")])
+
+[node name="RightFootwear" parent="UI/Catalog/CatalogContainer" node_paths=PackedStringArray("linked_symmetrical_element") groups=["DynamicClothesTab"] instance=ExtResource("4_kavcm")]
+visible = false
+layout_mode = 2
+catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_c3a1m"), ExtResource("41_sr111")])
+linked_symmetrical_element = NodePath("../LeftFootwear")
+icon = ExtResource("59_f6e0v")
+hint_resource = Array[ExtResource("47_dpvrd")]([ExtResource("53_dvweh")])
+
 [node name="Crown" parent="UI/Catalog/CatalogContainer" groups=["HairTab"] instance=ExtResource("4_kavcm")]
 visible = false
 layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("43_fog1h"), ExtResource("44_4vvcd")])
 icon = ExtResource("64_vt5qn")
+hint_resource = Array[ExtResource("47_dpvrd")]([ExtResource("48_35wf8")])
 
 [node name="Fringe" parent="UI/Catalog/CatalogContainer" groups=["HairTab"] instance=ExtResource("4_kavcm")]
 visible = false
 layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_lccou"), ExtResource("100_ydoij"), ExtResource("101_67iwo"), ExtResource("108_av1rk")])
 icon = ExtResource("67_su26c")
+hint_resource = Array[ExtResource("47_dpvrd")]([ExtResource("48_35wf8")])
 
 [node name="Strands" parent="UI/Catalog/CatalogContainer" groups=["HairStrandTab"] instance=ExtResource("4_kavcm")]
 visible = false
 layout_mode = 2
 catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("47_v0tno"), ExtResource("106_kcfcd"), ExtResource("104_u6vx4"), ExtResource("105_j8hjc")])
 icon = ExtResource("69_mqqma")
+hint_resource = Array[ExtResource("47_dpvrd")]([ExtResource("74_b286t"), ExtResource("75_dmxay"), ExtResource("76_sm10q"), ExtResource("77_e5pbw"), ExtResource("78_kg2ye")])
 
 [node name="ColorSettings" parent="UI/Catalog/CatalogContainer" groups=["SettingsTab"] instance=ExtResource("4_kavcm")]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_top = 20
 icon = ExtResource("70_k5ptb")
+hint_resource = Array[ExtResource("47_dpvrd")]([SubResource("Resource_irytp"), SubResource("Resource_sxc1n"), SubResource("Resource_yjyyw"), SubResource("Resource_ls2i7"), SubResource("Resource_rw3cs")])
 
 [node name="CenterContainer" type="CenterContainer" parent="UI/Catalog/CatalogContainer/ColorSettings"]
 layout_mode = 2
@@ -858,16 +924,16 @@ layout_mode = 2
 theme = ExtResource("11_ydvaf")
 clip_text = true
 item_count = 6
-popup/item_0/text = "Комплементарная"
-popup/item_1/text = "Триада"
+popup/item_0/text = "Complementary"
+popup/item_1/text = "Triad"
 popup/item_1/id = 1
-popup/item_2/text = "Сплит-комплементарная"
+popup/item_2/text = "Split-complementary"
 popup/item_2/id = 2
-popup/item_3/text = "Аналоговая триада"
+popup/item_3/text = "Analog triad"
 popup/item_3/id = 3
-popup/item_4/text = "Тетрада"
+popup/item_4/text = "Tetrad"
 popup/item_4/id = 4
-popup/item_5/text = "Монохромная"
+popup/item_5/text = "Monochrome"
 popup/item_5/id = 5
 
 [node name="СolorSchemeRects" type="HBoxContainer" parent="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController/SettingsContainer/СolorScheme"]
@@ -933,7 +999,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.821789, 0.821789, 0.821789, 1)
 theme_override_fonts/font = ExtResource("109_6a2ri")
 theme_override_font_sizes/font_size = 16
-text = "Принять"
+text = "Accept"
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/Catalog"]
 layout_mode = 2
@@ -989,13 +1055,16 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 script = ExtResource("45_5q11q")
 
-[node name="HBoxContainer" type="MarginContainer" parent="UI"]
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
 offset_right = 70.0
 offset_bottom = 64.0
 theme_override_constants/margin_left = 18
 theme_override_constants/margin_top = 12
 
-[node name="Export" type="TextureButton" parent="UI/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer"]
+layout_mode = 2
+
+[node name="Export" type="TextureButton" parent="UI/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(52, 52)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -1007,7 +1076,7 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("26_qf8ja")
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/HBoxContainer/Export"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/HBoxContainer/Export"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1019,13 +1088,103 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 12
 
-[node name="TextureRect" type="TextureRect" parent="UI/HBoxContainer/Export/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="UI/MarginContainer/HBoxContainer/Export/MarginContainer"]
 texture_filter = 2
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("106_8grb0")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Hint" type="TextureButton" parent="UI/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(52, 52)
+layout_mode = 2
+texture_normal = ExtResource("102_8miag")
+texture_hover = ExtResource("104_2qwpn")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("146_laogb")
+
+[node name="Panel" type="Panel" parent="UI/MarginContainer/HBoxContainer/Hint"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 0
+offset_left = 57.0
+offset_top = 4.0
+offset_right = 285.0
+offset_bottom = 104.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_dwh3m")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/HBoxContainer/Hint/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 12
+
+[node name="Label" type="Label" parent="UI/MarginContainer/HBoxContainer/Hint/Panel/MarginContainer"]
+custom_minimum_size = Vector2(165, 0)
+layout_mode = 2
+text = "Use sliders to edit your character's head, body, arms or legs."
+label_settings = SubResource("LabelSettings_ti7ec")
+autowrap_mode = 2
+
+[node name="previous" type="TextureButton" parent="UI/MarginContainer/HBoxContainer/Hint/Panel"]
+layout_mode = 1
+offset_right = 24.0
+offset_bottom = 24.0
+texture_normal = ExtResource("151_pwp3e")
+texture_hover = ExtResource("152_045m4")
+flip_h = true
+
+[node name="next" type="TextureButton" parent="UI/MarginContainer/HBoxContainer/Hint/Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -24.0
+offset_bottom = 24.0
+grow_horizontal = 0
+texture_normal = ExtResource("151_pwp3e")
+texture_hover = ExtResource("152_045m4")
+
+[node name="MarginContainer2" type="MarginContainer" parent="UI/MarginContainer/HBoxContainer/Hint/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -59.5
+offset_right = 59.5
+offset_bottom = 12.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 10
+
+[node name="CirclesContainer" type="HBoxContainer" parent="UI/MarginContainer/HBoxContainer/Hint/Panel/MarginContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/HBoxContainer/Hint"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 14
+
+[node name="TextureRect" type="TextureRect" parent="UI/MarginContainer/HBoxContainer/Hint/MarginContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("159_xcaq7")
 expand_mode = 1
 stretch_mode = 4
 
@@ -1041,4 +1200,10 @@ animation_speed = 5.0
 [connection signal="button_up" from="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController/MarginContainer/Accept" to="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController" method="_on_accept_button_up"]
 [connection signal="button_up" from="UI/Catalog/MarginContainer/HBoxContainer/AnimationPlayer" to="UI/Catalog/MarginContainer/HBoxContainer/AnimationPlayer" method="_on_button_up"]
 [connection signal="button_up" from="UI/Catalog/MarginContainer/HBoxContainer/AnimationPlayer" to="AnimationController" method="_on_animation_player_button_up"]
-[connection signal="button_up" from="UI/HBoxContainer/Export" to="UI/HBoxContainer/Export" method="_on_button_up"]
+[connection signal="button_up" from="UI/MarginContainer/HBoxContainer/Export" to="UI/MarginContainer/HBoxContainer/Export" method="_on_button_up"]
+[connection signal="mouse_entered" from="UI/MarginContainer/HBoxContainer/Hint" to="UI/MarginContainer/HBoxContainer/Hint" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/MarginContainer/HBoxContainer/Hint" to="UI/MarginContainer/HBoxContainer/Hint" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="UI/MarginContainer/HBoxContainer/Hint/Panel" to="UI/MarginContainer/HBoxContainer/Hint" method="_on_panel_mouse_entered"]
+[connection signal="mouse_exited" from="UI/MarginContainer/HBoxContainer/Hint/Panel" to="UI/MarginContainer/HBoxContainer/Hint" method="_on_panel_mouse_exited"]
+[connection signal="button_up" from="UI/MarginContainer/HBoxContainer/Hint/Panel/previous" to="UI/MarginContainer/HBoxContainer/Hint" method="_on_previous_button_up"]
+[connection signal="button_up" from="UI/MarginContainer/HBoxContainer/Hint/Panel/next" to="UI/MarginContainer/HBoxContainer/Hint" method="_on_next_button_up"]

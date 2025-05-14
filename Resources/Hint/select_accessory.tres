@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Hint" load_steps=2 format=3 uid="uid://cbgcih5tfy8f2"]
+
+[ext_resource type="Script" path="res://Scripts/resource_hint.gd" id="1_7tanb"]
+
+[resource]
+script = ExtResource("1_7tanb")
+text = "To edit a specific element, select it in the right panel."

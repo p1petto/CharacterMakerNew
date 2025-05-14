@@ -12,20 +12,9 @@ extends Node2D
 func _ready() -> void:
 	character_texture.scale.x = Global.scaling
 	character_texture.scale.y = Global.scaling
-	get_viewport().connect("size_changed", Callable(self, "_on_viewport_resized"))
-	await get_tree().process_frame
-	_update_positions()
-
-
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		var screen = subviewport.get_texture().get_image()
 		screen.save_png("screenshot.png")
 		
-
-func _update_positions() -> void:
-	#direction_controller.position.x = character_texture.position.x - 200
-	#position_controller.position.x = character_texture.position.x + 160 + position_controller.size.x
-	#character_texture.position.x = get_viewport_rect().size.x / 2 - 32*Global.scaling
-	pass

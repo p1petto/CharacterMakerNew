@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2fun0labjtxh"]
+
+[ext_resource type="Texture2D" uid="uid://jlekvwq30m8o" path="res://Assets/UI/icons/SliderCircle/Ellipse_normal.png" id="1_ikeno"]
+[ext_resource type="Script" path="res://Scripts/UI/sclider_circle.gd" id="2_0kx5u"]
+[ext_resource type="Texture2D" uid="uid://cmbjqn4vh83uy" path="res://Assets/UI/icons/SliderCircle/Ellipse_active.png" id="3_g6kop"]
+
+[node name="ScliderCircle" type="TextureButton"]
+custom_minimum_size = Vector2(10, 10)
+texture_normal = ExtResource("1_ikeno")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_0kx5u")
+normal_texture = ExtResource("1_ikeno")
+active_texture = ExtResource("3_g6kop")

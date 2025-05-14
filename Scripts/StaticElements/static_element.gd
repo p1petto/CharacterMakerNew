@@ -27,9 +27,19 @@ func _ready() -> void:
 		var shader = load("res://Scripts/Shaders/static_color_changing_shader.gdshader")  # Укажите правильный путь
 		material.shader = shader
 		self.material = material  # Присваиваем материал текущему экземпляру
+		
+func initialize():
+	position = static_resource.start_position
+	static_resource.cur_position = static_resource.start_position
+	change_direction(Global.current_dir)
+	call_deferred("_connect_color")
+	call_deferred("_connect_color_changed_signal")
 
 func _connect_color_changed_signal():
-	color_picker_button.color_changed.connect(_on_color_changed)
+	#color_picker_button.color_changed.connect(_on_color_changed)
+	if not color_picker_button.color_changed.is_connected(_on_color_changed):
+		color_picker_button.color_changed.connect(_on_color_changed)
+		
 	
 func _connect_color():
 	cur_color = static_resource.color
@@ -46,11 +56,8 @@ func set_start_color() -> void:
 	
 func _on_color_changed(new_color: Color) -> void:
 
-	#material.set_shader_parameter("oldcolor", cur_color)
 	material.set_shader_parameter("newcolor", new_color)
-	
 	cur_color = new_color
-	#modulate = cur_color 
 	
 	if is_symmetrical:
 		var linked_tab 
