@@ -27,10 +27,10 @@ class_name Accessorie
 @export var min_y_right: float
 @export var max_y_right: float
 
-@export var not_can_top: bool
+@export var can_top: bool = true
+@export var can_flip_on_horizontal: bool = true
 
 @export var color: Color
 @export var line_color: Color = Color("1b1b1b")
 
 @export var has_line: bool = false
-@export var can_flip_on_horizontal: bool = true

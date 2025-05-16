@@ -122,7 +122,7 @@ func _handle_static_item(slot_index, item_class):
 func _handle_accessories_item(slot_index, item_class):
 	var part = catalog_items[slot_index].accessorie
 	
-	if Global.current_dir == "top" and catalog_items[slot_index].accessorie.not_can_top:
+	if Global.current_dir == "top" and !catalog_items[slot_index].accessorie.can_top:
 		return
 		
 	var current_node = character.get_node("Head/Accessories")
@@ -195,7 +195,7 @@ func _handle_hair_item(slot_index, item_class):
 func _handle_strand_item(slot_index, item_class):
 	var part = catalog_items[slot_index].accessorie
 	
-	if Global.current_dir == "top" and catalog_items[slot_index].accessorie.not_can_top:
+	if Global.current_dir == "top" and !catalog_items[slot_index].accessorie.can_top:
 		return
 		
 	var current_node = character.get_node("Head/Strands")

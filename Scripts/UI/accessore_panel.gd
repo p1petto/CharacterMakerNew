@@ -5,7 +5,6 @@ extends MarginContainer
 @onready var position_controller = $"../PositionController"
 @onready var color_scheme_controller = $"../Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController"
 
-#@export var accessories: Array[Accessorie]
 @export var accessory_buttons: Array[AccessorieButton]
 @export var start_z_index = 1000
 
@@ -16,9 +15,6 @@ signal accessory_element_selected
 
 var active_button: AccessorieButton
 
-# Called when the node enters the scene tree for the first time.
-#func _ready() -> void:
-	#catallog.tab_changed.connect(change_visible)
 
 func add_accessorie_button(accessory, element):
 	var button_scene = preload("res://Scenes/UI/AccessoreButton.tscn")
@@ -54,7 +50,6 @@ func add_accessorie_button(accessory, element):
 	button_instance.update_slot_texture()
 
 func _store_button_position(button):
-	# Store the button's position after it has been properly positioned in the container
 	button.cur_position = button.position
 
 func _setup_z_index_for_new_element(button):
@@ -96,7 +91,6 @@ func _on_accessory_selected(accessory_button, element):
 	call_deferred("_preserve_button_positions")
 	
 func _preserve_button_positions():
-	# Ensure all buttons maintain their positions
 	for button in accessory_buttons:
 		if button.cur_position != Vector2.ZERO:
 			button.position = button.cur_position
@@ -119,33 +113,13 @@ func _on_accessory_deleted(button: AccessorieButton):
 		timer.wait_time = 0.05  
 		timer.one_shot = true
 		timer.timeout.connect(func(): 
-			_update_swapped_positions()  # Only update positions, not z-indices
+			_update_swapped_positions() 
 			timer.queue_free()  
 		)
 		timer.start()
 		
 		button.queue_free()
 
-func swap_element(button):
-	hide_color_picker()
-	var closest_button = get_closest_button(button)
-
-	if closest_button != button:
-		var button_index = button.get_index()
-		var closest_button_index = closest_button.get_index()
-
-		button_container.move_child(button, closest_button_index)
-		button_container.move_child(closest_button, button_index)
-
-		var temp = accessory_buttons[button_index]
-		accessory_buttons[button_index] = accessory_buttons[closest_button_index]
-		accessory_buttons[closest_button_index] = temp
-
-		call_deferred("_update_swapped_positions")
-		
-		_swap_z_indices(button, closest_button)
-	else:
-		button.position = button.cur_position
 
 func _swap_z_indices(button1, button2):
 	var temp_z_down = button1.accessory_element.z_down
@@ -163,11 +137,9 @@ func _swap_z_indices(button1, button2):
 	button2.accessory_element.z_right = temp_z_right
 	button2.accessory_element.z_left = temp_z_left
 	
-	# Update current z_index based on current direction
 	_update_current_z_indices()
 
 func _update_current_z_indices():
-	# Only update the current z_index based on the current direction, not recalculating all z values
 	for button in accessory_buttons:
 		match Global.current_dir:
 			"down":
@@ -180,7 +152,6 @@ func _update_current_z_indices():
 				button.accessory_element.z_index = button.accessory_element.z_left
 
 func _update_swapped_positions():
-	# Only update the cur_position for all buttons after a swap
 	for button in accessory_buttons:
 		button.cur_position = button.position
 
@@ -197,8 +168,6 @@ func get_closest_button(button):
 
 	return closest_button
 	
-#func change_visible():
-	#visible = catallog.current_tab.is_in_group("Accessorie")
 	
 func hide_color_picker():
 	for button in accessory_buttons:
@@ -219,3 +188,61 @@ func _on_active_changed(accessory_button):
 					button.color_picker_button.color_picker.visible = false
 				if button.color_picker_button_line.color_picker.visible:
 					button.color_picker_button_line.color_picker.visible = false
+
+func swap_element(button):
+	hide_color_picker()
+	var target_position = get_target_position(button)
+	var button_original_index = button.get_index()
+
+	
+	if target_position != button_original_index:
+		var button_to_move = accessory_buttons[button_original_index]
+		accessory_buttons.remove_at(button_original_index)
+		
+		if target_position > button_original_index:
+			target_position -= 1
+		
+		accessory_buttons.insert(target_position, button_to_move)
+		
+		button_container.move_child(button, target_position)
+		
+		# Вызываем обновление позиций и z-индексов
+		call_deferred("_update_swapped_positions")
+		call_deferred("_update_z_indices_after_reorder")
+	else:
+		button.position = button.cur_position
+
+func get_target_position(button):
+	var button_y = button.position.y
+	var insert_position = 0
+	
+	for i in range(button_container.get_child_count()):
+		var child = button_container.get_child(i)
+		if child != button:
+			if button_y > child.position.y + (child.size.y / 2):
+				insert_position = i + 1
+	
+	return insert_position
+
+func _update_z_indices_after_reorder():
+	var z_index_base = start_z_index
+	
+	for i in range(accessory_buttons.size()):
+		var button = accessory_buttons[i]
+		var z_value = z_index_base + i + 1
+		
+		button.accessory_element.z_right = z_value
+		button.accessory_element.z_left = z_value
+		button.accessory_element.z_down = z_value
+		button.accessory_element.z_top = -z_value
+		
+		match Global.current_dir:
+			"down":
+				button.accessory_element.z_index = button.accessory_element.z_down
+			"top":
+				button.accessory_element.z_index = button.accessory_element.z_top
+			"right":
+				button.accessory_element.z_index = button.accessory_element.z_right
+			"left":
+				button.accessory_element.z_index = button.accessory_element.z_left
+			
