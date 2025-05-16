@@ -1,4 +1,4 @@
-[gd_scene load_steps=205 format=3 uid="uid://bm1ycyeyegmyw"]
+[gd_scene load_steps=211 format=3 uid="uid://bm1ycyeyegmyw"]
 
 [ext_resource type="PackedScene" uid="uid://bmajra62ohwsu" path="res://Scenes/character.tscn" id="1_12d3f"]
 [ext_resource type="Script" path="res://Scripts/maker.gd" id="1_wror2"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d0dglj26dw502" path="res://Scenes/UI/CatalogList.tscn" id="4_kavcm"]
 [ext_resource type="Script" path="res://Scripts/UI/catalog.gd" id="4_mledv"]
 [ext_resource type="Script" path="res://Scripts/CatalogItemResource.gd" id="5_sbt4v"]
+[ext_resource type="Resource" uid="uid://wkv82w61ideb" path="res://Resources/CatalogItems/StaticElement/Mouth/zero_mouth.tres" id="6_55b3b"]
 [ext_resource type="Script" path="res://Scripts/UI/position_controller.gd" id="7_b13vq"]
 [ext_resource type="Resource" uid="uid://bpqshk2eovrs8" path="res://Resources/CatalogItems/DynamicPart/Head/Head.tres" id="7_p4rey"]
 [ext_resource type="PackedScene" uid="uid://lmog12ymre2p" path="res://Scenes/UI/position_controller_button.tscn" id="8_n6mgr"]
@@ -131,13 +132,18 @@
 [ext_resource type="Script" path="res://Scripts/UI/animation_player.gd" id="79_vn77l"]
 [ext_resource type="Texture2D" uid="uid://8q1syi3y64ga" path="res://Assets/UI/DirectionController/ButtonArrow/Property 1=right.png" id="80_cb0tp"]
 [ext_resource type="Texture2D" uid="uid://dqikfdcxdxdb8" path="res://Assets/UI/icons/Player/Property 1=run-focus.png" id="80_eygun"]
+[ext_resource type="Texture2D" uid="uid://bdk4vtlu4j2uh" path="res://Assets/UI/icons/TypeItem/Property 1=mouth.svg" id="80_lxyfh"]
+[ext_resource type="Resource" uid="uid://c7ltdobs0ek7m" path="res://Resources/CatalogItems/StaticElement/Mouth/Mouth1/Mouth1.tres" id="80_qth7a"]
 [ext_resource type="Texture2D" uid="uid://bv0rdxt6sq26k" path="res://Assets/UI/icons/Player/Property 1=stop-hover.png" id="81_0343d"]
 [ext_resource type="Texture2D" uid="uid://d0cvrfc4ouygp" path="res://Assets/UI/DirectionController/ButtonArrow/Property 1=Top.png" id="81_531xc"]
 [ext_resource type="Texture2D" uid="uid://ce046hk4h4ip0" path="res://Assets/UI/DirectionController/ButtonArrow/Property 1=down-hover.png" id="81_y2dag"]
 [ext_resource type="Texture2D" uid="uid://bq4ext6khlg8" path="res://Assets/UI/DirectionController/ButtonArrow/Property 1=top-pressed.png" id="81_yqx12"]
 [ext_resource type="Texture2D" uid="uid://dlvxj04amol74" path="res://Assets/UI/DirectionController/ButtonArrow/Property 1=left.png" id="82_1xntw"]
+[ext_resource type="Resource" uid="uid://ds7sfr1mbqlm2" path="res://Resources/CatalogItems/StaticElement/Mouth/Mouth2.tres" id="82_v15i7"]
+[ext_resource type="Resource" uid="uid://dgy3ny0vo07xb" path="res://Resources/CatalogItems/StaticElement/Mouth/Mouth3.tres" id="83_emhoo"]
 [ext_resource type="Texture2D" uid="uid://r8jgb6sntr8l" path="res://Assets/UI/DirectionController/ButtonArrow/Property 1=right-pressed.png" id="83_yn0n2"]
 [ext_resource type="Texture2D" uid="uid://ddbt7ip3obygi" path="res://Assets/UI/DirectionController/ButtonArrow/Property 1=right-hover.png" id="84_tvgma"]
+[ext_resource type="Resource" uid="uid://cnuvcsr5wl2ls" path="res://Resources/CatalogItems/StaticElement/Mouth/Mouth4.tres" id="84_xeq4o"]
 [ext_resource type="Texture2D" uid="uid://dgovp3of1h66b" path="res://Assets/UI/DirectionController/ButtonArrow/Property 1=top-hover.png" id="87_rs7uj"]
 [ext_resource type="Resource" uid="uid://i4lfchp27n6h" path="res://Resources/CatalogItems/Clothes/DynamicClothes/PantLeg/Standart/PantLeg4.tres" id="88_gcjhq"]
 [ext_resource type="Texture2D" uid="uid://c2ftqc7onbmcr" path="res://Assets/UI/DirectionController/ButtonArrow/Property 1=left-pressed.png" id="89_hupx8"]
@@ -450,7 +456,7 @@ size = Vector2i(64, 64)
 render_target_update_mode = 4
 
 [node name="Character" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_12d3f")]
-started_static_elements = Array[ExtResource("5_sbt4v")]([ExtResource("14_7nups"), ExtResource("17_nc5m7")])
+started_static_elements = Array[ExtResource("5_sbt4v")]([ExtResource("6_55b3b"), ExtResource("14_7nups"), ExtResource("17_nc5m7")])
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -808,6 +814,12 @@ catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_67v72"), Ex
 linked_symmetrical_element = NodePath("../LeftEye")
 icon = ExtResource("28_l66im")
 hint_resource = Array[ExtResource("47_dpvrd")]([ExtResource("53_dvweh"), ExtResource("64_a81rv")])
+
+[node name="Mouth" parent="UI/Catalog/CatalogContainer" groups=["StaticTab"] instance=ExtResource("4_kavcm")]
+visible = false
+layout_mode = 2
+catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("6_55b3b"), ExtResource("80_qth7a"), ExtResource("82_v15i7"), ExtResource("83_emhoo"), ExtResource("84_xeq4o")])
+icon = ExtResource("80_lxyfh")
 
 [node name="Accessories" parent="UI/Catalog/CatalogContainer" groups=["Accessorie"] instance=ExtResource("4_kavcm")]
 visible = false

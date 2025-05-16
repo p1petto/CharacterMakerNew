@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="CatalogItem" load_steps=5 format=3 uid="uid://wkv82w61ideb"]
+
+[ext_resource type="Script" path="res://Scripts/CatalogItemResource.gd" id="1_3mcyd"]
+[ext_resource type="Script" path="res://Scripts/StaticElements/resource_static_element.gd" id="2_lkkpw"]
+[ext_resource type="SpriteFrames" uid="uid://cwwn0bwiyypri" path="res://Resources/zero_animation.tres" id="3_tyq1n"]
+
+[sub_resource type="Resource" id="Resource_qn5g3"]
+script = ExtResource("2_lkkpw")
+sprite_frames = ExtResource("3_tyq1n")
+start_position = Vector2(0, 0)
+min_x = 0
+min_y = 0
+max_x = 0
+max_y = 0
+target_part = "Head"
+color = Color(0, 0, 0, 1)
+
+[resource]
+script = ExtResource("1_3mcyd")
+item_type = "Static"
+item_class = "Mouth"
+static_element = SubResource("Resource_qn5g3")

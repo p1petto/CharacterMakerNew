@@ -5,7 +5,7 @@ class_name CatalogItem
 @export_enum("Dynamic", "Conditionally_dynamic", "Static", "Accessories", "Dynamic_clothes", "Clothes", "Static_Clothing", "Hair", "HairStrand") 
 var item_type: String = "Static"
 
-@export_enum("Body", "Head", "LeftLeg", "RightLeg", "LeftArm", "RightArm", "LeftEye", "RightEye", "Accessories") 
+@export_enum("Body", "Head", "LeftLeg", "RightLeg", "LeftArm", "RightArm", "LeftEye", "RightEye", "Mouth", "Accessories") 
 var item_class: String = "Body"
 
 @export var icon: CompressedTexture2D
