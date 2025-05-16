@@ -1,4 +1,4 @@
-[gd_scene load_steps=193 format=3 uid="uid://bm1ycyeyegmyw"]
+[gd_scene load_steps=205 format=3 uid="uid://bm1ycyeyegmyw"]
 
 [ext_resource type="PackedScene" uid="uid://bmajra62ohwsu" path="res://Scenes/character.tscn" id="1_12d3f"]
 [ext_resource type="Script" path="res://Scripts/maker.gd" id="1_wror2"]
@@ -93,25 +93,37 @@
 [ext_resource type="Resource" uid="uid://3hoye84e3eti" path="res://Resources/CatalogItems/StaticElement/Eyes/Eye patch/eye patch right.tres" id="60_jrj17"]
 [ext_resource type="Texture2D" uid="uid://dyqrx2hx40ssi" path="res://Assets/UI/icons/TypeItem/Property 1=skirt.svg" id="61_1iorf"]
 [ext_resource type="Resource" uid="uid://cs76o7d682gfx" path="res://Resources/CatalogItems/StaticElement/Eyes/Eye2/RightEye/RightEye2.tres" id="61_ampql"]
+[ext_resource type="Resource" uid="uid://byesrtyhvcrpb" path="res://Resources/CatalogItems/StaticElement/Eyes/Eye3/LeftEye3.tres" id="62_kfes3"]
+[ext_resource type="Resource" uid="uid://ca04aygbb11am" path="res://Resources/CatalogItems/StaticElement/Eyes/Eye4/LeftEye4.tres" id="63_4tywv"]
 [ext_resource type="Resource" uid="uid://b577ncv7xd2fd" path="res://Resources/CatalogItems/Accessories/Veil.tres" id="63_skhtr"]
+[ext_resource type="Resource" uid="uid://byo1jyu55ln1i" path="res://Resources/CatalogItems/StaticElement/Eyes/Eye5/LeftEye5.tres" id="64_14t8p"]
 [ext_resource type="Resource" uid="uid://1p30sn6ohny8" path="res://Resources/Hint/move.tres" id="64_a81rv"]
 [ext_resource type="Resource" uid="uid://cjq1vbgxh7dok" path="res://Resources/CatalogItems/Accessories/Bow tie.tres" id="64_c0pyi"]
 [ext_resource type="Texture2D" uid="uid://dhwlvg0w2h8gn" path="res://Assets/UI/icons/TypeItem/Property 1=crown.svg" id="64_vt5qn"]
 [ext_resource type="Resource" uid="uid://dbf5kdyllw2i7" path="res://Resources/CatalogItems/Accessories/tie.tres" id="65_g8n4e"]
+[ext_resource type="Resource" uid="uid://dkbc707bo2u35" path="res://Resources/CatalogItems/StaticElement/Eyes/Eye6/LeftEye6.tres" id="65_y77ht"]
+[ext_resource type="Resource" uid="uid://bryo1qpkcvxea" path="res://Resources/CatalogItems/StaticElement/Eyes/Eye7/LeftEye7.tres" id="66_76yyu"]
+[ext_resource type="Resource" uid="uid://c7q8tmvyrswpm" path="res://Resources/CatalogItems/StaticElement/Eyes/Eye3/RightEye3.tres" id="67_06ssl"]
 [ext_resource type="Resource" uid="uid://b1wpebwbbsda6" path="res://Resources/CatalogItems/Clothes/Clothes/T-shirt/T-shirt2.tres" id="67_gqmdf"]
 [ext_resource type="Texture2D" uid="uid://bcxfpo2t8a3s3" path="res://Assets/UI/icons/TypeItem/Property 1=fringe.svg" id="67_su26c"]
+[ext_resource type="Resource" uid="uid://nga4rae6mfdu" path="res://Resources/CatalogItems/StaticElement/Eyes/Eye8/LeftEye8.tres" id="67_yrxxj"]
 [ext_resource type="Resource" uid="uid://cokwipmjjqsfy" path="res://Resources/CatalogItems/Clothes/Clothes/T-shirt/T-shirt3.tres" id="68_34oaq"]
+[ext_resource type="Resource" uid="uid://bgrtfdh5g0tc6" path="res://Resources/CatalogItems/StaticElement/Eyes/Eye4/RightEye4.tres" id="69_kd653"]
 [ext_resource type="Texture2D" uid="uid://feqoxnwjqn7x" path="res://Assets/UI/icons/TypeItem/Property 1=curl.svg" id="69_mqqma"]
 [ext_resource type="Texture2D" uid="uid://dtl7tagpmgun8" path="res://Assets/UI/icons/TypeItem/Property 1=colorsettings.svg" id="70_k5ptb"]
+[ext_resource type="Resource" uid="uid://v8hys8kle70q" path="res://Resources/CatalogItems/StaticElement/Eyes/Eye5/RightEye5.tres" id="71_gsuft"]
 [ext_resource type="Script" path="res://Scripts/UI/catallog_type_container.gd" id="74_1fayn"]
+[ext_resource type="Resource" uid="uid://erhkseoqfd4t" path="res://Resources/CatalogItems/StaticElement/Eyes/Eye6/RightEye6.tres" id="74_7cdqx"]
 [ext_resource type="Resource" uid="uid://dlxklig78rumc" path="res://Resources/Hint/accessory.tres" id="74_b286t"]
 [ext_resource type="Texture2D" uid="uid://bfre6lh2tsdrs" path="res://Assets/UI/icons/Player/Property 1=Run.png" id="75_5btbj"]
+[ext_resource type="Resource" uid="uid://rs1bswmc666f" path="res://Resources/CatalogItems/StaticElement/Eyes/Eye7/RightEye7.tres" id="75_bb1ug"]
 [ext_resource type="Resource" uid="uid://cbgcih5tfy8f2" path="res://Resources/Hint/select_accessory.tres" id="75_dmxay"]
 [ext_resource type="Texture2D" uid="uid://ct2af2ndf5x8u" path="res://Assets/UI/icons/Player/Property 1=Stop.png" id="76_1wrpb"]
 [ext_resource type="Texture2D" uid="uid://befvapkxnot0a" path="res://Assets/UI/icons/Player/Property 1=stop-focus.png" id="76_q83pj"]
 [ext_resource type="Resource" uid="uid://buacfa802h7av" path="res://Resources/Hint/DragAndDrop.tres" id="76_sm10q"]
 [ext_resource type="Texture2D" uid="uid://ckll4tks6n6lr" path="res://Assets/UI/DirectionController/DirectionController.png" id="77_675mi"]
 [ext_resource type="Resource" uid="uid://casu6mudhq58a" path="res://Resources/Hint/AccessoryTop.tres" id="77_e5pbw"]
+[ext_resource type="Resource" uid="uid://74kklpobf6yv" path="res://Resources/CatalogItems/StaticElement/Eyes/Eye8/RightEye8.tres" id="77_ju14i"]
 [ext_resource type="Texture2D" uid="uid://baxb63kv3jl05" path="res://Assets/UI/icons/Player/Property 1=run-hover.png" id="77_s4e4m"]
 [ext_resource type="Resource" uid="uid://cuudb6ik1snny" path="res://Resources/Hint/flip.tres" id="78_kg2ye"]
 [ext_resource type="Texture2D" uid="uid://buj4ra6xew71s" path="res://Assets/UI/DirectionController/ButtonArrow/Property 1=down.png" id="79_7gtsf"]
@@ -784,7 +796,7 @@ hint_resource = Array[ExtResource("47_dpvrd")]([ExtResource("48_35wf8"), ExtReso
 [node name="LeftEye" parent="UI/Catalog/CatalogContainer" node_paths=PackedStringArray("linked_symmetrical_element") groups=["StaticTab"] instance=ExtResource("4_kavcm")]
 visible = false
 layout_mode = 2
-catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_8gcpa"), ExtResource("14_7nups"), ExtResource("58_7q4ra"), ExtResource("58_4m3cw")])
+catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_8gcpa"), ExtResource("14_7nups"), ExtResource("58_7q4ra"), ExtResource("62_kfes3"), ExtResource("63_4tywv"), ExtResource("64_14t8p"), ExtResource("65_y77ht"), ExtResource("66_76yyu"), ExtResource("67_yrxxj"), ExtResource("58_4m3cw")])
 linked_symmetrical_element = NodePath("../RightEye")
 icon = ExtResource("27_dcuin")
 hint_resource = Array[ExtResource("47_dpvrd")]([ExtResource("53_dvweh"), ExtResource("64_a81rv")])
@@ -792,7 +804,7 @@ hint_resource = Array[ExtResource("47_dpvrd")]([ExtResource("53_dvweh"), ExtReso
 [node name="RightEye" parent="UI/Catalog/CatalogContainer" node_paths=PackedStringArray("linked_symmetrical_element") groups=["StaticTab"] instance=ExtResource("4_kavcm")]
 visible = false
 layout_mode = 2
-catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_67v72"), ExtResource("17_nc5m7"), ExtResource("61_ampql"), ExtResource("60_jrj17")])
+catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_67v72"), ExtResource("17_nc5m7"), ExtResource("61_ampql"), ExtResource("67_06ssl"), ExtResource("69_kd653"), ExtResource("71_gsuft"), ExtResource("74_7cdqx"), ExtResource("75_bb1ug"), ExtResource("77_ju14i"), ExtResource("60_jrj17")])
 linked_symmetrical_element = NodePath("../LeftEye")
 icon = ExtResource("28_l66im")
 hint_resource = Array[ExtResource("47_dpvrd")]([ExtResource("53_dvweh"), ExtResource("64_a81rv")])

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Static" load_steps=3 format=3 uid="uid://ktxdlomouflu"]
+
+[ext_resource type="Script" path="res://Scripts/StaticElements/resource_static_element.gd" id="1_xl13g"]
+[ext_resource type="SpriteFrames" uid="uid://da8yx7wku0naw" path="res://Resources/StaticElements/Eye/Eye3/R3/eye3-r-sprites.tres" id="2_5xubv"]
+
+[resource]
+script = ExtResource("1_xl13g")
+sprite_frames = ExtResource("2_5xubv")
+start_position = Vector2(8, 19)
+min_x = 7
+min_y = 17
+max_x = 10
+max_y = 21
+target_part = "Head"
+color = Color(0, 0, 0, 1)

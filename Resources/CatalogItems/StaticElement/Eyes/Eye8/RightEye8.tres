@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CatalogItem" load_steps=4 format=3 uid="uid://74kklpobf6yv"]
+
+[ext_resource type="Script" path="res://Scripts/CatalogItemResource.gd" id="1_vepn8"]
+[ext_resource type="Texture2D" uid="uid://bgynwhtsk8uw" path="res://Assets/UI/icons/Catallog item/eye8-r.png" id="1_vyjtj"]
+[ext_resource type="Resource" uid="uid://cpbppn15h7ktg" path="res://Resources/StaticElements/Eye/Eye8/R8/EyeRight8.tres" id="2_vt0ek"]
+
+[resource]
+script = ExtResource("1_vepn8")
+item_type = "Static"
+item_class = "RightEye"
+icon = ExtResource("1_vyjtj")
+static_element = ExtResource("2_vt0ek")
