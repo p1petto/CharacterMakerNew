@@ -37,7 +37,6 @@ func _on_toggled(toggled_on: bool) -> void:
 			print(target_global_pos)
 			print(color_picker.global_position)
 			
-		#color_picker.global_position = Vector2(800,40)
 		color_picker.visible = true
 		slider_container.visible = false
 		position_container.visible = false

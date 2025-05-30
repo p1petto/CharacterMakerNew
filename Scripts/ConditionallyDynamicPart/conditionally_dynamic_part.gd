@@ -23,7 +23,6 @@ class_name ConditionallyDynamicCharacterPart
 @export var idle_ainmation_offset_horizontal: Array[Vector2]
 @export var walk_animation_offset_horizontal: Array[Vector2]
 
-#@export var resource_dynamic_clothes: DynamicClothes
 
 @onready var slider_containers = $"../../../../UI/SliderContainer"
 @onready var dynamic_clothes = $AnimatedSprite2D/DynamicClothes
@@ -52,7 +51,6 @@ func _ready() -> void:
 		animated_sprite.animation = cur_animation
 		border.animation = cur_animation
 	else:
-		# Установка анимации по умолчанию
 		update_animation()
 	start_position = position
 	call_deferred("_connect_color_changed_signal")
@@ -76,25 +74,20 @@ func _connect_color():
 	set_start_color()
 	
 func set_start_color() -> void:
-	# Устанавливаем стартовый цвет белым
 	cur_color = start_color
 	_on_color_changed(cur_color)
 	_on_border_color_changed(initial_line_color)
 
 func _on_color_changed(new_color: Color) -> void:
 	
-	# Сохраняем cur_color как новый цвет без изменений
 	cur_color = new_color
 
 	material.set_shader_parameter("cur_color", cur_color)
 	material.set_shader_parameter("blend_factor", 0.9)
 
-	# Применяем цвет, с учётом разницы с белым для `animated_sprite`
 	if animated_sprite:
 		animated_sprite.self_modulate = cur_color
-		#border.self_modulate = cur_color
 
-	# Если есть симметричный элемент, обновляем его отдельно
 	if linked_symmetrical_element and is_symmetrical:
 		linked_symmetrical_element._apply_color_without_propagation(new_color)
 		linked_symmetrical_element.color_picker_button.set_new_bg_color(new_color)
@@ -106,23 +99,19 @@ func _on_border_color_changed(new_color: Color) -> void:
 		linked_symmetrical_element.border.self_modulate = new_color
 		linked_symmetrical_element.color_picker_button_border.set_new_bg_color(new_color)
 
-# Функция для обновления цвета у симметричного элемента без рекурсии
 func _apply_color_without_propagation(new_color: Color) -> void:
 	if not material:
 		var shader_material = ShaderMaterial.new()
-		var shader = load("res://path_to_your_shader.gdshader")  # Укажите правильный путь
+		var shader = load("res://path_to_your_shader.gdshader")  
 		shader_material.shader = shader
 		material = shader_material
 
-	# Применяем цвет с разницей с белым
 	material.set_shader_parameter("cur_color", new_color)
 	material.set_shader_parameter("blend_factor", 0.9)
 
-	# Обновляем цвет `animated_sprite` с разницей с белым
 	if animated_sprite:
 		animated_sprite.self_modulate = new_color
-		#border.self_modulate = new_color
-
+		
 
 func change_direction(direction: String) -> void:
 	if direction not in ["top", "down", "left", "right"]:
@@ -159,45 +148,28 @@ func change_thickness(new_thickness) -> void:
 	update_animation()
 
 func update_animation() -> void:
-	# Собираем имя анимации из компонентов через underscore
 	animated_sprite.sprite_frames = conditionally_dynamic.sprite_frames
 	var animation_name = "_".join([current_state, current_direction, current_thickness])
 	
-	# Проверяем, существует ли такая анимация
 	if animated_sprite.sprite_frames.has_animation(animation_name):
 		animated_sprite.animation = animation_name
 		border.animation = animation_name
 	else:
 		print("Animation not found: ", animation_name)
 	
-
-func _process(delta: float) -> void:
-	pass
 	
 func update_frame(frame_index):
 	animated_sprite.frame = frame_index
 	border.frame = frame_index
-	
-#func initialize_dynamic_clothes(clothes):
-	#if clothes.is_flooded_inside:
-		#dynamic_clothes.resource_dynamic_clothes = clothes
-		#dynamic_clothes.change_direction()
-		#dynamic_clothes.set_start_color()
-	#else:
-		#tip_wear.resource_dynamic_clothes = clothes
-		#tip_wear.change_direction()
-		#tip_wear.set_start_color()
+
 
 
 func initialize_dynamic_clothes(clothes):
-	# Создаем новый материал для каждого объекта одежды
 	var shader = load("res://Scripts/Shaders/CD_color_rect_clothes.gdshader")  # Замените на фактический путь к вашему шейдеру
 	
 	if clothes.is_flooded_inside:
-		# Инициализация для DynamicClothes
 		dynamic_clothes.resource_dynamic_clothes = clothes
 		
-		# Создаем новый материал с собственными параметрами
 		var dynamic_material = ShaderMaterial.new()
 		dynamic_material.shader = shader
 		dynamic_material.set_shader_parameter("is_flooded_inside", true)
@@ -205,17 +177,13 @@ func initialize_dynamic_clothes(clothes):
 		dynamic_material.set_shader_parameter("border_width", 0.0)
 		dynamic_material.set_shader_parameter("border_color", Color(0, 0, 0, 1))
 		
-		# Применяем материал
 		dynamic_clothes.material = dynamic_material
 		
-		# Обновляем состояние
 		dynamic_clothes.change_direction()
 		dynamic_clothes.set_start_color()
 	else:
-		# Инициализация для TipWear
 		tip_wear.resource_dynamic_clothes = clothes
 		
-		# Создаем новый материал с собственными параметрами
 		var tip_material = ShaderMaterial.new()
 		tip_material.shader = shader
 		tip_material.set_shader_parameter("is_flooded_inside", false)
@@ -223,10 +191,8 @@ func initialize_dynamic_clothes(clothes):
 		tip_material.set_shader_parameter("border_width", 0.0)
 		tip_material.set_shader_parameter("border_color", Color(0, 0, 0, 1))
 		
-		# Применяем материал
 		tip_wear.material = tip_material
 		
-		# Обновляем состояние
 		tip_wear.change_direction()
 		tip_wear.set_start_color()	
 	

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CatalogItem" load_steps=4 format=3 uid="uid://c7bw8ntumfwq"]
+
+[ext_resource type="Resource" uid="uid://iexluqxh75cr" path="res://Resources/Clothes/Footwear/Footwear2/FootwearRight2.tres" id="1_gm8d8"]
+[ext_resource type="Script" path="res://Scripts/CatalogItemResource.gd" id="1_qpqkc"]
+[ext_resource type="Texture2D" uid="uid://bqj3eotf6qm40" path="res://Assets/UI/icons/Catallog item/shoes-right-2.png" id="2_1tjcf"]
+
+[resource]
+script = ExtResource("1_qpqkc")
+item_type = "Dynamic_clothes"
+item_class = "RightLeg"
+icon = ExtResource("2_1tjcf")
+dynamic_clothes = ExtResource("1_gm8d8")

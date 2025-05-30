@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="Accessorie" load_steps=4 format=3 uid="uid://dk84uxgtblc56"]
+
+[ext_resource type="Script" path="res://Scripts/Accessories/resource_accessorie.gd" id="1_1ne00"]
+[ext_resource type="Texture2D" uid="uid://c3xjl8axhhg2o" path="res://Assets/UI/icons/Catallog item/glass-2.png" id="3_fpid5"]
+[ext_resource type="SpriteFrames" uid="uid://btup658uqyrmm" path="res://Resources/Accessories/Glass2/glass2_sprite_frames.tres" id="3_qj8cw"]
+
+[resource]
+script = ExtResource("1_1ne00")
+sprite_frames = ExtResource("3_qj8cw")
+texture_icon = ExtResource("3_fpid5")
+start_down_position = Vector2(7, 9)
+start_top_position = Vector2(7, 9)
+start_right_position = Vector2(9, 8)
+start_left_position = Vector2(5, 8)
+min_x_vertical = 7.0
+max_x_vertical = 7.0
+min_y_vertical = 1.0
+max_y_vertical = 16.0
+min_x_left = 5.0
+max_x_left = 5.0
+min_y_left = 1.0
+max_y_left = 16.0
+min_x_right = 9.0
+max_x_right = 9.0
+min_y_right = 1.0
+max_y_right = 16.0
+can_top = false
+can_flip_on_horizontal = false
+color = Color(0.253954, 0.135366, 0.0510168, 1)
+line_color = Color(0.105882, 0.105882, 0.105882, 1)
+has_line = false

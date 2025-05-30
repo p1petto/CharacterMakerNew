@@ -58,9 +58,6 @@ func _ready() -> void:
 	hair_instance.hair_resource = preload("res://Resources/Hair/Fringe/0/Fringe.tres")
 	head.add_child(hair_instance)
 
-func _process(delta: float) -> void:
-	pass
-
 func on_direction_changed():
 	change_dir_for_parts()
 	

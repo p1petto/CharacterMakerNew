@@ -23,8 +23,6 @@ func _ready() -> void:
 	size.y = 64 * Global.scaling
 	position.y = character_texture.position.y 
 
-func _process(delta: float) -> void:
-	pass
 
 func _on_tab_changed() -> void:
 	visible = true
@@ -76,86 +74,16 @@ func _on_value_slider_changed(val, m, character_part_name, axis):
 func update_sliders(character_part_name):
 	var character_part = character.find_child(character_part_name, true, false)
 
-	# Удаление старых контейнеров
 	for child in get_children():
 		if child.name.begins_with(character_part_name):
 			child.queue_free()
 
-	await get_tree().process_frame  # Ждём 1 кадр, чтобы узлы полностью удалились
+	await get_tree().process_frame  
 
 	_create_sliders_for_part(character_part)
 
 	update_containers_visibility("down")
 
-#func _create_sliders_for_part(part):
-	#var slider_window = load("res://Scenes/slider_window.tscn").instantiate()
-			##catalog_item.add_child(new_check_button)
-	#if part.is_in_group("Dynamic"):
-		#
-		#var part_container_vertical = VBoxContainer.new()
-		#var part_container_horizontal = VBoxContainer.new()
-#
-		#part_container_vertical.name = part.name + "_vertical"
-		#part_container_horizontal.name = part.name + "_horizontal"
-#
-		#if part.dynamic_part.vertical_markers:
-			#var polygon_2d = part.get_node("Polygon2D")
-			#var first_marker = part.dynamic_part.vertical_markers[0]
-			#part_container_vertical.position.y = polygon_2d.polygon[first_marker].y * Global.scaling + part.position.y * Global.scaling
-#
-			#add_child(part_container_vertical)
-#
-			#for marker in part.dynamic_part.vertical_markers:
-				#var slider = slider_scene.instantiate()
-				#slider.character_part = part.name
-				#slider.linked_marker = marker
-				#slider.axis = "vertical"
-				#part_container_vertical.add_child(slider)
-				#slider.slider_value_changed.connect(_on_value_slider_changed)
-#
-		#if part.dynamic_part.horizontal_markers:
-			#var polygon_2d = part.get_node("Polygon2D")
-			#var first_marker = part.dynamic_part.horizontal_markers[0]
-			#part_container_horizontal.position.y = polygon_2d.polygon[first_marker].y * Global.scaling + part.position.y * Global.scaling
-			#part_container_horizontal.visible = false
-			#add_child(part_container_horizontal)
-#
-			#for marker in part.dynamic_part.horizontal_markers:
-				#var slider = slider_scene.instantiate()
-				#slider.character_part = part.name
-				#slider.linked_marker = marker
-				#slider.axis = "horizontal"
-				#part_container_horizontal.add_child(slider)
-				#slider.slider_value_changed.connect(_on_value_slider_changed)
-#
-	#if part.is_in_group("ConditionallyDynamic"):
-		#var part_container = VBoxContainer.new()
-		#part_container.name = part.name
-		#part_container.position.y = part.marker_y_pos * Global.scaling
-#
-		#add_child(part_container)
-		#var slider = slider_scene.instantiate()
-		#slider.character_part = part.name
-		#slider.min_value = 1
-		#slider.value = 1
-		#part_container.add_child(slider)
-		#slider.slider_value_changed.connect(_on_value_slider_changed)
-		#
-	#if part.is_in_group("Hair"):
-		#var part_container = VBoxContainer.new()
-		#part_container.name = part.name
-		#part_container.position.y = character.head.position.y * Global.scaling
-		#
-#
-		#add_child(part_container)
-		#if part.hair_resource.quantity > 1:
-			#var slider = slider_scene.instantiate()
-			#slider.character_part = part.name
-			#slider.min_value = 1
-			#slider.max_value = part.hair_resource.quantity
-			#slider.value = 1
-			#part_container.add_child(slider)
-			#slider.slider_value_changed.connect(_on_value_slider_changed)
 			
 func _create_sliders_for_part(part):
 	

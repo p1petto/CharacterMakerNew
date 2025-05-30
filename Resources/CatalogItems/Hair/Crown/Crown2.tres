@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CatalogItem" load_steps=4 format=3 uid="uid://cae8uquycucov"]
+
+[ext_resource type="Script" path="res://Scripts/CatalogItemResource.gd" id="1_4ix8n"]
+[ext_resource type="Resource" uid="uid://cp2tnusn2uok3" path="res://Resources/Hair/Crown/2/Crown.tres" id="1_sik4n"]
+[ext_resource type="Texture2D" uid="uid://dk1rw34h18ied" path="res://Assets/UI/icons/Catallog item/crown2.png" id="2_8xl27"]
+
+[resource]
+script = ExtResource("1_4ix8n")
+item_type = "Hair"
+item_class = "Head"
+icon = ExtResource("2_8xl27")
+hair = ExtResource("1_sik4n")

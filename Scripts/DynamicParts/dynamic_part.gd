@@ -18,7 +18,6 @@ class_name DynamicBodyPart
 
 @onready var slider_containers = $"../../../../UI/SliderContainer"
 @onready var character = $".."
-#@onready var clothes = $Polygon2D/Clothes
 
 var flag = true
 

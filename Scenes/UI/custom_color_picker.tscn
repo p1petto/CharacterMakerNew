@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dr8lvardujth0"]
 
-[ext_resource type="Script" path="res://Scenes/UI/custom_color_picker.gd" id="1_hiqtd"]
+[ext_resource type="Script" path="res://Scripts/UI/custom_color_picker.gd" id="1_hiqtd"]
 [ext_resource type="Theme" uid="uid://4squd3f1aq8p" path="res://Assets/Theme/ColorTheme.tres" id="1_ybjb2"]
 [ext_resource type="Texture2D" uid="uid://duf081v6tdb1u" path="res://Assets/UI/CustomColorPicker/ColorPickerRect.png" id="2_ao1h3"]
 [ext_resource type="Texture2D" uid="uid://2mdyo7j1cjht" path="res://Assets/UI/CustomColorPicker/PickerButton/Property 1=Normal.png" id="4_w4q68"]

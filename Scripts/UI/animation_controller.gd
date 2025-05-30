@@ -2,11 +2,11 @@ extends Node2D
 @onready var character = $"../SubViewportContainer/SubViewport/Character"
 @onready var button_container = $"../UI/DirectionButtons"
 @onready var animation_button = $"../UI/DirectionButtons/AnimationButton"
-@onready var animation_player_button = $"../UI/Catalog/MarginContainer/HBoxContainer/AnimationPlayer"
+@onready var animation_player_button = $"../UI/AnimationPlayer"
 
-var animation_frame = 0  # To keep track of the current animation frame
-@export var animation_speed: float = 1.0  # Controls how fast the animation plays
-var animation_timer: float = 0.0  # Accumulates time between frame changes
+var animation_frame = 0  
+@export var animation_speed: float = 1.0  
+var animation_timer: float = 0.0  
 
 func _ready():
 	for button in button_container.get_children():
@@ -43,7 +43,7 @@ func get_offset_name():
 	elif Global.current_animation == "walk":
 		property_name = "walk_animation_offset"
 	else:
-		property_name = "idle_ainmation_offset"  # По умолчанию
+		property_name = "idle_ainmation_offset"  
 	if Global.current_dir == "down" or Global.current_dir == "top":
 		property_name = property_name + "_vertical"
 	else:
@@ -55,11 +55,11 @@ func animate_children() -> void:
 
 	for child in character.get_children():
 		var property_name = get_offset_name()
-		# Проверяем, есть ли у дочернего элемента нужное свойство
+	
 		if child.get(property_name) != null:
 			var offset_array = child.get(property_name)
 			if offset_array is Array and offset_array.size() > 0:
-				# Применяем смещение на основе текущего кадра анимации
+			
 				var frame_index = animation_frame % offset_array.size()
 				var offset = offset_array[frame_index]
 				
@@ -90,19 +90,19 @@ func animate_children() -> void:
 			if anchor_node.get(property_name) != null:
 				var offset_array = anchor_node.get(property_name)
 				if offset_array is Array and offset_array.size() > 0:
-					# Получаем индекс текущего кадра
+			
 					var frame_index = animation_frame % offset_array.size()
 					var offset = offset_array[frame_index]
 					
-					# Применяем смещение к положению элемента одежды
+		
 					child.position = child.resource_clothing.pos + offset
 					
-					# Если у элемента одежды есть метод update_frame, вызываем его
+		
 					if child.has_method("update_frame"):
 						child.update_frame(frame_index)
 				
 	
-	# Увеличиваем счетчик кадров ровно на единицу
+
 	animation_frame += 1
 	
 

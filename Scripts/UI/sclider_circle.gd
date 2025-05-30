@@ -4,7 +4,6 @@ extends TextureButton
 var index: int = 0
 
 func _ready() -> void:
-	# Устанавливаем начальную текстуру при создании
 	texture_normal = normal_texture
 	
 func set_index(idx: int) -> void:

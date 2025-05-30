@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="HairResource" load_steps=3 format=3 uid="uid://cp2tnusn2uok3"]
+
+[ext_resource type="Script" path="res://Scripts/Hair/resource_hair.gd" id="1_vfo1v"]
+[ext_resource type="SpriteFrames" uid="uid://c4fay7c85dybv" path="res://Resources/Hair/Crown/2/crown2_sprite_frames.tres" id="2_g5i83"]
+
+[resource]
+script = ExtResource("1_vfo1v")
+sprite_frames = ExtResource("2_g5i83")
+pos_down = Vector2(6, 0)
+pos_right = Vector2(14, 3)
+pos_top = Vector2(7, 3)
+pos_left = Vector2(0, 3)
+z_down = 0
+z_right = 0
+z_top = 0
+z_left = 0
+initial_color = Color(0.858824, 0.533333, 0.282353, 1)
+initial_color_line = Color(1, 1, 1, 1)
+hair_type = "Crown"
+quantity = 2
+has_line = false

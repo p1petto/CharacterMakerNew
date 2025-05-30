@@ -206,7 +206,7 @@ func swap_element(button):
 		
 		button_container.move_child(button, target_position)
 		
-		# Вызываем обновление позиций и z-индексов
+	
 		call_deferred("_update_swapped_positions")
 		call_deferred("_update_z_indices_after_reorder")
 	else:

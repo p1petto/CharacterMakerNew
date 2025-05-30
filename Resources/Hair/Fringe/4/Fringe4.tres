@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="HairResource" load_steps=4 format=3 uid="uid://dfdv0kdxoa5vy"]
+
+[ext_resource type="Script" path="res://Scripts/Hair/resource_hair.gd" id="1_saxhb"]
+[ext_resource type="SpriteFrames" uid="uid://di3pqxpx20pi6" path="res://Resources/Hair/Fringe/4/sprite_frames_fringe_4.tres" id="2_wt4qw"]
+[ext_resource type="SpriteFrames" uid="uid://bfsinckcfg2x0" path="res://Resources/Hair/Fringe/4/sprite_frames_line_fringe_4.tres" id="3_sdc36"]
+
+[resource]
+script = ExtResource("1_saxhb")
+sprite_frames = ExtResource("2_wt4qw")
+sprite_frames_line = ExtResource("3_sdc36")
+pos_down = Vector2(6, 2)
+pos_right = Vector2(10, 2)
+pos_top = Vector2(7, 2)
+pos_left = Vector2(4, 2)
+z_down = 1500
+z_right = 1500
+z_top = -1500
+z_left = 1500
+initial_color = Color(0.858824, 0.533333, 0.282353, 1)
+initial_color_line = Color(0.105882, 0.105882, 0.105882, 1)
+hair_type = "Fringe"
+quantity = 1
+has_line = true

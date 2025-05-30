@@ -1,4 +1,4 @@
-[gd_scene load_steps=211 format=3 uid="uid://bm1ycyeyegmyw"]
+[gd_scene load_steps=218 format=3 uid="uid://bm1ycyeyegmyw"]
 
 [ext_resource type="PackedScene" uid="uid://bmajra62ohwsu" path="res://Scenes/character.tscn" id="1_12d3f"]
 [ext_resource type="Script" path="res://Scripts/maker.gd" id="1_wror2"]
@@ -49,7 +49,7 @@
 [ext_resource type="Resource" uid="uid://by4v0ev6unm2l" path="res://Resources/CatalogItems/Clothes/DynamicClothes/Sleeve/standart/left-Sleeve2.tres" id="25_eci8u"]
 [ext_resource type="Texture2D" uid="uid://cwr2w2tgexy8r" path="res://Assets/UI/icons/TypeItem/Property 1=legR.svg" id="25_fiu40"]
 [ext_resource type="Resource" uid="uid://s7km1bae4h0c" path="res://Resources/CatalogItems/Clothes/DynamicClothes/Sleeve/standart/Sleeve2.tres" id="25_ot8fs"]
-[ext_resource type="Script" path="res://Scenes/color_picker_button_container.gd" id="26_hr221"]
+[ext_resource type="Script" path="res://Scripts/UI/color_picker_button_container.gd" id="26_hr221"]
 [ext_resource type="Script" path="res://Scripts/UI/export.gd" id="26_qf8ja"]
 [ext_resource type="Resource" uid="uid://cqf20f5yj65w8" path="res://Resources/CatalogItems/Clothes/DynamicClothes/Sleeve/standart/left-Sleeve3.tres" id="26_yl5iv"]
 [ext_resource type="Texture2D" uid="uid://nnjy8vdmdn3h" path="res://Assets/UI/icons/TypeItem/Property 1=eyeL.svg" id="27_dcuin"]
@@ -149,6 +149,7 @@
 [ext_resource type="Texture2D" uid="uid://c2ftqc7onbmcr" path="res://Assets/UI/DirectionController/ButtonArrow/Property 1=left-pressed.png" id="89_hupx8"]
 [ext_resource type="Texture2D" uid="uid://co650d7udwcqk" path="res://Assets/UI/DirectionController/ButtonArrow/Property 1=left-hover.png" id="90_4a3w4"]
 [ext_resource type="Resource" uid="uid://f8pu6yxqvyy7" path="res://Resources/CatalogItems/Clothes/DynamicClothes/PantLeg/Standart/PantLeg5.tres" id="90_avqei"]
+[ext_resource type="Resource" uid="uid://b0vt1i6f8rfx2" path="res://Resources/CatalogItems/Accessories/Glass2.tres" id="91_6bxyh"]
 [ext_resource type="Texture2D" uid="uid://c7guo8ne644re" path="res://Assets/UI/DirectionController/Circle/Normal=Normal2.png" id="91_u6ym5"]
 [ext_resource type="Script" path="res://Scripts/Clothes/resource_static_clothing.gd" id="92_8adqw"]
 [ext_resource type="Texture2D" uid="uid://dchqm8ybcecaj" path="res://Assets/UI/DirectionController/Circle/Normal=Pressed.png" id="92_tobrt"]
@@ -173,8 +174,14 @@
 [ext_resource type="Texture2D" uid="uid://d077lu50wd15s" path="res://Assets/UI/ColorSchemeController/ButtonAccept/Property 1=disabled.png" id="108_tx4h7"]
 [ext_resource type="FontFile" uid="uid://bfvbdnf2f7ejy" path="res://Assets/Fonts/Fira_Sans_Condensed/FiraSansCondensed-Medium.ttf" id="109_6a2ri"]
 [ext_resource type="PackedScene" uid="uid://dr8lvardujth0" path="res://Scenes/UI/custom_color_picker.tscn" id="114_wcakn"]
+[ext_resource type="Resource" uid="uid://c73n0nfruxdk4" path="res://Resources/CatalogItems/Clothes/DynamicClothes/Footwear/FootwearLeft2.tres" id="133_6l1dc"]
+[ext_resource type="Resource" uid="uid://cr1y5236mba3n" path="res://Resources/CatalogItems/Clothes/DynamicClothes/Footwear/FootwearLeft3.tres" id="134_c0xpn"]
+[ext_resource type="Resource" uid="uid://c7bw8ntumfwq" path="res://Resources/CatalogItems/Clothes/DynamicClothes/Footwear/FootwearRight2.tres" id="136_56y5t"]
+[ext_resource type="Resource" uid="uid://caksrhi5gqp45" path="res://Resources/CatalogItems/Clothes/DynamicClothes/Footwear/FootwearRight3.tres" id="138_ks13t"]
+[ext_resource type="Resource" uid="uid://cae8uquycucov" path="res://Resources/CatalogItems/Hair/Crown/Crown2.tres" id="142_1tftk"]
 [ext_resource type="Script" path="res://Scripts/UI/hint.gd" id="146_laogb"]
 [ext_resource type="FontFile" uid="uid://ds8he2lssby1w" path="res://Assets/Fonts/Fira_Sans_Condensed/FiraSansCondensed-Regular.ttf" id="147_j474y"]
+[ext_resource type="Resource" uid="uid://cirqwyt4jr5gy" path="res://Resources/CatalogItems/Hair/Fringe/4/Fringe4.tres" id="149_en8ld"]
 [ext_resource type="Texture2D" uid="uid://blw2mn2jy03jq" path="res://Assets/UI/icons/FormNext.svg" id="151_pwp3e"]
 [ext_resource type="Texture2D" uid="uid://da3m1lfprj0k" path="res://Assets/UI/icons/FormNext-hover.svg" id="152_045m4"]
 [ext_resource type="Texture2D" uid="uid://cfenwhpinatcg" path="res://Assets/UI/icons/hint.svg" id="159_xcaq7"]
@@ -485,9 +492,9 @@ panel_type = "Hair"
 
 [node name="CharacterShow" type="TextureRect" parent="UI"]
 anchors_preset = -1
-anchor_left = 0.364
+anchor_left = 0.5
 anchor_top = 0.2
-anchor_right = 0.364
+anchor_right = 0.5
 anchor_bottom = 0.2
 offset_left = -32.0
 offset_top = -32.0
@@ -496,9 +503,20 @@ offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(6, 6)
+pivot_offset = Vector2(32, 0)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = SubResource("ViewportTexture_1urqw")
+
+[node name="TextureRect" type="ColorRect" parent="UI/CharacterShow"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.12549, 1, 0.454902)
 
 [node name="SliderContainer" type="Container" parent="UI"]
 custom_minimum_size = Vector2(154, 0)
@@ -818,13 +836,14 @@ hint_resource = Array[ExtResource("47_dpvrd")]([ExtResource("53_dvweh"), ExtReso
 [node name="Mouth" parent="UI/Catalog/CatalogContainer" groups=["StaticTab"] instance=ExtResource("4_kavcm")]
 visible = false
 layout_mode = 2
-catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("6_55b3b"), ExtResource("80_qth7a"), ExtResource("82_v15i7"), ExtResource("83_emhoo"), ExtResource("84_xeq4o")])
+catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("6_55b3b"), ExtResource("80_qth7a"), ExtResource("82_v15i7"), ExtResource("84_xeq4o"), ExtResource("83_emhoo")])
 icon = ExtResource("80_lxyfh")
+hint_resource = Array[ExtResource("47_dpvrd")]([ExtResource("64_a81rv")])
 
 [node name="Accessories" parent="UI/Catalog/CatalogContainer" groups=["Accessorie"] instance=ExtResource("4_kavcm")]
 visible = false
 layout_mode = 2
-catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("20_emeal"), ExtResource("21_adrnn"), ExtResource("63_skhtr"), ExtResource("64_c0pyi"), ExtResource("65_g8n4e")])
+catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("20_emeal"), ExtResource("63_skhtr"), ExtResource("64_c0pyi"), ExtResource("65_g8n4e"), ExtResource("21_adrnn"), ExtResource("91_6bxyh")])
 icon = ExtResource("31_ba22c")
 hint_resource = Array[ExtResource("47_dpvrd")]([ExtResource("74_b286t"), ExtResource("75_dmxay"), ExtResource("76_sm10q"), ExtResource("77_e5pbw"), ExtResource("78_kg2ye")])
 
@@ -881,7 +900,7 @@ icon = ExtResource("61_1iorf")
 [node name="LeftFootwear" parent="UI/Catalog/CatalogContainer" node_paths=PackedStringArray("linked_symmetrical_element") groups=["DynamicClothesTab"] instance=ExtResource("4_kavcm")]
 visible = false
 layout_mode = 2
-catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_52f4k"), ExtResource("40_cy13n")])
+catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_52f4k"), ExtResource("40_cy13n"), ExtResource("133_6l1dc"), ExtResource("134_c0xpn")])
 linked_symmetrical_element = NodePath("../RightFootwear")
 icon = ExtResource("57_lp5vu")
 hint_resource = Array[ExtResource("47_dpvrd")]([ExtResource("53_dvweh")])
@@ -889,7 +908,7 @@ hint_resource = Array[ExtResource("47_dpvrd")]([ExtResource("53_dvweh")])
 [node name="RightFootwear" parent="UI/Catalog/CatalogContainer" node_paths=PackedStringArray("linked_symmetrical_element") groups=["DynamicClothesTab"] instance=ExtResource("4_kavcm")]
 visible = false
 layout_mode = 2
-catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_c3a1m"), ExtResource("41_sr111")])
+catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_c3a1m"), ExtResource("41_sr111"), ExtResource("136_56y5t"), ExtResource("138_ks13t")])
 linked_symmetrical_element = NodePath("../LeftFootwear")
 icon = ExtResource("59_f6e0v")
 hint_resource = Array[ExtResource("47_dpvrd")]([ExtResource("53_dvweh")])
@@ -897,14 +916,14 @@ hint_resource = Array[ExtResource("47_dpvrd")]([ExtResource("53_dvweh")])
 [node name="Crown" parent="UI/Catalog/CatalogContainer" groups=["HairTab"] instance=ExtResource("4_kavcm")]
 visible = false
 layout_mode = 2
-catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("43_fog1h"), ExtResource("44_4vvcd")])
+catalog_items = Array[ExtResource("5_sbt4v")]([ExtResource("43_fog1h"), ExtResource("44_4vvcd"), ExtResource("142_1tftk")])
 icon = ExtResource("64_vt5qn")
 hint_resource = Array[ExtResource("47_dpvrd")]([ExtResource("48_35wf8")])
 
 [node name="Fringe" parent="UI/Catalog/CatalogContainer" groups=["HairTab"] instance=ExtResource("4_kavcm")]
 visible = false
 layout_mode = 2
-catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_lccou"), ExtResource("100_ydoij"), ExtResource("101_67iwo"), ExtResource("108_av1rk")])
+catalog_items = Array[ExtResource("5_sbt4v")]([SubResource("Resource_lccou"), ExtResource("100_ydoij"), ExtResource("101_67iwo"), ExtResource("108_av1rk"), ExtResource("149_en8ld")])
 icon = ExtResource("67_su26c")
 hint_resource = Array[ExtResource("47_dpvrd")]([ExtResource("48_35wf8")])
 
@@ -1034,21 +1053,6 @@ layout_mode = 2
 size_flags_vertical = 8
 script = ExtResource("74_1fayn")
 
-[node name="AnimationPlayer" type="TextureButton" parent="UI/Catalog/MarginContainer/HBoxContainer"]
-texture_filter = 2
-custom_minimum_size = Vector2(58, 58)
-layout_mode = 2
-texture_normal = ExtResource("75_5btbj")
-ignore_texture_size = true
-stretch_mode = 0
-script = ExtResource("79_vn77l")
-texture_run_normal = ExtResource("75_5btbj")
-texture_run_hover = ExtResource("77_s4e4m")
-texture_run_pressed = ExtResource("80_eygun")
-texture_stop_normal = ExtResource("76_1wrpb")
-texture_stop_hover = ExtResource("81_0343d")
-texture_stop_pressed = ExtResource("76_q83pj")
-
 [node name="ButtonsScrollContainer" type="ScrollContainer" parent="UI/Catalog/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(882, 64.295)
 layout_mode = 2
@@ -1078,6 +1082,33 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 script = ExtResource("45_5q11q")
+
+[node name="AnimationPlayer" type="TextureButton" parent="UI"]
+texture_filter = 2
+custom_minimum_size = Vector2(58, 58)
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.055
+anchor_right = 0.5
+anchor_bottom = 0.055
+offset_left = -29.0
+offset_top = -29.0
+offset_right = 29.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("75_5btbj")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("79_vn77l")
+texture_run_normal = ExtResource("75_5btbj")
+texture_run_hover = ExtResource("77_s4e4m")
+texture_run_pressed = ExtResource("80_eygun")
+texture_stop_normal = ExtResource("76_1wrpb")
+texture_stop_hover = ExtResource("81_0343d")
+texture_stop_pressed = ExtResource("76_q83pj")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI"]
 offset_right = 70.0
@@ -1222,8 +1253,8 @@ animation_speed = 5.0
 [connection signal="button_up" from="UI/DirectionButtons/AnimationButton" to="UI/DirectionButtons/AnimationButton" method="_on_button_up"]
 [connection signal="color_changed" from="UI/ColorSchemeColorPicker" to="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController" method="_on_color_scheme_color_picker_color_changed"]
 [connection signal="button_up" from="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController/MarginContainer/Accept" to="UI/Catalog/CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController" method="_on_accept_button_up"]
-[connection signal="button_up" from="UI/Catalog/MarginContainer/HBoxContainer/AnimationPlayer" to="UI/Catalog/MarginContainer/HBoxContainer/AnimationPlayer" method="_on_button_up"]
-[connection signal="button_up" from="UI/Catalog/MarginContainer/HBoxContainer/AnimationPlayer" to="AnimationController" method="_on_animation_player_button_up"]
+[connection signal="button_up" from="UI/AnimationPlayer" to="UI/AnimationPlayer" method="_on_button_up"]
+[connection signal="button_up" from="UI/AnimationPlayer" to="AnimationController" method="_on_animation_player_button_up"]
 [connection signal="button_up" from="UI/MarginContainer/HBoxContainer/Export" to="UI/MarginContainer/HBoxContainer/Export" method="_on_button_up"]
 [connection signal="mouse_entered" from="UI/MarginContainer/HBoxContainer/Hint" to="UI/MarginContainer/HBoxContainer/Hint" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UI/MarginContainer/HBoxContainer/Hint" to="UI/MarginContainer/HBoxContainer/Hint" method="_on_mouse_exited"]

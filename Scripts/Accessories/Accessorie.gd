@@ -68,9 +68,6 @@ func _on_color_changed(new_color: Color) -> void:
 func _on_color_line_changed(new_color: Color) -> void:
 	line.modulate = new_color
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func change_direction(dir: String) -> void:
 	base.animation = Global.current_dir
@@ -152,7 +149,6 @@ func move_accesorie_element(val: Vector2) -> void:
 	
 	change_direction(Global.current_dir)
 	
-	#change_direction(Global.current_dir)
 			
 func update_z_index():
 	var central_point = base.global_position 

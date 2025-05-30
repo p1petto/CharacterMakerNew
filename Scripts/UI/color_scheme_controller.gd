@@ -86,7 +86,6 @@ func get_colors_for_scheme(color: Color) -> Array:
 		5: # Монохромная
 			additional_colors = calculate_monochromatic(color)
 	
-	# Добавляем дополнительные цвета к результату
 	result.append_array(additional_colors)
 	return result
 

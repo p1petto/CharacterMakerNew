@@ -21,9 +21,6 @@ func _ready() -> void:
 		add_catalog_item(item)
 
 
-func _process(delta: float) -> void:
-	pass
-
 func add_catalog_item(item):
 	var catalog_slot_scene = preload("res://Scenes/UI/CatalogSlot.tscn")
 	var catalog_slot = catalog_slot_scene.instantiate()
@@ -135,14 +132,8 @@ func _handle_accessories_item(slot_index, item_class):
 	accessory_instance.accessorie = part
 	current_node.add_child(accessory_instance)
 	
-	#var button_scene = preload("res://Scenes/UI/AccessoreButton.tscn")
-	#var button_instance = button_scene.instantiate()
-	#button_instance.accessorie = part
-	#accecorie_panel.add_accessorie_button(button_instance)
 	accecorie_panel.add_accessorie_button(part, accessory_instance)
 	
-	#added_accessorie.emit()
-
 
 func _handle_dynamic_clothes_item(slot_index, item_class):
 	var part = catalog_items[slot_index].dynamic_clothes

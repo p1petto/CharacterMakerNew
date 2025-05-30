@@ -39,7 +39,6 @@ func _ready() -> void:
 			var box_container = catalog_item.get_node("VBoxContainer")
 			new_check_button.position.x = box_container.position.x
 			
-		#catalog_item.update_color.connect(_on_color_updated)
 		
 	for catalog_class in button_container.get_children():
 		catalog_class.catalog_tab_changed.connect(_on_catalog_tab_changed)
@@ -49,21 +48,18 @@ func _ready() -> void:
 	hint.initialize()
 
 func _initialize_color_picker_button() -> void:
-	color_picker_button = color_picker_button_container.get_node(NodePath(current_tab.name))  # Преобразуем строку в NodePath
+	color_picker_button = color_picker_button_container.get_node(NodePath(current_tab.name))  
 	color_picker_button.visible = true
 	if current_tab.is_in_group("ConditionallyDynamicTab") or current_tab.is_in_group("DynamicTab"):
-		color_picker_button_border= color_picker_button_container_border.get_node(NodePath(current_tab.name))  # Преобразуем строку в NodePath
+		color_picker_button_border= color_picker_button_container_border.get_node(NodePath(current_tab.name))  
 		color_picker_button_border.visible = true
 	elif current_tab.is_in_group("HairTab"):
 		if current_tab.catalog_items[0].hair.has_line:
-			color_picker_button_border= color_picker_button_container_border.get_node(NodePath(current_tab.name))  # Преобразуем строку в NodePath
+			color_picker_button_border= color_picker_button_container_border.get_node(NodePath(current_tab.name))  
 			color_picker_button_border.visible = true
 	elif current_tab.is_in_group("StaticClothesTab"):
 		color_picker_button_border= color_picker_button_container_border.get_node(current_tab.catalog_items[0].static_clothing.name_clothing)  
 		color_picker_button_border.visible = true
-	
-#func _on_color_updated(color):
-	#
 	
 
 func _on_catalog_tab_changed(tab_name):
@@ -110,7 +106,6 @@ func _on_check_button_toggled(toggled_on):
 		
 		var linked_node
 		var current_node
-		# Поиск ноды внутри character или его дочерних элементов
 		if !current_tab.is_in_group("DynamicClothesTab") and !current_tab.is_in_group("StaticClothesTab"):
 			current_node = character.find_child(str(current_tab.name), true, false)
 			linked_node = character.find_child(str(linked_tab.name), true, false)

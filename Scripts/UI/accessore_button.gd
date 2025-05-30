@@ -38,11 +38,11 @@ func _input(event: InputEvent) -> void:
 		if event.pressed and get_global_rect().has_point(event.position):
 			dragging = true
 			offset = global_position - event.position
-		# Если кнопка мыши отпускается, проверим, был ли это этот объект
+	
 		elif not event.pressed:
-			if dragging:  # Только если этот объект перетаскивается
+			if dragging:  
 				dragging = false
-				position_changed.emit(self)  # Вызываем сигнал при отпускании
+				position_changed.emit(self)  
 	elif event is InputEventMouseMotion and dragging:
 		global_position = event.position + offset
 

@@ -1,11 +1,10 @@
 extends TextureRect
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if not material:
 		material = ShaderMaterial.new()
-		var shader = load("res://Scripts/Shaders/static_color_changing_shader.gdshader")  # Укажите правильный путь
+		var shader = load("res://Scripts/Shaders/static_color_changing_shader.gdshader")  
 		material.shader = shader
 		self.material = material 
 		material.set_shader_parameter("oldcolor", Color(1,1,1))

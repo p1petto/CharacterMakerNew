@@ -7,7 +7,6 @@ extends TextureButton
 @export var texture_stop_hover: CompressedTexture2D
 @export var texture_stop_pressed: CompressedTexture2D
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	change_textures()
 

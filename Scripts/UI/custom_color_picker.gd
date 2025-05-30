@@ -8,7 +8,6 @@ var shape: String = "HSV Rectangle"
 signal color_changed(color: Color)
 var picking_color := false
 
-# Сопоставление значений enum со значениями из ColorPicker.picker_shape
 var shape_map := {
 	"HSV Rectangle": ColorPicker.SHAPE_HSV_RECTANGLE,
 	"HSV Rectangle Wheel": ColorPicker.SHAPE_HSV_WHEEL,

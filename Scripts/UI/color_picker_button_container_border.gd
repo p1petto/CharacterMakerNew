@@ -10,9 +10,7 @@ func _ready() -> void:
 	for child in catalog.get_node("CatalogContainer").get_children():
 		if child.is_in_group("ConditionallyDynamicTab") or child.is_in_group("DynamicTab"):
 			_create_and_assign_color_picker(child)
-		#elif child.is_in_group("HairTab"):
-			#if child.catalog_items[0].hair.has_line:
-				#_create_and_assign_color_picker(child)
+		
 
 func _create_and_assign_color_picker(child) -> void:
 	var color_picker_button = color_picker_button_scene.instantiate()
@@ -35,4 +33,3 @@ func _create_and_assign_color_picker_deferred(element):
 	add_child(color_picker_button)
 	color_picker_button.visible = false
 	element.color_picker_button_line = color_picker_button
-	#element.color_picker_button_line.color_changed.connect(_on_line_color_changed)

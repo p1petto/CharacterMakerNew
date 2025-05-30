@@ -9,18 +9,17 @@ var root
 var character 
 var catallog
 var catallog_container
-var parent_part  # Reference to the parent ConditionallyDynamicCharacterPart
+var parent_part  
 
 func _ready() -> void:
 	root = get_tree().root
 	character = root.find_child("Character", true, false)
 	catallog = root.find_child("Catalog", true, false)
-	parent_part = get_parent().get_parent()  # Get reference to parent ConditionallyDynamicCharacterPart
+	parent_part = get_parent().get_parent() 
 	catallog_container = catallog.get_node("CatalogContainer")
 	
-	# Проверяем наличие и инициализируем материал
 	if !material && resource_dynamic_clothes:
-		var shader = load("res://Scripts/Shaders/CD_color_rect_clothes.gdshader")  # Замените на фактический путь
+		var shader = load("res://Scripts/Shaders/CD_color_rect_clothes.gdshader")  
 		material = ShaderMaterial.new()
 		material.shader = shader
 		material.set_shader_parameter("is_flooded_inside", resource_dynamic_clothes.is_flooded_inside)
@@ -63,16 +62,13 @@ func _on_color_changed(new_color: Color) -> void:
 		cur_linked_element.color_picker_button.set_new_bg_color(new_color)
 	
 func change_direction() -> void:
-	# Use the part-specific ID to determine positions
-	var part_id = parent_part.name  # or any other identifier for the specific part
+	var part_id = parent_part.name  
 	
-	# Проверяем наличие материала и создаем его при необходимости
 	if !material:
-		var shader = load("res://Scripts/Shaders/CD_color_rect_clothes.gdshader")  # Замените на фактический путь
+		var shader = load("res://Scripts/Shaders/CD_color_rect_clothes.gdshader") 
 		material = ShaderMaterial.new()
 		material.shader = shader
 	
-	# Обновляем параметр шейдера в любом случае
 	if resource_dynamic_clothes:
 		material.set_shader_parameter("is_flooded_inside", resource_dynamic_clothes.is_flooded_inside)
 	
@@ -107,13 +103,11 @@ func change_direction() -> void:
 	
 	pivot_offset = size / 2
 
-# Helper functions to get position and size based on part ID
 func get_position_for_part(part_id: String, direction: String, animation: String) -> Vector2:
-	# First try to get part-specific position
+
 	if resource_dynamic_clothes.has_meta("position_" + part_id + "_" + direction + "_" + animation):
 		return resource_dynamic_clothes.get_meta("position_" + part_id + "_" + direction + "_" + animation)
 	
-	# Fall back to generic positions if part-specific not found
 	if animation == "idle":
 		match direction:
 			"down": return resource_dynamic_clothes.down_position
@@ -127,18 +121,17 @@ func get_position_for_part(part_id: String, direction: String, animation: String
 			"top": return resource_dynamic_clothes.top_position_walk
 			"left": return resource_dynamic_clothes.left_position_walk
 	
-	return Vector2.ZERO  # Default fallback
+	return Vector2.ZERO  
 
 func get_size_for_part(part_id: String, direction: String, animation: String) -> Vector2:
-	# Similar approach for sizes
+
 	if resource_dynamic_clothes.has_meta("size_" + part_id + "_" + direction + "_" + animation):
 		return resource_dynamic_clothes.get_meta("size_" + part_id + "_" + direction + "_" + animation)
 	
-	# Fall back to generic sizes
 	match direction:
 		"down": return resource_dynamic_clothes.down_size
 		"right": return resource_dynamic_clothes.right_size
 		"top": return resource_dynamic_clothes.top_size
 		"left": return resource_dynamic_clothes.left_size
 	
-	return Vector2.ZERO  # Default fallback
+	return Vector2.ZERO  

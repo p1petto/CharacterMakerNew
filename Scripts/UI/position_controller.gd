@@ -7,7 +7,6 @@ extends ColorRect
 
 var cur_element
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for child in get_children():
 		child.change_position.connect(_on_position_changed)
@@ -19,11 +18,6 @@ func _ready() -> void:
 func _on_tab_changed():
 	visible = catallog.current_tab.is_in_group("StaticTab") 
 	cur_element = character.find_child(catallog.current_tab.name, true, false)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 
 func _on_position_changed(val):
 		

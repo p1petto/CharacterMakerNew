@@ -6,9 +6,8 @@ extends Container
 @onready var color_scheme_controller = $"../../../../CatalogContainer/ColorSettings/CenterContainer/ColorSchemeController"
 var color_picker_button_scene = preload("res://Scenes/UI/custom_color_picker_button.tscn")
 @onready var line_color_picker_container = $"../ColorPickerButtonContainerBorder"
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
-	# Создаём кнопки для каждого дочернего элемента в catalog
 	for child in catalog.get_node("CatalogContainer").get_children():
 		if !child.is_in_group("Accessorie") and !child.is_in_group("SettingsTab") and !child.is_in_group("HairStrandTab"):
 			_create_and_assign_color_picker(child)
