@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CatalogItem" load_steps=4 format=3 uid="uid://kkrjicub6yf4"]
+
+[ext_resource type="Resource" uid="uid://cks5nqbigjmo7" path="res://Resources/DynamicPart/Body/Body2.tres" id="1_1gk1k"]
+[ext_resource type="Texture2D" uid="uid://cmgtvmufmgniw" path="res://Assets/UI/icons/Catallog item/body2.png" id="2_6c4wr"]
+[ext_resource type="Script" path="res://Scripts/CatalogItemResource.gd" id="3_ogt40"]
+
+[resource]
+script = ExtResource("3_ogt40")
+item_type = "Dynamic"
+item_class = "Body"
+icon = ExtResource("2_6c4wr")
+dynamic_part = ExtResource("1_1gk1k")

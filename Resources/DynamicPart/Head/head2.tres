@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Dynamic" load_steps=2 format=3 uid="uid://b4v7cc6x240fo"]
+
+[ext_resource type="Script" path="res://Scripts/DynamicParts/resource_dynamic_part.gd" id="1_60hwv"]
+
+[resource]
+script = ExtResource("1_60hwv")
+down_array_points = PackedVector2Array(7, 0, 2, 2, 0, 5, 1, 10, 3, 13, 7, 16, 11, 13, 13, 10, 14, 5, 12, 2)
+horizontal_array_points = PackedVector2Array(3, 0, 10, 0, 13, 3, 13, 8, 14, 9, 14, 13, 10, 15, 5, 13, 0, 9, 0, 3)
+top_array_points = PackedVector2Array(7, 0, 2, 2, 0, 5, 1, 10, 3, 13, 7, 16, 11, 13, 13, 10, 14, 5, 12, 2)
+down_glare_array_points = PackedVector2Array(3, 9, 3, 3, 6, 1, 10, 1, 12, 4, 12, 9, 8, 10, 8, 12, 10, 13, 9, 15, 5, 15, 4, 13, 7, 12, 8, 11, 7, 10)
+horizontal_glare_array_points = PackedVector2Array(8, 8, 8, 4, 11, 3, 21, 3, 21, 15, 12, 15, 9, 15, 8, 13, 14, 11, 14, 10, 12, 10)
+top_glare_array_points = PackedVector2Array(3, 9, 3, 3, 6, 1, 10, 1, 12, 4, 12, 9, 8, 10)
+position_down = Vector2(25, 16)
+position_right = Vector2(25, 16)
+position_top = Vector2(25, 16)
+position_left = Vector2(25, 16)
+z_down = 6.0
+z_right = 6.0
+z_top = 1.0
+z_left = 6.0
+vertical_markers = Array[int]([1, 2, 3, 4])
+horizontal_markers = Array[int]([1, 2, 3, 4, 5])
+hand_marker_for_body = 0
+color = Color(0.768627, 0.588235, 0.490196, 1)
+glare_color = Color(0.902987, 0.79832, 0.742753, 1)
+line_color = Color(0.105882, 0.105882, 0.105882, 1)

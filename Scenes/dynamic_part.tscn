@@ -29,3 +29,7 @@ offset_bottom = 64.0
 [node name="Strands" type="Container" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(7, 12, 2, 14, 1, 18, 4, 20, 7, 21, 10, 20, 13, 18, 12, 14)

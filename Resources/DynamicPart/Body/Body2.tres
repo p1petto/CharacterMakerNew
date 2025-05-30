@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Dynamic" load_steps=2 format=3 uid="uid://cks5nqbigjmo7"]
+
+[ext_resource type="Script" path="res://Scripts/DynamicParts/resource_dynamic_part.gd" id="1_kcoqp"]
+
+[resource]
+script = ExtResource("1_kcoqp")
+down_array_points = PackedVector2Array(7, 12, 2, 14, 1, 18, 4, 20, 7, 21, 10, 20, 13, 18, 12, 14)
+horizontal_array_points = PackedVector2Array(7, 11, 9, 11, 11, 14, 11, 17, 10, 20, 7, 21, 4, 20, 3, 17, 5, 13, 5, 11)
+top_array_points = PackedVector2Array(7, 12, 2, 14, 1, 18, 4, 20, 7, 21, 10, 20, 13, 18, 12, 14)
+down_glare_array_points = PackedVector2Array()
+horizontal_glare_array_points = PackedVector2Array()
+top_glare_array_points = PackedVector2Array()
+position_down = Vector2(25, 16)
+position_right = Vector2(25, 16)
+position_top = Vector2(25, 16)
+position_left = Vector2(25.04, 16)
+z_down = 5.0
+z_right = 3.0
+z_top = 6.0
+z_left = 3.0
+vertical_markers = Array[int]([1, 2, 3])
+horizontal_markers = Array[int]([2, 3, 4])
+hand_marker_for_body = 2
+color = Color(0.768627, 0.588235, 0.490196, 1)
+glare_color = Color(0.917647, 0.917647, 0.917647, 1)
+line_color = Color(0.105882, 0.105882, 0.105882, 1)

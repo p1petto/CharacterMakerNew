@@ -21,7 +21,7 @@ func _ready() -> void:
 
 	update_containers_visibility("down")
 	size.y = 64 * Global.scaling
-	position.y = character_texture.position.y 
+	position.y = character_texture.position.y + 128
 
 
 func _on_tab_changed() -> void:
@@ -97,7 +97,7 @@ func _create_sliders_for_part(part):
 			var polygon_2d = part.get_node("Polygon2D")
 			var first_marker = part.dynamic_part.vertical_markers[0]
 			#part_container_vertical.position.y = polygon_2d.polygon[first_marker].y * Global.scaling + part.position.y 
-			part_container_vertical.position.y = character_texture.position.y + polygon_2d.polygon[first_marker].y * Global.scaling - part.position.y * Global.scaling/2 + 16
+			#part_container_vertical.position.y = character_texture.position.y + polygon_2d.polygon[first_marker].y * Global.scaling - part.position.y * Global.scaling/2 + 16
 			add_child(part_container_vertical)
 			
 			var vertical_container = part_container_vertical.get_node("CenterContainer/VBoxContainer")
@@ -113,7 +113,7 @@ func _create_sliders_for_part(part):
 		if part.dynamic_part.horizontal_markers:
 			var polygon_2d = part.get_node("Polygon2D")
 			var first_marker = part.dynamic_part.horizontal_markers[0]
-			part_container_horizontal.position.y = character_texture.position.y + polygon_2d.polygon[first_marker].y * Global.scaling - part.position.y * Global.scaling/2  + 16
+			#part_container_horizontal.position.y = character_texture.position.y + polygon_2d.polygon[first_marker].y * Global.scaling - part.position.y * Global.scaling/2  + 16
 			part_container_horizontal.visible = false
 			add_child(part_container_horizontal)
 			
@@ -130,7 +130,7 @@ func _create_sliders_for_part(part):
 	if part.is_in_group("ConditionallyDynamic"):
 		var part_container = load("res://Scenes/slider_window.tscn").instantiate()
 		part_container.name = part.name
-		part_container.position.y = part.marker_y_pos * Global.scaling - 20
+		#part_container.position.y = part.marker_y_pos * Global.scaling - 20
 		#part_container.position.y = part.marker_y_pos * Global.scaling - part.position.y * Global.scaling/2  + 16
 		add_child(part_container)
 		
@@ -148,7 +148,7 @@ func _create_sliders_for_part(part):
 		if part.hair_resource.quantity > 1:
 			var part_container = load("res://Scenes/slider_window.tscn").instantiate()
 			part_container.name = part.name
-			part_container.position.y = character.head.position.y * Global.scaling
+			#part_container.position.y = character.head.position.y * Global.scaling
 			add_child(part_container)
 			
 			var container = part_container.get_node("CenterContainer/VBoxContainer")
